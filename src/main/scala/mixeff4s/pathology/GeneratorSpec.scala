@@ -19,6 +19,8 @@ final case class GeneratorSpec(
     link: Link = Link.Identity,
     binaryInterceptShift: Double = 0.0,
     feCorrMatrix: Vector[Vector[Double]] = Vector.empty,
+    /** Per-predictor scale. Position 0 is x1. Missing entries default to 1. */
+    feScales: Vector[Double] = Vector.empty,
     crossed: Option[CrossedSpec] = None
 ):
   def n: Int = crossedCells.fold(groupSizes.sum)(_.length)
@@ -28,7 +30,7 @@ final case class GeneratorSpec(
   def nParams: Int = feRank + nTheta + 1
   def primarySizes: Vector[Int] =
     crossedCells match
-      case None => groupSizes
+      case None        => groupSizes
       case Some(cells) =>
         val counts = Array.fill(groupSizes.length)(0)
         cells.foreach: (i, _) =>
@@ -50,9 +52,15 @@ final case class GeneratorSpec(
   def beta: Vector[Double] =
     if feTruth.nonEmpty then feTruth else Vector.fill(feRank)(1.0)
   def predictorCorr: Vector[Vector[Double]] =
-    if feCorrMatrix.length == nFePredictors && feCorrMatrix.forall(_.length == nFePredictors) then
-      feCorrMatrix
+    if feCorrMatrix.length == nFePredictors && feCorrMatrix.forall(_.length == nFePredictors) then feCorrMatrix
     else Vector.tabulate(nFePredictors, nFePredictors)((i, j) => if i == j then 1.0 else 0.0)
+  def predictorScales: Vector[Double] =
+    Vector.tabulate(nFePredictors)(j => feScales.lift(j).getOrElse(1.0))
+  def predictorCov: Vector[Vector[Double]] =
+    val scales = predictorScales
+    val corr = predictorCorr
+    Vector.tabulate(nFePredictors, nFePredictors): (i, j) =>
+      scales(i) * corr(i)(j) * scales(j)
 
 object GeneratorSpec:
   def lmm(
@@ -96,9 +104,7 @@ object GeneratorSpec:
       density: Double,
       seed: Long
   ): GeneratorSpec =
-    spec.copy(crossed =
-      Some(Crossing.emptyCrossings(spec.groupSizes.length, name, nSecondary, reVar, density, seed))
-    )
+    spec.copy(crossed = Some(Crossing.emptyCrossings(spec.groupSizes.length, name, nSecondary, reVar, density, seed)))
 
   def sparseConnectedCrossings(spec: GeneratorSpec, name: String, nLevels: Int, reVar: Double): GeneratorSpec =
     spec.copy(groupSizes = Vector.fill(nLevels)(1), crossed = Some(Crossing.sparsePath(name, nLevels, reVar)))
@@ -112,6 +118,9 @@ object GeneratorSpec:
   ): GeneratorSpec =
     val (sizes, crossed) = Crossing.blockDiagonal(name, blockSize, nBlocks, reVar)
     spec.copy(groupSizes = sizes, crossed = Some(crossed))
+
+  def scaleMismatch(spec: GeneratorSpec, scales: Vector[Double]): GeneratorSpec =
+    spec.copy(feScales = scales)
 
   def collinearFe(spec: GeneratorSpec, i: Int, j: Int, rho: Double): GeneratorSpec =
     val n = spec.nFePredictors

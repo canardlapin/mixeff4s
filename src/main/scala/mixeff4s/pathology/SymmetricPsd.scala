@@ -13,7 +13,7 @@ object SymmetricPsd:
 
   def sqrt(cov: Vector[Vector[Double]]): FitResult[Vector[Vector[Double]]] =
     decompose(cov, wantVectors = true).flatMap: (vals, vecs) =>
-      if vals.exists(_ < -PsdTol) then Left(MixedModelError.InvalidArgument("re_cov_truth is not PSD"))
+      if vals.exists(_ < -PsdTol) then Left(MixedModelError.InvalidArgument("symmetric matrix is not PSD"))
       else
         val scales = vals.map(v => math.sqrt(math.max(v, 0.0)))
         val q = vals.length
@@ -33,8 +33,7 @@ object SymmetricPsd:
   ): FitResult[(Vector[Double], Vector[Vector[Double]])] =
     val q = cov.length
     if q == 0 then Right((Vector.empty, Vector.empty))
-    else if cov.exists(_.length != q) then
-      Left(MixedModelError.InvalidArgument("re_cov_truth is not square"))
+    else if cov.exists(_.length != q) then Left(MixedModelError.InvalidArgument("symmetric matrix is not square"))
     else
       val a = Matrix.tabulate(q, q)((i, j) => 0.5 * (cov(i)(j) + cov(j)(i)))
       val vectors = if wantVectors then EigenVectors.Right else EigenVectors.ValuesOnly

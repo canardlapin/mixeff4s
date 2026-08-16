@@ -281,6 +281,27 @@ class CorpusSuite extends munit.FunSuite:
     val design = Lmm.compile(generated.formula, generated.frame).getOrElse(fail("compile"))
     assertEquals(design.reterms.length, 2)
 
+  test("scale mismatch leaves the weak-id score unchanged"):
+    val base = twoPredictorSpec("scale_mismatch")
+    val baseline = Pathology.certify(base)
+    val uniform = Pathology.certify(GeneratorSpec.scaleMismatch(base, Vector(1e3, 1e3)))
+    val perAxis = Pathology.certify(GeneratorSpec.scaleMismatch(base, Vector(1.0, 1e3)))
+    assertEqualsDouble(uniform.weakIdScore, baseline.weakIdScore, 1e-9)
+    assertEqualsDouble(perAxis.weakIdScore, baseline.weakIdScore, 1e-9)
+    assertEquals(uniform.structuralIssue, None)
+    assertEquals(perAxis.structuralIssue, None)
+    assertEquals(uniform.weakIdentification, false)
+    assertEquals(uniform.expectedStatuses, Vector(FitStatus.ConvergedInterior))
+
+  test("generate draws predictors from sqrt(D corr D)"):
+    val spec = GeneratorSpec.scaleMismatch(twoPredictorSpec("scale_mismatch_draw"), Vector(1.0, 1e3))
+    val generated = Pathology.generate(spec).getOrElse(fail("generate"))
+    val x1 = generated.frame.numeric("x1").getOrElse(fail("x1"))
+    val x2 = generated.frame.numeric("x2").getOrElse(fail("x2"))
+    val ratio = sampleSd(x2) / sampleSd(x1)
+    assert(ratio > 800.0 && ratio < 1200.0, clues(ratio, sampleSd(x1), sampleSd(x2)))
+    assertEquals(generated.formula, "y ~ 1 + x1 + x2 + (1 + x1 | g)")
+
   test("perfectly collinear predictors are a structural refusal"):
     val spec = GeneratorSpec.collinearFe(twoPredictorSpec("collinear_fe"), 0, 1, 1.0)
     val cert = Pathology.certify(spec)
@@ -339,6 +360,11 @@ class CorpusSuite extends munit.FunSuite:
       nBlocks = 4,
       reVar = 0.8
     )
+
+  private def sampleSd(xs: Vector[Double]): Double =
+    val n = xs.length.toDouble
+    val mean = xs.sum / n
+    math.sqrt(xs.map(v => (v - mean) * (v - mean)).sum / (n - 1.0))
 
   private def easyQ3Spec: GeneratorSpec =
     GeneratorSpec.lmm(
