@@ -99,6 +99,54 @@ class CorpusSuite extends munit.FunSuite:
       case Right(other) =>
         fail(s"expected generate refusal, got $other")
 
+  test("q=3 full-rank truth is certified easy"):
+    val spec = easyQ3Spec
+    val cert = Pathology.certify(spec)
+    assertEquals(cert.stratum, Stratum.Easy)
+    assertEquals(cert.reRankTruth, 3)
+    assertEquals(cert.reRankRequested, 3)
+    assertEquals(cert.boundaries, Vector.empty)
+    assertEquals(cert.structuralIssue, None)
+    assertEquals(cert.expectedStatuses, Vector(FitStatus.ConvergedInterior))
+    assertEquals(cert.nTheta, 6)
+
+  test("q=3 with a zero slope variance is reduced-rank truth"):
+    val spec = GeneratorSpec.lmm(
+      "q3_zero_slope",
+      Vector.fill(30)(6),
+      nFePredictors = 2,
+      nReSlopes = 2,
+      reCovTruth = Vector(
+        Vector(4.0, 0.3, 0.0),
+        Vector(0.3, 1.0, 0.0),
+        Vector(0.0, 0.0, 0.0)
+      )
+    )
+    val cert = Pathology.certify(spec)
+    assertEquals(cert.stratum, Stratum.ReducedRank)
+    assertEquals(cert.reRankTruth, 2)
+    assertEquals(cert.reRankRequested, 3)
+    assert(cert.boundaries.contains(BoundaryKind.ZeroVariance(2)), clues(cert.boundaries))
+    assertEquals(
+      cert.expectedStatuses,
+      Vector(FitStatus.ConvergedReducedRank, FitStatus.ConvergedBoundary)
+    )
+
+  test("generate draws a q=3 frame and an easy fit is interior"):
+    val spec = easyQ3Spec
+    val generated = Pathology.generate(spec).getOrElse(fail("generate"))
+    assertEquals(generated.formula, "y ~ 1 + x1 + x2 + (1 + x1 + x2 | g)")
+    assertEquals(generated.frame.nRows, 180)
+    val cert = Pathology.certify(spec)
+    val design = Lmm.compile(generated.formula, generated.frame).getOrElse(fail("compile"))
+    val fit = Lmm.fit(generated.formula, generated.frame, FitOptions.ml).getOrElse(fail("fit"))
+    val assessed = Pathology.assessFit(cert, fit.theta, design.parmap)
+    assert(
+      cert.expectedStatuses.contains(assessed.fitStatus),
+      clues(assessed.fitStatus, fit.theta, cert.expectedStatuses)
+    )
+    assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
+
   test("an easy generated LMM fits to an interior status"):
     val spec = easySpec
     val cert = Pathology.certify(spec)
@@ -121,4 +169,19 @@ class CorpusSuite extends munit.FunSuite:
       reCovTruth = Vector(Vector(4.0, 0.5), Vector(0.5, 1.0)),
       seed = 42L,
       feTruth = Vector(1.0, 2.0)
+    )
+
+  private def easyQ3Spec: GeneratorSpec =
+    GeneratorSpec.lmm(
+      "easy_q3",
+      Vector.fill(30)(6),
+      nFePredictors = 2,
+      nReSlopes = 2,
+      reCovTruth = Vector(
+        Vector(4.0, 0.3, 0.1),
+        Vector(0.3, 1.0, 0.2),
+        Vector(0.1, 0.2, 0.5)
+      ),
+      seed = 42L,
+      feTruth = Vector(1.0, 2.0, 0.5)
     )

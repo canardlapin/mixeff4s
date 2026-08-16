@@ -6,7 +6,7 @@ import mixeff4s.error.{FitResult, LinAlgError, MixedModelError}
 /** Design-time pathology front door. */
 object Pathology:
   val ContractVersion = "v0.1"
-  val CorpusContractVersion = "v0.2"
+  val CorpusContractVersion = "v0.3"
   val BoundaryTol = 1e-8
   private val ZeroVarianceTol = 1e-10
   private val UnitCorrelationTol = 1e-6
@@ -20,17 +20,20 @@ object Pathology:
     val shapeProblem =
       if cov.length != q || cov.exists(_.length != q) then
         Some(s"re_cov_truth is ${cov.length}×${cov.headOption.map(_.length).getOrElse(0)} but re_dim = $q")
-      else if q > 2 then Some("re_dim > 2 is not certified in this corpus slice")
       else None
-    val eigvals = shapeProblem.fold(symmetricEigvals(cov))(_ => Vector.empty)
-    val rankTruth = effectiveRank(eigvals)
-    val boundaries = shapeProblem.fold(boundaryDirections(cov))(_ => Vector.empty)
+    val eigvals = shapeProblem match
+      case Some(_) => Right(Vector.empty)
+      case None    => SymmetricPsd.eigvals(cov)
     val issue = shapeProblem
+      .orElse(eigvals.left.toOption.map(_.message))
       .map(StructuralIssue.MalformedSpec(_))
       .orElse:
         if spec.nReSlopes > 0 && spec.minGroupSize == 1 then
           Some(StructuralIssue.SingletonsWithSlope(spec.label, spec.minGroupSize))
         else None
+    val vals = eigvals.getOrElse(Vector.empty)
+    val rankTruth = effectiveRank(vals)
+    val boundaries = if issue.exists(_.code == "malformed_spec") then Vector.empty else boundaryDirections(cov)
     val (stratum, expected) = expectedFromTruth(issue, rankTruth, q, boundaries)
     Certificate(
       CorpusContractVersion,
@@ -199,15 +202,3 @@ object Pathology:
       val cutoff = RankRelTol * math.max(trace, 1e-15)
       eigvals.count(_ > cutoff)
 
-  private def symmetricEigvals(cov: Vector[Vector[Double]]): Vector[Double] =
-    cov.length match
-      case 0 => Vector.empty
-      case 1 => Vector(cov(0)(0))
-      case 2 =>
-        val a = cov(0)(0)
-        val b = cov(1)(1)
-        val c = cov(0)(1)
-        val disc = math.sqrt(math.max(0.0, (a - b) * (a - b) + 4.0 * c * c))
-        Vector((a + b + disc) / 2.0, (a + b - disc) / 2.0)
-      case _ =>
-        Vector.empty

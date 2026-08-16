@@ -6,7 +6,7 @@ import mixeff4s.error.{FitResult, MixedModelError}
 /** Drawn frame plus the formula that matches the spec. Generation does not fit. */
 final case class Generated(frame: ModelFrame, formula: String)
 
-/** Deterministic Gaussian LMM draws from a truth spec. q > 2 and GLMM families are refused. */
+/** Deterministic Gaussian LMM draws from a truth spec. GLMM families are refused. */
 object Generate:
   def apply(spec: GeneratorSpec): FitResult[Generated] =
     val q = spec.reDim
@@ -33,9 +33,8 @@ object Generate:
           s"re_cov_truth dim mismatch in spec '${spec.label}': expected ${q}×$q got ${cov.length}×${cov.headOption.map(_.length).getOrElse(0)}"
         )
       )
-    else if q > 2 then Left(MixedModelError.InvalidArgument(s"generation for re_dim = $q is not implemented"))
     else
-      sqrtPsd(cov).flatMap: sqrtSigma =>
+      SymmetricPsd.sqrt(cov).flatMap: sqrtSigma =>
         val rng = SplitMix64(spec.seed)
         val primaryRe = Vector.tabulate(spec.groupSizes.length): _ =>
           val z = Vector.fill(q)(rng.nextGaussian())
@@ -89,42 +88,6 @@ object Generate:
 
   private def mul(matrix: Vector[Vector[Double]], z: Vector[Double]): Vector[Double] =
     matrix.map(row => row.zip(z).map(_ * _).sum)
-
-  private def sqrtPsd(cov: Vector[Vector[Double]]): FitResult[Vector[Vector[Double]]] =
-    cov.length match
-      case 0 => Right(Vector.empty)
-      case 1 =>
-        val a = cov(0)(0)
-        if a < -1e-10 then Left(MixedModelError.InvalidArgument("re_cov_truth is not PSD"))
-        else Right(Vector(Vector(math.sqrt(math.max(a, 0.0)))))
-      case 2 =>
-        val a = cov(0)(0)
-        val b = cov(1)(1)
-        val c = 0.5 * (cov(0)(1) + cov(1)(0))
-        val disc = math.sqrt(math.max(0.0, (a - b) * (a - b) + 4.0 * c * c))
-        val l1 = (a + b + disc) / 2.0
-        val l2 = (a + b - disc) / 2.0
-        if l2 < -1e-10 then Left(MixedModelError.InvalidArgument("re_cov_truth is not PSD"))
-        else
-          val (v1x, v1y) = evec(a, c, l1)
-          val (v2x, v2y) = evec(a, c, l2)
-          val s1 = math.sqrt(math.max(l1, 0.0))
-          val s2 = math.sqrt(math.max(l2, 0.0))
-          Right(
-            Vector(
-              Vector(s1 * v1x * v1x + s2 * v2x * v2x, s1 * v1x * v1y + s2 * v2x * v2y),
-              Vector(s1 * v1y * v1x + s2 * v2y * v2x, s1 * v1y * v1y + s2 * v2y * v2y)
-            )
-          )
-      case q =>
-        Left(MixedModelError.InvalidArgument(s"generation for re_dim = $q is not implemented"))
-
-  private def evec(a: Double, c: Double, lam: Double): (Double, Double) =
-    if math.abs(c) <= 1e-15 then if math.abs(a - lam) <= 1e-12 then (1.0, 0.0) else (0.0, 1.0)
-    else
-      val y = -(a - lam) / c
-      val n = math.hypot(1.0, y)
-      (1.0 / n, y / n)
 
   /** SplitMix64 plus polar Box–Muller. Portable across JVM and Scala.js. */
   private final class SplitMix64(private var state: Long):
