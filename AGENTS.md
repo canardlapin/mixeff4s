@@ -22,6 +22,7 @@ mixeff4s.linalg     WorkMat, MatrixBlock, blocked Cholesky
 mixeff4s.optimizer  TrustBQ
 mixeff4s.lmm        FitOptions, Lmm.compile, Lmm.fit, VarCorr, CoefTable
 mixeff4s.glmm       GlmmOptions, Glmm.fit (labelled fast-PIRLS)
+mixeff4s.stats      Lrt, Profile, Bootstrap (typed refusals when unavailable)
 ```
 
 Layer rules, enforced by `ArchitectureSuite`:
@@ -34,6 +35,7 @@ Layer rules, enforced by `ArchitectureSuite`:
 - `optimizer` does not import `lmm`, `design`, `formula`, `data`, `model`, or `glmm`
 - `lmm` does not import `glmm` or a future `compiler` or `stats` package
 - `glmm` does not import a future `compiler` or `stats` package
+- `stats` does not import a future `compiler` package
 
 ## Build
 
@@ -59,8 +61,8 @@ through the CLI. Do not hand-edit `.mote/ops`.
 | 3 | Blocked-Cholesky PLS + TrustBQ | sleepstudy β, θ, σ, objective |
 | 4 | Public LMM API, VarCorr, Wald | Honest summaries |
 | 5 | GLMM fast-PIRLS, labelled | Scorecard fast-PIRLS rows |
-| 6 | LRT / profile / bootstrap | Refusal contracts (current) |
-| 7 | Compiler / pathology | JSON snapshots |
+| 6 | LRT / profile / bootstrap | Nested LRT + refusal contracts |
+| 7 | Compiler / pathology | JSON snapshots (current) |
 
 Keep index-parallel PLS loops close to mixeff-rs until parity is green.
 

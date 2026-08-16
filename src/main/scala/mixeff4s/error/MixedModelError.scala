@@ -20,26 +20,28 @@ enum MixedModelError:
   case Singular(details: String)
   case RankSaturatedFixedEffects(rank: Int, nobs: Int)
   case PosDefException
+  case InferenceUnavailable(reasonCode: String, details: String)
 
   def code: String =
     this match
-      case MixedModelError.Formula(_)                    => "formula"
-      case MixedModelError.LinAlg(_)                     => "linalg"
-      case MixedModelError.Optimization(_)               => "optimization"
-      case MixedModelError.DimensionMismatch(_)          => "dimension_mismatch"
-      case MixedModelError.NotFitted                     => "not_fitted"
-      case MixedModelError.AlreadyFitted                 => "already_fitted"
-      case MixedModelError.Interrupted(_)                => "interrupted"
-      case MixedModelError.ConstantResponse              => "constant_response"
-      case MixedModelError.NoRandomEffects               => "no_random_effects"
-      case MixedModelError.InvalidArgument(_)            => "invalid_argument"
-      case MixedModelError.Unsupported(_)                => "unsupported"
-      case MixedModelError.UnsupportedFamilyLink(_, _)   => "unsupported_family_link"
-      case MixedModelError.ProblemTooLarge(_)            => "problem_too_large"
-      case MixedModelError.Singular(_)                   => "singular_model"
+      case MixedModelError.Formula(_)                      => "formula"
+      case MixedModelError.LinAlg(_)                       => "linalg"
+      case MixedModelError.Optimization(_)                 => "optimization"
+      case MixedModelError.DimensionMismatch(_)            => "dimension_mismatch"
+      case MixedModelError.NotFitted                       => "not_fitted"
+      case MixedModelError.AlreadyFitted                   => "already_fitted"
+      case MixedModelError.Interrupted(_)                  => "interrupted"
+      case MixedModelError.ConstantResponse                => "constant_response"
+      case MixedModelError.NoRandomEffects                 => "no_random_effects"
+      case MixedModelError.InvalidArgument(_)              => "invalid_argument"
+      case MixedModelError.Unsupported(_)                  => "unsupported"
+      case MixedModelError.UnsupportedFamilyLink(_, _)     => "unsupported_family_link"
+      case MixedModelError.ProblemTooLarge(_)              => "problem_too_large"
+      case MixedModelError.Singular(_)                     => "singular_model"
       case MixedModelError.RankSaturatedFixedEffects(_, _) =>
         "rank_saturated_fixed_effects"
       case MixedModelError.PosDefException               => "positive_definite_exception"
+      case MixedModelError.InferenceUnavailable(code, _) => code
 
   def message: String =
     this match
@@ -75,6 +77,8 @@ enum MixedModelError:
         s"Fixed-effect design is rank-saturated: rank(X) = $rank and n = $nobs, leaving zero residual degrees of freedom."
       case MixedModelError.PosDefException =>
         "Positive definite exception during Cholesky"
+      case MixedModelError.InferenceUnavailable(_, details) =>
+        details
 
   override def toString: String = message
 
@@ -86,10 +90,10 @@ enum LinAlgError:
 
   def code: String =
     this match
-      case LinAlgError.NotPositiveDefinite     => "matrix_not_positive_definite"
-      case LinAlgError.DimensionMismatch(_)    => "dimension_mismatch"
-      case LinAlgError.Singular                => "singular_matrix"
-      case LinAlgError.RankDeficient(_, _)     => "rank_deficient"
+      case LinAlgError.NotPositiveDefinite  => "matrix_not_positive_definite"
+      case LinAlgError.DimensionMismatch(_) => "dimension_mismatch"
+      case LinAlgError.Singular             => "singular_matrix"
+      case LinAlgError.RankDeficient(_, _)  => "rank_deficient"
 
   def message: String =
     this match

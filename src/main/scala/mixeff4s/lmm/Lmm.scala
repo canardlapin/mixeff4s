@@ -18,6 +18,8 @@ object FitOptions:
 final case class LmmFit(
     formula: Formula,
     options: FitOptions,
+    n: Int,
+    y: Vector[Double],
     theta: Vector[Double],
     beta: Vector[Double],
     sigma: Double,
@@ -27,6 +29,10 @@ final case class LmmFit(
     varcorr: VarCorr,
     logdetRe: Double
 ):
+  def dof: Int = beta.length + theta.length + 1
+
+  def loglikelihood: Double = -0.5 * objective
+
   def stderror: Vector[Double] =
     vcov.zipWithIndex.map((row, i) => math.sqrt(row(i)))
 
@@ -49,19 +55,23 @@ object Lmm:
       options: FitOptions = FitOptions.reml
   ): FitResult[LmmFit] =
     compile(formula, frame).flatMap: design =>
-      Pls.fit(design, reml = options.criterion == Criterion.REML).map: workspace =>
-        LmmFit(
-          formula,
-          options,
-          workspace.theta,
-          workspace.beta,
-          workspace.sigma,
-          workspace.objective,
-          workspace.feNames,
-          workspace.vcov,
-          workspace.varcorr,
-          workspace.logdetRe
-        )
+      Pls
+        .fit(design, reml = options.criterion == Criterion.REML)
+        .map: workspace =>
+          LmmFit(
+            formula,
+            options,
+            design.n,
+            Vector.tabulate(design.n)(i => design.xy.xy(i, design.p)),
+            workspace.theta,
+            workspace.beta,
+            workspace.sigma,
+            workspace.objective,
+            workspace.feNames,
+            workspace.vcov,
+            workspace.varcorr,
+            workspace.logdetRe
+          )
 
   def fit(
       source: String,

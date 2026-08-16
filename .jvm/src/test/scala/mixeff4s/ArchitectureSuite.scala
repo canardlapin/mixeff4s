@@ -30,12 +30,15 @@ class ArchitectureSuite extends munit.FunSuite:
 
   private def forbidden(layer: String): Set[String] =
     layer match
-      case "error"   => Set("mixeff4s.data", "mixeff4s.lmm", "mixeff4s.model", "mixeff4s.design", "mixeff4s.glmm")
-      case "formula" => Set("mixeff4s.lmm", "mixeff4s.model", "mixeff4s.design", "mixeff4s.glmm")
-      case "data"    => Set("mixeff4s.formula", "mixeff4s.lmm", "mixeff4s.model", "mixeff4s.design", "mixeff4s.glmm")
-      case "model"   => Set("mixeff4s.lmm", "mixeff4s.formula", "mixeff4s.data", "mixeff4s.design", "mixeff4s.glmm")
-      case "design"  => Set("mixeff4s.lmm", "mixeff4s.glmm", "mixeff4s.compiler", "mixeff4s.stats")
-      case "linalg"  =>
+      case "error" =>
+        Set("mixeff4s.data", "mixeff4s.lmm", "mixeff4s.model", "mixeff4s.design", "mixeff4s.glmm", "mixeff4s.stats")
+      case "formula" => Set("mixeff4s.lmm", "mixeff4s.model", "mixeff4s.design", "mixeff4s.glmm", "mixeff4s.stats")
+      case "data"    =>
+        Set("mixeff4s.formula", "mixeff4s.lmm", "mixeff4s.model", "mixeff4s.design", "mixeff4s.glmm", "mixeff4s.stats")
+      case "model" =>
+        Set("mixeff4s.lmm", "mixeff4s.formula", "mixeff4s.data", "mixeff4s.design", "mixeff4s.glmm", "mixeff4s.stats")
+      case "design" => Set("mixeff4s.lmm", "mixeff4s.glmm", "mixeff4s.compiler", "mixeff4s.stats")
+      case "linalg" =>
         Set(
           "mixeff4s.lmm",
           "mixeff4s.formula",
@@ -43,10 +46,20 @@ class ArchitectureSuite extends munit.FunSuite:
           "mixeff4s.model",
           "mixeff4s.design",
           "mixeff4s.optimizer",
-          "mixeff4s.glmm"
+          "mixeff4s.glmm",
+          "mixeff4s.stats"
         )
       case "optimizer" =>
-        Set("mixeff4s.lmm", "mixeff4s.design", "mixeff4s.formula", "mixeff4s.data", "mixeff4s.model", "mixeff4s.glmm")
-      case "lmm"  => Set("mixeff4s.compiler", "mixeff4s.stats", "mixeff4s.glmm")
-      case "glmm" => Set("mixeff4s.compiler", "mixeff4s.stats")
-      case _      => Set.empty
+        Set(
+          "mixeff4s.lmm",
+          "mixeff4s.design",
+          "mixeff4s.formula",
+          "mixeff4s.data",
+          "mixeff4s.model",
+          "mixeff4s.glmm",
+          "mixeff4s.stats"
+        )
+      case "lmm"   => Set("mixeff4s.compiler", "mixeff4s.stats", "mixeff4s.glmm")
+      case "glmm"  => Set("mixeff4s.compiler", "mixeff4s.stats")
+      case "stats" => Set("mixeff4s.compiler")
+      case _       => Set.empty

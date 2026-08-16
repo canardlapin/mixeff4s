@@ -57,6 +57,7 @@ a number means what it says, otherwise you get a matchable reason code.
 - Fit profiled (RE)ML with blocked Cholesky + TrustBQ, including crossed intercepts
 - Report VarCorr, Wald SEs, and z-statistics; p-values stay a typed refusal
 - Fit labelled fast-PIRLS GLMMs (`Glmm.fit`); Normal+Identity is refused as a GLMM
+- Compare nested LMMs with `Lrt.compare`; profile intervals and bootstrap stay typed refusals
 
 ## Fit and boundaries
 
@@ -80,7 +81,7 @@ via `-Dmixeff4s.gale.build=/path/to/gale`.
 
 | Question | Answer |
 | --- | --- |
-| What does it do? | Mixed-model language, frame, design compilation, profiled LMM fitting, labelled fast-PIRLS GLMMs, and honest summaries |
+| What does it do? | Mixed-model language, frame, design compilation, profiled LMM fitting, labelled fast-PIRLS GLMMs, nested LRT, and honest summaries |
 | Smallest useful example? | Parse `y ~ 1 + x + (1 \| g)` and inspect the IR |
 | Maturity / publication? | `prototype`, source-only, unpublished at [canardlapin/mixeff4s](https://github.com/canardlapin/mixeff4s) |
 | How to verify? | `sbt -Dmixeff4s.gale.build=/path/to/gale test` (JVM and Scala.js) |
