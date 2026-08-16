@@ -6,6 +6,33 @@ import mixeff4s.error.{LinAlgError, MixedModelError}
 /** Design-time pathology front door. */
 object Pathology:
   val ContractVersion = "v0.1"
+  val BoundaryTol = 1e-8
+
+  /** Classify a fitted θ. Design-time expected statuses are left unchanged. */
+  def assessFit(
+      cert: Certificate,
+      theta: Vector[Double],
+      parmap: Vector[(Int, Int, Int)]
+  ): Certificate =
+    if cert.stratum == Stratum.Refusal then
+      cert.copy(notes = cert.notes :+ "fit status is not claimed for a refusal design")
+    else if theta.length != cert.nTheta || theta.length != parmap.length then
+      cert.copy(
+        fitStatus = FitStatus.NotAssessed,
+        notes = cert.notes :+ s"theta length ${theta.length} does not match n_theta ${cert.nTheta}"
+      )
+    else if theta.exists(v => !v.isFinite) then
+      cert.copy(
+        fitStatus = FitStatus.NotAssessed,
+        notes = cert.notes :+ "theta contains a non-finite value"
+      )
+    else
+      val onBound = parmap.zip(theta).exists:
+        case ((_, row, col), value) =>
+          row == col && math.abs(value) <= BoundaryTol
+      val status =
+        if onBound then FitStatus.ConvergedBoundary else FitStatus.ConvergedInterior
+      cert.copy(fitStatus = status)
 
   def certify(design: CompiledDesign): Certificate =
     val sizes = design.reterms.flatMap(groupSizes)

@@ -4,6 +4,7 @@ import mixeff4s.data.ModelFrame
 import mixeff4s.design.{CompiledDesign, Design}
 import mixeff4s.error.FitResult
 import mixeff4s.formula.Formula
+import mixeff4s.pathology.Pathology
 
 /** Front door for the unstable compiled-design artifact. */
 object Compiler:
@@ -17,3 +18,6 @@ object Compiler:
     Formula.parse(source) match
       case Left(err)      => Left(mixeff4s.error.MixedModelError.Formula(err))
       case Right(formula) => compile(formula, frame)
+
+  def assess(artifact: CompiledArtifact, theta: Vector[Double]): CompiledArtifact =
+    artifact.copy(pathology = Pathology.assessFit(artifact.pathology, theta, artifact.parmap))

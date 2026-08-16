@@ -26,6 +26,13 @@ class ArtifactSuite extends munit.FunSuite:
     assertEquals(artifact.parmap, Vector((0, 0, 0), (0, 1, 1)))
     assertEquals(artifact.thetaSlots.map(_.constraint), Vector("lower_bound_0", "lower_bound_0"))
 
+  test("assessing sleepstudy ML theta is converged_interior"):
+    val compiled =
+      Compiler.compile("reaction ~ 1 + days + (1 + days | subj)", Sleepstudy.frame).getOrElse(fail("compile"))
+    val assessed = Compiler.assess(compiled, Vector(0.9292297167514472, 0.01816466496782548, 0.22264601131030412))
+    assertEquals(assessed.pathology.fitStatus.code, "converged_interior")
+    assertEquals(compiled.pathology.fitStatus.code, "not_assessed")
+
 private object SleepstudySnapshot:
   val json: String =
     """{

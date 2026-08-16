@@ -66,6 +66,37 @@ class PathologySuite extends munit.FunSuite:
     val issue = cert.structuralIssue.getOrElse(fail("issue"))
     assertEquals(issue.code, "few_random_effect_levels")
 
+  test("interior theta is converged_interior"):
+    val cert = certify("reaction ~ 1 + days + (1 + days | subj)", Sleepstudy.frame)
+    val assessed =
+      Pathology.assessFit(cert, Vector(0.9292, 0.0182, 0.2226), Vector((0, 0, 0), (0, 1, 0), (0, 1, 1)))
+    assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
+    assertEquals(assessed.expectedStatuses, Vector(FitStatus.ConvergedInterior))
+
+  test("a diagonal theta at the lower bound is converged_boundary"):
+    val cert = certify("reaction ~ 1 + days + (1 + days | subj)", Sleepstudy.frame)
+    val assessed =
+      Pathology.assessFit(cert, Vector(0.0, 0.1, 0.2), Vector((0, 0, 0), (0, 1, 0), (0, 1, 1)))
+    assertEquals(assessed.fitStatus, FitStatus.ConvergedBoundary)
+
+  test("an off-diagonal near zero is not a variance boundary"):
+    val cert = certify("reaction ~ 1 + days + (1 + days | subj)", Sleepstudy.frame)
+    val assessed =
+      Pathology.assessFit(cert, Vector(0.9, 0.0, 0.2), Vector((0, 0, 0), (0, 1, 0), (0, 1, 1)))
+    assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
+
+  test("refusal designs do not claim a converged fit status"):
+    val frame = ModelFrame
+      .of(
+        "y" -> ModelFrame.numeric(Vector(1.0, 2.0, 3.0)),
+        "g" -> ModelFrame.factor(Vector("a", "a", "a"))
+      )
+      .getOrElse(fail("frame"))
+    val cert = certify("y ~ 1 + (1 | g)", frame)
+    val assessed = Pathology.assessFit(cert, Vector(0.5), Vector((0, 0, 0)))
+    assertEquals(assessed.fitStatus, FitStatus.NotAssessed)
+    assert(assessed.notes.exists(_.contains("refusal")), clues(assessed.notes))
+
   private def compile(source: String, frame: ModelFrame) =
     Formula.parse(source) match
       case Left(err)      => Left(MixedModelError.Formula(err))
