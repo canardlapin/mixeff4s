@@ -18,6 +18,10 @@ final class PlsWorkspace private (
   def nTheta: Int = design.nTheta
   def theta: Vector[Double] = reterms.flatMap(_.theta)
   def parmap: Vector[(Int, Int, Int)] = design.parmap
+  def fittedReterms: Vector[ReMat] = reterms
+
+  private val sqrtwts = Array.fill(design.n)(1.0)
+  private val workingY = Array.tabulate(design.n)(i => design.xy.xy(i, design.p))
 
   def setTheta(values: Vector[Double]): FitResult[Unit] =
     if values.length != nTheta then
@@ -29,7 +33,7 @@ final class PlsWorkspace private (
       reterms.foreach: rt =>
         if error.isEmpty then
           rt.withTheta(values.slice(offset, offset + rt.nTheta)) match
-            case Left(err) => error = Some(err)
+            case Left(err)      => error = Some(err)
             case Right(updated) =>
               next += updated
               offset += rt.nTheta
@@ -83,7 +87,7 @@ final class PlsWorkspace private (
         jj += 1
       BlockedCholesky.cholesky(lBlocks(diagIdx)) match
         case Left(err) => error = Some(err)
-        case Right(_) =>
+        case Right(_)  =>
           var i = col + 1
           while i < total do
             val targetIdx = MatrixBlock.blockIndex(i, col)
@@ -143,8 +147,6 @@ final class PlsWorkspace private (
     val d = lLast(lLast.rows - 1, lLast.cols - 1)
     d * d
 
-  def fittedReterms: Vector[ReMat] = reterms
-
   def logdetRe: Double =
     val k = reterms.length
     var ld = 0.0
@@ -153,6 +155,241 @@ final class PlsWorkspace private (
       ld += BlockedCholesky.logdet(lBlocks(MatrixBlock.blockIndex(j, j)))
       j += 1
     ld
+
+  def updateIrlsWeights(sqrtWeights: Array[Double], yWork: Array[Double]): FitResult[Unit] =
+    if sqrtWeights.length != n || yWork.length != n then
+      Left(
+        MixedModelError.DimensionMismatch(
+          s"IRLS weights/response length (${sqrtWeights.length}, ${yWork.length}), expected $n"
+        )
+      )
+    else
+      System.arraycopy(sqrtWeights, 0, sqrtwts, 0, n)
+      System.arraycopy(yWork, 0, workingY, 0, n)
+      recomputeABlocks()
+      Right(())
+
+  /** Conditional modes on the spherical scale, one `nRanef` vector per RE term. */
+  def ranefU: Vector[Array[Double]] =
+    val k = reterms.length
+    val coef = beta
+    val wr = Array.ofDim[Double](n)
+    var obs = 0
+    while obs < n do
+      var v = sqrtwts(obs) * workingY(obs)
+      var q = 0
+      while q < p do
+        v -= sqrtwts(obs) * design.xy.xy(obs, q) * coef(q)
+        q += 1
+      wr(obs) = v
+      obs += 1
+
+    val cVecs = Array.ofDim[Array[Double]](k)
+    var term = 0
+    while term < k do
+      val re = reterms(term)
+      val c = Array.ofDim[Double](re.nRanef)
+      obs = 0
+      while obs < n do
+        val r = re.refs(obs)
+        val sw = sqrtwts(obs)
+        var s = 0
+        while s < re.vsize do
+          c(r * re.vsize + s) += sw * re.z(s, obs) * wr(obs)
+          s += 1
+        obs += 1
+      val scaled = Array.ofDim[Double](re.nRanef)
+      var lev = 0
+      while lev < re.nLevels do
+        var i = 0
+        while i < re.vsize do
+          var acc = 0.0
+          var row = i
+          while row < re.vsize do
+            acc += re.lambda(row, i) * c(lev * re.vsize + row)
+            row += 1
+          scaled(lev * re.vsize + i) = acc
+          i += 1
+        lev += 1
+      cVecs(term) = scaled
+      term += 1
+
+    val vVecs = Array.ofDim[Array[Double]](k)
+    var j = 0
+    while j < k do
+      val rhs = cVecs(j).clone()
+      var m = 0
+      while m < j do
+        val ljm = lBlocks(MatrixBlock.blockIndex(j, m)).asDense
+        val vm = vVecs(m)
+        var row = 0
+        while row < rhs.length do
+          var dot = 0.0
+          var col = 0
+          while col < vm.length do
+            dot += ljm(row, col) * vm(col)
+            col += 1
+          rhs(row) -= dot
+          row += 1
+        m += 1
+      BlockedCholesky.solveLowerAgainstRhs(lBlocks(MatrixBlock.blockIndex(j, j)), rhs)
+      vVecs(j) = rhs
+      j += 1
+
+    val uVecs = Array.ofDim[Array[Double]](k)
+    j = k - 1
+    while j >= 0 do
+      val rhs = vVecs(j).clone()
+      var m = j + 1
+      while m < k do
+        val lmj = lBlocks(MatrixBlock.blockIndex(m, j)).asDense
+        val um = uVecs(m)
+        var row = 0
+        while row < rhs.length do
+          var dot = 0.0
+          var col = 0
+          while col < um.length do
+            dot += lmj(col, row) * um(col)
+            col += 1
+          rhs(row) -= dot
+          row += 1
+        m += 1
+      BlockedCholesky.solveUpperFromLowerTransposeAgainstRhs(lBlocks(MatrixBlock.blockIndex(j, j)), rhs)
+      uVecs(j) = rhs
+      j -= 1
+    uVecs.toVector
+
+  private def recomputeABlocks(): Unit =
+    val k = reterms.length
+    var idx = 0
+    var i = 0
+    while i < k do
+      var j = 0
+      while j <= i do
+        if i == j then fillReCross(aBlocks(idx), reterms(i))
+        else fillReCrossOff(aBlocks(idx), reterms(i), reterms(j))
+        idx += 1
+        j += 1
+      i += 1
+    var term = 0
+    while term < k do
+      fillFeReCross(aBlocks(idx), reterms(term))
+      idx += 1
+      term += 1
+    fillFeCross(aBlocks(idx))
+
+  private def zeroBlock(block: MatrixBlock): Unit =
+    block match
+      case MatrixBlock.Dense(mat) =>
+        mat.fill(0.0)
+      case MatrixBlock.Diagonal(values) =>
+        java.util.Arrays.fill(values, 0.0)
+      case MatrixBlock.BlockDiagonal(blocks) =>
+        var b = 0
+        while b < blocks.length do
+          blocks(b).fill(0.0)
+          b += 1
+
+  private def fillReCross(block: MatrixBlock, re: ReMat): Unit =
+    zeroBlock(block)
+    val s = re.vsize
+    var obs = 0
+    while obs < n do
+      val r = re.refs(obs)
+      val sw = sqrtwts(obs)
+      block match
+        case MatrixBlock.Diagonal(diag) =>
+          val z = sw * re.z(0, obs)
+          diag(r) += z * z
+        case MatrixBlock.BlockDiagonal(blocks) =>
+          val blk = blocks(r)
+          var si = 0
+          while si < s do
+            val zsi = sw * re.z(si, obs)
+            var sj = 0
+            while sj < s do
+              blk(si, sj) += zsi * (sw * re.z(sj, obs))
+              sj += 1
+            si += 1
+        case MatrixBlock.Dense(mat) =>
+          var si = 0
+          while si < s do
+            val zsi = sw * re.z(si, obs)
+            var sj = 0
+            while sj < s do
+              mat(r * s + si, r * s + sj) += zsi * (sw * re.z(sj, obs))
+              sj += 1
+            si += 1
+      obs += 1
+
+  private def fillReCrossOff(block: MatrixBlock, a: ReMat, b: ReMat): Unit =
+    val mat = block match
+      case MatrixBlock.Dense(m) =>
+        m.fill(0.0)
+        m
+      case other =>
+        throw IllegalArgumentException(s"RE×RE off-diagonal A block must stay Dense, got $other")
+    var obs = 0
+    while obs < n do
+      val sw = sqrtwts(obs)
+      val ri = a.refs(obs)
+      val rj = b.refs(obs)
+      var si = 0
+      while si < a.vsize do
+        val za = sw * a.z(si, obs)
+        var sj = 0
+        while sj < b.vsize do
+          mat(ri * a.vsize + si, rj * b.vsize + sj) += za * (sw * b.z(sj, obs))
+          sj += 1
+        si += 1
+      obs += 1
+
+  private def fillFeReCross(block: MatrixBlock, re: ReMat): Unit =
+    val mat = block match
+      case MatrixBlock.Dense(m) =>
+        m.fill(0.0)
+        m
+      case other =>
+        throw IllegalArgumentException(s"FE×RE A block must stay Dense, got $other")
+    val pp1 = p + 1
+    var obs = 0
+    while obs < n do
+      val sw = sqrtwts(obs)
+      val r = re.refs(obs)
+      var col = 0
+      while col < pp1 do
+        val wx = if col < p then sw * design.xy.xy(obs, col) else sw * workingY(obs)
+        var s = 0
+        while s < re.vsize do
+          mat(col, r * re.vsize + s) += wx * (sw * re.z(s, obs))
+          s += 1
+        col += 1
+      obs += 1
+
+  private def fillFeCross(block: MatrixBlock): Unit =
+    val mat = block match
+      case MatrixBlock.Dense(m) =>
+        m.fill(0.0)
+        m
+      case other =>
+        throw IllegalArgumentException(s"FE×FE A block must stay Dense, got $other")
+    val pp1 = p + 1
+    var i = 0
+    while i < pp1 do
+      var j = 0
+      while j <= i do
+        var sum = 0.0
+        var obs = 0
+        while obs < n do
+          val sw = sqrtwts(obs)
+          val vi = if i < p then sw * design.xy.xy(obs, i) else sw * workingY(obs)
+          val vj = if j < p then sw * design.xy.xy(obs, j) else sw * workingY(obs)
+          sum += vi * vj
+          obs += 1
+        mat(i, j) = sum
+        if i != j then mat(j, i) = sum
+        j += 1
+      i += 1
 
   def varcorr: VarCorr = VarCorr.fromReterms(reterms, sigma)
 

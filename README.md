@@ -11,8 +11,8 @@ it when you want Bates/MixedModels PLS semantics without inventing a p-value.
 > should be inferred unless the package explicitly states one.
 
 **Status:** `prototype`. The formula language, model frame, family/link types,
-Gale-backed design compilation, and a blocked-Cholesky LMM kernel are
-implemented for single-term, nested, and crossed random intercepts.
+Gale-backed design compilation, a blocked-Cholesky LMM kernel, and labelled
+fast-PIRLS GLMMs are implemented. Joint Laplace/AGQ is refused.
 
 ## Quick start
 
@@ -56,12 +56,13 @@ a number means what it says, otherwise you get a matchable reason code.
 - Compile a formula and frame into `FeTerm`, `ReMat`s, and the live θ `parmap`
 - Fit profiled (RE)ML with blocked Cholesky + TrustBQ, including crossed intercepts
 - Report VarCorr, Wald SEs, and z-statistics; p-values stay a typed refusal
+- Fit labelled fast-PIRLS GLMMs (`Glmm.fit`); Normal+Identity is refused as a GLMM
 
 ## Fit and boundaries
 
-Good fit for describing mixed models and for fitting the current LMM kernel
-(sleepstudy, penicillin, pastes). Structured RE covariance and GLMMs are not
-implemented yet.
+Good fit for describing mixed models, fitting the current LMM kernel
+(sleepstudy, penicillin, pastes), and labelled fast-PIRLS Bernoulli GLMMs
+(contra). Structured RE covariance and joint Laplace/AGQ are not implemented.
 
 Out of scope for this slice, and for the Rust 1.0 line we are porting:
 
@@ -79,7 +80,7 @@ via `-Dmixeff4s.gale.build=/path/to/gale`.
 
 | Question | Answer |
 | --- | --- |
-| What does it do? | Mixed-model language, frame, design compilation, profiled LMM fitting, and honest summaries |
+| What does it do? | Mixed-model language, frame, design compilation, profiled LMM fitting, labelled fast-PIRLS GLMMs, and honest summaries |
 | Smallest useful example? | Parse `y ~ 1 + x + (1 \| g)` and inspect the IR |
 | Maturity / publication? | `prototype`, source-only, unpublished at [canardlapin/mixeff4s](https://github.com/canardlapin/mixeff4s) |
 | How to verify? | `sbt -Dmixeff4s.gale.build=/path/to/gale test` |

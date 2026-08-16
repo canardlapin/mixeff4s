@@ -21,17 +21,19 @@ mixeff4s.design     FeTerm, FeMat, ReMat, parmap (Gale)
 mixeff4s.linalg     WorkMat, MatrixBlock, blocked Cholesky
 mixeff4s.optimizer  TrustBQ
 mixeff4s.lmm        FitOptions, Lmm.compile, Lmm.fit, VarCorr, CoefTable
+mixeff4s.glmm       GlmmOptions, Glmm.fit (labelled fast-PIRLS)
 ```
 
 Layer rules, enforced by `ArchitectureSuite`:
 
-- `error` does not import `data`, `lmm`, or `model`
-- `formula` does not import `lmm` or `model`
-- `data` does not import `formula`, `lmm`, or `model`
-- `model` does not import `lmm`, `formula`, or `data`
-- `linalg` does not import `lmm`, `formula`, `data`, `model`, `design`, or `optimizer`
-- `optimizer` does not import `lmm`, `design`, `formula`, `data`, or `model`
-- `lmm` does not import a future `compiler` or `stats` package
+- `error` does not import `data`, `lmm`, `model`, or `glmm`
+- `formula` does not import `lmm`, `model`, or `glmm`
+- `data` does not import `formula`, `lmm`, `model`, or `glmm`
+- `model` does not import `lmm`, `formula`, `data`, or `glmm`
+- `linalg` does not import `lmm`, `formula`, `data`, `model`, `design`, `optimizer`, or `glmm`
+- `optimizer` does not import `lmm`, `design`, `formula`, `data`, `model`, or `glmm`
+- `lmm` does not import `glmm` or a future `compiler` or `stats` package
+- `glmm` does not import a future `compiler` or `stats` package
 
 ## Build
 
@@ -55,8 +57,8 @@ through the CLI. Do not hand-edit `.mote/ops`.
 | 2 | `FeTerm` / `ReMat` / `parmap` on Gale | Design shapes on sleepstudy |
 | 3 | Blocked-Cholesky PLS + TrustBQ | sleepstudy β, θ, σ, objective |
 | 4 | Public LMM API, VarCorr, Wald | Honest summaries |
-| 5 | GLMM fast-PIRLS, labelled | Scorecard fast-PIRLS rows (current) |
-| 6 | LRT / profile / bootstrap | Refusal contracts |
+| 5 | GLMM fast-PIRLS, labelled | Scorecard fast-PIRLS rows |
+| 6 | LRT / profile / bootstrap | Refusal contracts (current) |
 | 7 | Compiler / pathology | JSON snapshots |
 
 Keep index-parallel PLS loops close to mixeff-rs until parity is green.

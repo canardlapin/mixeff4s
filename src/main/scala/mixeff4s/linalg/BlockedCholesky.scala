@@ -49,7 +49,9 @@ object BlockedCholesky:
   private def choleskyDense(mat: WorkMat, zeroPadTolerance: Double): Either[MixedModelError, Unit] =
     val n = mat.rows
     if mat.cols != n then
-      Left(MixedModelError.LinAlg(LinAlgError.DimensionMismatch(s"Cholesky requires square block, got ${n}x${mat.cols}")))
+      Left(
+        MixedModelError.LinAlg(LinAlgError.DimensionMismatch(s"Cholesky requires square block, got ${n}x${mat.cols}"))
+      )
     else
       val tol = zeroPadAbs(diagonalAbsMax(mat), zeroPadTolerance)
       var j = 0
@@ -457,6 +459,94 @@ object BlockedCholesky:
             j += 1
           i += 1
         throw IllegalArgumentException("subtractProduct cannot write back into BlockDiagonal")
+
+  /** Forward-solve `L x = rhs` in place for a lower-triangular Cholesky block. */
+  def solveLowerAgainstRhs(l: MatrixBlock, rhs: Array[Double]): Unit =
+    l match
+      case MatrixBlock.Diagonal(diag) =>
+        var row = 0
+        while row < diag.length do
+          val denom = diag(row)
+          if math.abs(denom) < SolveZeroTolerance then rhs(row) = 0.0
+          else rhs(row) /= denom
+          row += 1
+      case MatrixBlock.BlockDiagonal(blocks) =>
+        var rowOffset = 0
+        var b = 0
+        while b < blocks.length do
+          val block = blocks(b)
+          val s = block.rows
+          var row = 0
+          while row < s do
+            val diag = block(row, row)
+            if math.abs(diag) < SolveZeroTolerance then rhs(rowOffset + row) = 0.0
+            else
+              var sum = rhs(rowOffset + row)
+              var inner = 0
+              while inner < row do
+                sum -= block(row, inner) * rhs(rowOffset + inner)
+                inner += 1
+              rhs(rowOffset + row) = sum / diag
+            row += 1
+          rowOffset += s
+          b += 1
+      case MatrixBlock.Dense(mat) =>
+        var row = 0
+        while row < mat.rows do
+          val diag = mat(row, row)
+          if math.abs(diag) < SolveZeroTolerance then rhs(row) = 0.0
+          else
+            var sum = rhs(row)
+            var inner = 0
+            while inner < row do
+              sum -= mat(row, inner) * rhs(inner)
+              inner += 1
+            rhs(row) = sum / diag
+          row += 1
+
+  /** Back-solve `L' x = rhs` in place, treating `L` as lower-triangular. */
+  def solveUpperFromLowerTransposeAgainstRhs(l: MatrixBlock, rhs: Array[Double]): Unit =
+    l match
+      case MatrixBlock.Diagonal(diag) =>
+        var row = diag.length - 1
+        while row >= 0 do
+          val denom = diag(row)
+          if math.abs(denom) < SolveZeroTolerance then rhs(row) = 0.0
+          else rhs(row) /= denom
+          row -= 1
+      case MatrixBlock.BlockDiagonal(blocks) =>
+        var rowOffset = 0
+        var b = 0
+        while b < blocks.length do
+          val block = blocks(b)
+          val s = block.rows
+          var row = s - 1
+          while row >= 0 do
+            val diag = block(row, row)
+            if math.abs(diag) < SolveZeroTolerance then rhs(rowOffset + row) = 0.0
+            else
+              var sum = rhs(rowOffset + row)
+              var inner = row + 1
+              while inner < s do
+                sum -= block(inner, row) * rhs(rowOffset + inner)
+                inner += 1
+              rhs(rowOffset + row) = sum / diag
+            row -= 1
+          rowOffset += s
+          b += 1
+      case MatrixBlock.Dense(mat) =>
+        var row = mat.rows - 1
+        while row >= 0 do
+          val diag = mat(row, row)
+          if math.abs(diag) < SolveZeroTolerance then rhs(row) = 0.0
+          else
+            var sum = rhs(row)
+            var inner = row + 1
+            while inner < mat.rows do
+              sum -= mat(inner, row) * rhs(inner)
+              inner += 1
+            rhs(row) = sum / diag
+          row -= 1
 
   /** logdet(A) = 2 Σ log(diag(L)) for a Cholesky block. */
   def logdet(block: MatrixBlock): Double =
