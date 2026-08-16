@@ -17,7 +17,8 @@ final case class GeneratorSpec(
     groupName: String = "g",
     family: Family = Family.Normal,
     link: Link = Link.Identity,
-    binaryInterceptShift: Double = 0.0
+    binaryInterceptShift: Double = 0.0,
+    feCorrMatrix: Vector[Vector[Double]] = Vector.empty
 ):
   def n: Int = groupSizes.sum
   def reDim: Int = 1 + nReSlopes
@@ -28,6 +29,10 @@ final case class GeneratorSpec(
   def maxGroupSize: Int = if groupSizes.isEmpty then 0 else groupSizes.max
   def beta: Vector[Double] =
     if feTruth.nonEmpty then feTruth else Vector.fill(feRank)(1.0)
+  def predictorCorr: Vector[Vector[Double]] =
+    if feCorrMatrix.length == nFePredictors && feCorrMatrix.forall(_.length == nFePredictors) then
+      feCorrMatrix
+    else Vector.tabulate(nFePredictors, nFePredictors)((i, j) => if i == j then 1.0 else 0.0)
 
 object GeneratorSpec:
   def lmm(
@@ -59,3 +64,14 @@ object GeneratorSpec:
       binaryInterceptShift = interceptShift,
       residualSd = 0.0
     )
+
+  def collinearFe(spec: GeneratorSpec, i: Int, j: Int, rho: Double): GeneratorSpec =
+    val n = spec.nFePredictors
+    if i == j || i < 0 || j < 0 || i >= n || j >= n then spec
+    else
+      val base = spec.predictorCorr
+      spec.copy(
+        feCorrMatrix = base
+          .updated(i, base(i).updated(j, rho))
+          .updated(j, base(j).updated(i, rho))
+      )

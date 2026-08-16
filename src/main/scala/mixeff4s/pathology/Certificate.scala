@@ -16,5 +16,9 @@ final case class Certificate(
     notes: Vector[String],
     reRankTruth: Int = 0,
     reRankRequested: Int = 0,
-    boundaries: Vector[BoundaryKind] = Vector.empty
+    boundaries: Vector[BoundaryKind] = Vector.empty,
+    fisherEigvals: Vector[Double] = Vector.empty,
+    weakIdScore: Double = Double.PositiveInfinity,
+    weakIdThreshold: Double = 10.0,
+    weakIdentification: Boolean = false
 )

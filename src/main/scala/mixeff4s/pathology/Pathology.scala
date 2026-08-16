@@ -7,7 +7,8 @@ import mixeff4s.model.Family
 /** Design-time pathology front door. */
 object Pathology:
   val ContractVersion = "v0.1"
-  val CorpusContractVersion = "v0.4"
+  val CorpusContractVersion = "v0.5"
+  val WeakIdThreshold = Fisher.WeakIdThreshold
   val BoundaryTol = 1e-8
   private val ZeroVarianceTol = 1e-10
   private val UnitCorrelationTol = 1e-6
@@ -27,9 +28,17 @@ object Pathology:
     val eigvals = shapeProblem match
       case Some(_) => Right(Vector.empty)
       case None    => SymmetricPsd.eigvals(cov)
+    val feCorrEigs =
+      if spec.nFePredictors == 0 then Vector.empty
+      else SymmetricPsd.eigvals(spec.predictorCorr).getOrElse(Vector.empty)
+    val feRankTruth = effectiveRank(feCorrEigs)
     val issue = shapeProblem
       .orElse(eigvals.left.toOption.map(_.message))
       .map(StructuralIssue.MalformedSpec(_))
+      .orElse:
+        if spec.nFePredictors > 0 && feRankTruth < spec.nFePredictors then
+          Some(StructuralIssue.CollinearFixedEffects(feRankTruth, spec.nFePredictors))
+        else None
       .orElse:
         if spec.family == Family.Bernoulli then
           Separation.detect(spec).kind.map(StructuralIssue.Separation(_))
@@ -41,7 +50,10 @@ object Pathology:
     val vals = eigvals.getOrElse(Vector.empty)
     val rankTruth = effectiveRank(vals)
     val boundaries = if issue.exists(_.code == "malformed_spec") then Vector.empty else boundaryDirections(cov)
-    val (stratum, expected) = expectedFromTruth(issue, rankTruth, q, boundaries)
+    val fisher = Fisher.correlationEigvals(spec)
+    val weakScore = Fisher.weakIdScore(spec.n, fisher)
+    val weakId = weakScore.isFinite && weakScore < WeakIdThreshold
+    val (stratum, expected) = expectedFromTruth(issue, rankTruth, q, boundaries, weakId)
     Certificate(
       CorpusContractVersion,
       FitStatus.NotAssessed,
@@ -57,7 +69,11 @@ object Pathology:
       Vector(spec.label),
       rankTruth,
       q,
-      boundaries
+      boundaries,
+      fisher,
+      weakScore,
+      WeakIdThreshold,
+      weakId
     )
 
   /** Classify a fitted θ. Design-time expected statuses are left unchanged. */
@@ -165,7 +181,8 @@ object Pathology:
       issue: Option[StructuralIssue],
       rankTruth: Int,
       rankRequested: Int,
-      boundaries: Vector[BoundaryKind]
+      boundaries: Vector[BoundaryKind],
+      weakIdentification: Boolean
   ): (Stratum, Vector[FitStatus]) =
     if issue.exists(_.code == "separation") then
       (
@@ -188,6 +205,11 @@ object Pathology:
       )
     else if boundaries.nonEmpty then
       (Stratum.Boundary, Vector(FitStatus.ConvergedBoundary, FitStatus.ConvergedInterior))
+    else if weakIdentification then
+      (
+        Stratum.Easy,
+        Vector(FitStatus.ConvergedInterior, FitStatus.ConvergedBoundary, FitStatus.ConvergedReducedRank)
+      )
     else (Stratum.Easy, Vector(FitStatus.ConvergedInterior))
 
   private def boundaryDirections(cov: Vector[Vector[Double]]): Vector[BoundaryKind] =

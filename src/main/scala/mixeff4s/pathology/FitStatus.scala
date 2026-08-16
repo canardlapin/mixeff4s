@@ -43,6 +43,7 @@ enum StructuralIssue:
   case InformationSaturated(nParams: Int, n: Int)
   case MalformedSpec(reason: String)
   case Separation(kind: SeparationKind)
+  case CollinearFixedEffects(rank: Int, requested: Int)
 
   def code: String =
     this match
@@ -52,6 +53,8 @@ enum StructuralIssue:
       case StructuralIssue.InformationSaturated(_, _) => "information_saturated"
       case StructuralIssue.MalformedSpec(_)           => "malformed_spec"
       case StructuralIssue.Separation(_)              => "separation"
+      case StructuralIssue.CollinearFixedEffects(_, _) =>
+        "collinear_fixed_effects"
 
   def details: String =
     this match
@@ -67,6 +70,8 @@ enum StructuralIssue:
         reason
       case StructuralIssue.Separation(kind) =>
         kind.details
+      case StructuralIssue.CollinearFixedEffects(rank, requested) =>
+        s"fixed-effect predictor rank $rank < requested $requested"
 
 enum FeSeparationKind:
   case Complete, QuasiComplete

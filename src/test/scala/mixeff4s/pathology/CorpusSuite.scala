@@ -173,6 +173,30 @@ class CorpusSuite extends munit.FunSuite:
       case other =>
         fail(s"expected Both(Complete, 8), got $other")
 
+  test("an easy spec is not weakly identified"):
+    val cert = Pathology.certify(easySpec)
+    assertEquals(cert.weakIdentification, false)
+    assert(cert.weakIdScore > Pathology.WeakIdThreshold, clues(cert.weakIdScore))
+    assertEquals(cert.expectedStatuses, Vector(FitStatus.ConvergedInterior))
+
+  test("near-collinear predictors drop the weak-id score below the threshold"):
+    val base = twoPredictorSpec("weak_id_collinear")
+    val baseline = Pathology.certify(base).weakIdScore
+    val near = Pathology.certify(GeneratorSpec.collinearFe(base, 0, 1, 0.999))
+    assert(near.weakIdScore < baseline, clues(near.weakIdScore, baseline))
+    assert(near.weakIdScore < Pathology.WeakIdThreshold, clues(near.weakIdScore))
+    assertEquals(near.structuralIssue, None)
+    assertEquals(near.weakIdentification, true)
+    assert(near.expectedStatuses.contains(FitStatus.ConvergedReducedRank), clues(near.expectedStatuses))
+    assert(near.expectedStatuses.contains(FitStatus.ConvergedInterior), clues(near.expectedStatuses))
+
+  test("perfectly collinear predictors are a structural refusal"):
+    val spec = GeneratorSpec.collinearFe(twoPredictorSpec("collinear_fe"), 0, 1, 1.0)
+    val cert = Pathology.certify(spec)
+    assertEquals(cert.structuralIssue.map(_.code), Some("collinear_fixed_effects"))
+    assertEquals(cert.stratum, Stratum.Refusal)
+    assert(cert.expectedStatuses.contains(FitStatus.NotIdentifiable), clues(cert.expectedStatuses))
+
   test("an easy generated LMM fits to an interior status"):
     val spec = easySpec
     val cert = Pathology.certify(spec)
@@ -195,6 +219,17 @@ class CorpusSuite extends munit.FunSuite:
       reCovTruth = Vector(Vector(4.0, 0.5), Vector(0.5, 1.0)),
       seed = 42L,
       feTruth = Vector(1.0, 2.0)
+    )
+
+  private def twoPredictorSpec(label: String): GeneratorSpec =
+    GeneratorSpec.lmm(
+      label,
+      Vector.fill(30)(6),
+      nFePredictors = 2,
+      nReSlopes = 1,
+      reCovTruth = Vector(Vector(4.0, 0.5), Vector(0.5, 1.0)),
+      seed = 42L,
+      feTruth = Vector(1.0, 2.0, 3.0)
     )
 
   private def easyQ3Spec: GeneratorSpec =
