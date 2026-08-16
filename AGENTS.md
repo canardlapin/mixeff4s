@@ -9,8 +9,8 @@ Unavailable inference is a refusal with a stable code. Do not invent p-values.
 
 ## Layout
 
-Single JVM project, many packages. Split artifacts when GLMM or the compiler
-has a reason to exist independently.
+JVM and Scala.js cross-project, many packages. Split artifacts when GLMM or the
+compiler has a reason to exist independently.
 
 ```
 mixeff4s.error      MixedModelError, LinAlgError, FitResult
@@ -39,6 +39,7 @@ Layer rules, enforced by `ArchitectureSuite`:
 
 ```sh
 sbt -Dmixeff4s.gale.build=/path/to/gale test
+sbt -Dmixeff4s.gale.build=/path/to/gale mixeff4sJS/test
 sbt scalafmtAll
 ```
 

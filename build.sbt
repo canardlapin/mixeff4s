@@ -1,3 +1,7 @@
+import org.scalajs.linker.interface.ModuleKind
+import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}
+import scalajscrossproject.ScalaJSCrossPlugin.autoImport.*
+
 ThisBuild / organization := "io.github.canardlapin"
 ThisBuild / scalaVersion := "3.7.4"
 ThisBuild / version := "0.1.0-SNAPSHOT"
@@ -29,20 +33,42 @@ lazy val galeBuild: java.net.URI =
     .map(path => file(path).getCanonicalFile.toURI)
     .getOrElse(uri(s"https://github.com/canardlapin/gale.git#$galeRevision"))
 lazy val galeCoreJVM = ProjectRef(galeBuild, "coreJVM")
+lazy val galeCoreJS = ProjectRef(galeBuild, "coreJS")
 
-lazy val mixeff4s = project
+lazy val commonSettings = Seq(
+  name := "mixeff4s",
+  description := "Linear and generalized linear mixed-effects models for Scala 3.",
+  scalacOptions ++= Seq(
+    "-deprecation",
+    "-feature",
+    "-unchecked",
+    "-Wunused:all",
+    "-Wvalue-discard"
+  ),
+  libraryDependencies += "org.scalameta" %%% "munit" % "1.2.1" % Test,
+  Test / fork := false
+)
+
+lazy val mixeff4s =
+  crossProject(JSPlatform, JVMPlatform)
+    .crossType(CrossType.Pure)
+    .in(file("."))
+    .settings(commonSettings)
+    .jvmConfigure(_.dependsOn(galeCoreJVM))
+    .jsConfigure(_.dependsOn(galeCoreJS))
+    .jsSettings(
+      scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule))
+    )
+
+lazy val mixeff4sJVM = mixeff4s.jvm
+lazy val mixeff4sJS = mixeff4s.js
+
+lazy val root = project
   .in(file("."))
-  .dependsOn(galeCoreJVM)
+  .aggregate(mixeff4sJVM, mixeff4sJS)
   .settings(
-    name := "mixeff4s",
-    description := "Linear and generalized linear mixed-effects models for Scala 3.",
-    scalacOptions ++= Seq(
-      "-deprecation",
-      "-feature",
-      "-unchecked",
-      "-Wunused:all",
-      "-Wvalue-discard"
-    ),
-    libraryDependencies += "org.scalameta" %% "munit" % "1.2.1" % Test,
-    Test / fork := false
+    name := "mixeff4s-root",
+    publish / skip := true,
+    Compile / sources := Nil,
+    Test / sources := Nil
   )

@@ -83,10 +83,11 @@ via `-Dmixeff4s.gale.build=/path/to/gale`.
 | What does it do? | Mixed-model language, frame, design compilation, profiled LMM fitting, labelled fast-PIRLS GLMMs, and honest summaries |
 | Smallest useful example? | Parse `y ~ 1 + x + (1 \| g)` and inspect the IR |
 | Maturity / publication? | `prototype`, source-only, unpublished at [canardlapin/mixeff4s](https://github.com/canardlapin/mixeff4s) |
-| How to verify? | `sbt -Dmixeff4s.gale.build=/path/to/gale test` |
+| How to verify? | `sbt -Dmixeff4s.gale.build=/path/to/gale test` (JVM and Scala.js) |
 
-Platform: JVM. Scala 3.7.4, sbt 1.12.14. Scala.js is deferred until the kernel
-is Gale-only.
+Platform: JVM and Scala.js (Node). Scala 3.7.4, sbt 1.12.14. The numeric kernel
+is Gale, which already cross-builds; mixeff4s follows it. The source-tree
+architecture walk is JVM-only.
 
 This is a Scala 3 re-expression of
 [mixeff-rs](https://github.com/bbuchsbaum/mixeff-rs), itself an independent

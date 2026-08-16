@@ -2,9 +2,10 @@ package mixeff4s
 
 import java.nio.file.{Files, Path}
 
+/** Source-tree walk; JVM-only because Scala.js has no `java.nio.file`. */
 class ArchitectureSuite extends munit.FunSuite:
   test("layer imports stay acyclic"):
-    val root = Path.of("src/main/scala/mixeff4s")
+    val root = sourceRoot
     assume(Files.exists(root), "source tree is present")
     val violations = Vector.newBuilder[String]
     Files
@@ -19,8 +20,13 @@ class ArchitectureSuite extends munit.FunSuite:
     val found = violations.result()
     assert(found.isEmpty, clues(found))
 
+  private def sourceRoot: Path =
+    val candidates =
+      Vector(Path.of("src/main/scala/mixeff4s"), Path.of("..", "src/main/scala/mixeff4s"))
+    candidates.find(Files.exists(_)).getOrElse(candidates.head)
+
   private def layerOf(relative: String): String =
-    relative.split("/").headOption.getOrElse("unknown")
+    relative.split("[/\\\\]").headOption.getOrElse("unknown")
 
   private def forbidden(layer: String): Set[String] =
     layer match
