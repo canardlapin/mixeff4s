@@ -56,6 +56,14 @@ core.
 Issue tracking is **mote**. Check `mote ready`, reserve paths, and publish
 through the CLI. Do not hand-edit `.mote/ops`.
 
+## Cursor Cloud
+
+Cloud Agents use `.cursor/environment.json` and `.cursor/Dockerfile`. The
+image has JDK 21, sbt, and Node. `install` warms Coursier caches with
+`sbt -batch update Test/compile`. Gale is cloned from the pinned SHA in
+`build.sbt`; do not pass `-Dmixeff4s.gale.build` unless a checkout is
+present. Verify with `sbt test` (JVM and Scala.js). No secrets are required.
+
 ## Port phases
 
 | Phase | Scope | Gate |

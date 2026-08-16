@@ -1,0 +1,11 @@
+{
+  "name": "mixeff4s",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "install": "sbt -batch update Test/compile",
+  "repositoryDependencies": [
+    "github.com/canardlapin/gale"
+  ]
+}
