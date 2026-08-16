@@ -58,6 +58,7 @@ a number means what it says, otherwise you get a matchable reason code.
 - Report VarCorr, Wald SEs, and z-statistics; p-values stay a typed refusal
 - Fit labelled fast-PIRLS GLMMs (`Glmm.fit`); Normal+Identity is refused as a GLMM
 - Compare nested LMMs with `Lrt.compare`; profile intervals and bootstrap stay typed refusals
+- Emit a versioned compiled-design JSON artifact; pathology certificates are not assessed yet
 
 ## Fit and boundaries
 
