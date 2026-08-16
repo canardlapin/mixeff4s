@@ -66,7 +66,7 @@ through the CLI. Do not hand-edit `.mote/ops`.
 | 4 | Public LMM API, VarCorr, Wald | Honest summaries |
 | 5 | GLMM fast-PIRLS, labelled | Scorecard fast-PIRLS rows |
 | 6 | LRT / profile / bootstrap | Nested LRT + refusal contracts |
-| 7 | Compiler / pathology | JSON snapshots (current) |
+| 7 | Compiler / pathology | JSON snapshots |
 
 Keep index-parallel PLS loops close to mixeff-rs until parity is green.
 
