@@ -5,7 +5,7 @@ import mixeff4s.error.{FitResult, MixedModelError}
 import mixeff4s.linalg.{BlockedCholesky, MatrixBlock, WorkMat}
 import mixeff4s.optimizer.{TrustBq, TrustBqOptions}
 
-/** Working PLS state for a compiled single-term LMM. */
+/** Working PLS state for a compiled LMM. */
 final class PlsWorkspace private (
     val design: CompiledDesign,
     val reml: Boolean,
@@ -47,6 +47,18 @@ final class PlsWorkspace private (
         lambdaWork(reterms(j))
       )
       j += 1
+    var i = 1
+    while i < k do
+      j = 0
+      while j < i do
+        BlockedCholesky.copyAndScaleOffdiag(
+          lBlocks(MatrixBlock.blockIndex(i, j)),
+          aBlocks(MatrixBlock.blockIndex(i, j)),
+          lambdaWork(reterms(i)),
+          lambdaWork(reterms(j))
+        )
+        j += 1
+      i += 1
     j = 0
     while j < k do
       BlockedCholesky.copyAndRmulLambda(
@@ -74,7 +86,16 @@ final class PlsWorkspace private (
         case Right(_) =>
           var i = col + 1
           while i < total do
-            BlockedCholesky.rdivLowerTranspose(lBlocks(MatrixBlock.blockIndex(i, col)), lBlocks(diagIdx))
+            val targetIdx = MatrixBlock.blockIndex(i, col)
+            var prev = 0
+            while prev < col do
+              BlockedCholesky.subtractProduct(
+                lBlocks(targetIdx),
+                lBlocks(MatrixBlock.blockIndex(i, prev)),
+                lBlocks(MatrixBlock.blockIndex(col, prev))
+              )
+              prev += 1
+            BlockedCholesky.rdivLowerTranspose(lBlocks(targetIdx), lBlocks(diagIdx))
             i += 1
       col += 1
     error.toLeft(())
@@ -155,20 +176,53 @@ final class PlsWorkspace private (
 
 object PlsWorkspace:
   def apply(design: CompiledDesign, reml: Boolean): FitResult[PlsWorkspace] =
-    if design.reterms.length != 1 then
-      Left(
-        MixedModelError.Unsupported(
-          "blocked-Cholesky PLS currently implements a single random-effects term"
-        )
-      )
+    if design.reterms.isEmpty then Left(MixedModelError.NoRandomEffects)
     else
-      val re = design.reterms.head
-      val a00 = reCross(re)
-      val a10 = feReCross(design.xy, re)
-      val a11 = feCross(design.xy)
-      val a = Array(a00, a10, a11)
+      val k = design.reterms.length
+      val blocks = Vector.newBuilder[MatrixBlock]
+      var i = 0
+      while i < k do
+        var j = 0
+        while j <= i do
+          if i == j then blocks += reCross(design.reterms(i))
+          else blocks += reCrossOff(design.reterms(i), design.reterms(j))
+          j += 1
+        i += 1
+      var term = 0
+      while term < k do
+        blocks += feReCross(design.xy, design.reterms(term))
+        term += 1
+      blocks += feCross(design.xy)
+      val a = blocks.result().toArray
       val l = a.map(_.cloneBlock)
+      promoteCrossedFillIn(l, design.reterms)
       Right(new PlsWorkspace(design, reml, design.reterms, a, l))
+
+  private def isNested(a: ReMat, b: ReMat): Boolean =
+    if a.refs.length != b.refs.length then false
+    else
+      val bins = Array.fill(a.nLevels)(-1)
+      a.refs.indices.forall: obs =>
+        val aref = a.refs(obs)
+        val bref = b.refs(obs)
+        if bins(aref) < 0 then
+          bins(aref) = bref
+          true
+        else bins(aref) == bref
+
+  private def promoteCrossedFillIn(l: Array[MatrixBlock], reterms: Vector[ReMat]): Unit =
+    val k = reterms.length
+    var i = 1
+    while i < k do
+      if (0 until i).exists(j => !isNested(reterms(j), reterms(i))) then
+        var row = i
+        while row < k do
+          val idx = MatrixBlock.blockIndex(row, i)
+          l(idx) match
+            case MatrixBlock.Dense(_) => ()
+            case other                => l(idx) = MatrixBlock.Dense(other.asDense)
+          row += 1
+      i += 1
 
   private def reCross(re: ReMat): MatrixBlock =
     val s = re.vsize
@@ -198,6 +252,23 @@ object PlsWorkspace:
           si += 1
         obs += 1
       MatrixBlock.BlockDiagonal(blocks)
+
+  private def reCrossOff(a: ReMat, b: ReMat): MatrixBlock =
+    val result = WorkMat.zeros(a.nRanef, b.nRanef)
+    var obs = 0
+    while obs < a.nObs do
+      val ri = a.refs(obs)
+      val rj = b.refs(obs)
+      var si = 0
+      while si < a.vsize do
+        val za = a.z(si, obs)
+        var sj = 0
+        while sj < b.vsize do
+          result(ri * a.vsize + si, rj * b.vsize + sj) += za * b.z(sj, obs)
+          sj += 1
+        si += 1
+      obs += 1
+    MatrixBlock.Dense(result)
 
   private def feReCross(xy: FeMat, re: ReMat): MatrixBlock =
     val pp1 = xy.xy.cols

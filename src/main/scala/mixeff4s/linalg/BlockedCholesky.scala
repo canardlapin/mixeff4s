@@ -231,6 +231,12 @@ object BlockedCholesky:
           while i < lDiag.length do
             lDiag(i) = lamSq * aDiag(i) + 1.0
             i += 1
+        case (MatrixBlock.Dense(lMat), MatrixBlock.Diagonal(aDiag)) =>
+          lMat.fill(0.0)
+          var i = 0
+          while i < aDiag.length do
+            lMat(i, i) = lamSq * aDiag(i) + 1.0
+            i += 1
         case (MatrixBlock.Dense(lMat), MatrixBlock.Dense(aMat)) =>
           val n = aMat.rows
           var i = 0
@@ -359,6 +365,98 @@ object BlockedCholesky:
             j += 1
           i += 1
         b += 1
+
+  /** L = Λ_i' A Λ_j for an off-diagonal RE×RE block. */
+  def copyAndScaleOffdiag(l: MatrixBlock, a: MatrixBlock, lambdaI: WorkMat, lambdaJ: WorkMat): Unit =
+    val si = lambdaI.rows
+    val sj = lambdaJ.rows
+    val aMat = a match
+      case MatrixBlock.Dense(mat) => mat
+      case other                  => other.asDense
+    val lMat = l match
+      case MatrixBlock.Dense(mat) => mat
+      case _                      => throw IllegalArgumentException("copyAndScaleOffdiag expects a dense L block")
+    if si == 1 && sj == 1 then
+      val scale = lambdaI(0, 0) * lambdaJ(0, 0)
+      var i = 0
+      while i < aMat.rows do
+        var j = 0
+        while j < aMat.cols do
+          lMat(i, j) = aMat(i, j) * scale
+          j += 1
+        i += 1
+    else
+      val nLevelsI = aMat.rows / si
+      val nLevelsJ = aMat.cols / sj
+      var bi = 0
+      while bi < nLevelsI do
+        var bj = 0
+        while bj < nLevelsJ do
+          var row = 0
+          while row < si do
+            var col = 0
+            while col < sj do
+              var sum = 0.0
+              var ir = 0
+              while ir < si do
+                var ic = 0
+                while ic < sj do
+                  sum += lambdaI(ir, row) * aMat(bi * si + ir, bj * sj + ic) * lambdaJ(ic, col)
+                  ic += 1
+                ir += 1
+              lMat(bi * si + row, bj * sj + col) = sum
+              col += 1
+            row += 1
+          bj += 1
+        bi += 1
+
+  /** C -= A * B'. */
+  def subtractProduct(c: MatrixBlock, a: MatrixBlock, b: MatrixBlock): Unit =
+    val aMat = a match
+      case MatrixBlock.Dense(mat) => mat
+      case other                  => other.asDense
+    val bMat = b match
+      case MatrixBlock.Dense(mat) => mat
+      case other                  => other.asDense
+    c match
+      case MatrixBlock.Dense(cMat) =>
+        var i = 0
+        while i < cMat.rows do
+          var j = 0
+          while j < cMat.cols do
+            var sum = 0.0
+            var k = 0
+            while k < aMat.cols do
+              sum += aMat(i, k) * bMat(j, k)
+              k += 1
+            cMat(i, j) -= sum
+            j += 1
+          i += 1
+      case MatrixBlock.Diagonal(diag) =>
+        var i = 0
+        while i < diag.length do
+          var sum = 0.0
+          var k = 0
+          while k < aMat.cols do
+            sum += aMat(i, k) * bMat(i, k)
+            k += 1
+          diag(i) -= sum
+          i += 1
+      case MatrixBlock.BlockDiagonal(_) =>
+        val dense = c.asDense
+        var i = 0
+        while i < dense.rows do
+          var j = 0
+          while j < dense.cols do
+            var sum = 0.0
+            var k = 0
+            while k < aMat.cols do
+              sum += aMat(i, k) * bMat(j, k)
+              k += 1
+            dense(i, j) -= sum
+            j += 1
+          i += 1
+        throw IllegalArgumentException("subtractProduct cannot write back into BlockDiagonal")
 
   /** logdet(A) = 2 Σ log(diag(L)) for a Cholesky block. */
   def logdet(block: MatrixBlock): Double =

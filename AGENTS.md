@@ -20,7 +20,7 @@ mixeff4s.model      Family, Link
 mixeff4s.design     FeTerm, FeMat, ReMat, parmap (Gale)
 mixeff4s.linalg     WorkMat, MatrixBlock, blocked Cholesky
 mixeff4s.optimizer  TrustBQ
-mixeff4s.lmm        FitOptions, Lmm.compile, Lmm.fit (single-term PLS)
+mixeff4s.lmm        FitOptions, Lmm.compile, Lmm.fit (blocked-Cholesky PLS)
 ```
 
 Layer rules, enforced by `ArchitectureSuite`:
