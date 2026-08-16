@@ -13,5 +13,8 @@ final case class Certificate(
     feRank: Int,
     nTheta: Int,
     structuralIssue: Option[StructuralIssue],
-    notes: Vector[String]
+    notes: Vector[String],
+    reRankTruth: Int = 0,
+    reRankRequested: Int = 0,
+    boundaries: Vector[BoundaryKind] = Vector.empty
 )

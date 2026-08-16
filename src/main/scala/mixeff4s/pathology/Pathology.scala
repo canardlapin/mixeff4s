@@ -6,7 +6,47 @@ import mixeff4s.error.{LinAlgError, MixedModelError}
 /** Design-time pathology front door. */
 object Pathology:
   val ContractVersion = "v0.1"
+  val CorpusContractVersion = "v0.2"
   val BoundaryTol = 1e-8
+  private val ZeroVarianceTol = 1e-10
+  private val UnitCorrelationTol = 1e-6
+  private val RankRelTol = 1e-12
+
+  def certify(spec: GeneratorSpec): Certificate =
+    val q = spec.reDim
+    val cov = spec.reCovTruth
+    val shapeProblem =
+      if cov.length != q || cov.exists(_.length != q) then
+        Some(s"re_cov_truth is ${cov.length}×${cov.headOption.map(_.length).getOrElse(0)} but re_dim = $q")
+      else if q > 2 then Some("re_dim > 2 is not certified in this corpus slice")
+      else None
+    val eigvals = shapeProblem.fold(symmetricEigvals(cov))(_ => Vector.empty)
+    val rankTruth = effectiveRank(eigvals)
+    val boundaries = shapeProblem.fold(boundaryDirections(cov))(_ => Vector.empty)
+    val issue = shapeProblem
+      .map(StructuralIssue.MalformedSpec(_))
+      .orElse:
+        if spec.nReSlopes > 0 && spec.minGroupSize == 1 then
+          Some(StructuralIssue.SingletonsWithSlope(spec.label, spec.minGroupSize))
+        else None
+    val (stratum, expected) = expectedFromTruth(issue, rankTruth, q, boundaries)
+    Certificate(
+      CorpusContractVersion,
+      FitStatus.NotAssessed,
+      expected,
+      stratum,
+      spec.n,
+      spec.nParams,
+      spec.minGroupSize,
+      spec.maxGroupSize,
+      spec.feRank,
+      spec.nTheta,
+      issue,
+      Vector(spec.label),
+      rankTruth,
+      q,
+      boundaries
+    )
 
   /** Classify a fitted θ. Design-time expected statuses are left unchanged. */
   def assessFit(
@@ -106,3 +146,64 @@ object Pathology:
 
   private def groupSizes(rt: ReMat): Vector[Int] =
     rt.levels.indices.map(level => rt.refs.count(_ == level)).toVector
+
+  private def expectedFromTruth(
+      issue: Option[StructuralIssue],
+      rankTruth: Int,
+      rankRequested: Int,
+      boundaries: Vector[BoundaryKind]
+  ): (Stratum, Vector[FitStatus]) =
+    if issue.isDefined then
+      (
+        Stratum.Refusal,
+        Vector(
+          FitStatus.NotIdentifiable,
+          FitStatus.NotOptimized,
+          FitStatus.ConvergedBoundary
+        )
+      )
+    else if rankTruth < rankRequested then
+      (
+        Stratum.ReducedRank,
+        Vector(FitStatus.ConvergedReducedRank, FitStatus.ConvergedBoundary)
+      )
+    else if boundaries.nonEmpty then
+      (Stratum.Boundary, Vector(FitStatus.ConvergedBoundary, FitStatus.ConvergedInterior))
+    else (Stratum.Easy, Vector(FitStatus.ConvergedInterior))
+
+  private def boundaryDirections(cov: Vector[Vector[Double]]): Vector[BoundaryKind] =
+    val q = cov.length
+    val zeros = (0 until q).collect:
+      case i if math.abs(cov(i)(i)) <= ZeroVarianceTol =>
+        BoundaryKind.ZeroVariance(i)
+    val corrs = (0 until q).flatMap: i =>
+      ((i + 1) until q).collect:
+        case j if unitCorrelation(cov(i)(i), cov(j)(j), cov(i)(j)) =>
+          BoundaryKind.UnitCorrelation(i, j)
+    zeros.toVector ++ corrs.toVector
+
+  private def unitCorrelation(a: Double, b: Double, c: Double): Boolean =
+    if a <= ZeroVarianceTol || b <= ZeroVarianceTol then false
+    else
+      val rho = c / math.sqrt(a * b)
+      math.abs(math.abs(rho) - 1.0) <= UnitCorrelationTol
+
+  private def effectiveRank(eigvals: Vector[Double]): Int =
+    if eigvals.isEmpty then 0
+    else
+      val trace = eigvals.map(math.abs).sum
+      val cutoff = RankRelTol * math.max(trace, 1e-15)
+      eigvals.count(_ > cutoff)
+
+  private def symmetricEigvals(cov: Vector[Vector[Double]]): Vector[Double] =
+    cov.length match
+      case 0 => Vector.empty
+      case 1 => Vector(cov(0)(0))
+      case 2 =>
+        val a = cov(0)(0)
+        val b = cov(1)(1)
+        val c = cov(0)(1)
+        val disc = math.sqrt(math.max(0.0, (a - b) * (a - b) + 4.0 * c * c))
+        Vector((a + b + disc) / 2.0, (a + b - disc) / 2.0)
+      case _ =>
+        Vector.empty
