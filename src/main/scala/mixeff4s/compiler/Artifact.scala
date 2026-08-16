@@ -36,6 +36,7 @@ final case class ThetaSlot(
 final case class CompiledArtifact(
     schema: Schema,
     requestedFormula: String,
+    semantic: SemanticModel,
     n: Int,
     p: Int,
     nReTerms: Int,
@@ -72,6 +73,7 @@ object CompiledArtifact:
     CompiledArtifact(
       Schema(SchemaName, SchemaVersion, LibraryVersion),
       design.formula.toString,
+      SemanticModel.from(design.formula),
       design.n,
       design.p,
       design.nReTerms,
@@ -103,6 +105,7 @@ object CompiledArtifact:
           indent = 1
         ),
         "requested_formula" -> Json.str(artifact.requestedFormula),
+        "semantic_model" -> SemanticModel.encode(artifact.semantic, indent = 1),
         "n" -> Json.num(artifact.n),
         "p" -> Json.num(artifact.p),
         "n_re_terms" -> Json.num(artifact.nReTerms),

@@ -77,6 +77,13 @@ private object SleepstudySnapshot:
       |    "library_version": "0.1.0-SNAPSHOT"
       |  },
       |  "requested_formula": "reaction ~ 1 + days + (1 + days | subj)",
+      |  "semantic_model": {
+      |    "schema": "mixeff4s.semantic_model",
+      |    "version": 1,
+      |    "response": "reaction",
+      |    "fixed_terms": ["1", "days"],
+      |    "random_terms": [{"id": "r0", "grouping": {"kind": "single", "name": "subj"}, "basis": [{"name": "intercept", "kind": "intercept", "source": "1"}, {"name": "days", "kind": "slope", "source": "days"}], "covariance": "full", "support": "supported", "intercept": "included", "source_text": "(1 + days | subj)"}]
+      |  },
       |  "n": 180,
       |  "p": 2,
       |  "n_re_terms": 1,
@@ -118,6 +125,13 @@ private object PenicillinSnapshot:
       |    "library_version": "0.1.0-SNAPSHOT"
       |  },
       |  "requested_formula": "diameter ~ 1 + (1 | plate) + (1 | sample)",
+      |  "semantic_model": {
+      |    "schema": "mixeff4s.semantic_model",
+      |    "version": 1,
+      |    "response": "diameter",
+      |    "fixed_terms": ["1"],
+      |    "random_terms": [{"id": "r0", "grouping": {"kind": "single", "name": "plate"}, "basis": [{"name": "intercept", "kind": "intercept", "source": "1"}], "covariance": "scalar", "support": "supported", "intercept": "included", "source_text": "(1 | plate)"}, {"id": "r1", "grouping": {"kind": "single", "name": "sample"}, "basis": [{"name": "intercept", "kind": "intercept", "source": "1"}], "covariance": "scalar", "support": "supported", "intercept": "included", "source_text": "(1 | sample)"}]
+      |  },
       |  "n": 144,
       |  "p": 1,
       |  "n_re_terms": 2,
@@ -159,6 +173,13 @@ private object PastesSnapshot:
       |    "library_version": "0.1.0-SNAPSHOT"
       |  },
       |  "requested_formula": "strength ~ 1 + (1 | batch) + (1 | batch:cask)",
+      |  "semantic_model": {
+      |    "schema": "mixeff4s.semantic_model",
+      |    "version": 1,
+      |    "response": "strength",
+      |    "fixed_terms": ["1"],
+      |    "random_terms": [{"id": "r0", "grouping": {"kind": "single", "name": "batch"}, "basis": [{"name": "intercept", "kind": "intercept", "source": "1"}], "covariance": "scalar", "support": "supported", "intercept": "included", "source_text": "(1 | batch)", "written": "(1 | batch / cask)"}, {"id": "r1", "grouping": {"kind": "cell", "names": ["batch", "cask"]}, "basis": [{"name": "intercept", "kind": "intercept", "source": "1"}], "covariance": "scalar", "support": "supported", "intercept": "included", "source_text": "(1 | batch:cask)", "written": "(1 | batch / cask)"}]
+      |  },
       |  "n": 60,
       |  "p": 1,
       |  "n_re_terms": 2,

@@ -23,7 +23,7 @@ mixeff4s.optimizer  TrustBQ
 mixeff4s.lmm        FitOptions, Lmm.compile, Lmm.fit, VarCorr, CoefTable
 mixeff4s.glmm       GlmmOptions, Glmm.fit (labelled fast-PIRLS)
 mixeff4s.stats      Lrt, Profile, Bootstrap (typed refusals when unavailable)
-mixeff4s.compiler   Compiled-design JSON artifact (unstable)
+mixeff4s.compiler   Semantic IR and compiled-design JSON artifact (unstable)
 mixeff4s.pathology  Design-time certificates and fit-time θ status
 ```
 
