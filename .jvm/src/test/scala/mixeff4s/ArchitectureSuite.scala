@@ -38,10 +38,19 @@ class ArchitectureSuite extends munit.FunSuite:
           "mixeff4s.design",
           "mixeff4s.glmm",
           "mixeff4s.stats",
-          "mixeff4s.compiler"
+          "mixeff4s.compiler",
+          "mixeff4s.pathology"
         )
       case "formula" =>
-        Set("mixeff4s.lmm", "mixeff4s.model", "mixeff4s.design", "mixeff4s.glmm", "mixeff4s.stats", "mixeff4s.compiler")
+        Set(
+          "mixeff4s.lmm",
+          "mixeff4s.model",
+          "mixeff4s.design",
+          "mixeff4s.glmm",
+          "mixeff4s.stats",
+          "mixeff4s.compiler",
+          "mixeff4s.pathology"
+        )
       case "data" =>
         Set(
           "mixeff4s.formula",
@@ -50,7 +59,8 @@ class ArchitectureSuite extends munit.FunSuite:
           "mixeff4s.design",
           "mixeff4s.glmm",
           "mixeff4s.stats",
-          "mixeff4s.compiler"
+          "mixeff4s.compiler",
+          "mixeff4s.pathology"
         )
       case "model" =>
         Set(
@@ -60,9 +70,10 @@ class ArchitectureSuite extends munit.FunSuite:
           "mixeff4s.design",
           "mixeff4s.glmm",
           "mixeff4s.stats",
-          "mixeff4s.compiler"
+          "mixeff4s.compiler",
+          "mixeff4s.pathology"
         )
-      case "design" => Set("mixeff4s.lmm", "mixeff4s.glmm", "mixeff4s.compiler", "mixeff4s.stats")
+      case "design" => Set("mixeff4s.lmm", "mixeff4s.glmm", "mixeff4s.compiler", "mixeff4s.stats", "mixeff4s.pathology")
       case "linalg" =>
         Set(
           "mixeff4s.lmm",
@@ -73,7 +84,8 @@ class ArchitectureSuite extends munit.FunSuite:
           "mixeff4s.optimizer",
           "mixeff4s.glmm",
           "mixeff4s.stats",
-          "mixeff4s.compiler"
+          "mixeff4s.compiler",
+          "mixeff4s.pathology"
         )
       case "optimizer" =>
         Set(
@@ -84,10 +96,12 @@ class ArchitectureSuite extends munit.FunSuite:
           "mixeff4s.model",
           "mixeff4s.glmm",
           "mixeff4s.stats",
-          "mixeff4s.compiler"
+          "mixeff4s.compiler",
+          "mixeff4s.pathology"
         )
-      case "lmm"   => Set("mixeff4s.compiler", "mixeff4s.stats", "mixeff4s.glmm")
-      case "glmm"  => Set("mixeff4s.compiler", "mixeff4s.stats")
-      case "stats"    => Set("mixeff4s.compiler")
-      case "compiler" => Set("mixeff4s.stats")
-      case _          => Set.empty
+      case "lmm"       => Set("mixeff4s.compiler", "mixeff4s.stats", "mixeff4s.glmm", "mixeff4s.pathology")
+      case "glmm"      => Set("mixeff4s.compiler", "mixeff4s.stats", "mixeff4s.pathology")
+      case "stats"     => Set("mixeff4s.compiler", "mixeff4s.pathology")
+      case "compiler"  => Set("mixeff4s.stats")
+      case "pathology" => Set("mixeff4s.compiler", "mixeff4s.stats", "mixeff4s.glmm")
+      case _           => Set.empty

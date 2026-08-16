@@ -14,7 +14,8 @@ class ArtifactSuite extends munit.FunSuite:
     assertEquals(artifact.feNames, Vector("(Intercept)", "days"))
     assertEquals(artifact.randomTerms.head.covariance, "full_cholesky")
     assertEquals(artifact.parmap, Vector((0, 0, 0), (0, 1, 0), (0, 1, 1)))
-    assertEquals(artifact.pathology, "not_assessed")
+    assertEquals(artifact.pathology.stratum.code, "easy")
+    assertEquals(artifact.pathology.fitStatus.code, "not_assessed")
     assertEquals(artifact.toJson, SleepstudySnapshot.json)
 
   test("zerocorr sleepstudy is a diagonal theta map"):
@@ -50,5 +51,18 @@ private object SleepstudySnapshot:
       |    "objective_approximation": "exact_gaussian",
       |    "inference_availability": "not_assessed"
       |  },
-      |  "pathology": "not_assessed"
+      |  "pathology": {
+      |    "contract_version": "v0.1",
+      |    "fit_status": "not_assessed",
+      |    "expected_statuses": ["converged_interior"],
+      |    "stratum": "easy",
+      |    "n": 180,
+      |    "n_params": 6,
+      |    "min_group_size": 10,
+      |    "max_group_size": 10,
+      |    "fe_rank": 2,
+      |    "n_theta": 3,
+      |    "structural_issue": null,
+      |    "notes": []
+      |  }
       |}""".stripMargin

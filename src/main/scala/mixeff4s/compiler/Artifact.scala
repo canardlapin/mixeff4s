@@ -1,6 +1,7 @@
 package mixeff4s.compiler
 
 import mixeff4s.design.{CompiledDesign, ReMat}
+import mixeff4s.pathology.{Certificate, Pathology}
 
 /** Versioned compiled-design certificate. Unstable; schema may change. */
 final case class Schema(name: String, version: Int, libraryVersion: String)
@@ -45,7 +46,7 @@ final case class CompiledArtifact(
     thetaSlots: Vector[ThetaSlot],
     parmap: Vector[(Int, Int, Int)],
     modelBoundary: ModelBoundary,
-    pathology: String
+    pathology: Certificate
 ):
   def toJson: String = CompiledArtifact.encode(this)
 
@@ -87,7 +88,7 @@ object CompiledArtifact:
         "exact_gaussian",
         "not_assessed"
       ),
-      "not_assessed"
+      Pathology.certify(design)
     )
 
   private def encode(artifact: CompiledArtifact): String =
@@ -121,8 +122,29 @@ object CompiledArtifact:
           ),
           indent = 1
         ),
-        "pathology" -> Json.str(artifact.pathology)
+        "pathology" -> pathologyJson(artifact.pathology)
       )
+    )
+
+  private def pathologyJson(cert: Certificate): String =
+    Json.pretty(
+      Vector(
+        "contract_version" -> Json.str(cert.contractVersion),
+        "fit_status" -> Json.str(cert.fitStatus.code),
+        "expected_statuses" -> Json.arr(cert.expectedStatuses.map(s => Json.str(s.code))),
+        "stratum" -> Json.str(cert.stratum.code),
+        "n" -> Json.num(cert.n),
+        "n_params" -> Json.num(cert.nParams),
+        "min_group_size" -> Json.num(cert.minGroupSize),
+        "max_group_size" -> Json.num(cert.maxGroupSize),
+        "fe_rank" -> Json.num(cert.feRank),
+        "n_theta" -> Json.num(cert.nTheta),
+        "structural_issue" -> cert.structuralIssue.fold(Json.nul)(issue =>
+          Json.obj("code" -> Json.str(issue.code), "details" -> Json.str(issue.details))
+        ),
+        "notes" -> Json.arr(cert.notes.map(Json.str))
+      ),
+      indent = 1
     )
 
   private def randomCard(rt: ReMat, index: Int): RandomTermCard =

@@ -24,6 +24,7 @@ mixeff4s.lmm        FitOptions, Lmm.compile, Lmm.fit, VarCorr, CoefTable
 mixeff4s.glmm       GlmmOptions, Glmm.fit (labelled fast-PIRLS)
 mixeff4s.stats      Lrt, Profile, Bootstrap (typed refusals when unavailable)
 mixeff4s.compiler   Compiled-design JSON artifact (unstable)
+mixeff4s.pathology  Design-time identifiability certificates
 ```
 
 Layer rules, enforced by `ArchitectureSuite`:
@@ -38,6 +39,7 @@ Layer rules, enforced by `ArchitectureSuite`:
 - `glmm` does not import a future `compiler` or `stats` package
 - `stats` does not import a future `compiler` package
 - `compiler` does not import `stats`
+- `pathology` does not import `compiler`, `stats`, or `glmm`
 
 ## Build
 

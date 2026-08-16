@@ -14,6 +14,8 @@ private[compiler] object Json:
 
   def num(value: Int): String = value.toString
 
+  def nul: String = "null"
+
   def arr(values: Iterable[String]): String =
     values.mkString("[", ", ", "]")
 
