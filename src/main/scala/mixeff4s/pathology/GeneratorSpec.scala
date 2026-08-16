@@ -122,6 +122,22 @@ object GeneratorSpec:
   def scaleMismatch(spec: GeneratorSpec, scales: Vector[Double]): GeneratorSpec =
     spec.copy(feScales = scales)
 
+  def setGroupSizes(spec: GeneratorSpec, sizes: Vector[Int]): GeneratorSpec =
+    spec.copy(groupSizes = sizes)
+
+  /** Inverse-CDF Pareto Type I (`xm = 1`), clamped to `[1, meanSize · 50]`. Seeds do not match rust `StdRng`. */
+  def paretoSizes(seed: Long, nGroups: Int, alpha: Double, meanSize: Double): Vector[Int] =
+    if nGroups <= 0 then Vector.empty
+    else
+      val rng = SizeRng(seed)
+      val cap = (meanSize * 50.0).max(2.0)
+      val denom = alpha / (alpha - 1.0).max(0.5)
+      Vector.fill(nGroups):
+        val u = rng.nextUnit()
+        val x = 1.0 / math.pow(1.0 - u, 1.0 / alpha)
+        val raw = x * meanSize / denom
+        math.round(raw.max(1.0).min(cap)).toInt
+
   def collinearFe(spec: GeneratorSpec, i: Int, j: Int, rho: Double): GeneratorSpec =
     val n = spec.nFePredictors
     if i == j || i < 0 || j < 0 || i >= n || j >= n then spec
@@ -132,3 +148,14 @@ object GeneratorSpec:
           .updated(i, base(i).updated(j, rho))
           .updated(j, base(j).updated(i, rho))
       )
+
+  private final class SizeRng(private var state: Long):
+    def nextLong(): Long =
+      state += 0x9e3779b97f4a7c15L
+      var z = state
+      z = (z ^ (z >>> 30)) * 0xbf58476d1ce4e5b9L
+      z = (z ^ (z >>> 27)) * 0x94d049bb133111ebL
+      z ^ (z >>> 31)
+
+    def nextUnit(): Double =
+      (nextLong() >>> 11).toDouble * (1.0 / (1L << 53).toDouble)

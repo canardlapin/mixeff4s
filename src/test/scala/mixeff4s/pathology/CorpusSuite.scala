@@ -302,6 +302,37 @@ class CorpusSuite extends munit.FunSuite:
     assert(ratio > 800.0 && ratio < 1200.0, clues(ratio, sampleSd(x1), sampleSd(x2)))
     assertEquals(generated.formula, "y ~ 1 + x1 + x2 + (1 + x1 | g)")
 
+  test("pareto group sizes are right-skewed and still easy"):
+    val sizes = GeneratorSpec.paretoSizes(7L, 30, 1.5, 6.0)
+    assertEquals(sizes.length, 30)
+    assertEquals(GeneratorSpec.paretoSizes(7L, 30, 1.5, 6.0), sizes)
+    assert(sizes.max.toDouble / sizes.min.toDouble >= 3.0, clues(sizes.min, sizes.max, sizes))
+    val spec = GeneratorSpec.setGroupSizes(
+      GeneratorSpec.lmm(
+        "imbalance_pareto",
+        Vector.fill(30)(6),
+        nFePredictors = 1,
+        nReSlopes = 1,
+        reCovTruth = Vector(Vector(4.0, 0.5), Vector(0.5, 1.0)),
+        seed = 42L,
+        feTruth = Vector(1.0, 2.0)
+      ),
+      sizes
+    )
+    val cert = Pathology.certify(spec)
+    assertEquals(cert.stratum, Stratum.Easy)
+    assertEquals(cert.structuralIssue, None)
+    assertEquals(cert.n, sizes.sum)
+    assertEquals(cert.minGroupSize, sizes.min)
+    assertEquals(cert.maxGroupSize, sizes.max)
+    assertEquals(cert.expectedStatuses, Vector(FitStatus.ConvergedInterior))
+    val generated = Pathology.generate(spec).getOrElse(fail("generate"))
+    assertEquals(generated.frame.nRows, sizes.sum)
+    val design = Lmm.compile(generated.formula, generated.frame).getOrElse(fail("compile"))
+    val fit = Lmm.fit(generated.formula, generated.frame, FitOptions.ml).getOrElse(fail("fit"))
+    val assessed = Pathology.assessFit(cert, fit.theta, design.parmap)
+    assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
+
   test("perfectly collinear predictors are a structural refusal"):
     val spec = GeneratorSpec.collinearFe(twoPredictorSpec("collinear_fe"), 0, 1, 1.0)
     val cert = Pathology.certify(spec)
