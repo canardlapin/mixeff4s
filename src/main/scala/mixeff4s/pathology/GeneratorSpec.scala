@@ -18,15 +18,35 @@ final case class GeneratorSpec(
     family: Family = Family.Normal,
     link: Link = Link.Identity,
     binaryInterceptShift: Double = 0.0,
-    feCorrMatrix: Vector[Vector[Double]] = Vector.empty
+    feCorrMatrix: Vector[Vector[Double]] = Vector.empty,
+    crossed: Option[CrossedSpec] = None
 ):
-  def n: Int = groupSizes.sum
+  def n: Int = crossedCells.fold(groupSizes.sum)(_.length)
   def reDim: Int = 1 + nReSlopes
-  def nTheta: Int = reDim * (reDim + 1) / 2
+  def nTheta: Int = reDim * (reDim + 1) / 2 + crossed.fold(0)(_ => 1)
   def feRank: Int = (if hasIntercept then 1 else 0) + nFePredictors
   def nParams: Int = feRank + nTheta + 1
-  def minGroupSize: Int = if groupSizes.isEmpty then 0 else groupSizes.min
-  def maxGroupSize: Int = if groupSizes.isEmpty then 0 else groupSizes.max
+  def primarySizes: Vector[Int] =
+    crossedCells match
+      case None => groupSizes
+      case Some(cells) =>
+        val counts = Array.fill(groupSizes.length)(0)
+        cells.foreach: (i, _) =>
+          if i >= 0 && i < counts.length then counts(i) += 1
+        counts.toVector
+  def minGroupSize: Int =
+    val sizes = primarySizes.filter(_ > 0)
+    if sizes.isEmpty then 0 else sizes.min
+  def maxGroupSize: Int =
+    val sizes = primarySizes.filter(_ > 0)
+    if sizes.isEmpty then 0 else sizes.max
+  def crossedCells: Option[Vector[(Int, Int)]] =
+    crossed.map: c =>
+      c.cells.getOrElse:
+        (0 until groupSizes.length).flatMap(i => (0 until c.nLevels).map(j => (i, j))).toVector
+  def crossedSummary: Option[CrossedSummary] =
+    crossed.flatMap: c =>
+      crossedCells.map(cells => Crossing.summarise(groupSizes.length, c.nLevels, cells))
   def beta: Vector[Double] =
     if feTruth.nonEmpty then feTruth else Vector.fill(feRank)(1.0)
   def predictorCorr: Vector[Vector[Double]] =
@@ -64,6 +84,19 @@ object GeneratorSpec:
       binaryInterceptShift = interceptShift,
       residualSd = 0.0
     )
+
+  def fullCross(spec: GeneratorSpec, name: String, nLevels: Int, reVar: Double): GeneratorSpec =
+    spec.copy(crossed = Some(Crossing.fullCross(name, nLevels, reVar)))
+
+  def blockDiagonalCrossings(
+      spec: GeneratorSpec,
+      name: String,
+      blockSize: Int,
+      nBlocks: Int,
+      reVar: Double
+  ): GeneratorSpec =
+    val (sizes, crossed) = Crossing.blockDiagonal(name, blockSize, nBlocks, reVar)
+    spec.copy(groupSizes = sizes, crossed = Some(crossed))
 
   def collinearFe(spec: GeneratorSpec, i: Int, j: Int, rho: Double): GeneratorSpec =
     val n = spec.nFePredictors

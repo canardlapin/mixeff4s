@@ -37,23 +37,29 @@ object Generate:
     else
       SymmetricPsd.sqrt(cov).flatMap: sqrtSigma =>
         val rng = SplitMix64(spec.seed)
-        val primaryRe = Vector.tabulate(spec.groupSizes.length): _ =>
+        val nPrimary = spec.groupSizes.length
+        val primaryRe = Vector.tabulate(nPrimary): _ =>
           val z = Vector.fill(q)(rng.nextGaussian())
           mul(sqrtSigma, z)
+        val secondaryRe = spec.crossed match
+          case None => Vector.empty
+          case Some(crossed) =>
+            val sd = math.sqrt(math.max(crossed.reVar, 0.0))
+            Vector.fill(crossed.nLevels)(sd * rng.nextGaussian())
         val beta = spec.beta
         val y = Vector.newBuilder[Double]
         val groups = Vector.newBuilder[String]
+        val secondaryGroups = Vector.newBuilder[String]
         val predictors = Vector.fill(spec.nFePredictors)(Vector.newBuilder[Double])
         var responseError: Option[MixedModelError] = None
-        spec.groupSizes.zipWithIndex.foreach: (groupN, gIdx) =>
-          val u = primaryRe(gIdx)
-          val label = f"g${gIdx + 1}%03d"
-          var i = 0
-          while i < groupN && responseError.isEmpty do
+        def emit(gIdx: Int, hIdx: Option[Int]): Unit =
+          if responseError.isDefined || gIdx < 0 || gIdx >= nPrimary then ()
+          else
             val x = Vector.fill(spec.nFePredictors)(rng.nextGaussian())
             var eta = if spec.hasIntercept then beta.headOption.getOrElse(0.0) else 0.0
             x.zipWithIndex.foreach: (xj, j) =>
               eta += beta.lift(j + (if spec.hasIntercept then 1 else 0)).getOrElse(0.0) * xj
+            val u = primaryRe(gIdx)
             var rePos = 0
             if spec.hasIntercept then
               eta += u(rePos)
@@ -62,15 +68,27 @@ object Generate:
               .foreach: xj =>
                 eta += u(rePos) * xj
                 rePos += 1
+            hIdx.foreach: h =>
+              if h >= 0 && h < secondaryRe.length then eta += secondaryRe(h)
             sampleResponse(spec, eta, rng) match
               case Left(err) =>
                 responseError = Some(err)
               case Right(yi) =>
                 y += yi
-                groups += label
+                groups += f"g${gIdx + 1}%03d"
+                hIdx.foreach(h => secondaryGroups += f"h${h + 1}%03d")
                 x.zipWithIndex.foreach: (xj, j) =>
                   predictors(j) += xj
-            i += 1
+        spec.crossedCells match
+          case Some(cells) =>
+            cells.foreach: (gIdx, hIdx) =>
+              emit(gIdx, Some(hIdx))
+          case None =>
+            spec.groupSizes.zipWithIndex.foreach: (groupN, gIdx) =>
+              var i = 0
+              while i < groupN && responseError.isEmpty do
+                emit(gIdx, None)
+                i += 1
         responseError match
           case Some(err) => Left(err)
           case None =>
@@ -79,6 +97,8 @@ object Generate:
             predictors.zipWithIndex.foreach: (col, j) =>
               cols += s"x${j + 1}" -> ModelFrame.numeric(col.result())
             cols += spec.groupName -> ModelFrame.factor(groups.result())
+            spec.crossed.foreach: crossed =>
+              cols += crossed.name -> ModelFrame.factor(secondaryGroups.result())
             ModelFrame.of(cols.result()*).map(frame => Generated(frame, formula(spec)))
 
   def formula(spec: GeneratorSpec): String =
@@ -93,7 +113,8 @@ object Generate:
       case (true, false)  => s"1 + ${slopes.mkString(" + ")}"
       case (false, false) => s"0 + ${slopes.mkString(" + ")}"
       case (false, true)  => "1"
-    s"${spec.responseName} ~ $fePart + ($reInner | ${spec.groupName})"
+    val secondary = spec.crossed.fold("")(c => s" + (1 | ${c.name})")
+    s"${spec.responseName} ~ $fePart + ($reInner | ${spec.groupName})$secondary"
 
   private def sampleResponse(spec: GeneratorSpec, eta: Double, rng: SplitMix64): FitResult[Double] =
     (spec.family, spec.link) match

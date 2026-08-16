@@ -190,6 +190,55 @@ class CorpusSuite extends munit.FunSuite:
     assert(near.expectedStatuses.contains(FitStatus.ConvergedReducedRank), clues(near.expectedStatuses))
     assert(near.expectedStatuses.contains(FitStatus.ConvergedInterior), clues(near.expectedStatuses))
 
+  test("a full crossing is a single connected component"):
+    val spec = GeneratorSpec.fullCross(
+      GeneratorSpec.lmm(
+        "crossed_full",
+        Vector.fill(4)(1),
+        nFePredictors = 0,
+        nReSlopes = 0,
+        reCovTruth = Vector(Vector(1.5)),
+        seed = 42L,
+        feTruth = Vector(1.0)
+      ),
+      "h",
+      nLevels = 4,
+      reVar = 0.8
+    )
+    val cert = Pathology.certify(spec)
+    val summary = cert.crossedSummary.getOrElse(fail("crossed summary"))
+    assertEquals(summary.nPrimary, 4)
+    assertEquals(summary.nSecondary, 4)
+    assertEquals(summary.nCells, 16)
+    assertEquals(summary.nComponents, 1)
+    assertEquals(cert.structuralIssue, None)
+    assertEquals(cert.n, 16)
+
+  test("block-diagonal crossings are a disconnected refusal"):
+    val spec = blockDiagonalSpec
+    val cert = Pathology.certify(spec)
+    val summary = cert.crossedSummary.getOrElse(fail("crossed summary"))
+    assertEquals(summary.nPrimary, 16)
+    assertEquals(summary.nSecondary, 16)
+    assertEquals(summary.nCells, 64)
+    assertEquals(summary.nComponents, 4)
+    assertEquals(cert.structuralIssue, Some(StructuralIssue.DisconnectedCrossings(4)))
+    assert(cert.expectedStatuses.contains(FitStatus.NotIdentifiable), clues(cert.expectedStatuses))
+    assert(cert.expectedStatuses.contains(FitStatus.ConvergedInterior), clues(cert.expectedStatuses))
+    val otherSeed = Pathology.certify(spec.copy(seed = 999L))
+    assertEquals(cert.structuralIssue, otherSeed.structuralIssue)
+    assertEquals(cert.crossedSummary, otherSeed.crossedSummary)
+
+  test("a crossed spec generates two grouping factors"):
+    val spec = blockDiagonalSpec
+    val generated = Pathology.generate(spec).getOrElse(fail("generate"))
+    assertEquals(generated.formula, "y ~ 1 + (1 | g) + (1 | h)")
+    assertEquals(generated.frame.nRows, 64)
+    assert(generated.frame.factor("g").isDefined)
+    assert(generated.frame.factor("h").isDefined)
+    val design = Lmm.compile(generated.formula, generated.frame).getOrElse(fail("compile"))
+    assertEquals(design.reterms.length, 2)
+
   test("perfectly collinear predictors are a structural refusal"):
     val spec = GeneratorSpec.collinearFe(twoPredictorSpec("collinear_fe"), 0, 1, 1.0)
     val cert = Pathology.certify(spec)
@@ -230,6 +279,23 @@ class CorpusSuite extends munit.FunSuite:
       reCovTruth = Vector(Vector(4.0, 0.5), Vector(0.5, 1.0)),
       seed = 42L,
       feTruth = Vector(1.0, 2.0, 3.0)
+    )
+
+  private def blockDiagonalSpec: GeneratorSpec =
+    GeneratorSpec.blockDiagonalCrossings(
+      GeneratorSpec.lmm(
+        "crossed_block_diagonal_4x4x4",
+        Vector(1),
+        nFePredictors = 0,
+        nReSlopes = 0,
+        reCovTruth = Vector(Vector(1.5)),
+        seed = 42L,
+        feTruth = Vector(1.0)
+      ),
+      "h",
+      blockSize = 4,
+      nBlocks = 4,
+      reVar = 0.8
     )
 
   private def easyQ3Spec: GeneratorSpec =

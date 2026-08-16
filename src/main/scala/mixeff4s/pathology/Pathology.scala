@@ -7,7 +7,7 @@ import mixeff4s.model.Family
 /** Design-time pathology front door. */
 object Pathology:
   val ContractVersion = "v0.1"
-  val CorpusContractVersion = "v0.5"
+  val CorpusContractVersion = "v0.6"
   val WeakIdThreshold = Fisher.WeakIdThreshold
   val BoundaryTol = 1e-8
   private val ZeroVarianceTol = 1e-10
@@ -39,6 +39,10 @@ object Pathology:
         if spec.nFePredictors > 0 && feRankTruth < spec.nFePredictors then
           Some(StructuralIssue.CollinearFixedEffects(feRankTruth, spec.nFePredictors))
         else None
+      .orElse:
+        spec.crossedSummary
+          .filter(_.nComponents > 1)
+          .map(summary => StructuralIssue.DisconnectedCrossings(summary.nComponents))
       .orElse:
         if spec.family == Family.Bernoulli then
           Separation.detect(spec).kind.map(StructuralIssue.Separation(_))
@@ -73,7 +77,8 @@ object Pathology:
       fisher,
       weakScore,
       WeakIdThreshold,
-      weakId
+      weakId,
+      spec.crossedSummary
     )
 
   /** Classify a fitted θ. Design-time expected statuses are left unchanged. */
@@ -188,6 +193,17 @@ object Pathology:
       (
         Stratum.Refusal,
         Vector(FitStatus.NotIdentifiable, FitStatus.NotOptimized, FitStatus.ConvergedPenalised)
+      )
+    else if issue.exists(_.code == "disconnected_crossings") then
+      (
+        Stratum.Refusal,
+        Vector(
+          FitStatus.NotIdentifiable,
+          FitStatus.NotOptimized,
+          FitStatus.ConvergedBoundary,
+          FitStatus.ConvergedReducedRank,
+          FitStatus.ConvergedInterior
+        )
       )
     else if issue.isDefined then
       (

@@ -20,5 +20,6 @@ final case class Certificate(
     fisherEigvals: Vector[Double] = Vector.empty,
     weakIdScore: Double = Double.PositiveInfinity,
     weakIdThreshold: Double = 10.0,
-    weakIdentification: Boolean = false
+    weakIdentification: Boolean = false,
+    crossedSummary: Option[CrossedSummary] = None
 )

@@ -44,6 +44,7 @@ enum StructuralIssue:
   case MalformedSpec(reason: String)
   case Separation(kind: SeparationKind)
   case CollinearFixedEffects(rank: Int, requested: Int)
+  case DisconnectedCrossings(nComponents: Int)
 
   def code: String =
     this match
@@ -55,6 +56,7 @@ enum StructuralIssue:
       case StructuralIssue.Separation(_)              => "separation"
       case StructuralIssue.CollinearFixedEffects(_, _) =>
         "collinear_fixed_effects"
+      case StructuralIssue.DisconnectedCrossings(_) => "disconnected_crossings"
 
   def details: String =
     this match
@@ -72,6 +74,8 @@ enum StructuralIssue:
         kind.details
       case StructuralIssue.CollinearFixedEffects(rank, requested) =>
         s"fixed-effect predictor rank $rank < requested $requested"
+      case StructuralIssue.DisconnectedCrossings(nComponents) =>
+        s"crossed cell graph has $nComponents connected component(s)"
 
 enum FeSeparationKind:
   case Complete, QuasiComplete
