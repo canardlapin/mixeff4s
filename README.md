@@ -55,6 +55,7 @@ a number means what it says, otherwise you get a matchable reason code.
 - Name GLMM families and links, including the rule that Normal+Identity is an LMM
 - Compile a formula and frame into `FeTerm`, `ReMat`s, and the live θ `parmap`
 - Fit profiled (RE)ML with blocked Cholesky + TrustBQ, including crossed intercepts
+- Report VarCorr, Wald SEs, and z-statistics; p-values stay a typed refusal
 
 ## Fit and boundaries
 
@@ -78,7 +79,7 @@ via `-Dmixeff4s.gale.build=/path/to/gale`.
 
 | Question | Answer |
 | --- | --- |
-| What does it do? | Mixed-model language, frame, design compilation, and profiled LMM fitting |
+| What does it do? | Mixed-model language, frame, design compilation, profiled LMM fitting, and honest summaries |
 | Smallest useful example? | Parse `y ~ 1 + x + (1 \| g)` and inspect the IR |
 | Maturity / publication? | `prototype`, source-only, unpublished at [canardlapin/mixeff4s](https://github.com/canardlapin/mixeff4s) |
 | How to verify? | `sbt -Dmixeff4s.gale.build=/path/to/gale test` |

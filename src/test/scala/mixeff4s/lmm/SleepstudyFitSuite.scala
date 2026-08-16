@@ -37,3 +37,25 @@ class SleepstudyFitSuite extends munit.FunSuite:
     assertEqualsDouble(fit.beta(0), 251.40510484848528, 1e-3)
     assertEqualsDouble(fit.beta(1), 10.467285959595493, 1e-3)
     assertEqualsDouble(fit.sigma, 25.591795732317802, 1e-3)
+
+  test("sleepstudy VarCorr and Wald SE match MixedModels.jl"):
+    val fit = Lmm.fit(formula, Sleepstudy.frame, FitOptions.ml).getOrElse(fail("fit"))
+    assertEquals(fit.varcorr.components.length, 1)
+    val re = fit.varcorr.components.head
+    assertEquals(re.group, "subj")
+    assertEquals(re.names, Vector("(Intercept)", "days"))
+    assertEqualsDouble(re.stdDev(0), 23.78066438213187, 0.1)
+    assertEqualsDouble(re.stdDev(1), 5.7168446983832775, 0.1)
+    assertEquals(re.correlations.length, 1)
+    assertEqualsDouble(re.correlations(0), 0.0813, 0.01)
+    assertEqualsDouble(fit.varcorr.residualSd, fit.sigma, 1e-12)
+    val se = fit.stderror
+    assertEqualsDouble(se(0), 6.632295312722272, 0.01)
+    assertEqualsDouble(se(1), 1.5022387911441102, 0.01)
+    val feCorr = fit.vcov(0)(1) / (se(0) * se(1))
+    assertEqualsDouble(feCorr, -0.13755599049585931, 0.01)
+    val table = fit.coefTable
+    assertEquals(table.names, Vector("(Intercept)", "days"))
+    assertEquals(table.pValueCode, "p_value_unavailable")
+    assertEqualsDouble(table.zValues(0), fit.beta(0) / se(0), 1e-12)
+    assertEqualsDouble(fit.logdetRe, 73.90350673367566, 0.1)

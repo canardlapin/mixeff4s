@@ -143,6 +143,83 @@ final class PlsWorkspace private (
     val d = lLast(lLast.rows - 1, lLast.cols - 1)
     d * d
 
+  def fittedReterms: Vector[ReMat] = reterms
+
+  def logdetRe: Double =
+    val k = reterms.length
+    var ld = 0.0
+    var j = 0
+    while j < k do
+      ld += BlockedCholesky.logdet(lBlocks(MatrixBlock.blockIndex(j, j)))
+      j += 1
+    ld
+
+  def varcorr: VarCorr = VarCorr.fromReterms(reterms, sigma)
+
+  /** Active-column vcov: σ² (Lxx^{-1})' Lxx^{-1} in pivot order. */
+  def vcov: Vector[Vector[Double]] =
+    val k = reterms.length
+    val lLast = lBlocks(MatrixBlock.blockIndex(k, k)).asDense
+    val rank = lLast.rows - 1
+    if rank == 0 then Vector.empty
+    else
+      val lInv = Array.fill(rank, rank)(0.0)
+      var j = 0
+      while j < rank do
+        lInv(j)(j) = 1.0
+        var i = j
+        while i < rank do
+          var s = lInv(i)(j)
+          var k2 = j
+          while k2 < i do
+            s -= lLast(i, k2) * lInv(k2)(j)
+            k2 += 1
+          lInv(i)(j) = s / lLast(i, i)
+          i += 1
+        j += 1
+      val sigmaSq = sigma * sigma
+      val active = Array.tabulate(rank, rank): (r, c) =>
+        var sum = 0.0
+        var t = 0
+        while t < rank do
+          sum += lInv(t)(r) * lInv(t)(c)
+          t += 1
+        sigmaSq * sum
+      unpivotVcov(active)
+
+  private def unpivotVcov(active: Array[Array[Double]]): Vector[Vector[Double]] =
+    val piv = design.fe.piv
+    val fullP = piv.length
+    val p = active.length
+    if p == 0 then Vector.empty
+    else if p == fullP then
+      val result = Array.fill(fullP, fullP)(0.0)
+      var i = 0
+      while i < fullP do
+        var j = 0
+        while j < fullP do
+          result(piv(i))(piv(j)) = active(i)(j)
+          j += 1
+        i += 1
+      result.iterator.map(_.toVector).toVector
+    else
+      val result = Array.fill(fullP, fullP)(Double.NaN)
+      var i = 0
+      while i < p do
+        var j = 0
+        while j < p do
+          result(piv(i))(piv(j)) = active(i)(j)
+          j += 1
+        i += 1
+      result.iterator.map(_.toVector).toVector
+
+  def stderror: Vector[Double] =
+    vcov.zipWithIndex.map((row, i) => math.sqrt(row(i)))
+
+  def feNames: Vector[String] = design.fe.fullRankNames
+
+  def coefTable: CoefTable = CoefTable.wald(feNames, beta, stderror)
+
   def lowerBounds: Vector[Double] =
     parmap.map: (_, row, col) =>
       if row == col then 0.0 else Double.NegativeInfinity

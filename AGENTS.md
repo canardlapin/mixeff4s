@@ -20,7 +20,7 @@ mixeff4s.model      Family, Link
 mixeff4s.design     FeTerm, FeMat, ReMat, parmap (Gale)
 mixeff4s.linalg     WorkMat, MatrixBlock, blocked Cholesky
 mixeff4s.optimizer  TrustBQ
-mixeff4s.lmm        FitOptions, Lmm.compile, Lmm.fit (blocked-Cholesky PLS)
+mixeff4s.lmm        FitOptions, Lmm.compile, Lmm.fit, VarCorr, CoefTable
 ```
 
 Layer rules, enforced by `ArchitectureSuite`:
@@ -53,9 +53,9 @@ through the CLI. Do not hand-edit `.mote/ops`.
 | --- | --- | --- |
 | 0–1 | Language, frame, stub `Lmm.fit` | Parser + architecture tests |
 | 2 | `FeTerm` / `ReMat` / `parmap` on Gale | Design shapes on sleepstudy |
-| 3 | Blocked-Cholesky PLS + TrustBQ | sleepstudy β, θ, σ, objective (current) |
+| 3 | Blocked-Cholesky PLS + TrustBQ | sleepstudy β, θ, σ, objective |
 | 4 | Public LMM API, VarCorr, Wald | Honest summaries |
-| 5 | GLMM fast-PIRLS, labelled | Scorecard fast-PIRLS rows |
+| 5 | GLMM fast-PIRLS, labelled | Scorecard fast-PIRLS rows (current) |
 | 6 | LRT / profile / bootstrap | Refusal contracts |
 | 7 | Compiler / pathology | JSON snapshots |
 

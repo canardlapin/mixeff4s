@@ -21,8 +21,17 @@ final case class LmmFit(
     theta: Vector[Double],
     beta: Vector[Double],
     sigma: Double,
-    objective: Double
-)
+    objective: Double,
+    feNames: Vector[String],
+    vcov: Vector[Vector[Double]],
+    varcorr: VarCorr,
+    logdetRe: Double
+):
+  def stderror: Vector[Double] =
+    vcov.zipWithIndex.map((row, i) => math.sqrt(row(i)))
+
+  def coefTable: CoefTable =
+    CoefTable.wald(feNames, beta, stderror)
 
 /** Linear mixed-model front door: compile a formula against a frame, then fit. */
 object Lmm:
@@ -47,7 +56,11 @@ object Lmm:
           workspace.theta,
           workspace.beta,
           workspace.sigma,
-          workspace.objective
+          workspace.objective,
+          workspace.feNames,
+          workspace.vcov,
+          workspace.varcorr,
+          workspace.logdetRe
         )
 
   def fit(
