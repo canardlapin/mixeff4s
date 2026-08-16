@@ -88,6 +88,21 @@ object GeneratorSpec:
   def fullCross(spec: GeneratorSpec, name: String, nLevels: Int, reVar: Double): GeneratorSpec =
     spec.copy(crossed = Some(Crossing.fullCross(name, nLevels, reVar)))
 
+  def emptyCrossings(
+      spec: GeneratorSpec,
+      name: String,
+      nSecondary: Int,
+      reVar: Double,
+      density: Double,
+      seed: Long
+  ): GeneratorSpec =
+    spec.copy(crossed =
+      Some(Crossing.emptyCrossings(spec.groupSizes.length, name, nSecondary, reVar, density, seed))
+    )
+
+  def sparseConnectedCrossings(spec: GeneratorSpec, name: String, nLevels: Int, reVar: Double): GeneratorSpec =
+    spec.copy(groupSizes = Vector.fill(nLevels)(1), crossed = Some(Crossing.sparsePath(name, nLevels, reVar)))
+
   def blockDiagonalCrossings(
       spec: GeneratorSpec,
       name: String,

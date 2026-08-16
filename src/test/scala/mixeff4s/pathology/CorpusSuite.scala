@@ -229,6 +229,48 @@ class CorpusSuite extends munit.FunSuite:
     assertEquals(cert.structuralIssue, otherSeed.structuralIssue)
     assertEquals(cert.crossedSummary, otherSeed.crossedSummary)
 
+  test("unit-density empty crossings match a full Cartesian product"):
+    val spec = GeneratorSpec.emptyCrossings(
+      GeneratorSpec.lmm(
+        "crossed_density_one",
+        Vector.fill(4)(1),
+        nFePredictors = 0,
+        nReSlopes = 0,
+        reCovTruth = Vector(Vector(1.5)),
+        feTruth = Vector(1.0)
+      ),
+      "h",
+      nSecondary = 4,
+      reVar = 0.8,
+      density = 1.0,
+      seed = 11L
+    )
+    val summary = Pathology.certify(spec).crossedSummary.getOrElse(fail("summary"))
+    assertEquals(summary.nCells, 16)
+    assertEquals(summary.nComponents, 1)
+    assertEquals(summary.primaryOrphans, Vector.empty)
+    assertEquals(summary.secondaryOrphans, Vector.empty)
+
+  test("a sparse connected crossing is not a disconnected refusal"):
+    val spec = GeneratorSpec.sparseConnectedCrossings(
+      GeneratorSpec.lmm(
+        "crossed_sparse_connected",
+        Vector(1),
+        nFePredictors = 0,
+        nReSlopes = 0,
+        reCovTruth = Vector(Vector(1.5)),
+        feTruth = Vector(1.0)
+      ),
+      "h",
+      nLevels = 12,
+      reVar = 0.6
+    )
+    val cert = Pathology.certify(spec)
+    val summary = cert.crossedSummary.getOrElse(fail("summary"))
+    assertEquals(summary.nComponents, 1)
+    assertEquals(summary.nCells, 23)
+    assertEquals(cert.structuralIssue, None)
+
   test("a crossed spec generates two grouping factors"):
     val spec = blockDiagonalSpec
     val generated = Pathology.generate(spec).getOrElse(fail("generate"))

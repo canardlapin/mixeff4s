@@ -65,3 +65,42 @@ object Crossing:
       (0 until blockSize).flatMap: i =>
         (0 until blockSize).map(j => (start + i, start + j))
     (Vector.fill(nLevels)(1), CrossedSpec(name, nLevels, reVar, Some(cells.toVector)))
+
+  /** Independent cell dropout. `density` is clamped to `[0, 1]`. */
+  def emptyCrossings(
+      nPrimary: Int,
+      name: String,
+      nSecondary: Int,
+      reVar: Double,
+      density: Double,
+      seed: Long
+  ): CrossedSpec =
+    val p = density.max(0.0).min(1.0)
+    val rng = CrossingRng(seed)
+    val cells = Vector.newBuilder[(Int, Int)]
+    var i = 0
+    while i < nPrimary do
+      var j = 0
+      while j < nSecondary do
+        if rng.nextUnit() < p then cells += ((i, j))
+        j += 1
+      i += 1
+    CrossedSpec(name, nSecondary, reVar, Some(cells.result()))
+
+  /** Diagonal plus superdiagonal: sparse, one component, no orphans. */
+  def sparsePath(name: String, nLevels: Int, reVar: Double): CrossedSpec =
+    val cells = (0 until nLevels).flatMap: i =>
+      val here = Vector((i, i))
+      if i + 1 < nLevels then here :+ ((i, i + 1)) else here
+    CrossedSpec(name, nLevels, reVar, Some(cells.toVector))
+
+  private final class CrossingRng(private var state: Long):
+    def nextLong(): Long =
+      state += 0x9e3779b97f4a7c15L
+      var z = state
+      z = (z ^ (z >>> 30)) * 0xbf58476d1ce4e5b9L
+      z = (z ^ (z >>> 27)) * 0x94d049bb133111ebL
+      z ^ (z >>> 31)
+
+    def nextUnit(): Double =
+      (nextLong() >>> 11).toDouble * (1.0 / (1L << 53).toDouble)
