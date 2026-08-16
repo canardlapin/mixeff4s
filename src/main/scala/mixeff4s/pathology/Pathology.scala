@@ -2,17 +2,20 @@ package mixeff4s.pathology
 
 import mixeff4s.design.{CompiledDesign, ReMat}
 import mixeff4s.error.{FitResult, LinAlgError, MixedModelError}
+import mixeff4s.model.Family
 
 /** Design-time pathology front door. */
 object Pathology:
   val ContractVersion = "v0.1"
-  val CorpusContractVersion = "v0.3"
+  val CorpusContractVersion = "v0.4"
   val BoundaryTol = 1e-8
   private val ZeroVarianceTol = 1e-10
   private val UnitCorrelationTol = 1e-6
   private val RankRelTol = 1e-12
 
   def generate(spec: GeneratorSpec): FitResult[Generated] = Generate(spec)
+
+  def detectSeparation(spec: GeneratorSpec): SeparationReport = Separation.detect(spec)
 
   def certify(spec: GeneratorSpec): Certificate =
     val q = spec.reDim
@@ -27,6 +30,10 @@ object Pathology:
     val issue = shapeProblem
       .orElse(eigvals.left.toOption.map(_.message))
       .map(StructuralIssue.MalformedSpec(_))
+      .orElse:
+        if spec.family == Family.Bernoulli then
+          Separation.detect(spec).kind.map(StructuralIssue.Separation(_))
+        else None
       .orElse:
         if spec.nReSlopes > 0 && spec.minGroupSize == 1 then
           Some(StructuralIssue.SingletonsWithSlope(spec.label, spec.minGroupSize))
@@ -160,7 +167,12 @@ object Pathology:
       rankRequested: Int,
       boundaries: Vector[BoundaryKind]
   ): (Stratum, Vector[FitStatus]) =
-    if issue.isDefined then
+    if issue.exists(_.code == "separation") then
+      (
+        Stratum.Refusal,
+        Vector(FitStatus.NotIdentifiable, FitStatus.NotOptimized, FitStatus.ConvergedPenalised)
+      )
+    else if issue.isDefined then
       (
         Stratum.Refusal,
         Vector(

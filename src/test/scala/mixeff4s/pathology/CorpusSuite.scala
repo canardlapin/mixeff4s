@@ -147,6 +147,32 @@ class CorpusSuite extends munit.FunSuite:
     )
     assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
 
+  test("extreme Bernoulli prevalence certifies as two-tier separation"):
+    val spec = GeneratorSpec.extremePrevalence(
+      GeneratorSpec.lmm(
+        "separation_extreme_prevalence",
+        Vector.fill(8)(10),
+        nFePredictors = 1,
+        nReSlopes = 0,
+        reCovTruth = Vector(Vector(1.0)),
+        seed = 42L,
+        feTruth = Vector(0.0, 0.5)
+      ),
+      interceptShift = -15.0
+    )
+    val cert = Pathology.certify(spec)
+    assertEquals(cert.stratum, Stratum.Refusal)
+    assertEquals(cert.structuralIssue.map(_.code), Some("separation"))
+    assertEquals(
+      cert.expectedStatuses,
+      Vector(FitStatus.NotIdentifiable, FitStatus.NotOptimized, FitStatus.ConvergedPenalised)
+    )
+    cert.structuralIssue match
+      case Some(StructuralIssue.Separation(SeparationKind.Both(FeSeparationKind.Complete, nGroups))) =>
+        assertEquals(nGroups, 8)
+      case other =>
+        fail(s"expected Both(Complete, 8), got $other")
+
   test("an easy generated LMM fits to an interior status"):
     val spec = easySpec
     val cert = Pathology.certify(spec)

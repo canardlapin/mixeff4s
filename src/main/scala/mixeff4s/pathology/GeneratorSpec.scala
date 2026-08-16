@@ -1,5 +1,7 @@
 package mixeff4s.pathology
 
+import mixeff4s.model.{Family, Link}
+
 /** Truth-level synthetic LMM spec. Certification is linear algebra on this record, not a fit. */
 final case class GeneratorSpec(
     label: String,
@@ -12,7 +14,10 @@ final case class GeneratorSpec(
     feTruth: Vector[Double] = Vector.empty,
     residualSd: Double = 1.0,
     responseName: String = "y",
-    groupName: String = "g"
+    groupName: String = "g",
+    family: Family = Family.Normal,
+    link: Link = Link.Identity,
+    binaryInterceptShift: Double = 0.0
 ):
   def n: Int = groupSizes.sum
   def reDim: Int = 1 + nReSlopes
@@ -45,4 +50,12 @@ object GeneratorSpec:
       seed,
       feTruth,
       residualSd
+    )
+
+  def extremePrevalence(spec: GeneratorSpec, interceptShift: Double): GeneratorSpec =
+    spec.copy(
+      family = Family.Bernoulli,
+      link = Link.Logit,
+      binaryInterceptShift = interceptShift,
+      residualSd = 0.0
     )

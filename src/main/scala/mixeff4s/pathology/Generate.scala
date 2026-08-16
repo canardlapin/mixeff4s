@@ -2,11 +2,12 @@ package mixeff4s.pathology
 
 import mixeff4s.data.{Column, ModelFrame}
 import mixeff4s.error.{FitResult, MixedModelError}
+import mixeff4s.model.{Family, Link}
 
 /** Drawn frame plus the formula that matches the spec. Generation does not fit. */
 final case class Generated(frame: ModelFrame, formula: String)
 
-/** Deterministic Gaussian LMM draws from a truth spec. GLMM families are refused. */
+/** Deterministic draws from a truth spec. Bernoulli+Logit is supported; other GLMM families are refused. */
 object Generate:
   def apply(spec: GeneratorSpec): FitResult[Generated] =
     val q = spec.reDim
@@ -43,11 +44,12 @@ object Generate:
         val y = Vector.newBuilder[Double]
         val groups = Vector.newBuilder[String]
         val predictors = Vector.fill(spec.nFePredictors)(Vector.newBuilder[Double])
+        var responseError: Option[MixedModelError] = None
         spec.groupSizes.zipWithIndex.foreach: (groupN, gIdx) =>
           val u = primaryRe(gIdx)
           val label = f"g${gIdx + 1}%03d"
           var i = 0
-          while i < groupN do
+          while i < groupN && responseError.isEmpty do
             val x = Vector.fill(spec.nFePredictors)(rng.nextGaussian())
             var eta = if spec.hasIntercept then beta.headOption.getOrElse(0.0) else 0.0
             x.zipWithIndex.foreach: (xj, j) =>
@@ -60,17 +62,24 @@ object Generate:
               .foreach: xj =>
                 eta += u(rePos) * xj
                 rePos += 1
-            y += eta + spec.residualSd * rng.nextGaussian()
-            groups += label
-            x.zipWithIndex.foreach: (xj, j) =>
-              predictors(j) += xj
+            sampleResponse(spec, eta, rng) match
+              case Left(err) =>
+                responseError = Some(err)
+              case Right(yi) =>
+                y += yi
+                groups += label
+                x.zipWithIndex.foreach: (xj, j) =>
+                  predictors(j) += xj
             i += 1
-        val cols = Vector.newBuilder[(String, Column)]
-        cols += spec.responseName -> ModelFrame.numeric(y.result())
-        predictors.zipWithIndex.foreach: (col, j) =>
-          cols += s"x${j + 1}" -> ModelFrame.numeric(col.result())
-        cols += spec.groupName -> ModelFrame.factor(groups.result())
-        ModelFrame.of(cols.result()*).map(frame => Generated(frame, formula(spec)))
+        responseError match
+          case Some(err) => Left(err)
+          case None =>
+            val cols = Vector.newBuilder[(String, Column)]
+            cols += spec.responseName -> ModelFrame.numeric(y.result())
+            predictors.zipWithIndex.foreach: (col, j) =>
+              cols += s"x${j + 1}" -> ModelFrame.numeric(col.result())
+            cols += spec.groupName -> ModelFrame.factor(groups.result())
+            ModelFrame.of(cols.result()*).map(frame => Generated(frame, formula(spec)))
 
   def formula(spec: GeneratorSpec): String =
     val xs = (1 to spec.nFePredictors).map(i => s"x$i")
@@ -85,6 +94,17 @@ object Generate:
       case (false, false) => s"0 + ${slopes.mkString(" + ")}"
       case (false, true)  => "1"
     s"${spec.responseName} ~ $fePart + ($reInner | ${spec.groupName})"
+
+  private def sampleResponse(spec: GeneratorSpec, eta: Double, rng: SplitMix64): FitResult[Double] =
+    (spec.family, spec.link) match
+      case (Family.Normal, Link.Identity) =>
+        Right(eta + spec.residualSd * rng.nextGaussian())
+      case (Family.Bernoulli, Link.Logit) =>
+        val z = eta + spec.binaryInterceptShift
+        val p = 1.0 / (1.0 + math.exp(-z))
+        Right(if rng.nextUnit() < p then 1.0 else 0.0)
+      case (family, link) =>
+        Left(MixedModelError.UnsupportedFamilyLink(family.label, link.label))
 
   private def mul(matrix: Vector[Vector[Double]], z: Vector[Double]): Vector[Double] =
     matrix.map(row => row.zip(z).map(_ * _).sum)

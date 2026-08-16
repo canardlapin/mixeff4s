@@ -2,14 +2,15 @@ package mixeff4s.pathology
 
 /** Contract fit status. Design-time certificates use `NotAssessed` until a fit is run. */
 enum FitStatus:
-  case ConvergedInterior, ConvergedBoundary, ConvergedReducedRank, NotIdentifiable, NotOptimized,
-    NotAssessed
+  case ConvergedInterior, ConvergedBoundary, ConvergedReducedRank, ConvergedPenalised,
+    NotIdentifiable, NotOptimized, NotAssessed
 
   def code: String =
     this match
       case FitStatus.ConvergedInterior    => "converged_interior"
       case FitStatus.ConvergedBoundary    => "converged_boundary"
       case FitStatus.ConvergedReducedRank => "converged_reduced_rank"
+      case FitStatus.ConvergedPenalised   => "converged_penalised"
       case FitStatus.NotIdentifiable      => "not_identifiable"
       case FitStatus.NotOptimized         => "not_optimized"
       case FitStatus.NotAssessed          => "not_assessed"
@@ -41,6 +42,7 @@ enum StructuralIssue:
   case SingletonsWithSlope(grouping: String, minGroupSize: Int)
   case InformationSaturated(nParams: Int, n: Int)
   case MalformedSpec(reason: String)
+  case Separation(kind: SeparationKind)
 
   def code: String =
     this match
@@ -49,6 +51,7 @@ enum StructuralIssue:
       case StructuralIssue.SingletonsWithSlope(_, _)  => "singletons_with_slope"
       case StructuralIssue.InformationSaturated(_, _) => "information_saturated"
       case StructuralIssue.MalformedSpec(_)           => "malformed_spec"
+      case StructuralIssue.Separation(_)              => "separation"
 
   def details: String =
     this match
@@ -62,3 +65,27 @@ enum StructuralIssue:
         s"$nParams free parameters for n = $n observations"
       case StructuralIssue.MalformedSpec(reason) =>
         reason
+      case StructuralIssue.Separation(kind) =>
+        kind.details
+
+enum FeSeparationKind:
+  case Complete, QuasiComplete
+
+  def code: String =
+    this match
+      case FeSeparationKind.Complete      => "complete"
+      case FeSeparationKind.QuasiComplete => "quasi_complete"
+
+enum SeparationKind:
+  case FixedEffect(kind: FeSeparationKind)
+  case Conditional(nGroups: Int)
+  case Both(feKind: FeSeparationKind, nGroups: Int)
+
+  def details: String =
+    this match
+      case SeparationKind.FixedEffect(kind) =>
+        s"fixed-effect ${kind.code} separation"
+      case SeparationKind.Conditional(nGroups) =>
+        s"conditional separation in $nGroups grouping level(s)"
+      case SeparationKind.Both(feKind, nGroups) =>
+        s"fixed-effect ${feKind.code} separation and conditional separation in $nGroups grouping level(s)"
