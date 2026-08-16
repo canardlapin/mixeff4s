@@ -1,7 +1,7 @@
 package mixeff4s.pathology
 
 import mixeff4s.design.{CompiledDesign, ReMat}
-import mixeff4s.error.{LinAlgError, MixedModelError}
+import mixeff4s.error.{FitResult, LinAlgError, MixedModelError}
 
 /** Design-time pathology front door. */
 object Pathology:
@@ -11,6 +11,8 @@ object Pathology:
   private val ZeroVarianceTol = 1e-10
   private val UnitCorrelationTol = 1e-6
   private val RankRelTol = 1e-12
+
+  def generate(spec: GeneratorSpec): FitResult[Generated] = Generate(spec)
 
   def certify(spec: GeneratorSpec): Certificate =
     val q = spec.reDim
@@ -67,9 +69,11 @@ object Pathology:
         notes = cert.notes :+ "theta contains a non-finite value"
       )
     else
-      val onBound = parmap.zip(theta).exists:
-        case ((_, row, col), value) =>
-          row == col && math.abs(value) <= BoundaryTol
+      val onBound = parmap
+        .zip(theta)
+        .exists:
+          case ((_, row, col), value) =>
+            row == col && math.abs(value) <= BoundaryTol
       val status =
         if onBound then FitStatus.ConvergedBoundary else FitStatus.ConvergedInterior
       cert.copy(fitStatus = status)
@@ -120,11 +124,11 @@ object Pathology:
   def mapError(error: MixedModelError): FitStatus =
     error match
       case MixedModelError.Singular(_) | MixedModelError.RankSaturatedFixedEffects(_, _) |
-          MixedModelError.PosDefException | MixedModelError.ConstantResponse |
-          MixedModelError.NoRandomEffects =>
+          MixedModelError.PosDefException | MixedModelError.ConstantResponse | MixedModelError.NoRandomEffects =>
         FitStatus.NotIdentifiable
-      case MixedModelError.LinAlg(LinAlgError.RankDeficient(_, _) | LinAlgError.Singular |
-            LinAlgError.NotPositiveDefinite) =>
+      case MixedModelError.LinAlg(
+            LinAlgError.RankDeficient(_, _) | LinAlgError.Singular | LinAlgError.NotPositiveDefinite
+          ) =>
         FitStatus.NotIdentifiable
       case _ =>
         FitStatus.NotOptimized

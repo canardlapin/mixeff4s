@@ -1,5 +1,7 @@
 package mixeff4s.pathology
 
+import mixeff4s.lmm.{FitOptions, Lmm}
+
 class CorpusSuite extends munit.FunSuite:
   test("easy full-rank truth expects an interior fit"):
     val spec = GeneratorSpec.lmm(
@@ -73,3 +75,50 @@ class CorpusSuite extends munit.FunSuite:
     val cert = Pathology.certify(spec)
     assertEquals(cert.structuralIssue.map(_.code), Some("malformed_spec"))
     assertEquals(cert.stratum, Stratum.Refusal)
+
+  test("generate draws a deterministic Gaussian frame for an easy spec"):
+    val spec = easySpec
+    val first = Pathology.generate(spec).getOrElse(fail("generate"))
+    val second = Pathology.generate(spec).getOrElse(fail("generate again"))
+    assertEquals(first.formula, "y ~ 1 + x1 + (1 + x1 | g)")
+    assertEquals(first.frame.nRows, 180)
+    assertEquals(first.frame.numeric("y"), second.frame.numeric("y"))
+    assertEquals(first.frame.numeric("x1"), second.frame.numeric("x1"))
+
+  test("generate refuses a misshapen truth covariance"):
+    val spec = GeneratorSpec.lmm(
+      "malformed_dim",
+      Vector.fill(10)(6),
+      nFePredictors = 1,
+      nReSlopes = 1,
+      reCovTruth = Vector(Vector(1.0, 0.0, 0.0), Vector(0.0, 1.0, 0.0), Vector(0.0, 0.0, 1.0))
+    )
+    Pathology.generate(spec) match
+      case Left(err) =>
+        assertEquals(err.code, "invalid_argument")
+      case Right(other) =>
+        fail(s"expected generate refusal, got $other")
+
+  test("an easy generated LMM fits to an interior status"):
+    val spec = easySpec
+    val cert = Pathology.certify(spec)
+    val generated = Pathology.generate(spec).getOrElse(fail("generate"))
+    val design = Lmm.compile(generated.formula, generated.frame).getOrElse(fail("compile"))
+    val fit = Lmm.fit(generated.formula, generated.frame, FitOptions.ml).getOrElse(fail("fit"))
+    val assessed = Pathology.assessFit(cert, fit.theta, design.parmap)
+    assert(
+      cert.expectedStatuses.contains(assessed.fitStatus),
+      clues(assessed.fitStatus, fit.theta, cert.expectedStatuses)
+    )
+    assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
+
+  private def easySpec: GeneratorSpec =
+    GeneratorSpec.lmm(
+      "easy",
+      Vector.fill(30)(6),
+      nFePredictors = 1,
+      nReSlopes = 1,
+      reCovTruth = Vector(Vector(4.0, 0.5), Vector(0.5, 1.0)),
+      seed = 42L,
+      feTruth = Vector(1.0, 2.0)
+    )

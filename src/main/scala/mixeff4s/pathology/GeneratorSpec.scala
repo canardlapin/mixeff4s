@@ -7,7 +7,12 @@ final case class GeneratorSpec(
     nFePredictors: Int,
     hasIntercept: Boolean,
     nReSlopes: Int,
-    reCovTruth: Vector[Vector[Double]]
+    reCovTruth: Vector[Vector[Double]],
+    seed: Long = 1L,
+    feTruth: Vector[Double] = Vector.empty,
+    residualSd: Double = 1.0,
+    responseName: String = "y",
+    groupName: String = "g"
 ):
   def n: Int = groupSizes.sum
   def reDim: Int = 1 + nReSlopes
@@ -16,6 +21,8 @@ final case class GeneratorSpec(
   def nParams: Int = feRank + nTheta + 1
   def minGroupSize: Int = if groupSizes.isEmpty then 0 else groupSizes.min
   def maxGroupSize: Int = if groupSizes.isEmpty then 0 else groupSizes.max
+  def beta: Vector[Double] =
+    if feTruth.nonEmpty then feTruth else Vector.fill(feRank)(1.0)
 
 object GeneratorSpec:
   def lmm(
@@ -23,6 +30,19 @@ object GeneratorSpec:
       groupSizes: Vector[Int],
       nFePredictors: Int,
       nReSlopes: Int,
-      reCovTruth: Vector[Vector[Double]]
+      reCovTruth: Vector[Vector[Double]],
+      seed: Long = 1L,
+      feTruth: Vector[Double] = Vector.empty,
+      residualSd: Double = 1.0
   ): GeneratorSpec =
-    GeneratorSpec(label, groupSizes, nFePredictors, hasIntercept = true, nReSlopes, reCovTruth)
+    GeneratorSpec(
+      label,
+      groupSizes,
+      nFePredictors,
+      hasIntercept = true,
+      nReSlopes,
+      reCovTruth,
+      seed,
+      feTruth,
+      residualSd
+    )
