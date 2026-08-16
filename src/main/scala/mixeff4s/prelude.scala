@@ -13,6 +13,7 @@ object prelude:
     RandomTerm
   }
   export mixeff4s.formula.dsl.dsl.*
+  export mixeff4s.design.{CompiledDesign, FeMat, FeTerm, ReMat}
   export mixeff4s.lmm.{Criterion, FitOptions, Lmm, LmmFit}
   export mixeff4s.model.{Family, Link}
 

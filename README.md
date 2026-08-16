@@ -10,9 +10,10 @@ it when you want Bates/MixedModels PLS semantics without inventing a p-value.
 > boundaries may change. No stable support or binary-compatibility promise
 > should be inferred unless the package explicitly states one.
 
-**Status:** `prototype`. The formula language, model frame, and family/link
-types are implemented. The blocked-Cholesky LMM kernel is not; `Lmm.fit`
-validates the request and then refuses with a stable `unsupported` code.
+**Status:** `prototype`. The formula language, model frame, family/link types,
+Gale-backed design compilation, and a single-term blocked-Cholesky LMM kernel
+are implemented. Crossed or multi-term random effects are still a typed
+refusal.
 
 ## Quick start
 
@@ -31,8 +32,8 @@ val frame = ModelFrame.of(
   "g" -> factorCol(Vector("a", "a", "b", "b", "c", "c"))
 ).toOption.get
 
-Lmm.fit(formula, frame, FitOptions.reml)
-// Left(Unsupported("LMM blocked-Cholesky PLS kernel is not implemented yet"))
+val fit = Lmm.fit(formula, frame, FitOptions.reml).toOption.get
+(fit.beta, fit.sigma, fit.objective)
 ```
 
 The same formula can be built without a string:
@@ -53,11 +54,13 @@ a number means what it says, otherwise you get a matchable reason code.
 - Lower a typed DSL into the same formula IR
 - Evaluate the stateless `I(...)` / `log` / `sqrt` transform subset onto a frame
 - Name GLMM families and links, including the rule that Normal+Identity is an LMM
+- Compile a formula and frame into `FeTerm`, `ReMat`s, and the live θ `parmap`
+- Fit a single random-effects term by profiled (RE)ML (blocked Cholesky + TrustBQ)
 
 ## Fit and boundaries
 
-Good fit for describing mixed models and for porting mixeff-rs contracts into
-Scala 3. Not yet a fitter.
+Good fit for describing mixed models and for fitting a single grouping factor.
+Crossed or multi-term random effects are not implemented yet.
 
 Out of scope for this slice, and for the Rust 1.0 line we are porting:
 
@@ -67,17 +70,18 @@ Out of scope for this slice, and for the Rust 1.0 line we are porting:
 - GLMM profile likelihood
 - A published Maven coordinate
 
-The numerical kernel will sit on [Gale](https://github.com/canardlapin/gale).
-That dependency is not taken until design-matrix compilation needs it.
+Design compilation depends on [Gale](https://github.com/canardlapin/gale)
+through an exact source pin in `build.sbt`. A local checkout is admitted only
+via `-Dmixeff4s.gale.build=/path/to/gale`.
 
 ## Maturity and verification
 
 | Question | Answer |
 | --- | --- |
-| What does it do? | Mixed-model language and frame for Scala 3; fitting is a typed refusal |
+| What does it do? | Mixed-model language, frame, design compilation, and single-term LMM fitting |
 | Smallest useful example? | Parse `y ~ 1 + x + (1 \| g)` and inspect the IR |
 | Maturity / publication? | `prototype`, source-only, unpublished at [canardlapin/mixeff4s](https://github.com/canardlapin/mixeff4s) |
-| How to verify? | `sbt test` |
+| How to verify? | `sbt -Dmixeff4s.gale.build=/path/to/gale test` |
 
 Platform: JVM. Scala 3.7.4, sbt 1.12.14. Scala.js is deferred until the kernel
 is Gale-only.

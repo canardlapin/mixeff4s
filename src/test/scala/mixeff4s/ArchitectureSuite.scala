@@ -22,9 +22,20 @@ class ArchitectureSuite extends munit.FunSuite:
 
   private def forbidden(layer: String): Set[String] =
     layer match
-      case "error"   => Set("mixeff4s.data", "mixeff4s.lmm", "mixeff4s.model")
-      case "formula" => Set("mixeff4s.lmm", "mixeff4s.model")
-      case "data"    => Set("mixeff4s.formula", "mixeff4s.lmm", "mixeff4s.model")
-      case "model"   => Set("mixeff4s.lmm", "mixeff4s.formula", "mixeff4s.data")
-      case "lmm"     => Set("mixeff4s.compiler", "mixeff4s.stats")
-      case _         => Set.empty
+      case "error"   => Set("mixeff4s.data", "mixeff4s.lmm", "mixeff4s.model", "mixeff4s.design")
+      case "formula" => Set("mixeff4s.lmm", "mixeff4s.model", "mixeff4s.design")
+      case "data"    => Set("mixeff4s.formula", "mixeff4s.lmm", "mixeff4s.model", "mixeff4s.design")
+      case "model"   => Set("mixeff4s.lmm", "mixeff4s.formula", "mixeff4s.data", "mixeff4s.design")
+      case "design"    => Set("mixeff4s.lmm", "mixeff4s.compiler", "mixeff4s.stats")
+      case "linalg"    =>
+        Set(
+          "mixeff4s.lmm",
+          "mixeff4s.formula",
+          "mixeff4s.data",
+          "mixeff4s.model",
+          "mixeff4s.design",
+          "mixeff4s.optimizer"
+        )
+      case "optimizer" => Set("mixeff4s.lmm", "mixeff4s.design", "mixeff4s.formula", "mixeff4s.data", "mixeff4s.model")
+      case "lmm"       => Set("mixeff4s.compiler", "mixeff4s.stats")
+      case _           => Set.empty

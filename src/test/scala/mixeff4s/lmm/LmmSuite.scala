@@ -27,9 +27,12 @@ class LmmSuite extends munit.FunSuite:
       case other =>
         fail(s"expected Unsupported, got $other")
 
-  test("kernel is not implemented yet"):
+  test("single-term random intercept fits"):
     Lmm.fit("y ~ 1 + x + (1 | g)", frame, FitOptions.reml) match
-      case Left(err: MixedModelError.Unsupported) =>
-        assert(err.details.contains("not implemented"), clues(err.details))
+      case Right(fit) =>
+        assertEquals(fit.beta.length, 2)
+        assertEquals(fit.theta.length, 1)
+        assert(fit.sigma > 0.0, clues(fit.sigma))
+        assert(fit.objective.isFinite, clues(fit.objective))
       case other =>
-        fail(s"expected Unsupported kernel refusal, got $other")
+        fail(s"expected a certified fit, got $other")

@@ -16,7 +16,8 @@ class ReadmeExampleSuite extends munit.FunSuite:
       .getOrElse(fail("frame"))
 
     Lmm.fit(formula, frame, FitOptions.reml) match
-      case Left(err: MixedModelError.Unsupported) =>
-        assertEquals(err.code, "unsupported")
+      case Right(fit) =>
+        assertEquals(fit.beta.length, 2)
+        assert(fit.sigma > 0.0, clues(fit.sigma))
       case other =>
-        fail(s"expected the documented kernel refusal, got $other")
+        fail(s"expected a certified fit, got $other")

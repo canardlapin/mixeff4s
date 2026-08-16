@@ -12,6 +12,23 @@ enum Column:
       case Column.Numeric(values)      => values.length
       case Column.Factor(_, _, values) => values.length
 
+enum CategoricalCoding:
+  case Treatment, CellMeans
+
+final case class EncodedColumn(name: String, values: Vector[Double])
+
+extension (factor: Column.Factor)
+  /** Dummy columns for a factor. Treatment drops the first (reference) level. */
+  def encodedColumns(variable: String, coding: CategoricalCoding): Vector[EncodedColumn] =
+    val start = if coding == CategoricalCoding.Treatment then 1 else 0
+    factor.levels.zipWithIndex
+      .drop(start)
+      .map: (level, idx) =>
+        EncodedColumn(
+          s"$variable: $level",
+          factor.refs.map(ref => if ref == idx then 1.0 else 0.0)
+        )
+
 final class ModelFrame private (
     val columns: Vector[(String, Column)],
     val nRows: Int

@@ -17,7 +17,10 @@ mixeff4s.error      MixedModelError, LinAlgError, FitResult
 mixeff4s.formula    AST, string parser, I() transforms, typed DSL
 mixeff4s.data       ModelFrame — fitting substrate, not a dataframe library
 mixeff4s.model      Family, Link
-mixeff4s.lmm        FitOptions, Lmm.fit (kernel not implemented)
+mixeff4s.design     FeTerm, FeMat, ReMat, parmap (Gale)
+mixeff4s.linalg     WorkMat, MatrixBlock, blocked Cholesky
+mixeff4s.optimizer  TrustBQ
+mixeff4s.lmm        FitOptions, Lmm.compile, Lmm.fit (single-term PLS)
 ```
 
 Layer rules, enforced by `ArchitectureSuite`:
@@ -26,17 +29,20 @@ Layer rules, enforced by `ArchitectureSuite`:
 - `formula` does not import `lmm` or `model`
 - `data` does not import `formula`, `lmm`, or `model`
 - `model` does not import `lmm`, `formula`, or `data`
+- `linalg` does not import `lmm`, `formula`, `data`, `model`, `design`, or `optimizer`
+- `optimizer` does not import `lmm`, `design`, `formula`, `data`, or `model`
 - `lmm` does not import a future `compiler` or `stats` package
 
 ## Build
 
 ```sh
-sbt test
+sbt -Dmixeff4s.gale.build=/path/to/gale test
 sbt scalafmtAll
 ```
 
-Scala 3.7.4, sbt 1.12.14. Do not add a Gale compile dependency until Phase 2
-(design matrices). Do not add Cats Effect in core.
+Scala 3.7.4, sbt 1.12.14. Gale is pinned at `galeRevision` in `build.sbt`. A local checkout is admitted
+only through `-Dmixeff4s.gale.build=/path/to/gale`. Do not add Cats Effect in
+core.
 
 Issue tracking is **mote**. Check `mote ready`, reserve paths, and publish
 through the CLI. Do not hand-edit `.mote/ops`.
@@ -45,9 +51,9 @@ through the CLI. Do not hand-edit `.mote/ops`.
 
 | Phase | Scope | Gate |
 | --- | --- | --- |
-| 0–1 | Language, frame, stub `Lmm.fit` | Parser + architecture tests (current) |
+| 0–1 | Language, frame, stub `Lmm.fit` | Parser + architecture tests |
 | 2 | `FeTerm` / `ReMat` / `parmap` on Gale | Design shapes on sleepstudy |
-| 3 | Blocked-Cholesky PLS + TrustBQ | sleepstudy β, θ, σ, objective |
+| 3 | Blocked-Cholesky PLS + TrustBQ | sleepstudy β, θ, σ, objective (current) |
 | 4 | Public LMM API, VarCorr, Wald | Honest summaries |
 | 5 | GLMM fast-PIRLS, labelled | Scorecard fast-PIRLS rows |
 | 6 | LRT / profile / bootstrap | Refusal contracts |
