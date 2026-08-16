@@ -1,0 +1,17 @@
+# sbt / Scala build output
+target/
+project/target/
+project/project/
+.bloop/
+.bsp/
+.metals/
+metals.sbt
+
+# Editors / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# mote: local coordination state. Not source.
+.mote/
