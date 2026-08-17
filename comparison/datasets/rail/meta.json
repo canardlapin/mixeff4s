@@ -1,0 +1,25 @@
+{
+  "name": "rail",
+  "n_rows": 18,
+  "source": "nlme::Rail",
+  "license": "Part of nlme; redistributable for academic use",
+  "mixeff_rs_revision": "d6b81ce8b5974b2f0e42fcf650ad6811e5202a4f",
+  "columns": [
+    {
+      "name": "Rail",
+      "type": "categorical",
+      "levels": [
+        "2",
+        "5",
+        "1",
+        "6",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "name": "travel",
+      "type": "numeric"
+    }
+  ]
+}

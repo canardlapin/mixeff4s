@@ -1,0 +1,59 @@
+{
+  "name": "cake",
+  "n_rows": 270,
+  "source": "lme4::cake",
+  "license": "GPL (>= 2) — see lme4 DESCRIPTION",
+  "mixeff_rs_revision": "d6b81ce8b5974b2f0e42fcf650ad6811e5202a4f",
+  "columns": [
+    {
+      "name": "replicate",
+      "type": "categorical",
+      "levels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    {
+      "name": "recipe",
+      "type": "categorical",
+      "levels": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "name": "temperature",
+      "type": "categorical",
+      "levels": [
+        "175",
+        "185",
+        "195",
+        "205",
+        "215",
+        "225"
+      ]
+    },
+    {
+      "name": "angle",
+      "type": "numeric"
+    },
+    {
+      "name": "temp",
+      "type": "numeric"
+    }
+  ]
+}

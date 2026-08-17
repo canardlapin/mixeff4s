@@ -1,0 +1,52 @@
+{
+  "name": "station_season_duration",
+  "n_rows": 54,
+  "source": "Cross Validated forum example; user-supplied station/season/duration data",
+  "license": "Stack Exchange content is CC BY-SA where quoted; numeric table supplied as a modeling example",
+  "mixeff_rs_revision": "d6b81ce8b5974b2f0e42fcf650ad6811e5202a4f",
+  "columns": [
+    {
+      "name": "duration",
+      "type": "categorical",
+      "levels": [
+        "4d",
+        "7d"
+      ]
+    },
+    {
+      "name": "duration_days",
+      "type": "numeric"
+    },
+    {
+      "name": "season",
+      "type": "categorical",
+      "levels": [
+        "mon",
+        "post",
+        "pre"
+      ]
+    },
+    {
+      "name": "sites",
+      "type": "categorical",
+      "levels": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    {
+      "name": "replicate",
+      "type": "categorical",
+      "levels": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "name": "effect",
+      "type": "numeric"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "dyestuff2",
+  "n_rows": 30,
+  "source": "lme4::Dyestuff2",
+  "license": "GPL (>= 2) — see lme4 DESCRIPTION",
+  "mixeff_rs_revision": "d6b81ce8b5974b2f0e42fcf650ad6811e5202a4f",
+  "columns": [
+    {
+      "name": "Batch",
+      "type": "categorical",
+      "levels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ]
+    },
+    {
+      "name": "Yield",
+      "type": "numeric"
+    }
+  ]
+}

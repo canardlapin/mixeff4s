@@ -1,0 +1,41 @@
+{
+  "name": "singular",
+  "n_rows": 150,
+  "source": "Cross Validated answer 449095; CSV mirror: https://raw.githubusercontent.com/rnorouzian/e/master/sng.csv",
+  "license": "Stack Exchange content is CC BY-SA; CSV mirror has no explicit repository license",
+  "mixeff_rs_revision": "d6b81ce8b5974b2f0e42fcf650ad6811e5202a4f",
+  "columns": [
+    {
+      "name": "group",
+      "type": "categorical",
+      "levels": [
+        "Sch.1",
+        "Sch.2",
+        "Sch.3",
+        "Sch.4",
+        "Sch.5",
+        "Sch.6",
+        "Sch.7",
+        "Sch.8",
+        "Sch.9",
+        "Sch.10"
+      ]
+    },
+    {
+      "name": "y",
+      "type": "numeric"
+    },
+    {
+      "name": "A",
+      "type": "numeric"
+    },
+    {
+      "name": "B",
+      "type": "numeric"
+    },
+    {
+      "name": "C",
+      "type": "numeric"
+    }
+  ]
+}

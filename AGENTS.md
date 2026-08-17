@@ -76,6 +76,13 @@ present. Verify with `sbt test` (JVM and Scala.js). No secrets are required.
 | 6 | LRT / profile / bootstrap | Nested LRT + refusal contracts |
 | 7 | Compiler / pathology | JSON snapshots |
 
+There is no Phase 8. Numerical evidence is a separate program under
+`comparison/`: a scorecard, vendored frames, and frozen MixedModels.jl /
+mixeff-rs / lme4 numbers. Default `sbt test` is frozen-first and does not
+call R or Julia. Do not mark a row `release_blocking_parity` against lme4
+until a frozen lme4 number exists and a mixeff4s fit is compared to it.
+Fast-PIRLS is `documented_divergence`, never `lme4::glmer`.
+
 Keep index-parallel PLS loops close to mixeff-rs until parity is green.
 
 ## Invariants

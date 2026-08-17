@@ -1,0 +1,38 @@
+{
+  "name": "ergostool",
+  "n_rows": 36,
+  "source": "nlme::ergoStool",
+  "license": "Part of nlme; redistributable for academic use",
+  "mixeff_rs_revision": "d6b81ce8b5974b2f0e42fcf650ad6811e5202a4f",
+  "columns": [
+    {
+      "name": "effort",
+      "type": "numeric"
+    },
+    {
+      "name": "Type",
+      "type": "categorical",
+      "levels": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ]
+    },
+    {
+      "name": "Subject",
+      "type": "categorical",
+      "levels": [
+        "8",
+        "5",
+        "4",
+        "9",
+        "6",
+        "3",
+        "7",
+        "1",
+        "2"
+      ]
+    }
+  ]
+}

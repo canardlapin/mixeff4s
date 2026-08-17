@@ -1,0 +1,79 @@
+# Machine-readable parity classification for every checked-in
+# dataset/formula/estimator triple. Keep this in sync with
+# comparison/fixtures.toml and comparison/frozen/references.json.
+#
+# This is not AGENTS.md Phase 8. Classes are rust vocabulary.
+# Do not mark a row release_blocking_parity against lme4 until a
+# frozen lme4 number exists and a mixeff4s fit is compared to it.
+
+schema_version = "1.0.0"
+
+classes = [
+  "release_blocking_parity",
+  "documented_divergence",
+  "unsupported_with_contract",
+  "stress_opt_in",
+  "performance_known_slow",
+]
+
+[[row]]
+dataset = "sleepstudy"
+formula = "reaction ~ 1 + days + (1 + days | subj)"
+family = "Gaussian"
+link = "Identity"
+estimator = "ML"
+class = "release_blocking_parity"
+reference = "mixedmodels.jl"
+reason = "pinned in SleepstudyFitSuite against MixedModels.jl; lme4 is not claimed until a later ticket compares the frozen lme4 row"
+
+[[row]]
+dataset = "sleepstudy"
+formula = "reaction ~ 1 + days + (1 + days | subj)"
+family = "Gaussian"
+link = "Identity"
+estimator = "REML"
+class = "release_blocking_parity"
+reference = "mixedmodels.jl"
+reason = "pinned in SleepstudyFitSuite against MixedModels.jl; lme4 is not claimed until a later ticket compares the frozen lme4 row"
+
+[[row]]
+dataset = "penicillin"
+formula = "diameter ~ 1 + (1 | plate) + (1 | sample)"
+family = "Gaussian"
+link = "Identity"
+estimator = "ML"
+class = "release_blocking_parity"
+reference = "mixedmodels.jl"
+reason = "pinned in CrossedFitSuite against MixedModels.jl"
+
+[[row]]
+dataset = "penicillin"
+formula = "diameter ~ 1 + (1 | plate) + (1 | sample)"
+family = "Gaussian"
+link = "Identity"
+estimator = "REML"
+class = "release_blocking_parity"
+reference = "mixeff-rs"
+reason = "only rust-labelled numeric pin in CrossedFitSuite; frozen lme4 numbers exist but are not yet a mixeff4s claim"
+
+[[row]]
+dataset = "pastes"
+formula = "strength ~ 1 + (1 | batch / cask)"
+family = "Gaussian"
+link = "Identity"
+estimator = "ML"
+class = "release_blocking_parity"
+reference = "mixedmodels.jl"
+theta_abs_tol = 0.09
+reason = "pinned in CrossedFitSuite against MixedModels.jl with a slack theta tolerance"
+
+[[row]]
+dataset = "contraception"
+formula = "use_num ~ 1 + age + age2 + urban + livch + (1 | urban_dist)"
+family = "Bernoulli"
+link = "Logit"
+estimator = "fast_pirls"
+class = "documented_divergence"
+reference = "mixedmodels.jl_fast_pirls"
+objective_abs_tol = 1.0
+reason = "labelled fast-PIRLS; not lme4::glmer. Objective constants are comparable only to MixedModels.jl fast=true"

@@ -1,0 +1,38 @@
+{
+  "name": "oats",
+  "n_rows": 72,
+  "source": "nlme::Oats",
+  "license": "Part of nlme; redistributable for academic use",
+  "mixeff_rs_revision": "d6b81ce8b5974b2f0e42fcf650ad6811e5202a4f",
+  "columns": [
+    {
+      "name": "Block",
+      "type": "categorical",
+      "levels": [
+        "VI",
+        "V",
+        "III",
+        "IV",
+        "II",
+        "I"
+      ]
+    },
+    {
+      "name": "Variety",
+      "type": "categorical",
+      "levels": [
+        "Golden Rain",
+        "Marvellous",
+        "Victory"
+      ]
+    },
+    {
+      "name": "nitro",
+      "type": "numeric"
+    },
+    {
+      "name": "yield",
+      "type": "numeric"
+    }
+  ]
+}

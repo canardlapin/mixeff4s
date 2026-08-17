@@ -1,0 +1,34 @@
+{
+  "name": "machines",
+  "n_rows": 54,
+  "source": "nlme::Machines",
+  "license": "Part of nlme; redistributable for academic use",
+  "mixeff_rs_revision": "d6b81ce8b5974b2f0e42fcf650ad6811e5202a4f",
+  "columns": [
+    {
+      "name": "Worker",
+      "type": "categorical",
+      "levels": [
+        "6",
+        "2",
+        "4",
+        "1",
+        "3",
+        "5"
+      ]
+    },
+    {
+      "name": "Machine",
+      "type": "categorical",
+      "levels": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "name": "score",
+      "type": "numeric"
+    }
+  ]
+}

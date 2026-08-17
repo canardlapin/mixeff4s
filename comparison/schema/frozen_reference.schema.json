@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/canardlapin/mixeff4s/comparison/schema/frozen_reference.schema.json",
+  "title": "mixeff4s frozen reference catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "source", "results"],
+  "properties": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "const": "mixeff4s.frozen_reference" },
+        "version": { "type": "integer", "const": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["note"],
+      "properties": {
+        "mixeff_rs_revision": { "type": "string" },
+        "lme4_tool": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "results": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/result" }
+    }
+  },
+  "$defs": {
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dataset",
+        "formula",
+        "family",
+        "link",
+        "estimator",
+        "engine",
+        "status"
+      ],
+      "properties": {
+        "dataset": { "type": "string", "minLength": 1 },
+        "formula": { "type": "string", "minLength": 1 },
+        "family": { "type": "string", "minLength": 1 },
+        "link": { "type": "string", "minLength": 1 },
+        "estimator": { "type": "string", "minLength": 1 },
+        "engine": {
+          "enum": ["lme4", "mixedmodels.jl", "mixeff-rs", "mixeff4s"]
+        },
+        "status": {
+          "enum": ["ok", "unsupported", "error", "not_implemented", "skipped"]
+        },
+        "n_obs": { "type": "integer", "minimum": 0 },
+        "objective": { "type": ["number", "null"] },
+        "objective_definition": { "type": "string" },
+        "objective_comparable": { "type": "boolean" },
+        "beta": {
+          "type": ["array", "null"],
+          "items": { "type": "number" }
+        },
+        "coef_names": {
+          "type": ["array", "null"],
+          "items": { "type": "string" }
+        },
+        "theta": {
+          "type": ["array", "null"],
+          "items": { "type": "number" }
+        },
+        "sigma": { "type": ["number", "null"] },
+        "is_singular": { "type": "boolean" },
+        "tolerances": { "$ref": "#/$defs/tolerances" }
+      },
+      "not": {
+        "anyOf": [
+          { "required": ["p_value"] },
+          { "required": ["p_values"] },
+          { "required": ["pvalue"] }
+        ]
+      }
+    },
+    "tolerances": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "objective": { "type": "number" },
+        "beta": { "type": "number" },
+        "theta": { "type": "number" },
+        "sigma": { "type": "number" }
+      }
+    }
+  }
+}
