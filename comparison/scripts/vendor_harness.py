@@ -89,6 +89,27 @@ EXTRACT_KEYS = {
         "Identity",
         "REML",
     ),
+    (
+        "rail",
+        "travel ~ 1 + (1 | Rail)",
+        "Gaussian",
+        "Identity",
+        "REML",
+    ),
+    (
+        "ergostool",
+        "effort ~ 1 + Type + (1 | Subject)",
+        "Gaussian",
+        "Identity",
+        "REML",
+    ),
+    (
+        "cake",
+        "angle ~ 1 + recipe * temperature + (1 | recipe:replicate)",
+        "Gaussian",
+        "Identity",
+        "REML",
+    ),
 }
 
 

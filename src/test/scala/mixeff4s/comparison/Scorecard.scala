@@ -158,6 +158,36 @@ object Scorecard:
       |reason = "singular boundary is expected; assessFit must report converged_boundary"
       |
       |[[row]]
+      |dataset = "rail"
+      |formula = "travel ~ 1 + (1 | Rail)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "REML"
+      |class = "release_blocking_parity"
+      |reference = "lme4"
+      |reason = "smallest scalar-intercept fixture; nlme Rail level order is preserved"
+      |
+      |[[row]]
+      |dataset = "ergostool"
+      |formula = "effort ~ 1 + Type + (1 | Subject)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "REML"
+      |class = "release_blocking_parity"
+      |reference = "lme4"
+      |reason = "fixed factor plus subject intercept; nlme Subject level order is preserved"
+      |
+      |[[row]]
+      |dataset = "cake"
+      |formula = "angle ~ 1 + recipe * temperature + (1 | recipe:replicate)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "REML"
+      |class = "release_blocking_parity"
+      |reference = "lme4"
+      |reason = "split-plot interaction; betas compared after aligning contrast names to lme4"
+      |
+      |[[row]]
       |dataset = "contraception"
       |formula = "use_num ~ 1 + age + age2 + urban + livch + (1 | urban_dist)"
       |family = "Bernoulli"

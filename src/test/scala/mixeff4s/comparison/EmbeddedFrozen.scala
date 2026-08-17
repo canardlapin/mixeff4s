@@ -187,6 +187,64 @@ private[comparison] object EmbeddedFrozen:
       }
     },
     {
+      "dataset": "cake",
+      "formula": "angle ~ 1 + recipe * temperature + (1 | recipe:replicate)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 270,
+      "objective": 1633.246181533657,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        29.133333333332015,
+        -2.2666666666652615,
+        -1.199999999998692,
+        2.400000000000378,
+        1.6666666666670484,
+        4.40000000000038,
+        9.533333333333706,
+        5.933333333333708,
+        0.1333333333329079,
+        3.199999999999569,
+        0.8666666666662394,
+        -1.9333333333337546,
+        2.4666666666662413,
+        -1.4000000000004051,
+        2.133333333332924,
+        -1.4666666666670733,
+        -3.066666666667067,
+        1.8666666666662612
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "recipe: B",
+        "recipe: C",
+        "temperature: 185",
+        "temperature: 195",
+        "temperature: 205",
+        "temperature: 215",
+        "temperature: 225",
+        "recipe: B:temperature: 185",
+        "recipe: B:temperature: 195",
+        "recipe: B:temperature: 205",
+        "recipe: B:temperature: 215",
+        "recipe: B:temperature: 225",
+        "recipe: C:temperature: 185",
+        "recipe: C:temperature: 195",
+        "recipe: C:temperature: 205",
+        "recipe: C:temperature: 215",
+        "recipe: C:temperature: 225"
+      ],
+      "theta": [
+        1.4296373923248473
+      ],
+      "sigma": 4.524455494621483,
+      "is_singular": false
+    },
+    {
       "dataset": "dyestuff",
       "formula": "Yield ~ 1 + (1 | Batch)",
       "family": "Gaussian",
@@ -283,6 +341,36 @@ private[comparison] object EmbeddedFrozen:
       "is_singular": true
     },
     {
+      "dataset": "ergostool",
+      "formula": "effort ~ 1 + Type + (1 | Subject)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 36,
+      "objective": 121.13078870237001,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        8.555555555555578,
+        3.888888888888884,
+        2.2222222222222183,
+        0.6666666666666627
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "Type: T2",
+        "Type: T3",
+        "Type: T4"
+      ],
+      "theta": [
+        1.21101540341102
+      ],
+      "sigma": 1.1002930421604715,
+      "is_singular": false
+    },
+    {
       "dataset": "pastes",
       "formula": "strength ~ 1 + (1 | sample) + (1 | batch)",
       "family": "Gaussian",
@@ -330,6 +418,30 @@ private[comparison] object EmbeddedFrozen:
         3.51241122181154
       ],
       "sigma": 0.549923173720829,
+      "is_singular": false
+    },
+    {
+      "dataset": "rail",
+      "formula": "travel ~ 1 + (1 | Rail)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 18,
+      "objective": 122.17700080985884,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        66.49999999999962
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        6.169234589854954
+      ],
+      "sigma": 4.020795157094695,
       "is_singular": false
     },
     {
@@ -386,6 +498,64 @@ private[comparison] object EmbeddedFrozen:
         0.222646742690827
       ],
       "sigma": 25.591813564885108,
+      "is_singular": false
+    },
+    {
+      "dataset": "cake",
+      "formula": "angle ~ 1 + recipe * temperature + (1 | recipe:replicate)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 270,
+      "objective": 1633.2462,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        29.1333,
+        -2.2667,
+        -1.2,
+        2.4,
+        1.6667,
+        4.4,
+        9.5333,
+        5.9333,
+        0.1333,
+        -1.4,
+        3.2,
+        2.1333,
+        0.8667,
+        -1.4667,
+        -1.9333,
+        -3.0667,
+        2.4667,
+        1.8667
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "recipeB",
+        "recipeC",
+        "temperature185",
+        "temperature195",
+        "temperature205",
+        "temperature215",
+        "temperature225",
+        "recipeB:temperature185",
+        "recipeC:temperature185",
+        "recipeB:temperature195",
+        "recipeC:temperature195",
+        "recipeB:temperature205",
+        "recipeC:temperature205",
+        "recipeB:temperature215",
+        "recipeC:temperature215",
+        "recipeB:temperature225",
+        "recipeC:temperature225"
+      ],
+      "theta": [
+        1.4296
+      ],
+      "sigma": 4.5245,
       "is_singular": false
     },
     {
@@ -485,6 +655,36 @@ private[comparison] object EmbeddedFrozen:
       "is_singular": true
     },
     {
+      "dataset": "ergostool",
+      "formula": "effort ~ 1 + Type + (1 | Subject)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 36,
+      "objective": 121.1308,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        8.5556,
+        3.8889,
+        2.2222,
+        0.6667
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "TypeT2",
+        "TypeT3",
+        "TypeT4"
+      ],
+      "theta": [
+        1.211
+      ],
+      "sigma": 1.1003,
+      "is_singular": false
+    },
+    {
       "dataset": "pastes",
       "formula": "strength ~ 1 + (1 | sample) + (1 | batch)",
       "family": "Gaussian",
@@ -532,6 +732,30 @@ private[comparison] object EmbeddedFrozen:
         3.5125
       ],
       "sigma": 0.5499,
+      "is_singular": false
+    },
+    {
+      "dataset": "rail",
+      "formula": "travel ~ 1 + (1 | Rail)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 18,
+      "objective": 122.177,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        66.5
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        6.1693
+      ],
+      "sigma": 4.0208,
       "is_singular": false
     },
     {

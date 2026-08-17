@@ -29,3 +29,30 @@ object FitCompare:
 
   def sigmaTol(row: ScorecardRow, ref: FrozenResult): Double =
     row.sigmaAbsTol.orElse(ref.tolerances.sigma).getOrElse(DefaultSigmaTol)
+
+  /** Map `recipe: B:temperature: 185` onto lme4's `recipeB:temperature185`. */
+  def contrastName(name: String): String =
+    if name == "(Intercept)" then name
+    else
+      val pieces = raw"([A-Za-z_][\w.]*): ([^:]+)".r.findAllMatchIn(name).toVector
+      if pieces.isEmpty then name
+      else pieces.map(m => m.group(1) + m.group(2).trim).mkString(":")
+
+  def alignedBeta(
+      obtainedNames: Vector[String],
+      obtained: Vector[Double],
+      referenceNames: Vector[String],
+      reference: Vector[Double]
+  ): Vector[(String, Double, Double)] =
+    if obtained.length != obtainedNames.length then
+      throw IllegalArgumentException("obtained beta and names differ in length")
+    if reference.length != referenceNames.length then
+      throw IllegalArgumentException("reference beta and names differ in length")
+    val byName = obtainedNames.map(contrastName).zip(obtained).toMap
+    val missing = referenceNames.filterNot(byName.contains)
+    if missing.nonEmpty then
+      throw IllegalArgumentException(
+        s"fit is missing reference contrasts $missing; have ${obtainedNames.map(contrastName)}"
+      )
+    referenceNames.zip(reference).map: (name, value) =>
+      (name, byName(name), value)
