@@ -85,13 +85,11 @@ object GeneratorSpec:
       residualSd
     )
 
+  def bernoulliLogit(spec: GeneratorSpec): GeneratorSpec =
+    spec.copy(family = Family.Bernoulli, link = Link.Logit, residualSd = 0.0)
+
   def extremePrevalence(spec: GeneratorSpec, interceptShift: Double): GeneratorSpec =
-    spec.copy(
-      family = Family.Bernoulli,
-      link = Link.Logit,
-      binaryInterceptShift = interceptShift,
-      residualSd = 0.0
-    )
+    bernoulliLogit(spec).copy(binaryInterceptShift = interceptShift)
 
   def fullCross(spec: GeneratorSpec, name: String, nLevels: Int, reVar: Double): GeneratorSpec =
     spec.copy(crossed = Some(Crossing.fullCross(name, nLevels, reVar)))
@@ -124,6 +122,20 @@ object GeneratorSpec:
 
   def setGroupSizes(spec: GeneratorSpec, sizes: Vector[Int]): GeneratorSpec =
     spec.copy(groupSizes = sizes)
+
+  def singletonsWithSlope(spec: GeneratorSpec, nGroups: Int): GeneratorSpec =
+    spec.copy(groupSizes = Vector.fill(nGroups.max(0))(1))
+
+  def nearSingularRe(spec: GeneratorSpec, rho: Double): GeneratorSpec =
+    val cov = spec.reCovTruth
+    if cov.length < 2 then spec
+    else
+      val off = rho * math.sqrt(cov(0)(0) * cov(1)(1))
+      spec.copy(reCovTruth =
+        cov
+          .updated(0, cov(0).updated(1, off))
+          .updated(1, cov(1).updated(0, off))
+      )
 
   /** Inverse-CDF Pareto Type I (`xm = 1`), clamped to `[1, meanSize · 50]`. Seeds do not match rust `StdRng`. */
   def paretoSizes(seed: Long, nGroups: Int, alpha: Double, meanSize: Double): Vector[Int] =

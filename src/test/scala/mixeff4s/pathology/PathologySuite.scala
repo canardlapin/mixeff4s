@@ -85,6 +85,17 @@ class PathologySuite extends munit.FunSuite:
       Pathology.assessFit(cert, Vector(0.9, 0.0, 0.2), Vector((0, 0, 0), (0, 1, 0), (0, 1, 1)))
     assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
 
+  test("assessOutcome maps an engine error on a refusal design"):
+    val frame = ModelFrame
+      .of(
+        "y" -> ModelFrame.numeric(Vector(1.0, 2.0, 3.0)),
+        "g" -> ModelFrame.factor(Vector("a", "a", "a"))
+      )
+      .getOrElse(fail("frame"))
+    val cert = certify("y ~ 1 + (1 | g)", frame)
+    val assessed = Pathology.assessOutcome(cert, Left(MixedModelError.NoRandomEffects), Vector.empty)
+    assertEquals(assessed.fitStatus, FitStatus.NotIdentifiable)
+
   test("refusal designs do not claim a converged fit status"):
     val frame = ModelFrame
       .of(

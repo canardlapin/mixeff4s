@@ -147,6 +147,43 @@ class CorpusSuite extends munit.FunSuite:
     )
     assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
 
+  test("an extreme slope isolates complete FE separation"):
+    val spec = feSeparationSpec
+    val cert = Pathology.certify(spec)
+    val report = Pathology.detectSeparation(spec)
+    assertEquals(cert.stratum, Stratum.Refusal)
+    assertEquals(
+      cert.expectedStatuses,
+      Vector(FitStatus.NotIdentifiable, FitStatus.NotOptimized, FitStatus.ConvergedPenalised)
+    )
+    assert(!cert.expectedStatuses.contains(FitStatus.ConvergedInterior), clues(cert.expectedStatuses))
+    cert.structuralIssue match
+      case Some(StructuralIssue.Separation(SeparationKind.FixedEffect(FeSeparationKind.Complete))) => ()
+      case other =>
+        fail(s"expected FixedEffect(Complete), got $other")
+    assertEquals(report.feKind, Some(FeSeparationKind.Complete))
+    assertEquals(report.conditionalGroups, Vector.empty)
+    val beta = report.hyperplaneDirection.getOrElse(fail("hyperplane"))
+    assert(math.abs(beta(1)) > math.abs(beta(0)), clues(beta))
+
+  test("rare events isolate conditional separation"):
+    val spec = conditionalSeparationSpec
+    val cert = Pathology.certify(spec)
+    val report = Pathology.detectSeparation(spec)
+    assertEquals(cert.stratum, Stratum.Refusal)
+    assertEquals(
+      cert.expectedStatuses,
+      Vector(FitStatus.NotIdentifiable, FitStatus.NotOptimized, FitStatus.ConvergedPenalised)
+    )
+    assert(!cert.expectedStatuses.contains(FitStatus.ConvergedInterior), clues(cert.expectedStatuses))
+    cert.structuralIssue match
+      case Some(StructuralIssue.Separation(SeparationKind.Conditional(nGroups))) =>
+        assert(nGroups >= 1, clues(nGroups))
+      case other =>
+        fail(s"expected Conditional, got $other")
+    assertEquals(report.feKind, None)
+    assert(report.conditionalGroups.nonEmpty, clues(report.conditionalGroups))
+
   test("extreme Bernoulli prevalence certifies as two-tier separation"):
     val spec = GeneratorSpec.extremePrevalence(
       GeneratorSpec.lmm(
@@ -281,6 +318,56 @@ class CorpusSuite extends munit.FunSuite:
     val design = Lmm.compile(generated.formula, generated.frame).getOrElse(fail("compile"))
     assertEquals(design.reterms.length, 2)
 
+  test("a connected crossing fits to an interior status"):
+    val spec = connectedCrossedSpec
+    val cert = Pathology.certify(spec)
+    assertEquals(cert.structuralIssue, None)
+    assertEquals(cert.nTheta, 2)
+    val assessed = assessGenerated(spec)
+    assert(
+      cert.expectedStatuses.contains(assessed.fitStatus),
+      clues(assessed.fitStatus, assessed.notes, cert.expectedStatuses)
+    )
+    assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
+
+  test("a disconnected crossing's engine outcome stays in the expected set"):
+    val spec = blockDiagonalSpec
+    val cert = Pathology.certify(spec)
+    val assessed = assessGenerated(spec)
+    assert(
+      cert.expectedStatuses.contains(assessed.fitStatus),
+      clues(assessed.fitStatus, assessed.notes, cert.expectedStatuses)
+    )
+
+  test("near-singular RE and scale mismatch compose without a collision"):
+    val spec = GeneratorSpec.scaleMismatch(
+      GeneratorSpec.nearSingularRe(easySpec.copy(label = "compose_scale_and_near_singular"), 0.999),
+      Vector(1e2)
+    )
+    assertEquals(spec.feScales, Vector(1e2))
+    val off = spec.reCovTruth(0)(1)
+    val denom = math.sqrt(spec.reCovTruth(0)(0) * spec.reCovTruth(1)(1))
+    assertEqualsDouble(off / denom, 0.999, 1e-6)
+    val cert = Pathology.certify(spec)
+    assertEquals(cert.structuralIssue, None)
+    assertEquals(cert.reRankTruth, 2)
+
+  test("singletons via transform match the inline refusal"):
+    val spec = GeneratorSpec.singletonsWithSlope(
+      GeneratorSpec.lmm(
+        "refusal_singletons_transform",
+        Vector.fill(30)(6),
+        nFePredictors = 1,
+        nReSlopes = 1,
+        reCovTruth = Vector(Vector(4.0, 0.5), Vector(0.5, 1.0))
+      ),
+      nGroups = 6
+    )
+    assert(spec.groupSizes.forall(_ == 1), clues(spec.groupSizes))
+    val cert = Pathology.certify(spec)
+    assertEquals(cert.structuralIssue.map(_.code), Some("singletons_with_slope"))
+    assert(cert.expectedStatuses.contains(FitStatus.NotIdentifiable), clues(cert.expectedStatuses))
+
   test("scale mismatch leaves the weak-id score unchanged"):
     val base = twoPredictorSpec("scale_mismatch")
     val baseline = Pathology.certify(base)
@@ -353,6 +440,33 @@ class CorpusSuite extends munit.FunSuite:
     )
     assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
 
+  private def feSeparationSpec: GeneratorSpec =
+    GeneratorSpec.bernoulliLogit(
+      GeneratorSpec.lmm(
+        "fe_separation_extreme_slope",
+        Vector.fill(10)(20),
+        nFePredictors = 1,
+        nReSlopes = 0,
+        reCovTruth = Vector(Vector(1.0)),
+        seed = 7L,
+        feTruth = Vector(0.0, 1e6)
+      )
+    )
+
+  private def conditionalSeparationSpec: GeneratorSpec =
+    GeneratorSpec.extremePrevalence(
+      GeneratorSpec.lmm(
+        "conditional_separation_rare_events",
+        Vector.fill(20)(4),
+        nFePredictors = 1,
+        nReSlopes = 0,
+        reCovTruth = Vector(Vector(1.0)),
+        seed = 42L,
+        feTruth = Vector(0.0, 0.5)
+      ),
+      interceptShift = -1.5
+    )
+
   private def easySpec: GeneratorSpec =
     GeneratorSpec.lmm(
       "easy",
@@ -374,6 +488,33 @@ class CorpusSuite extends munit.FunSuite:
       seed = 42L,
       feTruth = Vector(1.0, 2.0, 3.0)
     )
+
+  private def connectedCrossedSpec: GeneratorSpec =
+    GeneratorSpec.fullCross(
+      GeneratorSpec.lmm(
+        "crossed_full_fit",
+        Vector.fill(8)(1),
+        nFePredictors = 0,
+        nReSlopes = 0,
+        reCovTruth = Vector(Vector(1.5)),
+        seed = 42L,
+        feTruth = Vector(1.0)
+      ),
+      "h",
+      nLevels = 8,
+      reVar = 0.8
+    )
+
+  private def assessGenerated(spec: GeneratorSpec): Certificate =
+    val cert = Pathology.certify(spec)
+    Pathology.generate(spec) match
+      case Left(err) => Pathology.assessOutcome(cert, Left(err), Vector.empty)
+      case Right(generated) =>
+        Lmm.compile(generated.formula, generated.frame) match
+          case Left(err) => Pathology.assessOutcome(cert, Left(err), Vector.empty)
+          case Right(design) =>
+            val outcome = Lmm.fit(generated.formula, generated.frame, FitOptions.ml).map(_.theta)
+            Pathology.assessOutcome(cert, outcome, design.parmap)
 
   private def blockDiagonalSpec: GeneratorSpec =
     GeneratorSpec.blockDiagonalCrossings(

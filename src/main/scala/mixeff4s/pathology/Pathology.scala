@@ -89,25 +89,17 @@ object Pathology:
   ): Certificate =
     if cert.stratum == Stratum.Refusal then
       cert.copy(notes = cert.notes :+ "fit status is not claimed for a refusal design")
-    else if theta.length != cert.nTheta || theta.length != parmap.length then
-      cert.copy(
-        fitStatus = FitStatus.NotAssessed,
-        notes = cert.notes :+ s"theta length ${theta.length} does not match n_theta ${cert.nTheta}"
-      )
-    else if theta.exists(v => !v.isFinite) then
-      cert.copy(
-        fitStatus = FitStatus.NotAssessed,
-        notes = cert.notes :+ "theta contains a non-finite value"
-      )
-    else
-      val onBound = parmap
-        .zip(theta)
-        .exists:
-          case ((_, row, col), value) =>
-            row == col && math.abs(value) <= BoundaryTol
-      val status =
-        if onBound then FitStatus.ConvergedBoundary else FitStatus.ConvergedInterior
-      cert.copy(fitStatus = status)
+    else classifyTheta(cert, theta, parmap)
+
+  /** Map an engine outcome. Unlike `assessFit`, a refusal still receives a status. */
+  def assessOutcome(
+      cert: Certificate,
+      outcome: FitResult[Vector[Double]],
+      parmap: Vector[(Int, Int, Int)]
+  ): Certificate =
+    outcome match
+      case Left(err)    => cert.copy(fitStatus = mapError(err), notes = cert.notes :+ err.code)
+      case Right(theta) => classifyTheta(cert, theta, parmap)
 
   def certify(design: CompiledDesign): Certificate =
     val sizes = design.reterms.flatMap(groupSizes)
@@ -163,6 +155,31 @@ object Pathology:
         FitStatus.NotIdentifiable
       case _ =>
         FitStatus.NotOptimized
+
+  private def classifyTheta(
+      cert: Certificate,
+      theta: Vector[Double],
+      parmap: Vector[(Int, Int, Int)]
+  ): Certificate =
+    if theta.length != cert.nTheta || theta.length != parmap.length then
+      cert.copy(
+        fitStatus = FitStatus.NotAssessed,
+        notes = cert.notes :+ s"theta length ${theta.length} does not match n_theta ${cert.nTheta}"
+      )
+    else if theta.exists(v => !v.isFinite) then
+      cert.copy(
+        fitStatus = FitStatus.NotAssessed,
+        notes = cert.notes :+ "theta contains a non-finite value"
+      )
+    else
+      val onBound = parmap
+        .zip(theta)
+        .exists:
+          case ((_, row, col), value) =>
+            row == col && math.abs(value) <= BoundaryTol
+      val status =
+        if onBound then FitStatus.ConvergedBoundary else FitStatus.ConvergedInterior
+      cert.copy(fitStatus = status)
 
   private def structuralIssue(design: CompiledDesign, nParams: Int): Option[StructuralIssue] =
     if design.p >= design.n then Some(StructuralIssue.RankSaturated(design.p, design.n))
