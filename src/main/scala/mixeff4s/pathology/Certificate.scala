@@ -13,5 +13,13 @@ final case class Certificate(
     feRank: Int,
     nTheta: Int,
     structuralIssue: Option[StructuralIssue],
-    notes: Vector[String]
+    notes: Vector[String],
+    reRankTruth: Int = 0,
+    reRankRequested: Int = 0,
+    boundaries: Vector[BoundaryKind] = Vector.empty,
+    fisherEigvals: Vector[Double] = Vector.empty,
+    weakIdScore: Double = Double.PositiveInfinity,
+    weakIdThreshold: Double = 10.0,
+    weakIdentification: Boolean = false,
+    crossedSummary: Option[CrossedSummary] = None
 )

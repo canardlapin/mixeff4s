@@ -1,0 +1,58 @@
+{
+  "name": "orthodont",
+  "n_rows": 108,
+  "source": "nlme::Orthodont",
+  "license": "Part of nlme; redistributable for academic use",
+  "mixeff_rs_revision": "d6b81ce8b5974b2f0e42fcf650ad6811e5202a4f",
+  "columns": [
+    {
+      "name": "distance",
+      "type": "numeric"
+    },
+    {
+      "name": "age",
+      "type": "numeric"
+    },
+    {
+      "name": "Subject",
+      "type": "categorical",
+      "levels": [
+        "M16",
+        "M05",
+        "M02",
+        "M11",
+        "M07",
+        "M08",
+        "M03",
+        "M12",
+        "M13",
+        "M14",
+        "M09",
+        "M15",
+        "M06",
+        "M04",
+        "M01",
+        "M10",
+        "F10",
+        "F09",
+        "F06",
+        "F01",
+        "F05",
+        "F07",
+        "F02",
+        "F08",
+        "F03",
+        "F04",
+        "F11"
+      ]
+    },
+    {
+      "name": "Sex",
+      "type": "categorical",
+      "levels": [
+        "Male",
+        "Female"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+# Datasets the portable loader can materialize.
+# Scorecard rows must name a dataset from builtin or vendored.
+# Vendored frames come from mixeff-rs datasets/* at the recorded revision.
+# InstEval-scale frames are not here; they stay JVM-only / opt-in.
+
+schema_version = "1.0.0"
+
+builtin = [
+  "sleepstudy",
+  "penicillin",
+  "pastes",
+  "contraception",
+]
+
+vendored = [
+  "dyestuff",
+  "dyestuff2",
+  "rail",
+  "cake",
+  "ergostool",
+  "oats",
+  "orthodont",
+  "oxide",
+  "machines",
+  "station_season_duration",
+  "singular",
+]
+
+mixeff_rs_revision = "d6b81ce8b5974b2f0e42fcf650ad6811e5202a4f"

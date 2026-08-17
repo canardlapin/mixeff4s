@@ -1,0 +1,53 @@
+{
+  "name": "oxide",
+  "n_rows": 72,
+  "source": "MixedModels.jl :oxide",
+  "license": "Per MixedModels.jl test data — see https://github.com/JuliaStats/MixedModels.jl",
+  "mixeff_rs_revision": "d6b81ce8b5974b2f0e42fcf650ad6811e5202a4f",
+  "columns": [
+    {
+      "name": "Source",
+      "type": "categorical",
+      "levels": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "name": "Lot",
+      "type": "categorical",
+      "levels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "name": "Wafer",
+      "type": "categorical",
+      "levels": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "name": "Site",
+      "type": "categorical",
+      "levels": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "name": "Thickness",
+      "type": "numeric"
+    }
+  ]
+}

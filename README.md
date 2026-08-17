@@ -85,11 +85,17 @@ via `-Dmixeff4s.gale.build=/path/to/gale`.
 | What does it do? | Mixed-model language, frame, design compilation, profiled LMM fitting, labelled fast-PIRLS GLMMs, nested LRT, compiled-design artifacts, and honest summaries |
 | Smallest useful example? | Parse `y ~ 1 + x + (1 \| g)` and inspect the IR |
 | Maturity / publication? | `prototype`, source-only, unpublished at [canardlapin/mixeff4s](https://github.com/canardlapin/mixeff4s) |
-| How to verify? | `sbt -Dmixeff4s.gale.build=/path/to/gale test` (JVM and Scala.js) |
+| How to verify? | `sbt -Dmixeff4s.gale.build=/path/to/gale test` (JVM and Scala.js). Default tests read frozen numbers; they do not call R or Julia. |
 
 Platform: JVM and Scala.js (Node). Scala 3.7.4, sbt 1.12.14. The numeric kernel
 is Gale, which already cross-builds; mixeff4s follows it. The source-tree
 architecture walk is JVM-only.
+
+Numerical evidence lives in `comparison/`. MixedModels.jl is the current
+reference for the rows we already fit. lme4 is the later scorecard: frozen
+lme4 numbers may be checked in without being a mixeff4s claim. Fast-PIRLS
+rows stay labelled and are never sold as `lme4::glmer`. This evidence
+program is not a new port phase.
 
 This is a Scala 3 re-expression of
 [mixeff-rs](https://github.com/bbuchsbaum/mixeff-rs), itself an independent

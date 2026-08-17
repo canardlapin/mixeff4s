@@ -15,6 +15,18 @@ class ModelFrameSuite extends munit.FunSuite:
     assertEquals(frame.factor("g").map(_.levels), Some(Vector("b", "a")))
     assertEquals(frame.factor("g").map(_.refs), Some(Vector(0, 1, 0)))
 
+  test("encodes an explicit factor level order"):
+    val factor = ModelFrame
+      .factor(Vector("I", "VI", "I"), Vector("VI", "V", "I"))
+      .getOrElse(fail("factor"))
+    assertEquals(factor.levels, Vector("VI", "V", "I"))
+    assertEquals(factor.refs, Vector(2, 0, 2))
+
+  test("rejects a value outside the declared factor levels"):
+    ModelFrame.factor(Vector("Z"), Vector("A", "B")) match
+      case Left(MixedModelError.InvalidArgument(_)) => ()
+      case other                                    => fail(s"expected invalid argument, got $other")
+
   test("rejects length mismatch"):
     ModelFrame.of(
       "y" -> ModelFrame.numeric(Vector(1.0, 2.0)),

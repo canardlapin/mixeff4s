@@ -24,7 +24,7 @@ mixeff4s.lmm        FitOptions, Lmm.compile, Lmm.fit, VarCorr, CoefTable
 mixeff4s.glmm       GlmmOptions, Glmm.fit (labelled fast-PIRLS)
 mixeff4s.stats      Lrt, Profile, Bootstrap (typed refusals when unavailable)
 mixeff4s.compiler   Semantic IR and compiled-design JSON artifact (unstable)
-mixeff4s.pathology  Design-time certificates and fit-time θ status
+mixeff4s.pathology  Design-time certificates, fit-time θ status, truth-spec corpus
 ```
 
 Layer rules, enforced by `ArchitectureSuite`:
@@ -75,6 +75,13 @@ present. Verify with `sbt test` (JVM and Scala.js). No secrets are required.
 | 5 | GLMM fast-PIRLS, labelled | Scorecard fast-PIRLS rows |
 | 6 | LRT / profile / bootstrap | Nested LRT + refusal contracts |
 | 7 | Compiler / pathology | JSON snapshots |
+
+There is no Phase 8. Numerical evidence is a separate program under
+`comparison/`: a scorecard, vendored frames, and frozen MixedModels.jl /
+mixeff-rs / lme4 numbers. Default `sbt test` is frozen-first and does not
+call R or Julia. Do not mark a row `release_blocking_parity` against lme4
+until a frozen lme4 number exists and a mixeff4s fit is compared to it.
+Fast-PIRLS is `documented_divergence`, never `lme4::glmer`.
 
 Keep index-parallel PLS loops close to mixeff-rs until parity is green.
 
