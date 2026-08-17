@@ -1,5 +1,6 @@
 package mixeff4s.lmm
 
+import mixeff4s.comparison.FitCompare
 import mixeff4s.fixtures.Sleepstudy
 import mixeff4s.formula.Formula
 
@@ -59,3 +60,44 @@ class SleepstudyFitSuite extends munit.FunSuite:
     assertEquals(table.pValueCode, "p_value_unavailable")
     assertEqualsDouble(table.zValues(0), fit.beta(0) / se(0), 1e-12)
     assertEqualsDouble(fit.logdetRe, 73.90350673367566, 0.1)
+
+  test("sleepstudy zerocorr ML optimizes two diagonal theta slots"):
+    val formula = "reaction ~ 1 + days + (1 + days || subj)"
+    val design = Lmm.compile(formula, Sleepstudy.frame).getOrElse(fail("compile"))
+    assertEquals(design.nTheta, 2)
+    assertEquals(design.parmap, Vector((0, 0, 0), (0, 1, 1)))
+    assertEquals(design.theta, Vector(1.0, 1.0))
+    val workspace = PlsWorkspace(design, reml = false).getOrElse(fail("workspace"))
+    val row = FitCompare.row("sleepstudy", "ML", formula)
+    val ref = FitCompare.claimed(row)
+    val juliaTheta = ref.theta.getOrElse(fail("frozen theta"))
+    val atJulia = workspace.objectiveAt(juliaTheta).getOrElse(fail("objective"))
+    ref.objective.foreach(obj => assertEqualsDouble(atJulia, obj, 1e-4))
+    val fit = Lmm.fit(formula, Sleepstudy.frame, FitOptions.ml).getOrElse(fail("fit"))
+    assertEquals(fit.theta.length, 2)
+    ref.objective.foreach(obj => assertEqualsDouble(fit.objective, obj, FitCompare.objectiveTol(row, ref)))
+    FitCompare.alignedTheta(fit.theta, juliaTheta, scalarTerms = false).zipWithIndex.foreach: (pair, i) =>
+      val (got, expected) = pair
+      assertEqualsDouble(got, expected, FitCompare.thetaTol(row, ref), clues(i))
+    ref.beta.foreach: beta =>
+      val names = ref.coefNames.getOrElse(fail("coef_names"))
+      FitCompare.alignedBeta(fit.feNames, fit.beta, names, beta).zipWithIndex.foreach: (triple, i) =>
+        val (name, got, expected) = triple
+        assertEqualsDouble(got, expected, FitCompare.betaTol(row, ref), clues(name, i))
+    ref.sigma.foreach(sigma => assertEqualsDouble(fit.sigma, sigma, FitCompare.sigmaTol(row, ref)))
+    val re = fit.varcorr.components.head
+    assertEquals(re.names, Vector("(Intercept)", "days"))
+    assertEquals(re.correlations.length, 1)
+    assertEqualsDouble(re.correlations(0), 0.0, 1e-12)
+    assertEqualsDouble(re.stdDev(0), 24.171269957611873, 0.1)
+    assertEqualsDouble(re.stdDev(1), 5.79939919963132, 0.1)
+    val se = fit.stderror
+    assertEqualsDouble(se(0), 6.707646513654387, 0.01)
+    assertEqualsDouble(se(1), 1.5193112497954953, 0.01)
+    assertEqualsDouble(fit.logdetRe, 74.4694698615524, 0.1)
+    val diag = Lmm
+      .fit("reaction ~ 1 + days + diag(1 + days | subj)", Sleepstudy.frame, FitOptions.ml)
+      .getOrElse(fail("diag fit"))
+    assertEquals(diag.theta.length, 2)
+    assertEqualsDouble(diag.objective, fit.objective, 1e-8)
+    assertEquals(diag.theta, fit.theta)

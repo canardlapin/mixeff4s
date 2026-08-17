@@ -87,6 +87,16 @@ object Scorecard:
       |reason = "pinned in SleepstudyFitSuite against MixedModels.jl; lme4 is not claimed until a later ticket compares the frozen lme4 row"
       |
       |[[row]]
+      |dataset = "sleepstudy"
+      |formula = "reaction ~ 1 + days + (1 + days || subj)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "ML"
+      |class = "release_blocking_parity"
+      |reference = "mixedmodels.jl"
+      |reason = "fitted || is two diagonal θ slots; MixedModels.jl zerocorr(1 + days | subj) pin from pls.jl / mixeff-rs"
+      |
+      |[[row]]
       |dataset = "penicillin"
       |formula = "diameter ~ 1 + (1 | plate) + (1 | sample)"
       |family = "Gaussian"
@@ -186,6 +196,67 @@ object Scorecard:
       |class = "release_blocking_parity"
       |reference = "lme4"
       |reason = "split-plot interaction; betas compared after aligning contrast names to lme4"
+      |
+      |[[row]]
+      |dataset = "oats"
+      |formula = "yield ~ 1 + Variety * nitro + (1 | Block) + (1 | Block:Variety)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "REML"
+      |class = "release_blocking_parity"
+      |reference = "lme4"
+      |reason = "split-plot with numeric interaction; nested theta compared after sorting scalar terms"
+      |
+      |[[row]]
+      |dataset = "orthodont"
+      |formula = "distance ~ 1 + age * Sex + (1 + age | Subject)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "REML"
+      |class = "release_blocking_parity"
+      |reference = "lme4"
+      |theta_abs_tol = 0.003
+      |reason = "longitudinal random slope; TrustBQ uses a diagonal-first warm start. Uncentered age leaves a flat θ ridge (~0.002 on θ₀) at the same objective"
+      |
+      |[[row]]
+      |dataset = "oxide"
+      |formula = "Thickness ~ 1 + (1 | Lot) + (1 | Lot:Wafer)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "REML"
+      |class = "release_blocking_parity"
+      |reference = "mixedmodels.jl"
+      |reason = "three-level nesting pin from mixeff-rs Julia expected.toml; nested theta compared after sorting"
+      |
+      |[[row]]
+      |dataset = "oxide"
+      |formula = "Thickness ~ 1 + (1 | Lot/Wafer)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "REML"
+      |class = "release_blocking_parity"
+      |reference = "mixedmodels.jl"
+      |reason = "same oxide fit written with nesting sugar; must match the Lot + Lot:Wafer row"
+      |
+      |[[row]]
+      |dataset = "machines"
+      |formula = "score ~ 1 + Machine + (1 | Worker) + (1 | Worker:Machine)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "REML"
+      |class = "release_blocking_parity"
+      |reference = "lme4"
+      |reason = "crossed worker-machine intercepts; nested theta compared after sorting"
+      |
+      |[[row]]
+      |dataset = "machines"
+      |formula = "score ~ 1 + Machine + (1 + Machine | Worker)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "REML"
+      |class = "release_blocking_parity"
+      |reference = "lme4"
+      |reason = "categorical random slope per worker; 6-slot Cholesky compared in parmap order"
       |
       |[[row]]
       |dataset = "contraception"

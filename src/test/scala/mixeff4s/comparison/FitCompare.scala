@@ -7,10 +7,21 @@ object FitCompare:
   val DefaultThetaTol = 1e-3
   val DefaultSigmaTol = 1e-3
 
-  def row(dataset: String, estimator: String): ScorecardRow =
+  def row(dataset: String, estimator: String, formula: String): ScorecardRow =
     Scorecard.loadEmbedded.rows
-      .find(r => r.key.dataset == dataset && r.key.estimator == estimator)
-      .getOrElse(throw IllegalArgumentException(s"missing scorecard row $dataset $estimator"))
+      .find: r =>
+        r.key.dataset == dataset && r.key.estimator == estimator && r.key.formula == formula
+      .getOrElse(throw IllegalArgumentException(s"missing scorecard row $dataset $estimator $formula"))
+
+  def row(dataset: String, estimator: String): ScorecardRow =
+    val matches = Scorecard.loadEmbedded.rows.filter: r =>
+      r.key.dataset == dataset && r.key.estimator == estimator
+    matches match
+      case Vector(single) => single
+      case Vector() =>
+        throw IllegalArgumentException(s"missing scorecard row $dataset $estimator")
+      case many =>
+        throw IllegalArgumentException(s"ambiguous scorecard row $dataset $estimator: ${many.map(_.key.formula)}")
 
   def claimed(row: ScorecardRow): FrozenResult =
     FrozenCatalog
@@ -33,10 +44,19 @@ object FitCompare:
   /** Map `recipe: B:temperature: 185` onto lme4's `recipeB:temperature185`. */
   def contrastName(name: String): String =
     if name == "(Intercept)" then name
-    else
-      val pieces = raw"([A-Za-z_][\w.]*): ([^:]+)".r.findAllMatchIn(name).toVector
-      if pieces.isEmpty then name
-      else pieces.map(m => m.group(1) + m.group(2).trim).mkString(":")
+    else raw"([A-Za-z_][\w.]*): ([^:]+)".r.replaceAllIn(name, m => m.group(1) + m.group(2).trim)
+
+  /** Scalar multi-term θ is compared sorted so nRanef reordering is not a mismatch. */
+  def alignedTheta(
+      obtained: Vector[Double],
+      reference: Vector[Double],
+      scalarTerms: Boolean
+  ): Vector[(Double, Double)] =
+    if obtained.length != reference.length then
+      throw IllegalArgumentException(s"theta length ${obtained.length} != ${reference.length}")
+    val (got, expected) =
+      if scalarTerms then (obtained.sorted, reference.sorted) else (obtained, reference)
+    got.zip(expected)
 
   def alignedBeta(
       obtainedNames: Vector[String],

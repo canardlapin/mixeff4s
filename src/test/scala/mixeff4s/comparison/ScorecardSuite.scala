@@ -5,7 +5,7 @@ class ScorecardSuite extends munit.FunSuite:
     val scorecard = Scorecard.loadEmbedded
     assertEquals(scorecard.schemaVersion, "1.0.0")
     assertEquals(scorecard.classes, ScorecardClass.all)
-    assertEquals(scorecard.rows.length, 13)
+    assertEquals(scorecard.rows.length, 20)
     assertEquals(
       scorecard.rows.map(_.classification).toSet,
       Set(ScorecardClass.ReleaseBlockingParity, ScorecardClass.DocumentedDivergence)
@@ -28,6 +28,14 @@ class ScorecardSuite extends munit.FunSuite:
     assertEquals(FitCompare.contrastName("(Intercept)"), "(Intercept)")
     assertEquals(FitCompare.contrastName("Type: T2"), "TypeT2")
     assertEquals(FitCompare.contrastName("recipe: B:temperature: 185"), "recipeB:temperature185")
+    assertEquals(FitCompare.contrastName("age:Sex: Female"), "age:SexFemale")
+
+  test("sleepstudy zerocorr is a frozen MixedModels.jl claim"):
+    val row = FitCompare.row("sleepstudy", "ML", "reaction ~ 1 + days + (1 + days || subj)")
+    assertEquals(row.classification, ScorecardClass.ReleaseBlockingParity)
+    assertEquals(row.reference, "mixedmodels.jl")
+    val ref = FitCompare.claimed(row)
+    assertEquals(ref.theta.map(_.length), Some(2))
 
   test("fast-PIRLS contraception is documented divergence"):
     val row = Scorecard.loadEmbedded.rows.find(_.key.dataset == "contraception").get
