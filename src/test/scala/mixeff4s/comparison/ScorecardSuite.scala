@@ -5,12 +5,24 @@ class ScorecardSuite extends munit.FunSuite:
     val scorecard = Scorecard.loadEmbedded
     assertEquals(scorecard.schemaVersion, "1.0.0")
     assertEquals(scorecard.classes, ScorecardClass.all)
-    assertEquals(scorecard.rows.length, 6)
+    assertEquals(scorecard.rows.length, 10)
     assertEquals(
       scorecard.rows.map(_.classification).toSet,
       Set(ScorecardClass.ReleaseBlockingParity, ScorecardClass.DocumentedDivergence)
     )
-    assert(!scorecard.rows.exists(_.reference == "lme4"), clues(scorecard.rows.map(_.reference)))
+    assert(scorecard.rows.exists(_.reference == "lme4"), clues(scorecard.rows.map(_.reference)))
+    assert(
+      !scorecard.rows.exists: row =>
+        row.key.estimator == "fast_pirls" &&
+          row.classification == ScorecardClass.ReleaseBlockingParity &&
+          row.reference.startsWith("lme4"),
+      clues(scorecard.rows.map(r => (r.key.estimator, r.classification, r.reference)))
+    )
+
+  test("dyestuff2 is a frozen lme4 boundary claim"):
+    val rows = Scorecard.loadEmbedded.rows.filter(_.key.dataset == "dyestuff2")
+    assertEquals(rows.map(_.reference).distinct, Vector("lme4_boundary"))
+    assert(rows.forall(_.classification == ScorecardClass.ReleaseBlockingParity))
 
   test("fast-PIRLS contraception is documented divergence"):
     val row = Scorecard.loadEmbedded.rows.find(_.key.dataset == "contraception").get

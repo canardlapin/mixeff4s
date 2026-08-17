@@ -118,6 +118,46 @@ object Scorecard:
       |reason = "pinned in CrossedFitSuite against MixedModels.jl with a slack theta tolerance"
       |
       |[[row]]
+      |dataset = "dyestuff"
+      |formula = "Yield ~ 1 + (1 | Batch)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "ML"
+      |class = "release_blocking_parity"
+      |reference = "lme4"
+      |reason = "scalar random-intercept floor; mixeff4s fit compared to frozen lme4"
+      |
+      |[[row]]
+      |dataset = "dyestuff"
+      |formula = "Yield ~ 1 + (1 | Batch)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "REML"
+      |class = "release_blocking_parity"
+      |reference = "lme4"
+      |reason = "scalar random-intercept floor; mixeff4s fit compared to frozen lme4"
+      |
+      |[[row]]
+      |dataset = "dyestuff2"
+      |formula = "Yield ~ 1 + (1 | Batch)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "ML"
+      |class = "release_blocking_parity"
+      |reference = "lme4_boundary"
+      |reason = "singular boundary is expected; assessFit must report converged_boundary"
+      |
+      |[[row]]
+      |dataset = "dyestuff2"
+      |formula = "Yield ~ 1 + (1 | Batch)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "REML"
+      |class = "release_blocking_parity"
+      |reference = "lme4_boundary"
+      |reason = "singular boundary is expected; assessFit must report converged_boundary"
+      |
+      |[[row]]
       |dataset = "contraception"
       |formula = "use_num ~ 1 + age + age2 + urban + livch + (1 | urban_dist)"
       |family = "Bernoulli"

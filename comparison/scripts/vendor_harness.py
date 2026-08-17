@@ -61,6 +61,34 @@ EXTRACT_KEYS = {
         "Identity",
         "REML",
     ),
+    (
+        "dyestuff",
+        "Yield ~ 1 + (1 | Batch)",
+        "Gaussian",
+        "Identity",
+        "ML",
+    ),
+    (
+        "dyestuff",
+        "Yield ~ 1 + (1 | Batch)",
+        "Gaussian",
+        "Identity",
+        "REML",
+    ),
+    (
+        "dyestuff2",
+        "Yield ~ 1 + (1 | Batch)",
+        "Gaussian",
+        "Identity",
+        "ML",
+    ),
+    (
+        "dyestuff2",
+        "Yield ~ 1 + (1 | Batch)",
+        "Gaussian",
+        "Identity",
+        "REML",
+    ),
 }
 
 

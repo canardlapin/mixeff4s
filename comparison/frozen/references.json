@@ -183,6 +183,102 @@
       }
     },
     {
+      "dataset": "dyestuff",
+      "formula": "Yield ~ 1 + (1 | Batch)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 30,
+      "objective": 319.65427684225597,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        1527.4999999999998
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        0.8483243229023545
+      ],
+      "sigma": 49.5100957160886,
+      "is_singular": false
+    },
+    {
+      "dataset": "dyestuff",
+      "formula": "Yield ~ 1 + (1 | Batch)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "ML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 30,
+      "objective": 327.327059881646,
+      "objective_definition": "deviance",
+      "objective_comparable": true,
+      "beta": [
+        1527.5000000000007
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        0.7525732146822598
+      ],
+      "sigma": 49.51017269106905,
+      "is_singular": false
+    },
+    {
+      "dataset": "dyestuff2",
+      "formula": "Yield ~ 1 + (1 | Batch)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "ML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 30,
+      "objective": 162.87303665382575,
+      "objective_definition": "deviance",
+      "objective_comparable": true,
+      "beta": [
+        5.665600000000001
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        0.0
+      ],
+      "sigma": 3.6532313513746506,
+      "is_singular": true
+    },
+    {
+      "dataset": "dyestuff2",
+      "formula": "Yield ~ 1 + (1 | Batch)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 30,
+      "objective": 161.82827781228843,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        5.665600000000001
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        0.0
+      ],
+      "sigma": 3.7156842744757252,
+      "is_singular": true
+    },
+    {
       "dataset": "pastes",
       "formula": "strength ~ 1 + (1 | sample) + (1 | batch)",
       "family": "Gaussian",
@@ -287,6 +383,102 @@
       ],
       "sigma": 25.591813564885108,
       "is_singular": false
+    },
+    {
+      "dataset": "dyestuff",
+      "formula": "Yield ~ 1 + (1 | Batch)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 30,
+      "objective": 319.6543,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        1527.5
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        0.8483
+      ],
+      "sigma": 49.5101,
+      "is_singular": false
+    },
+    {
+      "dataset": "dyestuff",
+      "formula": "Yield ~ 1 + (1 | Batch)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "ML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 30,
+      "objective": 327.3271,
+      "objective_definition": "deviance",
+      "objective_comparable": true,
+      "beta": [
+        1527.5
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        0.7526
+      ],
+      "sigma": 49.5101,
+      "is_singular": false
+    },
+    {
+      "dataset": "dyestuff2",
+      "formula": "Yield ~ 1 + (1 | Batch)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "ML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 30,
+      "objective": 162.873,
+      "objective_definition": "deviance",
+      "objective_comparable": true,
+      "beta": [
+        5.6656
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        0
+      ],
+      "sigma": 3.6532,
+      "is_singular": true
+    },
+    {
+      "dataset": "dyestuff2",
+      "formula": "Yield ~ 1 + (1 | Batch)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 30,
+      "objective": 161.8283,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        5.6656
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        0
+      ],
+      "sigma": 3.7157,
+      "is_singular": true
     },
     {
       "dataset": "pastes",

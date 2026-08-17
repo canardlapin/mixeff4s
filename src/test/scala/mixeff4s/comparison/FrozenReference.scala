@@ -54,7 +54,10 @@ final case class FrozenCatalog(
   def claimed(row: ScorecardRow): Option[FrozenResult] =
     val engineId = row.reference match
       case "mixedmodels.jl_fast_pirls" => "mixedmodels.jl"
-      case other                       => other
+      case "lme4_boundary" | "lme4_joint_laplace" | "lme4_joint_agq" |
+          "lme4_numeric_without_objective_constants" =>
+        "lme4"
+      case other => other
     forKey(row.key).find(_.engine.id == engineId)
 
 object FrozenCatalog:
