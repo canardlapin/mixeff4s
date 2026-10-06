@@ -26,7 +26,7 @@ ThisBuild / developers := List(
 
 // Gale is source-only. Pin an immutable revision; a local checkout is admitted
 // only through -Dmixeff4s.gale.build=/path/to/gale.
-lazy val galeRevision = "f869613cec0a89e57b6c995b0a02cf471ac7127c"
+lazy val galeRevision = "2c794d88a0b46a84bf72fd722b9c83d6ced5d863"
 lazy val galeBuild: java.net.URI =
   sys.props
     .get("mixeff4s.gale.build")

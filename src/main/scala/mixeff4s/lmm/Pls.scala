@@ -635,10 +635,59 @@ object Pls:
 
   def fit(design: CompiledDesign, reml: Boolean): FitResult[PlsWorkspace] =
     PlsWorkspace(design, reml).flatMap: workspace =>
-      val start = workspace.theta
-      TrustBq
-        .minimize(start, workspace.lowerBounds, workspace.upperBounds, smallFamilyOptions(workspace.nTheta))(
-          workspace.objectiveAt
-        )
-        .flatMap: result =>
-          workspace.objectiveAt(result.x).map(_ => workspace)
+      diagonalFirstStart(workspace).flatMap: start =>
+        TrustBq
+          .minimize(start, workspace.lowerBounds, workspace.upperBounds, smallFamilyOptions(workspace.nTheta))(
+            workspace.objectiveAt
+          )
+          .flatMap: result =>
+            workspace.objectiveAt(result.x).map(_ => workspace)
+
+  /** Coarse zero-correlation warm start when θ has off-diagonal slots.
+    *
+    * Single-start TrustBQ from the identity λ can stall on a worse interior
+    * (orthodont: 433.40 vs 432.58). mixeff4s has no BOBYQA fallback, so the
+    * default fit runs the rust diagonal-first ladder: optimize the diagonal
+    * with correlations pinned at 0, then hand that point to the full solve.
+    */
+  private def diagonalFirstStart(workspace: PlsWorkspace): FitResult[Vector[Double]] =
+    val start = workspace.theta
+    val diagIdx = workspace.parmap.zipWithIndex.collect:
+      case ((_, row, col), i) if row == col => i
+    if diagIdx.isEmpty || diagIdx.length == start.length then Right(start)
+    else
+      val reducedStart = diagIdx.map(start)
+      val stageOptions = TrustBqOptions(
+        initialRadius = 0.75,
+        finalRadius = 1e-3,
+        maxEvaluations = 40,
+        ftolAbs = 1e-4,
+        ftolRel = 1e-6,
+        maxCrossTerms = if diagIdx.length <= 3 then Int.MaxValue else 0,
+        stallIterations = 3,
+        stallRequiresStableX = false
+      )
+      val stage = TrustBq.minimize(
+        reducedStart,
+        Vector.fill(diagIdx.length)(0.0),
+        Vector.fill(diagIdx.length)(Double.PositiveInfinity),
+        stageOptions
+      ): reduced =>
+        workspace.objectiveAt(expandDiagonal(start, workspace.parmap, diagIdx, reduced))
+      stage match
+        case Right(result) if result.fmin.isFinite =>
+          Right(expandDiagonal(start, workspace.parmap, diagIdx, result.x))
+        case _ => Right(start)
+
+  private def expandDiagonal(
+      start: Vector[Double],
+      parmap: Vector[(Int, Int, Int)],
+      diagIdx: Vector[Int],
+      reduced: Vector[Double]
+  ): Vector[Double] =
+    val full = start.toArray
+    parmap.zipWithIndex.foreach:
+      case ((_, row, col), i) if row != col => full(i) = 0.0
+      case _                                => ()
+    diagIdx.zip(reduced).foreach((i, value) => full(i) = value)
+    full.toVector

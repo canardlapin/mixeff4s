@@ -76,6 +76,39 @@
       }
     },
     {
+      "dataset": "sleepstudy",
+      "formula": "reaction ~ 1 + days + (1 + days || subj)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "ML",
+      "engine": "mixedmodels.jl",
+      "status": "ok",
+      "n_obs": 180,
+      "objective": 1752.003255140962,
+      "objective_definition": "deviance",
+      "objective_comparable": true,
+      "beta": [
+        251.4051048484854,
+        10.467285959595674
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "days"
+      ],
+      "theta": [
+        0.9458043022417869,
+        0.22692740996014607
+      ],
+      "sigma": 25.55613836753517,
+      "is_singular": false,
+      "tolerances": {
+        "objective": 0.01,
+        "beta": 0.001,
+        "theta": 0.001,
+        "sigma": 0.001
+      }
+    },
+    {
       "dataset": "penicillin",
       "formula": "diameter ~ 1 + (1 | plate) + (1 | sample)",
       "family": "Gaussian",
@@ -183,6 +216,126 @@
       }
     },
     {
+      "dataset": "oxide",
+      "formula": "Thickness ~ 1 + (1 | Lot) + (1 | Lot:Wafer)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixedmodels.jl",
+      "status": "ok",
+      "n_obs": 72,
+      "objective": 454.02206930988217,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        2000.152777777835
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        1.6892198720377958,
+        3.2149146331969516
+      ],
+      "sigma": 3.5453258700425447,
+      "is_singular": false,
+      "tolerances": {
+        "objective": 0.01,
+        "beta": 0.001,
+        "theta": 0.001,
+        "sigma": 0.001
+      }
+    },
+    {
+      "dataset": "oxide",
+      "formula": "Thickness ~ 1 + (1 | Lot/Wafer)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixedmodels.jl",
+      "status": "ok",
+      "n_obs": 72,
+      "objective": 454.02206930988217,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        2000.152777777835
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        1.6892198720377958,
+        3.2149146331969516
+      ],
+      "sigma": 3.5453258700425447,
+      "is_singular": false,
+      "tolerances": {
+        "objective": 0.01,
+        "beta": 0.001,
+        "theta": 0.001,
+        "sigma": 0.001
+      }
+    },
+    {
+      "dataset": "cake",
+      "formula": "angle ~ 1 + recipe * temperature + (1 | recipe:replicate)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 270,
+      "objective": 1633.246181533657,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        29.133333333332015,
+        -2.2666666666652615,
+        -1.199999999998692,
+        2.400000000000378,
+        1.6666666666670484,
+        4.40000000000038,
+        9.533333333333706,
+        5.933333333333708,
+        0.1333333333329079,
+        3.199999999999569,
+        0.8666666666662394,
+        -1.9333333333337546,
+        2.4666666666662413,
+        -1.4000000000004051,
+        2.133333333332924,
+        -1.4666666666670733,
+        -3.066666666667067,
+        1.8666666666662612
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "recipe: B",
+        "recipe: C",
+        "temperature: 185",
+        "temperature: 195",
+        "temperature: 205",
+        "temperature: 215",
+        "temperature: 225",
+        "recipe: B:temperature: 185",
+        "recipe: B:temperature: 195",
+        "recipe: B:temperature: 205",
+        "recipe: B:temperature: 215",
+        "recipe: B:temperature: 225",
+        "recipe: C:temperature: 185",
+        "recipe: C:temperature: 195",
+        "recipe: C:temperature: 205",
+        "recipe: C:temperature: 215",
+        "recipe: C:temperature: 225"
+      ],
+      "theta": [
+        1.4296373923248473
+      ],
+      "sigma": 4.524455494621483,
+      "is_singular": false
+    },
+    {
       "dataset": "dyestuff",
       "formula": "Yield ~ 1 + (1 | Batch)",
       "family": "Gaussian",
@@ -279,6 +432,215 @@
       "is_singular": true
     },
     {
+      "dataset": "ergostool",
+      "formula": "effort ~ 1 + Type + (1 | Subject)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 36,
+      "objective": 121.13078870237001,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        8.555555555555578,
+        3.888888888888884,
+        2.2222222222222183,
+        0.6666666666666627
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "Type: T2",
+        "Type: T3",
+        "Type: T4"
+      ],
+      "theta": [
+        1.21101540341102
+      ],
+      "sigma": 1.1002930421604715,
+      "is_singular": false
+    },
+    {
+      "dataset": "machines",
+      "formula": "score ~ 1 + Machine + (1 | Worker) + (1 | Worker:Machine)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 54,
+      "objective": 215.68756800825344,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        52.35555555555739,
+        7.966666666664733,
+        13.916666666664797
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "Machine: B",
+        "Machine: C"
+      ],
+      "theta": [
+        3.8785676635568356,
+        4.972094674999198
+      ],
+      "sigma": 0.9615765573579709,
+      "is_singular": false
+    },
+    {
+      "dataset": "machines",
+      "formula": "score ~ 1 + Machine + (1 + Machine | Worker)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 54,
+      "objective": 208.3112224111597,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        52.35555555554916,
+        7.966666666662151,
+        13.916666666668874
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "Machine: B",
+        "Machine: C"
+      ],
+      "theta": [
+        4.241514016212989,
+        2.956383725400436,
+        -1.4020477707225698,
+        5.34904602313131,
+        2.076814579400609,
+        2.9091656629309077
+      ],
+      "sigma": 0.9615514521778123,
+      "is_singular": false
+    },
+    {
+      "dataset": "oats",
+      "formula": "yield ~ 1 + Variety * nitro + (1 | Block) + (1 | Block:Variety)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 72,
+      "objective": 563.2371973325536,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        81.90000000000032,
+        8.51666666666659,
+        -8.600000000000092,
+        75.33333333333388,
+        -10.750000000000425,
+        5.74999999999955
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "Variety: Marvellous",
+        "Variety: Victory",
+        "nitro",
+        "Variety: Marvellous:nitro",
+        "Variety: Victory:nitro"
+      ],
+      "theta": [
+        0.8005374714588508,
+        1.1273752941114275
+      ],
+      "sigma": 12.990380942169908,
+      "is_singular": false
+    },
+    {
+      "dataset": "orthodont",
+      "formula": "distance ~ 1 + age * Sex + (1 + age | Subject)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 108,
+      "objective": 432.58166700445105,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        16.34062499999952,
+        0.7843750000000627,
+        1.0321022727275506,
+        -0.3048295454545986
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "age",
+        "Sex: Female",
+        "age:Sex: Female"
+      ],
+      "theta": [
+        1.8341032568529057,
+        -0.09169127471927235,
+        0.10244261307250545
+      ],
+      "sigma": 1.3102124935353376,
+      "is_singular": false
+    },
+    {
+      "dataset": "oxide",
+      "formula": "Thickness ~ 1 + (1 | Lot) + (1 | Lot:Wafer)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 72,
+      "objective": 454.02206930524136,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        2000.1527777779258
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        1.6892280284480479,
+        3.2149721524638952
+      ],
+      "sigma": 3.545316604036649,
+      "is_singular": false
+    },
+    {
+      "dataset": "oxide",
+      "formula": "Thickness ~ 1 + (1 | Lot/Wafer)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 72,
+      "objective": 454.02206930524136,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        2000.1527777779258
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        1.6892280284480479,
+        3.2149721524638952
+      ],
+      "sigma": 3.545316604036649,
+      "is_singular": false
+    },
+    {
       "dataset": "pastes",
       "formula": "strength ~ 1 + (1 | sample) + (1 | batch)",
       "family": "Gaussian",
@@ -326,6 +688,30 @@
         3.51241122181154
       ],
       "sigma": 0.549923173720829,
+      "is_singular": false
+    },
+    {
+      "dataset": "rail",
+      "formula": "travel ~ 1 + (1 | Rail)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 18,
+      "objective": 122.17700080985884,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        66.49999999999962
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        6.169234589854954
+      ],
+      "sigma": 4.020795157094695,
       "is_singular": false
     },
     {
@@ -382,6 +768,133 @@
         0.222646742690827
       ],
       "sigma": 25.591813564885108,
+      "is_singular": false
+    },
+    {
+      "dataset": "station_season_duration",
+      "formula": "effect ~ 1 + duration + (1 + duration | sites) + (1 + duration | season)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "ML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 54,
+      "objective": 999.7488676069531,
+      "objective_definition": "deviance",
+      "objective_comparable": true,
+      "beta": [
+        4183.895814814807,
+        3265.640851851847
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "duration: 7d"
+      ],
+      "theta": [
+        1.0323422452749194,
+        0.4781038654677432,
+        0.0,
+        0.24512729116404197,
+        0.22592017022921554,
+        5.9308918041924695e-05
+      ],
+      "sigma": 2248.630143493233,
+      "is_singular": true
+    },
+    {
+      "dataset": "station_season_duration",
+      "formula": "effect ~ 1 + duration * season * sites",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "ML",
+      "engine": "mixeff-rs",
+      "status": "error",
+      "n_obs": 54,
+      "objective_comparable": true
+    },
+    {
+      "dataset": "station_season_duration",
+      "formula": "effect ~ 1 + duration + (1 | sites) + (1 | season)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "ML",
+      "engine": "mixeff-rs",
+      "status": "ok",
+      "n_obs": 54,
+      "objective": 1003.104980178335,
+      "objective_definition": "deviance",
+      "objective_comparable": true,
+      "beta": [
+        4183.89581481484,
+        3265.6408518518515
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "duration: 7d"
+      ],
+      "theta": [
+        1.2209745251437865,
+        0.3298797961292596
+      ],
+      "sigma": 2335.4417695372567,
+      "is_singular": false
+    },
+    {
+      "dataset": "cake",
+      "formula": "angle ~ 1 + recipe * temperature + (1 | recipe:replicate)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 270,
+      "objective": 1633.2462,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        29.1333,
+        -2.2667,
+        -1.2,
+        2.4,
+        1.6667,
+        4.4,
+        9.5333,
+        5.9333,
+        0.1333,
+        -1.4,
+        3.2,
+        2.1333,
+        0.8667,
+        -1.4667,
+        -1.9333,
+        -3.0667,
+        2.4667,
+        1.8667
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "recipeB",
+        "recipeC",
+        "temperature185",
+        "temperature195",
+        "temperature205",
+        "temperature215",
+        "temperature225",
+        "recipeB:temperature185",
+        "recipeC:temperature185",
+        "recipeB:temperature195",
+        "recipeC:temperature195",
+        "recipeB:temperature205",
+        "recipeC:temperature205",
+        "recipeB:temperature215",
+        "recipeC:temperature215",
+        "recipeB:temperature225",
+        "recipeC:temperature225"
+      ],
+      "theta": [
+        1.4296
+      ],
+      "sigma": 4.5245,
       "is_singular": false
     },
     {
@@ -481,6 +994,215 @@
       "is_singular": true
     },
     {
+      "dataset": "ergostool",
+      "formula": "effort ~ 1 + Type + (1 | Subject)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 36,
+      "objective": 121.1308,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        8.5556,
+        3.8889,
+        2.2222,
+        0.6667
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "TypeT2",
+        "TypeT3",
+        "TypeT4"
+      ],
+      "theta": [
+        1.211
+      ],
+      "sigma": 1.1003,
+      "is_singular": false
+    },
+    {
+      "dataset": "machines",
+      "formula": "score ~ 1 + Machine + (1 | Worker) + (1 | Worker:Machine)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 54,
+      "objective": 215.6876,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        52.3556,
+        7.9667,
+        13.9167
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "MachineB",
+        "MachineC"
+      ],
+      "theta": [
+        3.8786,
+        4.9721
+      ],
+      "sigma": 0.9616,
+      "is_singular": false
+    },
+    {
+      "dataset": "machines",
+      "formula": "score ~ 1 + Machine + (1 + Machine | Worker)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 54,
+      "objective": 208.3112,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        52.3556,
+        7.9667,
+        13.9167
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "MachineB",
+        "MachineC"
+      ],
+      "theta": [
+        4.2425,
+        2.9588,
+        -1.4008,
+        5.3497,
+        2.076,
+        2.9075
+      ],
+      "sigma": 0.9616,
+      "is_singular": false
+    },
+    {
+      "dataset": "oats",
+      "formula": "yield ~ 1 + Variety * nitro + (1 | Block) + (1 | Block:Variety)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 72,
+      "objective": 563.2372,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        81.9,
+        8.5167,
+        -8.6,
+        75.3333,
+        -10.75,
+        5.75
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "VarietyMarvellous",
+        "VarietyVictory",
+        "nitro",
+        "VarietyMarvellous:nitro",
+        "VarietyVictory:nitro"
+      ],
+      "theta": [
+        0.8005,
+        1.1274
+      ],
+      "sigma": 12.9904,
+      "is_singular": false
+    },
+    {
+      "dataset": "orthodont",
+      "formula": "distance ~ 1 + age * Sex + (1 + age | Subject)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 108,
+      "objective": 432.5817,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        16.3406,
+        0.7844,
+        1.0321,
+        -0.3048
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "age",
+        "SexFemale",
+        "age:SexFemale"
+      ],
+      "theta": [
+        1.8341,
+        -0.0917,
+        0.1025
+      ],
+      "sigma": 1.3102,
+      "is_singular": false
+    },
+    {
+      "dataset": "oxide",
+      "formula": "Thickness ~ 1 + (1 | Lot) + (1 | Lot:Wafer)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 72,
+      "objective": 454.0221,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        2000.1528
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        1.6892,
+        3.2149
+      ],
+      "sigma": 3.5453,
+      "is_singular": false
+    },
+    {
+      "dataset": "oxide",
+      "formula": "Thickness ~ 1 + (1 | Lot/Wafer)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 72,
+      "objective": 454.0221,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        2000.1528
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        1.6892,
+        3.2149
+      ],
+      "sigma": 3.5453,
+      "is_singular": false
+    },
+    {
       "dataset": "pastes",
       "formula": "strength ~ 1 + (1 | sample) + (1 | batch)",
       "family": "Gaussian",
@@ -528,6 +1250,30 @@
         3.5125
       ],
       "sigma": 0.5499,
+      "is_singular": false
+    },
+    {
+      "dataset": "rail",
+      "formula": "travel ~ 1 + (1 | Rail)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "REML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 18,
+      "objective": 122.177,
+      "objective_definition": "restricted_deviance",
+      "objective_comparable": true,
+      "beta": [
+        66.5
+      ],
+      "coef_names": [
+        "(Intercept)"
+      ],
+      "theta": [
+        6.1693
+      ],
+      "sigma": 4.0208,
       "is_singular": false
     },
     {
@@ -584,6 +1330,75 @@
         0.2226
       ],
       "sigma": 25.5919,
+      "is_singular": false
+    },
+    {
+      "dataset": "station_season_duration",
+      "formula": "effect ~ 1 + duration + (1 + duration | sites) + (1 + duration | season)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "ML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 54,
+      "objective": 999.7489,
+      "objective_definition": "deviance",
+      "objective_comparable": true,
+      "beta": [
+        4183.8958,
+        3265.6409
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "duration7d"
+      ],
+      "theta": [
+        1.0324,
+        0.4778,
+        0,
+        0.2452,
+        0.2261,
+        0
+      ],
+      "sigma": 2248.6159,
+      "is_singular": true
+    },
+    {
+      "dataset": "station_season_duration",
+      "formula": "effect ~ 1 + duration * season * sites",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "ML",
+      "engine": "lme4",
+      "status": "error",
+      "n_obs": 54,
+      "objective_comparable": true
+    },
+    {
+      "dataset": "station_season_duration",
+      "formula": "effect ~ 1 + duration + (1 | sites) + (1 | season)",
+      "family": "Gaussian",
+      "link": "Identity",
+      "estimator": "ML",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 54,
+      "objective": 1003.105,
+      "objective_definition": "deviance",
+      "objective_comparable": true,
+      "beta": [
+        4183.8958,
+        3265.6409
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "duration7d"
+      ],
+      "theta": [
+        1.2211,
+        0.3299
+      ],
+      "sigma": 2335.4299,
       "is_singular": false
     }
   ]

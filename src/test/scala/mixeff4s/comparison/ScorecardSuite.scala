@@ -5,10 +5,14 @@ class ScorecardSuite extends munit.FunSuite:
     val scorecard = Scorecard.loadEmbedded
     assertEquals(scorecard.schemaVersion, "1.0.0")
     assertEquals(scorecard.classes, ScorecardClass.all)
-    assertEquals(scorecard.rows.length, 10)
+    assertEquals(scorecard.rows.length, 23)
     assertEquals(
       scorecard.rows.map(_.classification).toSet,
-      Set(ScorecardClass.ReleaseBlockingParity, ScorecardClass.DocumentedDivergence)
+      Set(
+        ScorecardClass.ReleaseBlockingParity,
+        ScorecardClass.DocumentedDivergence,
+        ScorecardClass.UnsupportedWithContract
+      )
     )
     assert(scorecard.rows.exists(_.reference == "lme4"), clues(scorecard.rows.map(_.reference)))
     assert(
@@ -23,6 +27,29 @@ class ScorecardSuite extends munit.FunSuite:
     val rows = Scorecard.loadEmbedded.rows.filter(_.key.dataset == "dyestuff2")
     assertEquals(rows.map(_.reference).distinct, Vector("lme4_boundary"))
     assert(rows.forall(_.classification == ScorecardClass.ReleaseBlockingParity))
+
+  test("contrast names align mixeff4s dummy labels to lme4"):
+    assertEquals(FitCompare.contrastName("(Intercept)"), "(Intercept)")
+    assertEquals(FitCompare.contrastName("Type: T2"), "TypeT2")
+    assertEquals(FitCompare.contrastName("recipe: B:temperature: 185"), "recipeB:temperature185")
+    assertEquals(FitCompare.contrastName("age:Sex: Female"), "age:SexFemale")
+
+  test("sleepstudy zerocorr is a frozen MixedModels.jl claim"):
+    val row = FitCompare.row("sleepstudy", "ML", "reaction ~ 1 + days + (1 + days || subj)")
+    assertEquals(row.classification, ScorecardClass.ReleaseBlockingParity)
+    assertEquals(row.reference, "mixedmodels.jl")
+    val ref = FitCompare.claimed(row)
+    assertEquals(ref.theta.map(_.length), Some(2))
+
+  test("station fixed-only formula is unsupported with a rust contract claim"):
+    val row = FitCompare.row(
+      "station_season_duration",
+      "ML",
+      "effect ~ 1 + duration * season * sites"
+    )
+    assertEquals(row.classification, ScorecardClass.UnsupportedWithContract)
+    assertEquals(row.reference, "rust_contract")
+    assertEquals(FitCompare.claimed(row).status, "error")
 
   test("fast-PIRLS contraception is documented divergence"):
     val row = Scorecard.loadEmbedded.rows.find(_.key.dataset == "contraception").get

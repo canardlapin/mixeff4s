@@ -36,3 +36,23 @@ class LmmSuite extends munit.FunSuite:
         assert(fit.objective.isFinite, clues(fit.objective))
       case other =>
         fail(s"expected a certified fit, got $other")
+
+  test("zerocorr fits two diagonal theta slots and no correlation"):
+    val design = Lmm.compile("y ~ 1 + x + (1 + x || g)", frame).getOrElse(fail("compile"))
+    assertEquals(design.nTheta, 2)
+    assertEquals(design.parmap, Vector((0, 0, 0), (0, 1, 1)))
+    Lmm.fit("y ~ 1 + x + (1 + x || g)", frame, FitOptions.reml) match
+      case Right(fit) =>
+        assertEquals(fit.theta.length, 2)
+        assert(fit.theta.forall(_ >= 0.0), clues(fit.theta))
+        assertEquals(fit.varcorr.components.head.correlations, Vector(0.0))
+        assert(fit.objective.isFinite, clues(fit.objective))
+      case other =>
+        fail(s"expected a certified zerocorr fit, got $other")
+
+  test("parses then refuses compound symmetry"):
+    Lmm.fit("y ~ x + cs(1 + x | g)", frame, FitOptions.reml) match
+      case Left(err: MixedModelError.Unsupported) =>
+        assert(err.details.contains("cs"), clues(err.details))
+      case other =>
+        fail(s"expected Unsupported, got $other")

@@ -57,7 +57,8 @@ final case class FrozenCatalog(
       case "lme4_boundary" | "lme4_joint_laplace" | "lme4_joint_agq" |
           "lme4_numeric_without_objective_constants" =>
         "lme4"
-      case other => other
+      case "rust_contract" => "mixeff-rs"
+      case other           => other
     forKey(row.key).find(_.engine.id == engineId)
 
 object FrozenCatalog:
