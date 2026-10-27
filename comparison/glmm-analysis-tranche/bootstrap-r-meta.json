@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "command": [
+    "Rscript",
+    "comparison/scripts/freeze_glmm_bootstrap.R"
+  ],
+  "exit_code": 0,
+  "log_sha256": "64218e154f5c26e5c1f0bfb13fec9e3e3c9ff1cd9a50f63a6932d76962382402",
+  "python": "3.14.7"
+}

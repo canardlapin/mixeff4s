@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "inputs_sha256": {
+    "binomial_workflow_csv": "9b06b4a92fc6aad65f3c9715d35b0221fb26c2b2ec067432d710fbe2384e0c05",
+    "bootstrap_responses_csv": "3e25d42e9793a8f105f5d36654517e35c64a935800d212e0ca9b68aa95e1b0e5",
+    "bootstrap_response_provenance_json": "1696a00c8e0ad79e2898723809872e7a0369d6d975a30a134e92325c365b7e4b",
+    "generator": "1dfb4c98ecdff74962c84368897231c69aa02d37b5a227395da2d02e1f3014ab"
+  },
+  "source": {
+    "R": "4.5.1",
+    "lme4": "2.0.1",
+    "jsonlite": "2.0.0"
+  },
+  "response_policy": "Read supplied Scala DrawRandomEffects rows unchanged; seed is character to prevent integer precision loss."
+}

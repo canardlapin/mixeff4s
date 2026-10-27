@@ -6,7 +6,7 @@ import mixeff4s.model.{Family, Link}
 /** Binomial responses are proportions; trials are explicit integers. Case weights multiply both the conditional log
   * density and its score/curvature.
   */
-private[glmm] final case class GlmmResponse(
+private[mixeff4s] final case class GlmmResponse(
     family: Family,
     y: Vector[Double],
     caseWeights: Vector[Double],
@@ -34,22 +34,23 @@ private[glmm] final case class GlmmResponse(
       case Family.Poisson => -logGamma(y(i) + 1.0)
       case _              => 0.0
 
+  /** Parameter-dependent part only, for response-constant-free quadrature differences. */
+  private[glmm] def parameterDeviance(i: Int, eta: Double): Double =
+    val loss = family match
+      case Family.Bernoulli | Family.Binomial =>
+        val n = trials(i).toDouble
+        val s = counts(i)
+        if eta >= 0.0 then (n - s) * eta + n * math.log1p(math.exp(-eta))
+        else -s * eta + n * math.log1p(math.exp(eta))
+      case Family.Poisson => math.exp(eta) - y(i) * eta
+      case _              => Double.NaN
+    2.0 * caseWeights(i) * loss
+
   def minusTwoLogDensity(eta: Array[Double]): Double =
     var result = 0.0
     var i = 0
     while i < y.length do
-      val e = eta(i)
-      val value = family match
-        case Family.Bernoulli | Family.Binomial =>
-          val n = trials(i).toDouble
-          val s = counts(i)
-          val loss =
-            if e >= 0.0 then (n - s) * e + n * math.log1p(math.exp(-e))
-            else -s * e + n * math.log1p(math.exp(e))
-          loss - constants(i)
-        case Family.Poisson => math.exp(e) - y(i) * e - constants(i)
-        case _              => Double.NaN
-      result += 2.0 * caseWeights(i) * value
+      result += parameterDeviance(i, eta(i)) - 2.0 * caseWeights(i) * constants(i)
       i += 1
     result
 
@@ -67,7 +68,7 @@ private[glmm] final case class GlmmResponse(
     val t = z + 7.5
     0.9189385332046727 + (z + 0.5) * math.log(t) - t + math.log(a)
 
-private[glmm] object GlmmResponse:
+private[mixeff4s] object GlmmResponse:
   def prepare(family: Family, y: Vector[Double], options: GlmmOptions): FitResult[GlmmResponse] =
     for
       _ <- Pirls.validateResponse(family, y)
@@ -83,7 +84,7 @@ private[glmm] object GlmmResponse:
           Left(MixedModelError.InvalidArgument("trials must be positive integers, one per observation"))
         else if family == Family.Binomial && y.indices.exists: i =>
             val successes = y(i) * trials(i).toDouble
-            math.abs(successes - math.rint(successes)) > 1e-8
+            math.abs(successes - math.rint(successes)) > math.max(1e-8, 4.0 * math.ulp(successes))
         then
           Left(
             MixedModelError.InvalidArgument(
@@ -102,7 +103,9 @@ private[glmm] object GlmmResponse:
     yield GlmmResponse(family, canonical.toVector, weights, trials, offset)
 
   def validatePath(family: Family, link: Link, options: GlmmOptions): FitResult[Unit] =
-    if options.nAgq != 1 then Left(MixedModelError.Unsupported("AGQ is not implemented; nAgq must be 1"))
+    if options.nAgq < 1 || options.nAgq > AdaptiveQuadrature.MaxNodes then
+      Left(MixedModelError.Unsupported(s"nAgq must be between 1 and ${AdaptiveQuadrature.MaxNodes}"))
+    else if options.fast && options.nAgq != 1 then Left(MixedModelError.Unsupported("AGQ requires fast=false"))
     else if options.maxEvaluations <= 0 || options.pirlsMaxIterations <= 0 || options.jointMaxIterations <= 0 then
       Left(MixedModelError.InvalidArgument("optimizer and PIRLS iteration budgets must be positive"))
     else if !options.conditionalScoreTolerance.isFinite || options.conditionalScoreTolerance <= 0.0 then

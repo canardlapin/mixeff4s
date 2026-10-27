@@ -12,7 +12,8 @@ it when you want Bates/MixedModels PLS semantics without inventing a p-value.
 
 **Status:** `prototype`. The formula language, model frame, family/link types,
 Gale-backed design compilation, a blocked-Cholesky LMM kernel, and labelled
-fast-PIRLS and canonical-link joint-Laplace GLMMs are implemented. AGQ is refused.
+fast-PIRLS, canonical-link joint Laplace, and scalar adaptive-quadrature GLMMs
+are implemented, with prediction, seeded simulation and qualified bootstrap.
 
 ## Quick start
 
@@ -155,60 +156,96 @@ fitted snapshot. Copying coefficients, variance, options or optimizer evidence
 invalidates that seal and yields a precise refusal. Workspaces remain private;
 old fit values stay valid after later refits.
 
-## Joint-Laplace GLMM workflow
+## GLMM analysis workflow
 
-For Bernoulli/logit, binomial/logit or Poisson/log, select the estimator explicitly:
+Select an estimator explicitly. The direct and reusable front doors both default
+to labelled fast-PIRLS. `GlmmOptions.jointLaplace` uses one-node Laplace;
+`GlmmOptions.jointAgq(5)` selects labelled adaptive Gauss-Hermite quadrature.
+Orders 1–31 are admitted. More than one node requires exactly one scalar random
+term; scalar random slopes are supported. Use explicit Laplace options for crossed/vector terms.
+Unsupported shapes refuse rather than switch approximations.
+
+This function accepts a frame containing binomial proportions `y`, predictor
+`x`, group `g`, and positive integer trials aligned to its rows:
 
 ```scala
 import mixeff4s.prelude.*
 
-val joint: FitResult[GlmmFit] = Glmm.fit(
-  "y ~ 1 + x + (1 | g)", frame, Family.Bernoulli, None,
-  GlmmOptions.jointLaplace
-)
+def analyse(frame: ModelFrame, trials: Vector[Int]) =
+  val options = GlmmOptions.jointAgq(5).copy(trials = Some(trials))
+  for
+    plan <- Glmm.prepare("y ~ 1 + x + (1 | g)", frame, Family.Binomial)
+    fit <- plan.fit(options)
+    newData <- ModelFrame.of("x" -> numeric(Vector(-1.0, 0.0, 1.0)))
+    predicted <- GlmmPrediction.predict(fit, newData, PredictionMode.Population)
+    simulated <- GlmmSimulation.response(fit, seed = 42L)
+    bootstrap <- Bootstrap.parametric(fit, GlmmBootstrapOptions(
+      nsim = 39, seed = 20261027L,
+      targets = Vector(BootstrapTarget.Coefficient("x"))
+    ))
+  yield (fit, GlmmAssessment.assess(fit), predicted, simulated, bootstrap)
 ```
 
-Binomial responses are proportions in `[0, 1]`; supply positive integer counts
-in `GlmmOptions.trials`. Counts greater than one in the response, or fractional
-successes without matching trials, refuse. `weights` are separate positive case
-weights multiplying the entire conditional log likelihood, score and curvature.
-Noninteger case weights define a power likelihood. Poisson responses are integer
-counts, including zero. Offsets are finite link-scale vectors in
-`GlmmOptions.offset`; supply `log(exposure)` for a Poisson exposure offset.
+A plan's `session(options)` reuses private numerical scratch for response-only
+`refit(y)` calls. Every refit resets beta/theta to independent cold starts;
+trials, offsets, weights, coding, estimator and controls remain fixed. Previous
+fit snapshots remain valid. `refitAll` retains a result for every response,
+including failures. Use separate sessions for independent concurrent work.
 
-`fit.algorithmLabel` is `joint-Laplace`. Its `deviance` is minus twice the Laplace
-log likelihood **including response constants**. Fast-PIRLS keeps its historical
-deviance-residual convention; consult `fit.objectiveDefinition` before comparing
-objectives. Fast-PIRLS remains a documented divergence from joint fitting.
+Binomial y is a proportion in `[0, 1]`. `trials` supplies positive integer counts;
+without trials only binary responses are admissible. Valid floating `K/n`
+roundtrips are canonicalized to integer successes. `weights` are separate positive
+case weights multiplying the entire log density, score and curvature; noninteger
+weights define a power likelihood. Poisson responses are integer counts including
+zero. Offsets are explicit finite link-scale vectors, such as `log(exposure)`.
 
-Joint fitting holds beta fixed in each conditional solve, checks the actual
-spherical random-effect score (default maximum absolute value `1e-8`), and
-refreshes the determinant at the accepted modes. `fit.inner`, `fit.optimizer`
-and `fit.jointAssessment` report conditional evidence, numerical termination,
-and outer finite-difference evidence separately. The outer threshold is an
-explicit absolute `stationarityTolerance` (default `1e-4`) in retained parameter
-units; it does not depend on response-only likelihood constants. A returned fit
-may fail that assessment. At a covariance boundary, feasible descent probes can
-establish failure; no detected descent remains unresolved. There is no Hessian,
-global-optimum or finite-MLE existence certificate.
+`GlmmPrediction` uses frozen training coding on link or response scales, with
+explicit new-group refusal or `NewGroupPolicy.ZeroEffect`. New data must supply an
+offset if the fit used one. Binomial response predictions are proportions.
+`PredictionMode.Population` sets random effects to zero; it does **not** integrate
+over their distribution. Raw and Pearson residuals are available.
 
-Fits are immutable snapshots with package-private construction. `conditionalEta`,
-`conditionalMean` and `randomEffects` expose training predictions and modes; the
-latter includes fitted term, level and coefficient order. GLMM new-data prediction,
-intervals and advanced inference remain outside this workflow. Joint noncanonical
-links, estimated dispersion, negative binomial and AGQ return explicit refusals.
+`GlmmSimulation` draws fresh `b = Lambda z`, or conditions on the estimated modes
+when `SimulationMode.ConditionOnModes` is explicit. Bernoulli, binomial and Poisson
+count samplers use independent indexed streams. Simulated binomial responses are
+`K/trials`. Simulation and bootstrap currently require unit case weights;
+power likelihood alone does not define a sampling distribution. Poisson simulation
+admits means through `1e6`; larger or nonfinite draws return explicit diagnostics.
 
-Run the complete grouped-binomial example:
+`fit.inner` records conditional-score evidence; `fit.optimizer` records numerical
+termination. `GlmmAssessment.assess` recomputes evidence for the actual quadrature
+objective (default score tolerance `1e-8`, absolute projected-gradient tolerance
+`1e-4` in retained parameter units). Bootstrap requires passed conditional and outer checks, interior/full-rank
+covariance and a sufficient fixed-effect overlap/recession witness. Unavailable
+witnesses refuse. Pure-outcome groups remain risk flags, not proof that penalized
+conditional modes do not exist. Finite joint-MLE existence and global optimality
+remain unassessed.
+
+`GlmmBootstrapResult` retains every response, seed, fit/error, assessment and target
+statistic. Any failed or unqualified attempt prevents interval extraction; none are
+replaced or silently dropped. Numerical controls may be overridden explicitly,
+but estimator, quadrature, trials, offsets and weights must match the fitted model.
+Intervals are empirical percentile intervals for specified retained-basis coefficients
+or contrasts. The 39-replicate example is a bounded demonstration, not a coverage
+or Monte Carlo precision qualification. Conditional-mode experiments are labelled
+in the result and do not sample posterior random-effect uncertainty.
+
+Joint Laplace and AGQ report full-density minus twice log likelihood, including
+response constants. High-order lme4 AGQ references are normalized explicitly before
+comparison; raw values remain in the evidence. Fast-PIRLS keeps its historical
+objective and divergence label. GLMM profile intervals, estimated dispersion,
+negative binomial, noncanonical joint links and KR/Satterthwaite remain unavailable.
+
+Run the complete compile/fit/assess/predict/simulate/bootstrap example:
 
 ```sh
-sbt 'mixeff4sJVM/Test/runMain mixeff4s.examples.GlmmWorkflow'
+sbt 'mixeff4sJVM/Test/runMain mixeff4s.examples.GlmmAnalysis'
 ```
 
-Four joint cases (cbpp, culcita, offset/zero Poisson, and correlated/crossed
-Poisson) are compared to frozen lme4 fits on JVM and Scala.js, including means
-and modes. The small Poisson fast path has a measured theta difference of about
-`0.014` from lme4 nAGQ=0; that row stays documented divergence. Details and
-reproducibility receipts are in [the GLMM qualification report](comparison/GLMM_TRANCHE.md).
+Independent integration, R refits of the actual simulated responses, cross-runtime
+sampler checks and matched fresh-response measurements are documented in
+[the analysis qualification report](comparison/GLMM_ANALYSIS_TRANCHE.md).
+The [earlier joint-Laplace report](comparison/GLMM_TRANCHE.md) retains its original evidence.
 
 ## What it covers
 
@@ -220,8 +257,8 @@ reproducibility receipts are in [the GLMM qualification report](comparison/GLMM_
 - Compile a formula and frame into `FeTerm`, `ReMat`s, and the live θ `parmap`
 - Fit profiled (RE)ML with blocked Cholesky + TrustBQ, including crossed intercepts
 - Report VarCorr, Wald SEs, and z-statistics; p-values stay a typed refusal
-- Fit separately labelled fast-PIRLS and canonical-link joint-Laplace GLMMs (`Glmm.fit`); Normal+Identity is refused as a GLMM
-- Predict with frozen training coding, obtain residuals, simulate Gaussian responses, and bootstrap retained-basis coefficients or contrasts with explicit qualification
+- Fit separately labelled fast-PIRLS, canonical joint-Laplace and scalar-AGQ GLMMs (`Glmm.fit`); Normal+Identity is refused as a GLMM
+- Predict with frozen coding, compute residuals, simulate Gaussian or supported GLMM responses, and obtain qualified coefficient/contrast bootstrap intervals
 - Compare nested LMMs with `Lrt.compare`; profile intervals and bootstrap LRT calibration stay typed refusals
 - Emit a versioned compiled-design JSON artifact with a design-time pathology certificate; raw θ assessment reports geometry, while assessment of an `LmmFit` also checks its optimizer evidence
 
@@ -230,7 +267,7 @@ reproducibility receipts are in [the GLMM qualification report](comparison/GLMM_
 Good fit for describing mixed models, fitting the current LMM kernel
 (sleepstudy, penicillin, pastes), labelled fast-PIRLS GLMMs, and canonical-link
 joint Laplace for Bernoulli/binomial and Poisson. Structured RE covariance,
-AGQ and estimated-dispersion GLMMs are not implemented.
+multidimensional AGQ and estimated-dispersion GLMMs are not implemented.
 
 Out of scope for this slice, and for the Rust 1.0 line we are porting:
 
@@ -248,7 +285,7 @@ via `-Dmixeff4s.gale.build=/path/to/gale`.
 
 | Question | Answer |
 | --- | --- |
-| What does it do? | Mixed-model language, frame, design compilation, profiled LMM fitting, prediction, simulation, qualified coefficient bootstrap, labelled fast-PIRLS and joint-Laplace GLMMs, nested LRT and compiled-design artifacts |
+| What does it do? | Mixed-model language, frame, design compilation, profiled LMM fitting, prediction, simulation, qualified coefficient bootstrap, labelled fast-PIRLS, joint-Laplace and scalar-AGQ GLMMs with analysis workflows, nested LRT and compiled-design artifacts |
 | Smallest useful example? | Parse `y ~ 1 + x + (1 \| g)` and inspect the IR |
 | Maturity / publication? | `prototype`, source-only, unpublished at [canardlapin/mixeff4s](https://github.com/canardlapin/mixeff4s) |
 | How to verify? | `sbt -Dmixeff4s.gale.build=/path/to/gale test` (JVM and Scala.js). Default tests read frozen numbers; they do not call R or Julia. |

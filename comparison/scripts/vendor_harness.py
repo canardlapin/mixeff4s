@@ -512,6 +512,8 @@ def main() -> None:
     catalog = add_workflow_pins(catalog)
     from update_glmm_catalog import add_glmm_pins
     catalog = add_glmm_pins(catalog)
+    from embed_glmm_analysis import add_glmm_analysis_pins
+    catalog = add_glmm_analysis_pins(catalog)
     dest = ROOT / "comparison" / "frozen" / "references.json"
     dest.parent.mkdir(parents=True, exist_ok=True)
     frozen_text = json.dumps(catalog, indent=2, ensure_ascii=False) + "\n"

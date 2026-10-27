@@ -43,7 +43,8 @@ def add_glmm_pins(catalog):
 
 def main():
     path = ROOT / "comparison/frozen/references.json"
-    catalog = add_glmm_pins(json.loads(path.read_text()))
+    from embed_glmm_analysis import add_glmm_analysis_pins
+    catalog = add_glmm_analysis_pins(add_glmm_pins(json.loads(path.read_text())))
     text = json.dumps(catalog, indent=2, ensure_ascii=False) + "\n"
     path.write_text(text)
     chunks = [text[i:i + 12000] for i in range(0, len(text), 12000)]
@@ -68,6 +69,18 @@ def main():
                        "objective_abs_tol": 0.01 if not joint and name == "synthetic_poisson_offset" else 1e-4,
                        "beta_abs_tol": 1e-3, "theta_abs_tol": 0.02 if not joint and name == "synthetic_poisson_offset" else 1e-3,
                        "reason": reason}
+                content += "\n[[row]]\n" + "".join(f"{k} = {json.dumps(v)}\n" for k, v in row.items())
+        scorecard.write_text(content)
+    marker = "# Qualified scalar adaptive quadrature claims."
+    if marker not in content:
+        content += "\n" + marker + "\n"
+        for name in ("cbpp", "culcitalogreg", "synthetic_poisson_offset"):
+            for nodes in (5, 9, 15):
+                family = "Binomial" if name == "cbpp" else "Bernoulli" if name == "culcitalogreg" else "Poisson"
+                row = dict(dataset=name, formula=FORMULAS[name], family=family, link="Log" if family == "Poisson" else "Logit",
+                           estimator=f"joint_agq_{nodes}", **{"class": "release_blocking_parity"}, reference="lme4_joint_agq",
+                           objective_abs_tol=1e-4, beta_abs_tol=1e-3, theta_abs_tol=1e-3,
+                           reason=f"Scalar AGQ{nodes}: full-density objective, coefficients and predictions compared on JVM/JS. lme4 residual-density constants corrected explicitly and independently integrated. No global-optimality or coverage claim.")
                 content += "\n[[row]]\n" + "".join(f"{k} = {json.dumps(v)}\n" for k, v in row.items())
         scorecard.write_text(content)
     scala = ROOT / "src/test/scala/mixeff4s/comparison/Scorecard.scala"

@@ -6,7 +6,13 @@
   "source": {
     "mixeff_rs_revision": "d6b81ce8b5974b2f0e42fcf650ad6811e5202a4f",
     "lme4_tool": "lme4 2.0.1",
-    "note": "Earlier pins retain their original provenance. Classic LMM workflow pins were generated with live R/lme4; scripts, package versions, frame hashes and full prediction/mode references are under comparison/workflow-tranche. Existing reference values are preserved. There are no p-values."
+    "note": "Earlier pins retain their original provenance. Classic LMM workflow pins were generated with live R/lme4; scripts, package versions, frame hashes and full prediction/mode references are under comparison/workflow-tranche. Existing reference values are preserved. There are no p-values.",
+    "glmm_analysis": {
+      "R": "4.5.1",
+      "lme4": "2.0.1",
+      "provenance": "comparison/glmm-analysis-tranche/reference-provenance.json",
+      "normalization": "raw high-order lme4 objective plus independently checked saturated-density constants"
+    }
   },
   "results": [
     {
@@ -1847,6 +1853,327 @@
       "provenance": "comparison/glmm-tranche/provenance.json",
       "response_and_offset_contract": "cbpp: proportion=incidence/size, trials=size; Poisson: offset=log(exposure); case weights=1",
       "reference_estimator": "lme4 nAGQ=0, documented fast divergence only"
+    },
+    {
+      "dataset": "cbpp",
+      "formula": "proportion ~ 1 + period + (1 | herd)",
+      "family": "Binomial",
+      "link": "Logit",
+      "estimator": "joint_agq_5",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 56,
+      "n_agq": 5,
+      "objective": 183.96807570514318,
+      "objective_definition": "minus_two_loglikelihood_with_response_constants",
+      "objective_comparable": true,
+      "beta": [
+        -1.3991938228145253,
+        -0.9914381803475042,
+        -1.127853224400955,
+        -1.579508925995518
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "period2",
+        "period3",
+        "period4"
+      ],
+      "theta": [
+        0.6473646157661697
+      ],
+      "tolerances": {
+        "objective": 0.0001,
+        "beta": 0.001,
+        "theta": 0.001
+      },
+      "raw_reference_objective": 100.01136816727201,
+      "response_only_normalization_shift": 83.95670753787115,
+      "provenance": "comparison/glmm-analysis-tranche/reference-provenance.json"
+    },
+    {
+      "dataset": "cbpp",
+      "formula": "proportion ~ 1 + period + (1 | herd)",
+      "family": "Binomial",
+      "link": "Logit",
+      "estimator": "joint_agq_9",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 56,
+      "n_agq": 9,
+      "objective": 183.96674359266925,
+      "objective_definition": "minus_two_loglikelihood_with_response_constants",
+      "objective_comparable": true,
+      "beta": [
+        -1.3992302068165978,
+        -0.9914038514576177,
+        -1.1278196656023907,
+        -1.579471008508689
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "period2",
+        "period3",
+        "period4"
+      ],
+      "theta": [
+        0.6475177234326607
+      ],
+      "tolerances": {
+        "objective": 0.0001,
+        "beta": 0.001,
+        "theta": 0.001
+      },
+      "raw_reference_objective": 100.01003605479809,
+      "response_only_normalization_shift": 83.95670753787115,
+      "provenance": "comparison/glmm-analysis-tranche/reference-provenance.json"
+    },
+    {
+      "dataset": "cbpp",
+      "formula": "proportion ~ 1 + period + (1 | herd)",
+      "family": "Binomial",
+      "link": "Logit",
+      "estimator": "joint_agq_15",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 56,
+      "n_agq": 15,
+      "objective": 183.9667380726923,
+      "objective_definition": "minus_two_loglikelihood_with_response_constants",
+      "objective_comparable": true,
+      "beta": [
+        -1.3992304674873337,
+        -0.9914036275815943,
+        -1.1278194761731,
+        -1.5794706941982382
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "period2",
+        "period3",
+        "period4"
+      ],
+      "theta": [
+        0.6475184796253579
+      ],
+      "tolerances": {
+        "objective": 0.0001,
+        "beta": 0.001,
+        "theta": 0.001
+      },
+      "raw_reference_objective": 100.01003053482113,
+      "response_only_normalization_shift": 83.95670753787115,
+      "provenance": "comparison/glmm-analysis-tranche/reference-provenance.json"
+    },
+    {
+      "dataset": "culcitalogreg",
+      "formula": "predation ~ 1 + ttt + (1 | block)",
+      "family": "Bernoulli",
+      "link": "Logit",
+      "estimator": "joint_agq_5",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 80,
+      "n_agq": 5,
+      "objective": 60.43306109714778,
+      "objective_definition": "minus_two_loglikelihood_with_response_constants",
+      "objective_comparable": true,
+      "beta": [
+        4.962740873097806,
+        -3.721526552586269,
+        -4.3285159615245155,
+        -5.516219154187697
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "tttcrabs",
+        "tttshrimp",
+        "tttboth"
+      ],
+      "theta": [
+        3.4365325873012122
+      ],
+      "tolerances": {
+        "objective": 0.0001,
+        "beta": 0.001,
+        "theta": 0.001
+      },
+      "raw_reference_objective": 60.43306109714778,
+      "response_only_normalization_shift": 0,
+      "provenance": "comparison/glmm-analysis-tranche/reference-provenance.json"
+    },
+    {
+      "dataset": "culcitalogreg",
+      "formula": "predation ~ 1 + ttt + (1 | block)",
+      "family": "Bernoulli",
+      "link": "Logit",
+      "estimator": "joint_agq_9",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 80,
+      "n_agq": 9,
+      "objective": 60.3041273655668,
+      "objective_definition": "minus_two_loglikelihood_with_response_constants",
+      "objective_comparable": true,
+      "beta": [
+        5.013911397595372,
+        -3.751243264703967,
+        -4.362377985788145,
+        -5.546004514810868
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "tttcrabs",
+        "tttshrimp",
+        "tttboth"
+      ],
+      "theta": [
+        3.505303194723625
+      ],
+      "tolerances": {
+        "objective": 0.0001,
+        "beta": 0.001,
+        "theta": 0.001
+      },
+      "raw_reference_objective": 60.3041273655668,
+      "response_only_normalization_shift": 0,
+      "provenance": "comparison/glmm-analysis-tranche/reference-provenance.json"
+    },
+    {
+      "dataset": "culcitalogreg",
+      "formula": "predation ~ 1 + ttt + (1 | block)",
+      "family": "Bernoulli",
+      "link": "Logit",
+      "estimator": "joint_agq_15",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 80,
+      "n_agq": 15,
+      "objective": 60.30422328859943,
+      "objective_definition": "minus_two_loglikelihood_with_response_constants",
+      "objective_comparable": true,
+      "beta": [
+        5.015367914876946,
+        -3.7521123648309347,
+        -4.3640730789741236,
+        -5.548961597150483
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "tttcrabs",
+        "tttshrimp",
+        "tttboth"
+      ],
+      "theta": [
+        3.509279682457305
+      ],
+      "tolerances": {
+        "objective": 0.0001,
+        "beta": 0.001,
+        "theta": 0.001
+      },
+      "raw_reference_objective": 60.30422328859943,
+      "response_only_normalization_shift": 0,
+      "provenance": "comparison/glmm-analysis-tranche/reference-provenance.json"
+    },
+    {
+      "dataset": "synthetic_poisson_offset",
+      "formula": "count ~ 1 + x + (1 | group)",
+      "family": "Poisson",
+      "link": "Log",
+      "estimator": "joint_agq_5",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 24,
+      "n_agq": 5,
+      "objective": 68.33667424479891,
+      "objective_definition": "minus_two_loglikelihood_with_response_constants",
+      "objective_comparable": true,
+      "beta": [
+        0.3262641878929503,
+        0.6448436042783727
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "x"
+      ],
+      "theta": [
+        0.1413491529085637
+      ],
+      "tolerances": {
+        "objective": 0.0001,
+        "beta": 0.001,
+        "theta": 0.001
+      },
+      "raw_reference_objective": 12.499250391538942,
+      "response_only_normalization_shift": 55.83742385325997,
+      "provenance": "comparison/glmm-analysis-tranche/reference-provenance.json"
+    },
+    {
+      "dataset": "synthetic_poisson_offset",
+      "formula": "count ~ 1 + x + (1 | group)",
+      "family": "Poisson",
+      "link": "Log",
+      "estimator": "joint_agq_9",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 24,
+      "n_agq": 9,
+      "objective": 68.33667500901788,
+      "objective_definition": "minus_two_loglikelihood_with_response_constants",
+      "objective_comparable": true,
+      "beta": [
+        0.32626433938389987,
+        0.6448436231871797
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "x"
+      ],
+      "theta": [
+        0.14134789272341766
+      ],
+      "tolerances": {
+        "objective": 0.0001,
+        "beta": 0.001,
+        "theta": 0.001
+      },
+      "raw_reference_objective": 12.499251155757905,
+      "response_only_normalization_shift": 55.83742385325997,
+      "provenance": "comparison/glmm-analysis-tranche/reference-provenance.json"
+    },
+    {
+      "dataset": "synthetic_poisson_offset",
+      "formula": "count ~ 1 + x + (1 | group)",
+      "family": "Poisson",
+      "link": "Log",
+      "estimator": "joint_agq_15",
+      "engine": "lme4",
+      "status": "ok",
+      "n_obs": 24,
+      "n_agq": 15,
+      "objective": 68.3366750090086,
+      "objective_definition": "minus_two_loglikelihood_with_response_constants",
+      "objective_comparable": true,
+      "beta": [
+        0.326264345532362,
+        0.644843608568858
+      ],
+      "coef_names": [
+        "(Intercept)",
+        "x"
+      ],
+      "theta": [
+        0.14134790654554744
+      ],
+      "tolerances": {
+        "objective": 0.0001,
+        "beta": 0.001,
+        "theta": 0.001
+      },
+      "raw_reference_objective": 12.49925115574863,
+      "response_only_normalization_shift": 55.83742385325997,
+      "provenance": "comparison/glmm-analysis-tranche/reference-provenance.json"
     }
   ]
 }

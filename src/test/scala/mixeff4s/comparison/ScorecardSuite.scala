@@ -5,7 +5,7 @@ class ScorecardSuite extends munit.FunSuite:
     val scorecard = Scorecard.loadEmbedded
     assertEquals(scorecard.schemaVersion, "1.0.0")
     assertEquals(scorecard.classes, ScorecardClass.all)
-    assertEquals(scorecard.rows.length, 32)
+    assertEquals(scorecard.rows.length, 41)
     assertEquals(
       scorecard.rows.map(_.classification).toSet,
       Set(

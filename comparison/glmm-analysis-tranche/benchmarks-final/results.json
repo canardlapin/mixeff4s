@@ -1,0 +1,531 @@
+{
+  "repeats": 3,
+  "responses_per_small_workload": 12,
+  "samples": 960,
+  "matched_pairs": 480,
+  "distinct_responses": {
+    "binomial": 12,
+    "crossed_poisson": 8,
+    "poisson_offset": 12,
+    "rare_bernoulli": 12
+  },
+  "maximum_response_difference": 0.0,
+  "host": {
+    "platform": "macOS-14.3-arm64-arm-64bit-Mach-O",
+    "machine": "arm64"
+  },
+  "summary": [
+    {
+      "platform": "js",
+      "workload": "binomial",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        165.50287550000002,
+        167.249042,
+        168.090979
+      ],
+      "median_ms": 167.249042,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 5.004833,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 36
+    },
+    {
+      "platform": "js",
+      "workload": "binomial",
+      "nAgq": 1,
+      "phase": "refit",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        165.324729,
+        166.433729,
+        167.794021
+      ],
+      "median_ms": 166.433729,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 5.012166000000001,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 36
+    },
+    {
+      "platform": "js",
+      "workload": "binomial",
+      "nAgq": 5,
+      "phase": "rebuild",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        208.205312,
+        209.64881250000002,
+        210.1704165
+      ],
+      "median_ms": 209.64881250000002,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 6.1123955,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 36
+    },
+    {
+      "platform": "js",
+      "workload": "binomial",
+      "nAgq": 5,
+      "phase": "refit",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        208.1131665,
+        208.863271,
+        209.8958755
+      ],
+      "median_ms": 208.863271,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 6.169021,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 36
+    },
+    {
+      "platform": "js",
+      "workload": "crossed_poisson",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "max_evaluations": 2000,
+      "process_medians_ms": [
+        3986.4877290000004,
+        3955.099979,
+        3987.47075
+      ],
+      "median_ms": 3986.4877290000004,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 56.565666,
+      "fit_failures": 3,
+      "unqualified": 0,
+      "attempts": 24
+    },
+    {
+      "platform": "js",
+      "workload": "crossed_poisson",
+      "nAgq": 1,
+      "phase": "refit",
+      "max_evaluations": 2000,
+      "process_medians_ms": [
+        3981.7847920000004,
+        3950.150667,
+        3959.226666
+      ],
+      "median_ms": 3959.226666,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 56.6529995,
+      "fit_failures": 3,
+      "unqualified": 0,
+      "attempts": 24
+    },
+    {
+      "platform": "js",
+      "workload": "poisson_offset",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        101.752083,
+        99.6859375,
+        102.0663335
+      ],
+      "median_ms": 101.752083,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 0.9712295,
+      "fit_failures": 0,
+      "unqualified": 18,
+      "attempts": 36
+    },
+    {
+      "platform": "js",
+      "workload": "poisson_offset",
+      "nAgq": 1,
+      "phase": "refit",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        101.5449375,
+        100.398604,
+        102.358375
+      ],
+      "median_ms": 101.5449375,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 0.8599795,
+      "fit_failures": 0,
+      "unqualified": 18,
+      "attempts": 36
+    },
+    {
+      "platform": "js",
+      "workload": "poisson_offset",
+      "nAgq": 5,
+      "phase": "rebuild",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        138.49981250000002,
+        137.0821875,
+        137.37427100000002
+      ],
+      "median_ms": 137.37427100000002,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 1.121229,
+      "fit_failures": 0,
+      "unqualified": 18,
+      "attempts": 36
+    },
+    {
+      "platform": "js",
+      "workload": "poisson_offset",
+      "nAgq": 5,
+      "phase": "refit",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        137.90506249999999,
+        136.720938,
+        137.2120205
+      ],
+      "median_ms": 137.2120205,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 1.0965,
+      "fit_failures": 0,
+      "unqualified": 18,
+      "attempts": 36
+    },
+    {
+      "platform": "js",
+      "workload": "rare_bernoulli",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        141.62422850000002,
+        141.1564795,
+        142.0446245
+      ],
+      "median_ms": 141.62422850000002,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 4.502083,
+      "fit_failures": 0,
+      "unqualified": 15,
+      "attempts": 36
+    },
+    {
+      "platform": "js",
+      "workload": "rare_bernoulli",
+      "nAgq": 1,
+      "phase": "refit",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        139.6015,
+        140.789292,
+        140.8669585
+      ],
+      "median_ms": 140.789292,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 4.5191665,
+      "fit_failures": 0,
+      "unqualified": 15,
+      "attempts": 36
+    },
+    {
+      "platform": "js",
+      "workload": "rare_bernoulli",
+      "nAgq": 5,
+      "phase": "rebuild",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        188.733854,
+        187.48485449999998,
+        189.53452049999999
+      ],
+      "median_ms": 188.733854,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 6.2222285,
+      "fit_failures": 0,
+      "unqualified": 15,
+      "attempts": 36
+    },
+    {
+      "platform": "js",
+      "workload": "rare_bernoulli",
+      "nAgq": 5,
+      "phase": "refit",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        186.677291,
+        188.22475,
+        187.911271
+      ],
+      "median_ms": 187.911271,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 6.208458,
+      "fit_failures": 0,
+      "unqualified": 15,
+      "attempts": 36
+    },
+    {
+      "platform": "jvm",
+      "workload": "binomial",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        48.90275,
+        49.1302915,
+        48.419437
+      ],
+      "median_ms": 48.90275,
+      "allocated_bytes": 30621444.0,
+      "fresh_assessment_ms": 1.873354,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 36
+    },
+    {
+      "platform": "jvm",
+      "workload": "binomial",
+      "nAgq": 1,
+      "phase": "refit",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        47.4471875,
+        47.764958,
+        47.646437500000005
+      ],
+      "median_ms": 47.646437500000005,
+      "allocated_bytes": 30479792.0,
+      "fresh_assessment_ms": 1.792563,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 36
+    },
+    {
+      "platform": "jvm",
+      "workload": "binomial",
+      "nAgq": 5,
+      "phase": "rebuild",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        68.344521,
+        68.01483350000001,
+        67.695187
+      ],
+      "median_ms": 68.01483350000001,
+      "allocated_bytes": 39946732.0,
+      "fresh_assessment_ms": 2.3488545,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 36
+    },
+    {
+      "platform": "jvm",
+      "workload": "binomial",
+      "nAgq": 5,
+      "phase": "refit",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        67.5800835,
+        66.9067915,
+        68.784854
+      ],
+      "median_ms": 67.5800835,
+      "allocated_bytes": 39794180.0,
+      "fresh_assessment_ms": 2.31075,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 36
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed_poisson",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "max_evaluations": 2000,
+      "process_medians_ms": [
+        1041.7643125,
+        1028.2962495,
+        1032.333834
+      ],
+      "median_ms": 1032.333834,
+      "allocated_bytes": 155790804.0,
+      "fresh_assessment_ms": 15.262375,
+      "fit_failures": 3,
+      "unqualified": 0,
+      "attempts": 24
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed_poisson",
+      "nAgq": 1,
+      "phase": "refit",
+      "max_evaluations": 2000,
+      "process_medians_ms": [
+        1038.4192505,
+        1040.277271,
+        1032.257708
+      ],
+      "median_ms": 1038.4192505,
+      "allocated_bytes": 155169180.0,
+      "fresh_assessment_ms": 14.9528335,
+      "fit_failures": 3,
+      "unqualified": 0,
+      "attempts": 24
+    },
+    {
+      "platform": "jvm",
+      "workload": "poisson_offset",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        27.452375,
+        27.828625,
+        29.8412705
+      ],
+      "median_ms": 27.828625,
+      "allocated_bytes": 25478568.0,
+      "fresh_assessment_ms": 0.403563,
+      "fit_failures": 0,
+      "unqualified": 18,
+      "attempts": 36
+    },
+    {
+      "platform": "jvm",
+      "workload": "poisson_offset",
+      "nAgq": 1,
+      "phase": "refit",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        27.3764795,
+        27.3908125,
+        28.2808955
+      ],
+      "median_ms": 27.3908125,
+      "allocated_bytes": 25423816.0,
+      "fresh_assessment_ms": 0.3826045,
+      "fit_failures": 0,
+      "unqualified": 18,
+      "attempts": 36
+    },
+    {
+      "platform": "jvm",
+      "workload": "poisson_offset",
+      "nAgq": 5,
+      "phase": "rebuild",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        40.597708,
+        40.4398335,
+        40.693417
+      ],
+      "median_ms": 40.597708,
+      "allocated_bytes": 33834924.0,
+      "fresh_assessment_ms": 0.505416,
+      "fit_failures": 0,
+      "unqualified": 18,
+      "attempts": 36
+    },
+    {
+      "platform": "jvm",
+      "workload": "poisson_offset",
+      "nAgq": 5,
+      "phase": "refit",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        39.8270625,
+        39.677542,
+        40.6070835
+      ],
+      "median_ms": 39.8270625,
+      "allocated_bytes": 33779148.0,
+      "fresh_assessment_ms": 0.486792,
+      "fit_failures": 0,
+      "unqualified": 18,
+      "attempts": 36
+    },
+    {
+      "platform": "jvm",
+      "workload": "rare_bernoulli",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        44.550625,
+        44.2564795,
+        45.570625
+      ],
+      "median_ms": 44.550625,
+      "allocated_bytes": 15511680.0,
+      "fresh_assessment_ms": 1.715646,
+      "fit_failures": 0,
+      "unqualified": 15,
+      "attempts": 36
+    },
+    {
+      "platform": "jvm",
+      "workload": "rare_bernoulli",
+      "nAgq": 1,
+      "phase": "refit",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        43.897853999999995,
+        43.8680835,
+        45.230020499999995
+      ],
+      "median_ms": 43.897853999999995,
+      "allocated_bytes": 15345872.0,
+      "fresh_assessment_ms": 1.7295829999999999,
+      "fit_failures": 0,
+      "unqualified": 15,
+      "attempts": 36
+    },
+    {
+      "platform": "jvm",
+      "workload": "rare_bernoulli",
+      "nAgq": 5,
+      "phase": "rebuild",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        68.3605625,
+        65.210917,
+        65.8085835
+      ],
+      "median_ms": 65.8085835,
+      "allocated_bytes": 20620848.0,
+      "fresh_assessment_ms": 2.3990625,
+      "fit_failures": 0,
+      "unqualified": 15,
+      "attempts": 36
+    },
+    {
+      "platform": "jvm",
+      "workload": "rare_bernoulli",
+      "nAgq": 5,
+      "phase": "refit",
+      "max_evaluations": 10000,
+      "process_medians_ms": [
+        64.476208,
+        69.2859795,
+        65.2845415
+      ],
+      "median_ms": 65.2845415,
+      "allocated_bytes": 20465128.0,
+      "fresh_assessment_ms": 2.440229,
+      "fit_failures": 0,
+      "unqualified": 15,
+      "attempts": 36
+    }
+  ],
+  "limits": [
+    "Fits include their built-in outer diagnostic; fresh inference assessment is timed separately",
+    "Crossed measured attempts have an explicit2000-evaluation budget; generation fit uses10000; small cases use10000",
+    "Each response draws new random effects and response noise; process repetitions reuse that response bank",
+    "Cold starts preserve estimator/controls; full rebuild includes frame/design compilation",
+    "Current-thread JVM allocation only; JS allocation unavailable; no peak-memory claim",
+    "Fit failures and stricter assessment failures are distinct; all observations retained"
+  ]
+}

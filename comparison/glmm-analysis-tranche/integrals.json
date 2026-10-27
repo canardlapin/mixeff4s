@@ -1,0 +1,549 @@
+{
+  "schema_version": 1,
+  "integration_definition": "-2 log integral product_i p(y_i|u_g,beta,theta) phi(u_g) du_g; u is standard normal and theta scales it",
+  "integrals": {
+    "cbpp": {
+      "dataset": "cbpp",
+      "family": "binomial",
+      "response_only_saturated_minus2loglik": 83.956707537871154,
+      "n": 56,
+      "minus2log_full_density": 183.96673807462111,
+      "groups": [
+        {
+          "level": "1",
+          "mode_standard_normal": 0.91584234717552837,
+          "fitted_mode_standard_normal": 0.91584233383374036,
+          "log_value": -9.6983419382066955,
+          "abs_error": 3.0582518218206472e-17,
+          "relative_error_bound": 4.982067765834825e-13,
+          "subdivisions": 9,
+          "message": "OK",
+          "scale": -10.00262962981364
+        },
+        {
+          "level": "2",
+          "mode_standard_normal": -0.46370610074117774,
+          "fitted_mode_standard_normal": -0.46370611290104702,
+          "log_value": -4.0968883343153717,
+          "abs_error": 4.9953677225119534e-15,
+          "relative_error_bound": 3.0048545851121247e-13,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -4.4501027454383122
+        },
+        {
+          "level": "3",
+          "mode_standard_normal": 0.62988782887239492,
+          "fitted_mode_standard_normal": 0.62988783361559209,
+          "log_value": -7.5961747475884893,
+          "abs_error": 2.4130122767678538e-16,
+          "relative_error_bound": 4.803262348536938e-13,
+          "subdivisions": 9,
+          "message": "OK",
+          "scale": -7.7414304078327163
+        },
+        {
+          "level": "4",
+          "mode_standard_normal": 0.061292315583540966,
+          "fitted_mode_standard_normal": 0.061292295038177597,
+          "log_value": -4.9649263623416475,
+          "abs_error": 2.2252568094472431e-14,
+          "relative_error_bound": 3.188748452862854e-12,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -5.4481284343258416
+        },
+        {
+          "level": "5",
+          "mode_standard_normal": -0.29465129830507897,
+          "fitted_mode_standard_normal": -0.2946513096759939,
+          "log_value": -8.1922768856782451,
+          "abs_error": 9.5437882234913822e-17,
+          "relative_error_bound": 3.4481125995829288e-13,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -8.5028452985776948
+        },
+        {
+          "level": "6",
+          "mode_standard_normal": -0.62145287659259185,
+          "fitted_mode_standard_normal": -0.62145287222744727,
+          "log_value": -5.201306254583181,
+          "abs_error": 8.5969667262476233e-15,
+          "relative_error_bound": 1.5604284178647087e-12,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -5.5930193107514672
+        },
+        {
+          "level": "7",
+          "mode_standard_normal": 1.3796349180190866,
+          "fitted_mode_standard_normal": 1.3796349386174791,
+          "log_value": -7.6400741796735829,
+          "abs_error": 2.3205085533148083e-15,
+          "relative_error_bound": 4.8264213241371802e-12,
+          "subdivisions": 9,
+          "message": "OK",
+          "scale": -7.8794046919869567
+        },
+        {
+          "level": "8",
+          "mode_standard_normal": 0.93021208848495074,
+          "fitted_mode_standard_normal": 0.9302120791564793,
+          "log_value": -3.218400629019043,
+          "abs_error": 2.2285819941126443e-14,
+          "relative_error_bound": 5.5688080819473828e-13,
+          "subdivisions": 9,
+          "message": "OK",
+          "scale": -3.4420897604062759
+        },
+        {
+          "level": "9",
+          "mode_standard_normal": -0.36989254828384355,
+          "fitted_mode_standard_normal": -0.36989255335606613,
+          "log_value": -2.8340711651583415,
+          "abs_error": 6.6511834980022345e-15,
+          "relative_error_bound": 1.1316715501415585e-13,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -3.4196400401528488
+        },
+        {
+          "level": "10",
+          "mode_standard_normal": -0.83966153829918244,
+          "fitted_mode_standard_normal": -0.83966155240231188,
+          "log_value": -6.7437766429624917,
+          "abs_error": 5.2663980107209085e-15,
+          "relative_error_bound": 4.4699087896686604e-12,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -7.1109273330474707
+        },
+        {
+          "level": "11",
+          "mode_standard_normal": -0.13092926953811598,
+          "fitted_mode_standard_normal": -0.13092926081137127,
+          "log_value": -12.142008155880422,
+          "abs_error": 4.4344463018642223e-17,
+          "relative_error_bound": 8.3185291262701875e-12,
+          "subdivisions": 6,
+          "message": "OK",
+          "scale": -12.326733703539523
+        },
+        {
+          "level": "12",
+          "mode_standard_normal": -0.10061522190726946,
+          "fitted_mode_standard_normal": -0.10061520932085811,
+          "log_value": -3.2858826106539132,
+          "abs_error": 3.5514995496847439e-14,
+          "relative_error_bound": 9.4940704475515733e-13,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -3.8268808275260318
+        },
+        {
+          "level": "13",
+          "mode_standard_normal": -1.0714852778885764,
+          "fitted_mode_standard_normal": -1.0714852779579687,
+          "log_value": -5.5219327776792877,
+          "abs_error": 1.8526512775953091e-14,
+          "relative_error_bound": 4.6338141889215152e-12,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -5.9265743425234323
+        },
+        {
+          "level": "14",
+          "mode_standard_normal": 1.5071780323454398,
+          "fitted_mode_standard_normal": 1.5071780542356492,
+          "log_value": -5.9883417802579375,
+          "abs_error": 2.0322600524007875e-14,
+          "relative_error_bound": 8.1036947069584017e-12,
+          "subdivisions": 9,
+          "message": "OK",
+          "scale": -6.3140249299619615
+        },
+        {
+          "level": "15",
+          "mode_standard_normal": -0.82408077599003282,
+          "fitted_mode_standard_normal": -0.82408078823956854,
+          "log_value": -4.858966573311899,
+          "abs_error": 6.3954161535516703e-15,
+          "relative_error_bound": 8.243111608819279e-13,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -5.2964653387154428
+        }
+      ],
+      "max_relative_error_bound": 8.3185291262701875e-12,
+      "sum_absolute_error_bound": 1.5354000358790504e-13,
+      "tolerance": {
+        "relative": 9.9999999999999994e-12,
+        "absolute": 1e-13,
+        "subdivisions": 2000
+      }
+    },
+    "culcitalogreg": {
+      "dataset": "culcitalogreg",
+      "family": "binomial",
+      "response_only_saturated_minus2loglik": -0,
+      "n": 80,
+      "minus2log_full_density": 60.304394764944902,
+      "groups": [
+        {
+          "level": "1",
+          "mode_standard_normal": -1.2894842734464631,
+          "fitted_mode_standard_normal": -1.2894842734106962,
+          "log_value": -3.4476030592848415,
+          "abs_error": 2.9331060329247676e-15,
+          "relative_error_bound": 9.2172793006899096e-14,
+          "subdivisions": 10,
+          "message": "OK",
+          "scale": -3.3250971105984446
+        },
+        {
+          "level": "2",
+          "mode_standard_normal": -0.87450938912255527,
+          "fitted_mode_standard_normal": -0.87450937692877706,
+          "log_value": -2.3115280435720473,
+          "abs_error": 5.0749731095282346e-13,
+          "relative_error_bound": 5.1205618884950426e-12,
+          "subdivisions": 9,
+          "message": "OK",
+          "scale": -2.0971524727267559
+        },
+        {
+          "level": "3",
+          "mode_standard_normal": -0.87450938912255527,
+          "fitted_mode_standard_normal": -0.87450937692877706,
+          "log_value": -2.3115280435720473,
+          "abs_error": 5.0749731095282346e-13,
+          "relative_error_bound": 5.1205618884950426e-12,
+          "subdivisions": 9,
+          "message": "OK",
+          "scale": -2.0971524727267559
+        },
+        {
+          "level": "4",
+          "mode_standard_normal": -0.87450938912255527,
+          "fitted_mode_standard_normal": -0.87450937692877706,
+          "log_value": -2.3115280435720473,
+          "abs_error": 5.0749731095282346e-13,
+          "relative_error_bound": 5.1205618884950426e-12,
+          "subdivisions": 9,
+          "message": "OK",
+          "scale": -2.0971524727267559
+        },
+        {
+          "level": "5",
+          "mode_standard_normal": -0.12283217484375542,
+          "fitted_mode_standard_normal": -0.12283217671916075,
+          "log_value": -4.1982342093963858,
+          "abs_error": 1.1404954996681691e-14,
+          "relative_error_bound": 7.59212809254844e-13,
+          "subdivisions": 5,
+          "message": "OK",
+          "scale": -3.7134383125924488
+        },
+        {
+          "level": "6",
+          "mode_standard_normal": 0.34619354470330632,
+          "fitted_mode_standard_normal": 0.3461935446669499,
+          "log_value": -3.169282429525297,
+          "abs_error": 1.5737862413668077e-13,
+          "relative_error_bound": 3.7441015113081234e-12,
+          "subdivisions": 6,
+          "message": "OK",
+          "scale": -2.9317880299300172
+        },
+        {
+          "level": "7",
+          "mode_standard_normal": 0.84733156092294171,
+          "fitted_mode_standard_normal": 0.84733154903379793,
+          "log_value": -1.2280831756246664,
+          "abs_error": 2.3556509052243121e-12,
+          "relative_error_bound": 8.0437891362999491e-12,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -1.5270636839537712
+        },
+        {
+          "level": "8",
+          "mode_standard_normal": 0.84733156092294171,
+          "fitted_mode_standard_normal": 0.84733154903379793,
+          "log_value": -1.2280831756246664,
+          "abs_error": 2.3556509052243121e-12,
+          "relative_error_bound": 8.0437891362999491e-12,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -1.5270636839537712
+        },
+        {
+          "level": "9",
+          "mode_standard_normal": 0.84733156092294171,
+          "fitted_mode_standard_normal": 0.84733154903379793,
+          "log_value": -1.2280831756246664,
+          "abs_error": 2.3556509052243121e-12,
+          "relative_error_bound": 8.0437891362999491e-12,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -1.5270636839537712
+        },
+        {
+          "level": "10",
+          "mode_standard_normal": 0.34619352127461472,
+          "fitted_mode_standard_normal": 0.34619354466695496,
+          "log_value": -8.718244026675789,
+          "abs_error": 6.1213584512643042e-16,
+          "relative_error_bound": 3.7422524734033729e-12,
+          "subdivisions": 6,
+          "message": "OK",
+          "scale": -8.4807496270804936
+        }
+      ],
+      "max_relative_error_bound": 8.0437891362999491e-12,
+      "sum_absolute_error_bound": 8.7617734695428206e-12,
+      "tolerance": {
+        "relative": 9.9999999999999994e-12,
+        "absolute": 1e-13,
+        "subdivisions": 2000
+      }
+    },
+    "synthetic_poisson_offset": {
+      "dataset": "synthetic_poisson_offset",
+      "family": "poisson",
+      "response_only_saturated_minus2loglik": 55.83742385325997,
+      "n": 24,
+      "minus2log_full_density": 68.336675009008616,
+      "groups": [
+        {
+          "level": "g1",
+          "mode_standard_normal": -0.58215279028645972,
+          "fitted_mode_standard_normal": -0.58215279036333689,
+          "log_value": -5.2019635382399336,
+          "abs_error": 4.1480101190001501e-14,
+          "relative_error_bound": 7.5339696594018248e-12,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -6.0369792373275493
+        },
+        {
+          "level": "g2",
+          "mode_standard_normal": -0.34364887306496106,
+          "fitted_mode_standard_normal": -0.34364886801067462,
+          "log_value": -4.6964673383302493,
+          "abs_error": 1.2778352702426688e-14,
+          "relative_error_bound": 1.3999893136233424e-12,
+          "subdivisions": 6,
+          "message": "OK",
+          "scale": -5.5288449030404747
+        },
+        {
+          "level": "g3",
+          "mode_standard_normal": 0.12953252127786991,
+          "fitted_mode_standard_normal": 0.12953253349925309,
+          "log_value": -6.1304667465792679,
+          "abs_error": 9.7327933173603992e-16,
+          "relative_error_bound": 4.4736847842635503e-13,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -6.9573846113630964
+        },
+        {
+          "level": "g4",
+          "mode_standard_normal": 0.011722413977985771,
+          "fitted_mode_standard_normal": 0.011722412821624046,
+          "log_value": -5.2103825743820629,
+          "abs_error": 2.3459077663936004e-15,
+          "relative_error_bound": 4.296861285611807e-13,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -6.0386883650828205
+        },
+        {
+          "level": "g5",
+          "mode_standard_normal": 0.71360886825335113,
+          "fitted_mode_standard_normal": 0.7136089001420397,
+          "log_value": -7.7680404900565119,
+          "abs_error": 5.3958985113398517e-16,
+          "relative_error_bound": 1.2755012621346135e-12,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -8.5877878751131895
+        },
+        {
+          "level": "g6",
+          "mode_standard_normal": 0.1295325403855912,
+          "fitted_mode_standard_normal": 0.12953253349925309,
+          "log_value": -5.1610168169162813,
+          "abs_error": 2.5659246990448674e-15,
+          "relative_error_bound": 4.4734751767462662e-13,
+          "subdivisions": 7,
+          "message": "OK",
+          "scale": -5.9879346817001107
+        }
+      ],
+      "max_relative_error_bound": 7.5339696594018248e-12,
+      "sum_absolute_error_bound": 6.0683155540736692e-14,
+      "tolerance": {
+        "relative": 9.9999999999999994e-12,
+        "absolute": 1e-13,
+        "subdivisions": 2000
+      }
+    }
+  },
+  "fixed_parameter_oracles": [
+    {
+      "name": "binomial_scalar_slope_unequal_trials",
+      "family": "binomial",
+      "beta": [
+        -0.40000000000000002,
+        0.69999999999999996
+      ],
+      "theta": 0.90000000000000002,
+      "x": [
+        -1,
+        0,
+        0.5,
+        1
+      ],
+      "z": [
+        -1,
+        0,
+        0.5,
+        1
+      ],
+      "y": [
+        0,
+        2,
+        1,
+        4
+      ],
+      "exposure": null,
+      "trials": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "mode_standard_normal": 0.42725639240259644,
+      "minus2log_full_density": 9.6290982878992928,
+      "relative_error_bound": 4.9097541269072225e-13,
+      "absolute_error_bound": 3.9822417185697371e-15
+    },
+    {
+      "name": "poisson_scalar_slope_offset_zero",
+      "family": "poisson",
+      "beta": [
+        0.20000000000000001,
+        0.34999999999999998
+      ],
+      "theta": 0.65000000000000002,
+      "x": [
+        -1,
+        0,
+        0.5,
+        1
+      ],
+      "z": [
+        -1,
+        0,
+        0.5,
+        1
+      ],
+      "y": [
+        0,
+        1,
+        3,
+        0
+      ],
+      "exposure": [
+        0.5,
+        1,
+        1.5,
+        2
+      ],
+      "trials": null,
+      "mode_standard_normal": -0.64967497621242887,
+      "minus2log_full_density": 12.925492325776494,
+      "relative_error_bound": 1.2799767936760688e-12,
+      "absolute_error_bound": 1.9974094459138878e-15
+    },
+    {
+      "name": "binomial_zero_theta",
+      "family": "binomial",
+      "beta": [
+        -0.40000000000000002,
+        0.69999999999999996
+      ],
+      "theta": 0,
+      "x": [
+        -1,
+        0,
+        0.5,
+        1
+      ],
+      "z": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "y": [
+        0,
+        2,
+        1,
+        4
+      ],
+      "exposure": null,
+      "trials": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "mode_standard_normal": -1.071274433990242e-13,
+      "minus2log_full_density": 9.2299733192087974,
+      "relative_error_bound": 4.7273517187036367e-12,
+      "absolute_error_bound": 4.6811728230653831e-14
+    },
+    {
+      "name": "poisson_zero_theta_offset",
+      "family": "poisson",
+      "beta": [
+        0.20000000000000001,
+        0.34999999999999998
+      ],
+      "theta": 0,
+      "x": [
+        -1,
+        0,
+        0.5,
+        1
+      ],
+      "z": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "y": [
+        0,
+        1,
+        3,
+        0
+      ],
+      "exposure": [
+        0.5,
+        1,
+        1.5,
+        2
+      ],
+      "trials": null,
+      "mode_standard_normal": -1.071274433990242e-13,
+      "minus2log_full_density": 13.102228097876704,
+      "relative_error_bound": 4.7272987942809403e-12,
+      "absolute_error_bound": 6.7530563161608009e-15
+    }
+  ]
+}

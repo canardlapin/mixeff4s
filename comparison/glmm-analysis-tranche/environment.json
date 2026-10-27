@@ -1,0 +1,45 @@
+{
+  "platform": "macOS-14.3-arm64-arm-64bit-Mach-O",
+  "cpu": {
+    "command": [
+      "sysctl",
+      "-n",
+      "machdep.cpu.brand_string"
+    ],
+    "exit_code": 0,
+    "output": "Apple M3 Max"
+  },
+  "java": {
+    "command": [
+      "java",
+      "-version"
+    ],
+    "exit_code": 0,
+    "output": "openjdk version \"22\" 2024-03-19\nOpenJDK Runtime Environment (build 22+36-2370)\nOpenJDK 64-Bit Server VM (build 22+36-2370, mixed mode, sharing)"
+  },
+  "node": {
+    "command": [
+      "node",
+      "--version"
+    ],
+    "exit_code": 0,
+    "output": "v26.7.0"
+  },
+  "python": {
+    "command": [
+      "python3",
+      "--version"
+    ],
+    "exit_code": 0,
+    "output": "Python 3.14.7"
+  },
+  "measured_runtimes": {
+    "jvm": [
+      "OpenJDK 64-Bit Server VM 25.0.1"
+    ],
+    "js": [
+      "v26.7.0"
+    ]
+  },
+  "runtime_policy": "Measured runtime fields come from benchmark processes. Shell java -version is recorded separately and is not the sbt JVM."
+}

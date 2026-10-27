@@ -1,0 +1,57 @@
+exit_code=0; reason=exited; duration_seconds=162.49929
+raw_log=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-final/run-1.log
+metadata=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-final/run-1.log.meta.json
+log_bytes=192566; excerpt_budget_bytes=1600
+--- 190966 BYTES OMITTED; raw log retained at /Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-final/run-1.log ---
+--- end ---
+d":true,"projected_norm":6.150457920739427e-7,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+GLMM_BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed_poisson","nAgq":1,"max_evaluations":2000,"index":6,"phase":"refit","ns":3374921125,"allocated_bytes":null,"fresh_assessment_ns":55701000,"fresh_assessment_allocated_bytes":null,"objective":1167.2619573895145,"evaluations":1478,"error":null,"qualified":true,"projected_norm":6.150457920739427e-7,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+GLMM_BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed_poisson","nAgq":1,"max_evaluations":2000,"index":7,"phase":"rebuild","ns":3969990458,"allocated_bytes":null,"fresh_assessment_ns":59861500,"fresh_assessment_allocated_bytes":null,"objective":1332.5150635968723,"evaluations":1666,"error":null,"qualified":true,"projected_norm":7.783758822673311e-7,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+GLMM_BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed_poisson","nAgq":1,"max_evaluations":2000,"index":7,"phase":"refit","ns":3964798584,"allocated_bytes":null,"fresh_assessment_ns":59948000,"fresh_assessment_allocated_bytes":null,"objective":1332.5150635968723,"evaluations":1666,"error":null,"qualified":true,"projected_norm":7.783758822673311e-7,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+  + new responses preserve estimators and matched outcomes while reporting allocation and failures 121.110s
+[info] Passed: Total 1, Failed 0, Errors 0, Passed 1
+[success] Total time: 122 s (0:02:02.0), completed Oct 27, 2026, 7:01:37 p.m.
+
+exit_code=0; reason=exited; duration_seconds=161.592857
+raw_log=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-final/run-2.log
+metadata=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-final/run-2.log.meta.json
+log_bytes=192564; excerpt_budget_bytes=1600
+--- 190964 BYTES OMITTED; raw log retained at /Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-final/run-2.log ---
+--- end ---
+d":true,"projected_norm":6.150457920739427e-7,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+GLMM_BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed_poisson","nAgq":1,"max_evaluations":2000,"index":6,"phase":"refit","ns":3354190375,"allocated_bytes":null,"fresh_assessment_ns":55072833,"fresh_assessment_allocated_bytes":null,"objective":1167.2619573895145,"evaluations":1478,"error":null,"qualified":true,"projected_norm":6.150457920739427e-7,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+GLMM_BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed_poisson","nAgq":1,"max_evaluations":2000,"index":7,"phase":"rebuild","ns":3932321625,"allocated_bytes":null,"fresh_assessment_ns":59473542,"fresh_assessment_allocated_bytes":null,"objective":1332.5150635968723,"evaluations":1666,"error":null,"qualified":true,"projected_norm":7.783758822673311e-7,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+GLMM_BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed_poisson","nAgq":1,"max_evaluations":2000,"index":7,"phase":"refit","ns":3929673542,"allocated_bytes":null,"fresh_assessment_ns":59481292,"fresh_assessment_allocated_bytes":null,"objective":1332.5150635968723,"evaluations":1666,"error":null,"qualified":true,"projected_norm":7.783758822673311e-7,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+  + new responses preserve estimators and matched outcomes while reporting allocation and failures 120.366s
+[info] Passed: Total 1, Failed 0, Errors 0, Passed 1
+[success] Total time: 121 s (0:02:01.0), completed Oct 27, 2026, 7:04:18 p.m.
+
+exit_code=0; reason=exited; duration_seconds=162.655163
+raw_log=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-final/run-3.log
+metadata=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-final/run-3.log.meta.json
+log_bytes=192563; excerpt_budget_bytes=1600
+--- 190963 BYTES OMITTED; raw log retained at /Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-final/run-3.log ---
+--- end ---
+d":true,"projected_norm":6.150457920739427e-7,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+GLMM_BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed_poisson","nAgq":1,"max_evaluations":2000,"index":6,"phase":"refit","ns":3363400167,"allocated_bytes":null,"fresh_assessment_ns":55033125,"fresh_assessment_allocated_bytes":null,"objective":1167.2619573895145,"evaluations":1478,"error":null,"qualified":true,"projected_norm":6.150457920739427e-7,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+GLMM_BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed_poisson","nAgq":1,"max_evaluations":2000,"index":7,"phase":"rebuild","ns":3967526042,"allocated_bytes":null,"fresh_assessment_ns":60601958,"fresh_assessment_allocated_bytes":null,"objective":1332.5150635968723,"evaluations":1666,"error":null,"qualified":true,"projected_norm":7.783758822673311e-7,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+GLMM_BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed_poisson","nAgq":1,"max_evaluations":2000,"index":7,"phase":"refit","ns":3933419625,"allocated_bytes":null,"fresh_assessment_ns":59014666,"fresh_assessment_allocated_bytes":null,"objective":1332.5150635968723,"evaluations":1666,"error":null,"qualified":true,"projected_norm":7.783758822673311e-7,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+  + new responses preserve estimators and matched outcomes while reporting allocation and failures 120.802s
+[info] Passed: Total 1, Failed 0, Errors 0, Passed 1
+[success] Total time: 122 s (0:02:02.0), completed Oct 27, 2026, 7:07:01 p.m.
+
+960 samples / 480 matched pairs; distinct responses {'binomial': 12, 'crossed_poisson': 8, 'poisson_offset': 12, 'rare_bernoulli': 12}
+js binomial 1 167.249 -> 166.434 ms; fit failures 0 unqualified 0 of 36
+js binomial 5 209.649 -> 208.863 ms; fit failures 0 unqualified 0 of 36
+js crossed_poisson 1 3986.488 -> 3959.227 ms; fit failures 3 unqualified 0 of 24
+js poisson_offset 1 101.752 -> 101.545 ms; fit failures 0 unqualified 18 of 36
+js poisson_offset 5 137.374 -> 137.212 ms; fit failures 0 unqualified 18 of 36
+js rare_bernoulli 1 141.624 -> 140.789 ms; fit failures 0 unqualified 15 of 36
+js rare_bernoulli 5 188.734 -> 187.911 ms; fit failures 0 unqualified 15 of 36
+jvm binomial 1 48.903 -> 47.646 ms; fit failures 0 unqualified 0 of 36
+jvm binomial 5 68.015 -> 67.58 ms; fit failures 0 unqualified 0 of 36
+jvm crossed_poisson 1 1032.334 -> 1038.419 ms; fit failures 3 unqualified 0 of 24
+jvm poisson_offset 1 27.829 -> 27.391 ms; fit failures 0 unqualified 18 of 36
+jvm poisson_offset 5 40.598 -> 39.827 ms; fit failures 0 unqualified 18 of 36
+jvm rare_bernoulli 1 44.551 -> 43.898 ms; fit failures 0 unqualified 15 of 36
+jvm rare_bernoulli 5 65.809 -> 65.285 ms; fit failures 0 unqualified 15 of 36

@@ -1,0 +1,15 @@
+{
+  "local_only": true,
+  "packages": [
+    {
+      "jar": ".jvm/target/scala-3.7.4/mixeff4s_3-0.1.0-SNAPSHOT.jar",
+      "jar_sha256": "ef4e82f5a3b68475fe97f47eed2052c1b3d1d2cca70f1a4ac079f4b82c486449",
+      "license_sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f"
+    },
+    {
+      "jar": ".js/target/scala-3.7.4/mixeff4s_sjs1_3-0.1.0-SNAPSHOT.jar",
+      "jar_sha256": "6bf17b6c0d3a43943c3bf8550288658b3b9ded156ae31258d4d9faed90105e39",
+      "license_sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f"
+    }
+  ]
+}

@@ -3,12 +3,15 @@ package mixeff4s.pathology
 import mixeff4s.data.ModelFrame
 import mixeff4s.model.Family
 
-/** Two-tier binomial separation report. The MLE does not exist when either tier fires. */
+/** Legacy two-tier risk report. Pure-outcome groups alone do not prove that Gaussian-penalized conditional modes or a
+  * finite mixed-model MLE are absent. The fixed-effect detector is bounded to p <= 2; no finding is not a certificate.
+  */
 final case class SeparationReport(
     feKind: Option[FeSeparationKind],
     conditionalGroups: Vector[Int],
     hyperplaneDirection: Option[Vector[Double]]
 ):
+  /** Combined legacy flag, not a finite-MLE existence certificate. */
   def isSeparated: Boolean = feKind.isDefined || conditionalGroups.nonEmpty
   def nConditionalGroups: Int = conditionalGroups.length
   def kind: Option[SeparationKind] =
@@ -34,9 +37,9 @@ object Separation:
 
   def detect(spec: GeneratorSpec, frame: ModelFrame): SeparationReport =
     frame.numeric(spec.responseName) match
-      case None => SeparationReport.empty
+      case None                 => SeparationReport.empty
       case Some(y) if y.isEmpty => SeparationReport.empty
-      case Some(y) =>
+      case Some(y)              =>
         val x = designMatrix(spec, frame, y.length)
         val (feKind, beta) = detectFe(x, y)
         val groups = frame.factor(spec.groupName).map(_.refs).getOrElse(Vector.empty)

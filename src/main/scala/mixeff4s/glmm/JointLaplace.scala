@@ -19,7 +19,8 @@ final case class JointEvaluation(
     randomEffects: Vector[GlmmRandomEffects],
     eta: Vector[Double],
     mean: Vector[Double],
-    conditional: ConditionalModeResult
+    conditional: ConditionalModeResult,
+    quadratureCorrection: Double = 0.0
 )
 
 enum JointGradientCheck:
@@ -50,8 +51,21 @@ private[glmm] object JointLaplace:
       response: GlmmResponse,
       options: GlmmOptions
   ): FitResult[GlmmFit] =
+    JointWorkspace
+      .create(design, family, link, response, options)
+      .flatMap(workspace => fitWorkspace(design, family, link, response, options, workspace))
+
+  private[glmm] def fitWorkspace(
+      design: CompiledDesign,
+      family: Family,
+      link: Link,
+      response: GlmmResponse,
+      options: GlmmOptions,
+      workspace: JointWorkspace
+  ): FitResult[GlmmFit] =
     for
-      workspace <- JointWorkspace.create(design, family, link, response, options)
+      _ <- workspace.pls.setTheta(design.theta)
+      _ = workspace.replaceResponse(response)
       start = workspace.initialBeta ++ workspace.pls.theta
       lower = Vector.fill(design.p)(Double.NegativeInfinity) ++ workspace.pls.lowerBounds
       upper = Vector.fill(start.length)(Double.PositiveInfinity)
@@ -76,18 +90,19 @@ private[glmm] object JointLaplace:
       design.formula,
       family,
       link,
-      Approximation.JointLaplace,
+      if options.nAgq == 1 then Approximation.JointLaplace else Approximation.JointAgq,
       optimizer.x.drop(design.p),
       optimizer.x.take(design.p),
       finalEvaluation.objective,
       design.fe.fixedEffects,
-      1,
+      options.nAgq,
       optimizer,
       GlmmInnerResult.ConditionalMode(finalEvaluation.conditional),
       finalEvaluation.eta,
       finalEvaluation.mean,
       finalEvaluation.randomEffects,
-      Some(assessment)
+      Some(assessment),
+      new GlmmFitContext(design, response, options, family, link)
     )
 
   private[glmm] def assess(
@@ -144,8 +159,9 @@ private[glmm] final class JointWorkspace private (
     val pls: PlsWorkspace,
     family: Family,
     link: Link,
-    response: GlmmResponse,
-    options: GlmmOptions
+    private var response: GlmmResponse,
+    options: GlmmOptions,
+    quadrature: Option[AdaptiveQuadrature]
 ):
   private val n = pls.n
   private val p = pls.p
@@ -156,6 +172,10 @@ private[glmm] final class JointWorkspace private (
   private val workingY = Array.fill(n)(0.0)
   private val scores = u.map(_.clone())
   private var beta = Vector.fill(p)(0.0)
+
+  private[glmm] def replaceResponse(values: GlmmResponse): Unit =
+    require(values.y.length == n)
+    response = values
 
   def initialBeta: Vector[Double] =
     val intercept = pls.feNames.indexWhere(Pirls.isInterceptColumn)
@@ -201,19 +221,20 @@ private[glmm] final class JointWorkspace private (
                     val values = Vector.tabulate(rt.nLevels, rt.vsize): (level, row) =>
                       (0 until rt.vsize).map(col => rt.lambda(row, col) * block(level * rt.vsize + col)).sum
                     GlmmRandomEffects(rt.groupingName, rt.levels, rt.cnames, values)
-                Right(
-                  JointEvaluation(
-                    objective,
-                    density,
-                    penalty,
-                    logdet,
-                    u.map(_.toVector).toVector,
-                    modes,
-                    eta.toVector,
-                    mu.toVector,
-                    result.copy(scoreMaxAbs = score)
-                  )
+                val base = JointEvaluation(
+                  objective,
+                  density,
+                  penalty,
+                  logdet,
+                  u.map(_.toVector).toVector,
+                  modes,
+                  eta.toVector,
+                  mu.toVector,
+                  result.copy(scoreMaxAbs = score)
                 )
+                quadrature match
+                  case None       => Right(base)
+                  case Some(work) => work.correct(base, pls.theta.head, response)
 
   private def solve(): FitResult[ConditionalModeResult] =
     var iter = 0
@@ -339,4 +360,7 @@ private[glmm] object JointWorkspace:
       response: GlmmResponse,
       options: GlmmOptions
   ): FitResult[JointWorkspace] =
-    PlsWorkspace(design, reml = false).map(new JointWorkspace(_, family, link, response, options))
+    for
+      quadrature <- AdaptiveQuadratureWorkspace.create(design, link, options)
+      pls <- PlsWorkspace(design, reml = false)
+    yield new JointWorkspace(pls, family, link, response, options, quadrature)

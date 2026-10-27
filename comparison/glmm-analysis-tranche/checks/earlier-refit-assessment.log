@@ -1,0 +1,60 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 2 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 8 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+BOOTSTRAP_WITNESS qualified=39 lower=9.066105347530183 upper=11.74643118383828 level=0.95
+mixeff4s.stats.BootstrapSuite:
+  + explicit tight controls produce 39 independently assessed bootstrap refits and intervals 0.226s
+  + ML and REML originals can request tight controls without changing assessment thresholds 0.114s
+  + actual generated responses reproduce independent lme4 refits and R percentile intervals 0.039s
+  + injected middle failure retains later responses, seeds and cold-fit statistics 0.015s
+  + unqualified replicas remain visible and authoritative fit budget overrides low-level controls 0.002s
+  + percentile convention is R type 7 and confidence level is explicit 0.005s
+  + target validation and unqualified original fit refusals happen before sampling 0.003s
+  + invalid exposed numerical controls are refused by fits and sessions 0.001s
+mixeff4s.glmm.GlmmAssessmentSuite:
+  + mixed grouped-binomial rows and positive Poisson counts provide explicit sufficient witnesses 0.295s
+  + pure groups are retained risk flags while their Gaussian-penalized modes are finite 0.092s
+  + separation and unavailable high-dimensional evidence are not mistaken for an overlap certificate 0.004s
+  + strict one-dimensional outcome hull overlap includes an interior singleton class 0.001s
+  + numerical boundary fits and fast fits remain ineligible rather than gaining a certificate 0.022s
+AGQ_FIT name=cbpp nodes=5 objective=183.9680757051539 reference=183.96807570514318 beta=Vector(-1.3991938126594121, -0.9914381571421232, -1.1278532403644057, -1.5795089075323778) theta=Vector(0.6473646119789279) assessment=Some(JointAssessment(Available(Vector(3.3854863628438904E-11, -4.263256414560601E-9, -1.5119897738408439E-9, -2.48917229006423E-9, 4.528525702577705E-8),4.528525702577705E-8,1.0E-4),Interior))
+AGQ_FIT name=cbpp nodes=9 objective=183.96674359266913 reference=183.96674359266925 beta=Vector(-1.3992301926125008, -0.9914038763403755, -1.1278196773785096, -1.5794710161539063) theta=Vector(0.6475177121787289) assessment=Some(JointAssessment(Available(Vector(4.062478008330834E-10, 4.452734477429961E-9, -1.1760270428766268E-9, -3.898797116422778E-10, 1.0563402004966823E-8),1.0563402004966823E-8,1.0E-4),Interior))
+AGQ_FIT name=cbpp nodes=15 objective=183.96673807269235 reference=183.9667380726923 beta=Vector(-1.3992304482629845, -0.9914036584226761, -1.1278194611346841, -1.5794707475105851) theta=Vector(0.6475184788065084) assessment=Some(JointAssessment(Available(Vector(5.484344309213306E-9, 2.9316993277461734E-7, 3.687685505797262E-8, -1.8504294076774546E-8, -2.9037513134729426E-8),2.9316993277461734E-7,1.0E-4),Interior))
+AGQ_FIT name=culcitalogreg nodes=5 objective=60.43306156846059 reference=60.43306109714778 beta=Vector(4.962737724053782, -3.721525787172091, -4.328515407585562, -5.516217535210861) theta=Vector(3.436529803732547) assessment=Some(JointAssessment(Available(Vector(-1.7419692716207027E-10, 3.786734724366157E-10, -1.3679492636876949E-11, -1.0648274676364142E-9, 6.065009793598087E-9),6.065009793598087E-9,1.0E-4),Interior))
+AGQ_FIT name=culcitalogreg nodes=9 objective=60.30412756383517 reference=60.3041273655668 beta=Vector(5.013908390707555, -3.7512417066801804, -4.362376251654301, -5.546002013224875) theta=Vector(3.505300238363102) assessment=Some(JointAssessment(Available(Vector(-8.779203577376578E-9, 2.4371440840951567E-8, -3.408258684734451E-8, -2.6571675063448892E-8, 3.848021191705787E-9),3.408258684734451E-8,1.0E-4),Interior))
+AGQ_FIT name=culcitalogreg nodes=15 objective=60.30422318757297 reference=60.30422328859943 beta=Vector(5.015367722661281, -3.7521114276009606, -4.364071931982268, -5.548960767721152) theta=Vector(3.5092799019260568) assessment=Some(JointAssessment(Available(Vector(3.0813901108295465E-9, 1.0049310964922846E-8, 8.053987470894212E-9, 6.10797046771623E-9, -1.8593987861960745E-9),1.0049310964922846E-8,1.0E-4),Interior))
+AGQ_FIT name=synthetic_poisson_offset nodes=5 objective=68.33667424479893 reference=68.33667424479891 beta=Vector(0.3262641875319485, 0.6448436013087431) theta=Vector(0.14134915072687917) assessment=Some(JointAssessment(Available(Vector(-2.4490039625864785E-8, -1.4400332778071364E-8, -1.3988217991330507E-7),1.3988217991330507E-7,1.0E-4),Interior))
+AGQ_FIT name=synthetic_poisson_offset nodes=9 objective=68.3366750090179 reference=68.33667500901788 beta=Vector(0.32626434827168604, 0.6448436014173032) theta=Vector(0.14134788873792642) assessment=Some(JointAssessment(Available(Vector(-9.634959496906959E-8, -5.764870062800279E-8, -5.590076549803295E-7),5.590076549803295E-7,1.0E-4),Interior))
+AGQ_FIT name=synthetic_poisson_offset nodes=15 objective=68.33667500900863 reference=68.3366750090086 beta=Vector(0.32626434713301067, 0.644843601290508) theta=Vector(0.14134790420369228) assessment=Some(JointAssessment(Available(Vector(-6.418569379699572E-9, -3.552713678800501E-9, -3.476922453652757E-8),3.476922453652757E-8,1.0E-4),Interior))
+mixeff4s.glmm.AdaptiveQuadratureSuite:
+  + every admitted normal quadrature order has independent Gaussian polynomial moments 0.054s
+  + one node is exactly Laplace; zero covariance is exactly the GLM density 0.012s
+  + AGQ refuses fast mode, vector and multiple terms, and out-of-domain orders 0.004s
+  + cbpp AGQ5 full-density fit against normalized frozen lme4 0.474s
+  + cbpp AGQ9 full-density fit against normalized frozen lme4 0.208s
+  + cbpp AGQ15 full-density fit against normalized frozen lme4 0.223s
+  + culcitalogreg AGQ5 full-density fit against normalized frozen lme4 0.216s
+  + culcitalogreg AGQ9 full-density fit against normalized frozen lme4 0.263s
+  + culcitalogreg AGQ15 full-density fit against normalized frozen lme4 0.3s
+  + synthetic_poisson_offset AGQ5 full-density fit against normalized frozen lme4 0.017s
+  + synthetic_poisson_offset AGQ9 full-density fit against normalized frozen lme4 0.019s
+  + synthetic_poisson_offset AGQ15 full-density fit against normalized frozen lme4 0.023s
+  + AGQ at independently integrated fixed parameters preserves full response constants 0.003s
+mixeff4s.glmm.GlmmRefitSuite:
+  + true/1: A B invalid A cold refits equal independent fresh fits 0.254s
+  + false/1: A B invalid A cold refits equal independent fresh fits 0.253s
+  + false/5: A B invalid A cold refits equal independent fresh fits 0.147s
+  + separate sessions cannot contaminate each other and controls remain authoritative 0.057s
+  + binomial refits preserve trials and replace cached response constants 1.175s
+[info] Passed: Total 31, Failed 0, Errors 0, Passed 31
+[success] Total time: 7 s, completed Oct 27, 2026, 6:19:03 p.m.

@@ -1,0 +1,132 @@
+{
+  "source_log": "checks/full-final.log",
+  "rows": [
+    {
+      "dataset": "cbpp",
+      "nodes": 5,
+      "objective": 183.9680757051539,
+      "reference": 183.96807570514318,
+      "absolute_error": 1.071498445526231e-11
+    },
+    {
+      "dataset": "cbpp",
+      "nodes": 9,
+      "objective": 183.96674359266913,
+      "reference": 183.96674359266925,
+      "absolute_error": 1.1368683772161603e-13
+    },
+    {
+      "dataset": "cbpp",
+      "nodes": 15,
+      "objective": 183.96673807269235,
+      "reference": 183.9667380726923,
+      "absolute_error": 5.684341886080802e-14
+    },
+    {
+      "dataset": "culcitalogreg",
+      "nodes": 5,
+      "objective": 60.43306156846059,
+      "reference": 60.43306109714778,
+      "absolute_error": 4.713128092248553e-07
+    },
+    {
+      "dataset": "culcitalogreg",
+      "nodes": 9,
+      "objective": 60.30412756383517,
+      "reference": 60.3041273655668,
+      "absolute_error": 1.9826837416303533e-07
+    },
+    {
+      "dataset": "culcitalogreg",
+      "nodes": 15,
+      "objective": 60.30422318757297,
+      "reference": 60.30422328859943,
+      "absolute_error": 1.0102645831011614e-07
+    },
+    {
+      "dataset": "synthetic_poisson_offset",
+      "nodes": 5,
+      "objective": 68.33667424479893,
+      "reference": 68.33667424479891,
+      "absolute_error": 1.4210854715202004e-14
+    },
+    {
+      "dataset": "synthetic_poisson_offset",
+      "nodes": 9,
+      "objective": 68.3366750090179,
+      "reference": 68.33667500901788,
+      "absolute_error": 1.4210854715202004e-14
+    },
+    {
+      "dataset": "synthetic_poisson_offset",
+      "nodes": 15,
+      "objective": 68.33667500900863,
+      "reference": 68.3366750090086,
+      "absolute_error": 2.842170943040401e-14
+    },
+    {
+      "dataset": "cbpp",
+      "nodes": 5,
+      "objective": 183.96807570515392,
+      "reference": 183.96807570514318,
+      "absolute_error": 1.0743406164692715e-11
+    },
+    {
+      "dataset": "cbpp",
+      "nodes": 9,
+      "objective": 183.9667435926691,
+      "reference": 183.96674359266925,
+      "absolute_error": 1.4210854715202004e-13
+    },
+    {
+      "dataset": "cbpp",
+      "nodes": 15,
+      "objective": 183.9667380726923,
+      "reference": 183.9667380726923,
+      "absolute_error": 0.0
+    },
+    {
+      "dataset": "culcitalogreg",
+      "nodes": 5,
+      "objective": 60.433061568460595,
+      "reference": 60.43306109714778,
+      "absolute_error": 4.7131281633028266e-07
+    },
+    {
+      "dataset": "culcitalogreg",
+      "nodes": 9,
+      "objective": 60.30412756383516,
+      "reference": 60.3041273655668,
+      "absolute_error": 1.9826835995218062e-07
+    },
+    {
+      "dataset": "culcitalogreg",
+      "nodes": 15,
+      "objective": 60.30422318757298,
+      "reference": 60.30422328859943,
+      "absolute_error": 1.0102645120468878e-07
+    },
+    {
+      "dataset": "synthetic_poisson_offset",
+      "nodes": 5,
+      "objective": 68.33667424479893,
+      "reference": 68.33667424479891,
+      "absolute_error": 1.4210854715202004e-14
+    },
+    {
+      "dataset": "synthetic_poisson_offset",
+      "nodes": 9,
+      "objective": 68.33667500901788,
+      "reference": 68.33667500901788,
+      "absolute_error": 0.0
+    },
+    {
+      "dataset": "synthetic_poisson_offset",
+      "nodes": 15,
+      "objective": 68.33667500900863,
+      "reference": 68.3366750090086,
+      "absolute_error": 2.842170943040401e-14
+    }
+  ],
+  "maximum_full_density_objective_error": 4.7131281633028266e-07
+}

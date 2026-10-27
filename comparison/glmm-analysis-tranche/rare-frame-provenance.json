@@ -1,0 +1,8 @@
+{
+  "source": "/Users/bbuchsbaum/code/rust/mixeff-rs/datasets/rare_event_bernoulli/data.csv",
+  "rust_revision": "33c8639d4e4eaf055dfa09ac36794c5b11912332",
+  "sha256": "1984824556592d6acccbf08332715efb94c5f864d10a5c7832a382813c6a35a5",
+  "rows": 120,
+  "positive_count": 10,
+  "purpose": "Rare-event diagnostic benchmark; no new release-parity claim"
+}

@@ -1,0 +1,7 @@
+{
+  "command": [
+    "Rscript",
+    "comparison/scripts/freeze_glmm_analysis.R"
+  ],
+  "exit_code": 0
+}

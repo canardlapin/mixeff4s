@@ -1,0 +1,10 @@
+{
+  "log": "checks/full-final.log",
+  "log_sha256": "6c9a26184d3611496a206ffd52d0acb151fe50069839edbae1960fa7aa4a24ed",
+  "bootstrap_responses_per_platform": 39,
+  "rows_per_response": 90,
+  "maximum_response_difference_to_independent_R_input": 0,
+  "sampler_vectors_per_platform": 9,
+  "draws_per_vector": 8,
+  "exact_numeric_vector_replay": true
+}

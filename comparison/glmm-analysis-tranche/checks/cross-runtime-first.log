@@ -1,0 +1,332 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 4 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+GLMM_BOOT_RESPONSE {"index":0,"seed":"7671909092089349006","y":[0.25,0.35,0.6,0.6,0.75,0.8,0.45,0.6,0.85,0.25,0.45,0.3,0.45,0.7,0.8,0.25,0.35,0.25,0.35,0.4,0.55,0.2,0.4,0.6,0.25,0.3,0.55,0.15,0.25,0.45,0.35,0.5,0.7,0.35,0.45,0.35,0.25,0.3,0.6,0.4,0.35,0.7,0.45,0.85,0.9,0.1,0.05,0.1,0.45,0.3,0.5,0.1,0.0,0.25,0.15,0.1,0.55,0.25,0.5,0.7,0.1,0.3,0.25,0.3,0.6,0.55,0.3,0.05,0.05,0.25,0.75,0.6,0.3,0.5,0.6,0.25,0.45,0.65,0.15,0.55,0.6,0.1,0.15,0.1,0.3,0.45,0.7,0.3,0.4,0.35]}
+GLMM_BOOT_FIT {"index":0,"beta":[-0.478858328311262,0.567236301249255],"theta":[0.7690964278996242],"objective":451.05668734117216}
+GLMM_BOOT_RESPONSE {"index":1,"seed":"7159423796239308355","y":[0.25,0.4,0.55,0.1,0.25,0.3,0.8,0.75,0.85,0.6,0.5,0.65,0.35,0.45,0.8,0.05,0.1,0.3,0.7,0.85,0.9,0.2,0.3,0.45,0.5,0.2,0.55,0.5,0.2,0.6,0.6,0.85,0.75,0.1,0.1,0.2,0.15,0.3,0.25,0.0,0.1,0.0,0.25,0.7,0.7,0.4,0.7,0.55,0.1,0.1,0.2,0.45,0.65,0.7,0.45,0.75,0.6,0.2,0.25,0.6,0.25,0.4,0.4,0.05,0.0,0.2,0.0,0.05,0.15,0.35,0.45,0.55,0.55,0.85,0.85,0.45,0.5,0.75,0.05,0.25,0.35,0.2,0.3,0.4,0.05,0.25,0.55,0.4,0.45,0.5]}
+GLMM_BOOT_FIT {"index":1,"beta":[-0.5250924138483459,0.5353014862595777],"theta":[1.1313837204456634],"objective":444.32730223041443}
+GLMM_BOOT_RESPONSE {"index":2,"seed":"-2249291010902640172","y":[0.3,0.6,0.8,0.4,0.55,0.7,0.15,0.25,0.3,0.3,0.45,0.7,0.1,0.3,0.5,0.3,0.5,0.45,0.35,0.45,0.55,0.95,0.95,1.0,0.45,0.8,0.95,0.45,0.55,0.65,0.35,0.5,0.55,0.25,0.35,0.4,0.8,0.8,0.75,0.45,0.4,0.8,0.0,0.0,0.0,0.25,0.4,0.6,0.6,0.6,0.7,0.1,0.25,0.35,0.05,0.2,0.25,0.35,0.55,0.35,0.05,0.15,0.1,0.2,0.35,0.4,0.25,0.4,0.4,0.25,0.5,0.6,0.4,0.45,0.65,0.5,0.9,0.85,0.25,0.4,0.6,0.1,0.0,0.2,0.35,0.5,0.7,0.2,0.4,0.6]}
+GLMM_BOOT_FIT {"index":2,"beta":[-0.327383927475617,0.5840794310246914],"theta":[1.1717379027687604],"objective":431.4390341089679}
+GLMM_BOOT_RESPONSE {"index":3,"seed":"-7687153211708749473","y":[0.2,0.25,0.4,0.35,0.5,0.45,0.1,0.2,0.3,0.2,0.2,0.3,0.2,0.35,0.55,0.6,0.75,0.65,0.25,0.5,0.5,0.45,0.75,0.75,0.55,0.8,0.95,0.45,0.45,0.55,0.65,0.55,0.85,0.25,0.25,0.3,0.3,0.4,0.8,0.2,0.4,0.75,0.4,0.6,0.65,0.6,0.6,0.75,0.45,0.65,0.7,0.4,0.45,0.8,0.4,0.35,0.45,0.55,0.7,0.8,0.2,0.25,0.45,0.35,0.6,0.65,0.2,0.3,0.55,0.5,0.65,0.8,0.9,0.7,0.95,0.25,0.4,0.55,0.3,0.45,0.9,0.15,0.1,0.25,0.5,0.85,0.65,0.65,0.9,0.9]}
+GLMM_BOOT_FIT {"index":3,"beta":[0.01781230117923739,0.5718250872987594],"theta":[0.800089599658608],"objective":438.2425053572069}
+GLMM_BOOT_RESPONSE {"index":4,"seed":"-520484740000317658","y":[0.2,0.15,0.25,0.35,0.65,0.65,0.35,0.65,0.7,0.45,0.85,0.75,0.0,0.1,0.4,0.1,0.25,0.2,0.65,0.6,0.75,0.45,0.45,0.95,0.3,0.5,0.45,0.2,0.3,0.3,0.2,0.55,0.65,0.15,0.25,0.35,0.7,0.5,0.65,0.1,0.2,0.35,0.35,0.55,0.8,0.4,0.55,0.65,0.4,0.55,0.75,0.2,0.4,0.45,0.4,0.25,0.5,0.3,0.3,0.65,0.6,0.75,0.85,0.9,0.9,0.95,0.1,0.2,0.3,0.7,0.85,0.8,0.4,0.7,0.7,0.3,0.1,0.5,0.5,0.65,0.65,0.0,0.1,0.15,0.3,0.5,0.45,0.25,0.45,0.65]}
+GLMM_BOOT_FIT {"index":4,"beta":[-0.20368444813487788,0.5633985332525323],"theta":[0.9665919748664243],"objective":444.5449727708432}
+GLMM_BOOT_RESPONSE {"index":5,"seed":"-4157317065267611256","y":[0.85,0.85,1.0,0.35,0.6,0.7,0.15,0.2,0.2,0.15,0.3,0.5,0.25,0.55,0.65,0.2,0.35,0.55,0.3,0.65,0.6,0.75,0.7,0.7,0.3,0.5,0.75,0.1,0.4,0.5,0.25,0.45,0.7,0.35,0.45,0.7,0.2,0.2,0.15,0.25,0.25,0.25,0.2,0.5,0.45,0.2,0.15,0.4,0.35,0.55,0.85,0.2,0.2,0.25,0.25,0.45,0.5,0.35,0.45,0.4,0.25,0.45,0.35,0.15,0.3,0.5,0.05,0.1,0.4,0.4,0.3,0.55,0.2,0.15,0.35,0.45,0.55,0.7,0.1,0.3,0.45,0.5,0.6,0.7,0.15,0.35,0.35,0.25,0.15,0.35]}
+GLMM_BOOT_FIT {"index":5,"beta":[-0.45538502302158623,0.5570027093402727],"theta":[0.7486796381343899],"objective":427.83719728176305}
+GLMM_BOOT_RESPONSE {"index":6,"seed":"-1100934587152754907","y":[0.15,0.35,0.5,0.85,0.7,0.9,0.3,0.25,0.6,0.1,0.3,0.5,0.0,0.05,0.2,0.65,0.65,0.75,0.05,0.35,0.35,0.55,0.7,0.8,0.25,0.35,0.7,0.35,0.25,0.6,0.1,0.1,0.4,0.1,0.4,0.4,0.1,0.3,0.6,0.1,0.05,0.2,0.9,0.85,0.8,0.25,0.45,0.75,0.15,0.25,0.4,0.3,0.2,0.5,0.15,0.15,0.5,0.2,0.35,0.55,0.1,0.15,0.2,0.35,0.8,0.75,0.5,0.75,0.9,0.05,0.2,0.45,0.15,0.2,0.55,0.3,0.5,0.55,0.2,0.3,0.3,0.05,0.0,0.1,0.45,0.65,0.75,0.05,0.2,0.1]}
+GLMM_BOOT_FIT {"index":6,"beta":[-0.6198857655250408,0.7100014573957069],"theta":[1.090481252620929],"objective":432.446550818237}
+GLMM_BOOT_RESPONSE {"index":7,"seed":"7969557305820953073","y":[0.35,0.5,0.65,0.15,0.25,0.35,0.05,0.2,0.6,0.0,0.15,0.05,0.3,0.3,0.65,0.35,0.35,0.55,0.15,0.3,0.35,0.2,0.35,0.45,0.9,0.9,0.95,0.1,0.25,0.55,0.3,0.75,0.75,0.25,0.65,0.65,0.3,0.6,0.8,0.3,0.4,0.85,0.5,0.4,0.6,0.2,0.5,0.5,0.15,0.4,0.3,0.35,0.45,0.8,0.05,0.4,0.25,0.1,0.0,0.55,0.25,0.35,0.35,0.25,0.45,0.55,0.05,0.2,0.45,0.0,0.1,0.4,0.65,0.9,0.85,0.4,0.4,0.65,0.55,0.7,0.85,0.6,0.6,0.85,0.65,0.55,0.65,0.75,0.65,0.65]}
+GLMM_BOOT_FIT {"index":7,"beta":[-0.2869530366155621,0.6791730943414758],"theta":[0.9516943084294969],"objective":460.4098087621478}
+GLMM_BOOT_RESPONSE {"index":8,"seed":"-1780550020906685641","y":[0.65,0.7,0.8,0.8,0.9,0.95,0.9,0.7,0.85,0.45,0.65,0.9,0.2,0.05,0.35,0.25,0.7,0.4,0.1,0.25,0.25,0.3,0.15,0.4,0.15,0.45,0.45,0.65,0.6,0.9,0.2,0.15,0.25,0.4,0.7,0.75,0.35,0.4,0.5,0.2,0.4,0.65,0.5,0.8,0.75,0.3,0.55,0.65,0.2,0.1,0.45,0.5,0.5,0.55,0.15,0.3,0.45,0.25,0.5,0.6,0.55,0.55,0.85,0.5,0.75,0.9,0.3,0.55,0.6,0.05,0.15,0.2,0.25,0.4,0.5,0.0,0.0,0.0,0.45,0.5,0.5,0.5,0.6,0.6,0.5,0.6,0.45,0.45,0.7,0.85]}
+GLMM_BOOT_FIT {"index":8,"beta":[-0.16057216808413383,0.5157724410253732],"theta":[1.08319128945952],"objective":449.9648444161206}
+GLMM_BOOT_RESPONSE {"index":9,"seed":"763331269162978962","y":[0.15,0.45,0.6,0.4,0.55,0.85,0.15,0.2,0.15,0.45,0.45,0.7,0.2,0.05,0.3,0.15,0.15,0.4,0.2,0.35,0.5,0.5,0.55,0.65,0.2,0.3,0.65,0.15,0.25,0.35,0.35,0.5,0.65,0.45,0.6,0.85,0.05,0.05,0.2,0.45,0.65,0.75,0.1,0.2,0.3,0.35,0.25,0.35,0.15,0.2,0.45,0.3,0.65,0.75,0.15,0.35,0.25,0.25,0.45,0.55,0.2,0.5,0.9,0.1,0.35,0.35,0.3,0.4,0.45,0.35,0.8,0.7,0.4,0.55,0.85,0.7,0.55,0.85,0.25,0.2,0.35,0.55,0.9,0.7,0.5,0.4,0.75,0.1,0.4,0.55]}
+GLMM_BOOT_FIT {"index":9,"beta":[-0.40374178281905365,0.6473388073137267],"theta":[0.782543001172978],"objective":439.94593716787983}
+GLMM_BOOT_RESPONSE {"index":10,"seed":"1140995503871405255","y":[0.3,0.6,0.8,0.45,0.8,0.55,0.05,0.2,0.45,0.55,0.75,0.65,0.45,0.4,0.7,0.9,0.8,0.95,0.1,0.25,0.6,0.05,0.55,0.4,0.8,0.7,0.85,0.0,0.05,0.25,0.25,0.55,0.7,0.1,0.35,0.7,0.2,0.45,0.85,0.95,0.95,0.75,0.3,0.4,0.2,0.3,0.3,0.65,0.65,0.75,0.9,0.25,0.25,0.3,0.45,0.45,0.65,0.5,0.9,0.9,0.5,0.5,0.55,0.15,0.45,0.45,0.05,0.1,0.05,0.35,0.65,0.7,0.1,0.25,0.45,0.3,0.2,0.45,0.45,0.45,0.7,0.25,0.35,0.55,0.25,0.55,0.65,0.3,0.45,0.35]}
+GLMM_BOOT_FIT {"index":10,"beta":[-0.13827623800914596,0.6074371097286275],"theta":[1.0057859067111923],"objective":477.56465140880914}
+GLMM_BOOT_RESPONSE {"index":11,"seed":"-714080475460422687","y":[0.15,0.3,0.35,0.2,0.45,0.6,0.7,0.65,0.85,0.15,0.45,0.6,0.5,0.65,0.7,0.1,0.3,0.4,0.25,0.35,0.85,0.15,0.2,0.25,0.05,0.05,0.0,0.55,0.85,0.85,0.35,0.4,0.5,0.25,0.4,0.5,0.6,0.7,0.9,0.35,0.3,0.35,0.5,0.35,0.7,0.15,0.45,0.45,0.3,0.75,0.9,0.25,0.5,0.5,0.05,0.3,0.55,0.1,0.45,0.35,0.45,0.6,0.65,0.5,0.55,1.0,0.3,0.35,0.4,0.1,0.2,0.25,0.4,0.45,0.75,0.4,0.4,0.65,0.4,0.65,0.7,0.45,0.6,0.65,0.05,0.2,0.35,0.25,0.55,0.7]}
+GLMM_BOOT_FIT {"index":11,"beta":[-0.300763824067304,0.6560618432631941],"theta":[0.8438680589451802],"objective":442.54499414427966}
+GLMM_BOOT_RESPONSE {"index":12,"seed":"-1983077304808040061","y":[0.05,0.05,0.0,0.3,0.4,0.7,0.2,0.15,0.45,0.8,0.95,0.9,0.25,0.45,0.45,0.6,0.45,0.65,0.25,0.45,0.7,0.35,0.35,0.55,0.35,0.55,0.6,0.3,0.25,0.55,0.3,0.5,0.7,0.25,0.5,0.5,0.05,0.05,0.35,0.6,0.3,0.7,0.6,0.75,0.6,0.6,0.7,0.8,0.45,0.45,0.55,0.2,0.55,0.9,0.55,0.45,0.6,0.3,0.3,0.1,0.35,0.65,0.7,0.5,0.7,0.8,0.35,0.6,0.4,0.05,0.15,0.2,0.3,0.55,0.5,0.1,0.2,0.3,0.05,0.15,0.55,0.5,0.6,0.75,0.1,0.15,0.25,0.7,0.75,0.95]}
+GLMM_BOOT_FIT {"index":12,"beta":[-0.2778910247538639,0.5187328627834565],"theta":[0.9738843146517343],"objective":459.37604173187617}
+GLMM_BOOT_RESPONSE {"index":13,"seed":"8677473043790307244","y":[0.2,0.1,0.4,0.1,0.25,0.35,0.5,0.7,0.65,0.05,0.45,0.45,0.55,0.5,0.65,0.05,0.25,0.3,0.7,0.65,0.85,0.35,0.35,0.8,0.75,0.85,0.85,0.3,0.45,0.7,0.15,0.1,0.4,0.35,0.7,0.55,0.05,0.0,0.4,0.3,0.35,0.3,0.1,0.2,0.25,0.35,0.25,0.5,0.2,0.25,0.4,0.05,0.1,0.5,0.45,0.55,0.7,0.15,0.4,0.4,0.75,0.8,0.95,0.25,0.4,0.45,0.4,0.4,0.4,0.1,0.4,0.3,0.05,0.3,0.4,0.6,0.7,0.65,0.3,0.3,0.25,0.1,0.1,0.35,0.25,0.15,0.2,0.05,0.05,0.2]}
+GLMM_BOOT_FIT {"index":13,"beta":[-0.5751529637310216,0.5150382735632112],"theta":[0.9230173158897332],"objective":447.09415614410455}
+GLMM_BOOT_RESPONSE {"index":14,"seed":"-2270437618814336371","y":[0.2,0.25,0.6,0.7,0.7,0.85,0.6,0.6,0.75,0.1,0.15,0.15,0.5,0.9,0.85,0.2,0.5,0.65,0.1,0.1,0.15,0.45,0.45,0.65,0.0,0.25,0.35,0.25,0.35,0.6,0.2,0.35,0.8,0.25,0.2,0.35,0.5,0.8,0.95,0.1,0.25,0.35,0.3,0.25,0.5,0.1,0.15,0.3,0.2,0.05,0.55,0.35,0.8,0.9,0.35,0.15,0.25,0.35,0.4,0.65,0.2,0.25,0.25,0.3,0.3,0.5,0.35,0.45,0.55,0.45,0.55,0.8,0.35,0.3,0.35,0.5,0.45,0.7,0.1,0.05,0.2,0.1,0.25,0.4,0.25,0.2,0.4,0.1,0.05,0.25]}
+GLMM_BOOT_FIT {"index":14,"beta":[-0.570538834308209,0.6058835268954728],"theta":[0.9153546708032],"objective":442.81902600052564}
+GLMM_BOOT_RESPONSE {"index":15,"seed":"-7211833070974514982","y":[0.4,0.4,0.55,0.45,0.3,0.5,0.55,0.65,0.55,0.15,0.35,0.7,0.55,0.3,0.75,0.6,0.75,0.95,0.1,0.35,0.25,0.1,0.25,0.45,0.1,0.1,0.5,0.55,0.5,0.85,0.05,0.05,0.25,0.1,0.15,0.1,0.55,0.6,0.75,0.1,0.25,0.35,0.25,0.35,0.45,0.45,0.7,0.45,0.0,0.1,0.05,0.55,0.7,0.8,0.5,0.65,0.8,0.1,0.1,0.15,0.45,0.5,0.75,0.2,0.3,0.4,0.8,1.0,1.0,0.45,0.65,0.7,0.15,0.2,0.4,0.4,0.55,0.85,0.1,0.3,0.2,0.2,0.2,0.15,0.4,0.4,0.45,0.3,0.3,0.4]}
+GLMM_BOOT_FIT {"index":15,"beta":[-0.4438132482062829,0.5051810348985422],"theta":[1.0956891752713616],"objective":445.9290322474354}
+GLMM_BOOT_RESPONSE {"index":16,"seed":"5732183820345318735","y":[0.55,0.6,0.65,0.0,0.2,0.2,0.1,0.15,0.25,0.3,0.4,0.45,0.25,0.5,0.6,0.15,0.6,0.6,0.95,0.85,0.85,0.1,0.15,0.2,0.2,0.25,0.5,0.5,0.5,0.8,0.4,0.7,0.95,0.35,0.4,0.65,0.4,0.25,0.7,0.35,0.5,0.65,0.1,0.3,0.2,0.4,0.3,0.6,0.65,0.65,0.7,0.2,0.25,0.5,0.0,0.05,0.1,0.2,0.25,0.5,0.15,0.2,0.4,0.1,0.15,0.25,0.15,0.15,0.25,0.15,0.15,0.2,0.5,0.75,0.75,0.4,0.45,0.65,0.45,0.2,0.45,0.45,0.7,0.75,0.3,0.5,0.55,0.4,0.7,0.7]}
+GLMM_BOOT_FIT {"index":16,"beta":[-0.470856469287514,0.5370268839704012],"theta":[0.9807007680030584],"objective":433.7564453089581}
+GLMM_BOOT_RESPONSE {"index":17,"seed":"-1580576034234919429","y":[0.1,0.65,0.45,0.3,0.45,0.55,0.05,0.25,0.3,0.0,0.1,0.05,0.2,0.7,0.7,0.25,0.65,0.65,0.05,0.15,0.25,0.7,0.7,0.8,0.05,0.4,0.45,0.05,0.35,0.4,0.45,0.55,0.85,0.15,0.25,0.4,0.15,0.45,0.4,0.75,0.8,0.9,0.4,0.5,0.8,0.25,0.4,0.5,0.45,0.45,0.55,0.3,0.55,0.65,0.25,0.5,0.45,0.25,0.35,0.3,0.1,0.1,0.35,0.15,0.25,0.6,0.45,0.25,0.45,0.55,0.45,0.85,0.35,0.6,0.55,0.2,0.45,0.4,0.15,0.25,0.45,0.1,0.05,0.4,0.05,0.3,0.45,0.35,0.6,0.45]}
+GLMM_BOOT_FIT {"index":17,"beta":[-0.5137527511931289,0.6303074997192822],"theta":[0.811003807263158],"objective":445.2203859294109}
+GLMM_BOOT_RESPONSE {"index":18,"seed":"5179313653002382152","y":[0.1,0.15,0.55,0.6,0.45,0.75,0.65,0.55,0.9,0.2,0.35,0.3,0.5,0.7,0.85,0.2,0.55,0.6,0.05,0.15,0.1,0.45,0.3,0.5,0.25,0.15,0.4,0.8,0.85,0.8,0.2,0.3,0.65,0.3,0.4,0.35,0.05,0.3,0.4,0.35,0.3,0.75,0.35,0.6,0.8,0.1,0.3,0.5,0.35,0.5,0.35,0.25,0.5,0.55,0.0,0.1,0.1,0.15,0.55,0.55,0.7,0.8,1.0,0.1,0.25,0.3,0.45,0.6,0.7,0.35,0.35,0.45,0.5,0.6,0.6,0.05,0.1,0.5,0.2,0.55,0.7,0.35,0.25,0.7,0.25,0.3,0.55,0.15,0.25,0.15]}
+GLMM_BOOT_FIT {"index":18,"beta":[-0.4064964734815486,0.6058882252902852],"theta":[0.9011031351410997],"objective":453.9363301041186}
+GLMM_BOOT_RESPONSE {"index":19,"seed":"2419182098151237618","y":[0.85,0.75,0.85,0.7,0.6,0.9,0.6,0.55,0.75,0.05,0.1,0.65,0.05,0.1,0.2,0.55,0.75,0.6,0.3,0.85,0.9,0.65,0.45,0.55,0.15,0.0,0.15,0.35,0.55,0.7,0.55,0.65,0.75,0.6,0.6,0.75,0.5,0.45,0.8,0.1,0.15,0.1,0.35,0.4,0.65,0.6,0.7,0.95,0.3,0.4,0.5,0.1,0.2,0.2,0.15,0.5,0.25,0.55,0.65,0.65,0.4,0.5,0.8,0.35,0.3,0.5,0.35,0.4,0.55,0.4,0.65,0.75,0.25,0.45,0.65,0.2,0.2,0.2,0.35,0.7,0.8,0.25,0.25,0.45,0.6,0.55,0.9,0.25,0.15,0.4]}
+GLMM_BOOT_FIT {"index":19,"beta":[-0.14452480176048446,0.5192374293092857],"theta":[0.9570209811255751],"objective":464.0170160042406}
+GLMM_BOOT_RESPONSE {"index":20,"seed":"-7527625467060160797","y":[0.5,0.55,0.7,0.05,0.15,0.35,0.25,0.35,0.6,0.35,0.5,0.7,0.7,0.55,0.95,0.25,0.5,0.65,0.5,0.75,0.85,0.25,0.2,0.25,0.6,0.45,0.65,0.4,0.65,0.65,0.25,0.5,0.75,0.1,0.15,0.15,0.2,0.35,0.35,0.3,0.5,0.55,0.35,0.35,0.45,0.25,0.15,0.4,0.15,0.05,0.3,0.4,0.35,0.7,0.1,0.45,0.45,0.25,0.5,0.4,0.25,0.4,0.65,0.5,0.85,0.8,0.2,0.35,0.4,0.65,0.9,0.9,0.1,0.2,0.3,0.3,0.5,0.4,0.2,0.25,0.55,0.8,0.85,0.8,0.5,0.75,0.85,0.2,0.05,0.25]}
+GLMM_BOOT_FIT {"index":20,"beta":[-0.2780576527763389,0.5546028007362301],"theta":[0.8908552686741098],"objective":438.5168907168026}
+GLMM_BOOT_RESPONSE {"index":21,"seed":"-5250651968881590020","y":[0.4,0.35,0.55,0.15,0.2,0.6,0.8,0.75,0.85,0.1,0.1,0.4,0.05,0.15,0.3,0.1,0.15,0.5,0.65,0.75,0.95,0.3,0.35,0.6,0.25,0.45,0.85,0.7,0.9,0.9,0.3,0.7,0.85,0.55,0.65,0.5,0.7,0.7,0.9,0.5,0.65,0.85,0.35,0.25,0.8,0.35,0.45,0.45,0.1,0.2,0.15,0.5,0.7,0.8,0.5,0.55,0.65,0.25,0.2,0.45,0.25,0.4,0.55,0.1,0.15,0.25,0.4,0.65,0.75,0.2,0.35,0.45,0.25,0.1,0.4,0.65,0.75,0.6,0.6,0.7,0.55,0.15,0.2,0.25,0.35,0.4,0.6,0.3,0.5,0.65]}
+GLMM_BOOT_FIT {"index":21,"beta":[-0.15365013325433616,0.5770784750437445],"theta":[0.9267257994924132],"objective":448.4901541751297}
+GLMM_BOOT_RESPONSE {"index":22,"seed":"6554588598005757623","y":[0.25,0.5,0.6,0.45,0.2,0.35,0.35,0.55,0.85,0.5,0.55,0.8,0.25,0.35,0.45,0.15,0.25,0.4,0.55,0.75,0.75,0.15,0.15,0.15,0.25,0.5,0.5,0.65,0.75,0.95,0.15,0.55,0.5,0.1,0.35,0.35,0.05,0.25,0.5,0.3,0.6,0.7,0.55,0.6,0.7,0.65,0.75,0.8,0.2,0.4,0.45,0.2,0.3,0.75,0.45,0.55,0.7,0.55,0.55,0.7,0.05,0.1,0.25,0.2,0.15,0.6,0.35,0.5,0.9,0.65,0.9,0.9,0.35,0.45,0.55,0.2,0.3,0.45,0.25,0.35,0.35,0.3,0.5,0.6,0.45,0.5,0.8,0.05,0.1,0.15]}
+GLMM_BOOT_FIT {"index":22,"beta":[-0.2517223040138565,0.631090763448794],"theta":[0.8561005793529651],"objective":433.78738760823234}
+GLMM_BOOT_RESPONSE {"index":23,"seed":"-7039079611495118589","y":[0.2,0.6,0.35,0.55,0.7,0.6,0.25,0.65,0.55,0.35,0.7,0.75,0.5,0.5,0.7,0.4,0.8,0.4,0.1,0.05,0.3,0.5,0.6,0.95,0.45,0.35,0.45,0.2,0.45,0.5,0.3,0.75,0.65,0.8,0.8,0.95,0.6,0.4,0.6,0.35,0.35,0.55,0.1,0.25,0.3,0.05,0.3,0.4,0.45,0.4,0.9,0.3,0.05,0.65,0.2,0.2,0.3,0.25,0.45,0.55,0.25,0.25,0.6,0.35,0.5,0.85,0.2,0.45,0.7,0.55,0.7,0.75,0.1,0.2,0.3,0.65,0.85,0.85,0.4,0.4,0.65,0.65,0.55,0.85,0.4,0.4,0.5,0.2,0.05,0.35]}
+GLMM_BOOT_FIT {"index":23,"beta":[-0.14922934244500746,0.5528178221489793],"theta":[0.7762656662801721],"objective":474.6832482678526}
+GLMM_BOOT_RESPONSE {"index":24,"seed":"-7113280578443679513","y":[0.35,0.4,0.4,0.0,0.05,0.1,0.5,0.7,0.85,0.05,0.1,0.1,0.3,0.35,0.45,0.15,0.2,0.4,0.1,0.25,0.25,0.5,0.6,0.8,0.2,0.35,0.6,0.1,0.35,0.45,0.25,0.45,0.7,0.45,0.6,0.5,0.8,0.9,0.95,0.1,0.3,0.35,0.0,0.3,0.25,0.65,0.7,0.85,0.5,0.7,0.8,0.15,0.05,0.2,0.15,0.4,0.35,0.05,0.25,0.45,0.25,0.3,0.65,0.5,0.7,0.8,0.6,0.55,0.85,0.4,0.75,0.85,0.55,0.65,0.85,0.05,0.1,0.35,0.6,0.75,0.8,0.85,0.65,0.9,0.35,0.4,0.65,0.2,0.45,0.6]}
+GLMM_BOOT_FIT {"index":24,"beta":[-0.3009817809006504,0.6502342249443324],"theta":[1.1523487798517602],"objective":427.3141735783184}
+GLMM_BOOT_RESPONSE {"index":25,"seed":"-8741581885997507417","y":[0.4,0.5,0.6,0.2,0.3,0.5,0.15,0.3,0.45,0.6,0.5,0.95,0.65,0.9,0.9,0.3,0.45,0.45,0.5,0.45,0.65,0.1,0.15,0.6,0.4,0.3,0.55,0.35,0.65,0.85,0.35,0.15,0.55,0.35,0.25,0.5,0.75,0.75,0.8,0.15,0.2,0.5,0.2,0.3,0.4,0.65,0.5,0.75,0.4,0.55,0.6,0.1,0.4,0.4,0.9,0.95,0.95,0.1,0.1,0.35,0.7,0.75,0.9,0.3,0.3,0.6,0.65,0.6,0.75,0.35,0.3,0.25,0.3,0.35,0.5,0.45,0.35,0.5,0.25,0.35,0.4,0.4,0.55,0.7,0.35,0.5,0.55,0.45,0.7,0.8]}
+GLMM_BOOT_FIT {"index":25,"beta":[-0.05778889957938873,0.503786377060046],"theta":[0.8390935533187782],"objective":441.85230498756385}
+GLMM_BOOT_RESPONSE {"index":26,"seed":"2706522658282097813","y":[0.35,0.45,0.6,0.3,0.65,0.75,0.4,0.35,0.4,0.3,0.45,0.65,0.2,0.3,0.6,0.8,0.8,0.8,0.55,0.65,0.6,0.3,0.45,0.6,0.2,0.1,0.3,0.4,0.65,0.5,0.25,0.3,0.65,0.15,0.15,0.6,0.25,0.45,0.45,0.5,0.5,0.8,0.1,0.5,0.45,0.35,0.55,0.65,0.55,0.75,0.85,0.15,0.4,0.55,0.3,0.45,0.65,0.25,0.4,0.75,0.6,0.5,0.7,0.35,0.45,0.65,0.05,0.2,0.2,0.05,0.1,0.45,0.85,0.95,1.0,0.15,0.3,0.35,0.05,0.15,0.3,0.35,0.6,0.65,0.25,0.35,0.5,0.35,0.6,0.75]}
+GLMM_BOOT_FIT {"index":26,"beta":[-0.20194693134477468,0.631363657510459],"theta":[0.8235903127071975],"objective":431.06032019002635}
+GLMM_BOOT_RESPONSE {"index":27,"seed":"4425776167835404326","y":[0.05,0.2,0.25,0.1,0.3,0.45,0.2,0.3,0.5,0.35,0.5,0.65,0.4,0.4,0.6,0.2,0.15,0.4,0.0,0.15,0.35,0.5,0.6,0.7,0.6,0.8,0.95,0.15,0.15,0.35,0.3,0.7,0.8,0.25,0.4,0.65,0.05,0.3,0.5,0.4,0.55,0.55,0.45,0.4,0.6,0.05,0.35,0.4,0.7,0.85,1.0,0.45,0.55,0.5,0.4,0.65,0.8,0.25,0.35,0.55,0.75,0.7,0.85,0.25,0.4,0.5,0.15,0.4,0.15,0.7,0.8,0.85,0.05,0.1,0.35,0.35,0.6,0.65,0.8,0.95,0.8,0.1,0.35,0.3,0.1,0.15,0.3,0.3,0.4,0.5]}
+GLMM_BOOT_FIT {"index":27,"beta":[-0.27629717030316764,0.6219412193017896],"theta":[0.9876397655935681],"objective":432.9352637524643}
+GLMM_BOOT_RESPONSE {"index":28,"seed":"-1943355308328493994","y":[0.1,0.2,0.5,0.1,0.1,0.35,0.25,0.7,0.85,0.35,0.35,0.6,0.35,0.35,0.45,0.45,0.5,0.75,0.4,0.25,0.5,0.25,0.4,0.45,0.2,0.15,0.45,0.1,0.3,0.5,0.65,0.75,0.8,0.15,0.1,0.5,0.45,0.7,0.75,0.8,0.85,0.75,0.45,0.55,0.75,0.35,0.65,0.8,0.4,0.45,0.6,0.4,0.3,0.6,0.2,0.2,0.6,0.05,0.05,0.2,0.15,0.1,0.4,0.4,0.5,0.75,0.6,0.75,0.9,0.05,0.3,0.2,0.0,0.1,0.2,0.2,0.25,0.45,0.3,0.2,0.35,0.2,0.5,0.35,0.5,0.65,0.7,0.15,0.4,0.25]}
+GLMM_BOOT_FIT {"index":28,"beta":[-0.4373116091042922,0.6013983539733389],"theta":[0.8832409780471175],"objective":437.9957926060929}
+GLMM_BOOT_RESPONSE {"index":29,"seed":"6094730459724335138","y":[0.2,0.25,0.55,0.45,0.3,0.4,0.05,0.0,0.2,0.25,0.1,0.35,0.3,0.3,0.4,0.15,0.45,0.5,0.2,0.5,0.7,0.25,0.5,0.75,0.45,0.55,0.8,0.25,0.35,0.85,0.8,0.8,0.75,0.3,0.45,0.5,0.25,0.1,0.35,0.05,0.35,0.55,0.15,0.5,0.25,0.3,0.55,0.65,0.05,0.1,0.25,0.3,0.3,0.3,0.5,0.85,0.85,0.2,0.45,0.8,0.35,0.45,0.65,0.5,0.55,0.55,0.6,0.9,0.9,0.2,0.45,0.7,0.45,0.4,0.75,0.0,0.1,0.25,0.65,0.75,0.95,0.25,0.6,0.45,0.0,0.05,0.3,0.15,0.1,0.4]}
+GLMM_BOOT_FIT {"index":29,"beta":[-0.4278275457190469,0.6720656281368103],"theta":[0.9466327973988701],"objective":459.8137945884898}
+GLMM_BOOT_RESPONSE {"index":30,"seed":"-7533557092730529791","y":[0.4,0.3,0.5,0.3,0.6,0.75,0.25,0.55,0.45,0.2,0.2,0.45,0.3,0.45,0.55,0.05,0.2,0.15,0.55,0.7,0.9,0.3,0.45,0.8,0.45,0.55,0.8,0.1,0.15,0.4,0.2,0.25,0.3,0.1,0.2,0.25,0.0,0.2,0.4,0.6,0.6,0.75,0.25,0.45,0.65,0.05,0.45,0.6,0.15,0.25,0.3,0.25,0.4,0.2,0.3,0.55,0.75,0.3,0.4,0.65,0.3,0.65,0.5,0.4,0.7,0.9,0.05,0.1,0.4,0.25,0.3,0.55,0.4,0.7,0.85,0.3,0.45,0.8,0.25,0.35,0.5,0.15,0.3,0.5,0.65,0.9,0.95,0.65,0.45,0.75]}
+GLMM_BOOT_FIT {"index":30,"beta":[-0.3447814854717426,0.7079352998775034],"theta":[0.8150417403440752],"objective":435.1431680862735}
+GLMM_BOOT_RESPONSE {"index":31,"seed":"8201266955966403053","y":[0.25,0.35,0.6,0.3,0.7,0.8,0.6,0.8,0.7,0.1,0.3,0.2,0.15,0.35,0.4,0.5,0.55,0.75,0.0,0.2,0.5,0.4,0.6,0.6,0.2,0.35,0.4,0.4,0.65,0.8,0.2,0.1,0.3,0.5,0.65,0.8,0.45,0.6,0.75,0.3,0.5,0.6,0.4,0.8,0.8,0.15,0.2,0.25,0.65,0.65,0.7,0.15,0.1,0.15,0.05,0.15,0.25,0.45,0.55,0.6,0.15,0.15,0.25,0.2,0.2,0.5,0.25,0.35,0.65,0.3,0.5,0.55,0.55,0.75,0.85,0.05,0.0,0.05,0.15,0.3,0.45,0.25,0.15,0.3,0.45,0.55,0.8,0.2,0.3,0.35]}
+GLMM_BOOT_FIT {"index":31,"beta":[-0.4692810615287818,0.5810917063561425],"theta":[0.9543531522815795],"objective":423.92271340174153}
+GLMM_BOOT_RESPONSE {"index":32,"seed":"-971862202033821497","y":[0.15,0.4,0.3,0.2,0.4,0.6,0.45,0.6,0.85,0.1,0.1,0.4,0.6,0.9,0.85,0.45,0.65,0.6,0.55,0.55,0.7,0.5,0.6,0.6,0.2,0.3,0.5,0.25,0.6,0.6,0.3,0.55,0.8,0.3,0.25,0.45,0.1,0.3,0.4,0.3,0.55,0.55,0.35,0.3,0.5,0.15,0.35,0.55,0.45,0.55,0.85,0.25,0.35,0.6,0.55,0.6,0.5,0.2,0.25,0.5,0.65,0.9,0.95,0.2,0.25,0.45,0.5,0.55,0.65,0.5,0.5,0.55,0.3,0.3,0.45,0.45,0.55,0.7,0.25,0.45,0.3,0.15,0.4,0.65,0.15,0.2,0.15,0.4,0.6,0.85]}
+GLMM_BOOT_FIT {"index":32,"beta":[-0.19014859299898587,0.5641909330772881],"theta":[0.679473062152174],"objective":428.5872823182931}
+GLMM_BOOT_RESPONSE {"index":33,"seed":"6496655473403777907","y":[0.6,0.75,0.65,0.1,0.4,0.35,0.2,0.3,0.55,0.3,0.6,0.6,0.1,0.25,0.35,0.25,0.65,0.65,0.3,0.35,0.55,0.95,0.95,0.9,0.35,0.65,0.75,0.2,0.1,0.45,0.45,0.65,0.75,0.45,0.75,0.9,0.45,0.5,0.7,0.6,0.65,0.75,0.45,0.65,0.75,0.35,0.4,0.6,0.5,0.65,0.8,0.75,0.65,0.7,0.15,0.65,0.6,0.05,0.3,0.5,0.1,0.25,0.15,0.2,0.2,0.45,0.45,0.35,0.85,0.25,0.3,0.5,0.3,0.75,0.75,0.4,0.6,0.75,0.4,0.55,0.8,0.1,0.15,0.3,0.35,0.3,0.65,0.45,0.65,0.9]}
+GLMM_BOOT_FIT {"index":33,"beta":[-0.02704535914797146,0.6598662030476677],"theta":[0.8340907609990946],"objective":439.9119398815442}
+GLMM_BOOT_RESPONSE {"index":34,"seed":"1616075385270984241","y":[0.15,0.2,0.4,0.2,0.15,0.3,0.2,0.45,0.45,0.4,0.4,0.55,0.1,0.3,0.4,0.35,0.5,0.5,0.35,0.45,0.5,0.5,0.7,0.6,0.55,0.6,0.85,0.5,0.6,0.8,0.4,0.55,0.5,0.2,0.4,0.65,0.2,0.25,0.65,0.3,0.3,0.35,0.35,0.45,0.6,0.1,0.3,0.65,0.2,0.5,0.55,0.55,0.65,0.8,0.0,0.15,0.05,0.5,0.65,0.7,0.75,0.85,0.95,0.45,0.7,0.75,0.1,0.35,0.45,0.2,0.5,0.4,0.45,0.7,0.85,0.2,0.1,0.2,0.7,0.75,0.8,0.25,0.45,0.35,0.15,0.4,0.65,0.3,0.35,0.45]}
+GLMM_BOOT_FIT {"index":34,"beta":[-0.26084124409640824,0.5527990714345312],"theta":[0.8113393020328519],"objective":429.04757815240055}
+GLMM_BOOT_RESPONSE {"index":35,"seed":"2545533801159381173","y":[0.25,0.45,0.45,0.75,0.9,0.85,0.25,0.1,0.1,0.35,0.35,0.5,0.1,0.15,0.3,0.25,0.55,0.4,0.5,0.5,0.8,0.25,0.4,0.75,0.05,0.2,0.35,0.2,0.25,0.35,0.35,0.35,0.45,0.4,0.45,0.55,0.0,0.3,0.25,0.15,0.25,0.5,0.65,0.7,0.9,0.0,0.0,0.5,0.45,0.65,0.45,0.1,0.25,0.55,0.45,0.45,0.7,0.45,0.6,0.85,0.6,0.55,0.85,0.1,0.2,0.05,0.65,0.65,0.8,0.0,0.05,0.2,0.5,0.5,0.5,0.4,0.4,0.7,0.15,0.15,0.45,0.35,0.5,0.65,0.35,0.5,0.8,0.3,0.5,0.6]}
+GLMM_BOOT_FIT {"index":35,"beta":[-0.42485335423511333,0.5612245013839334],"theta":[0.9253545899027591],"objective":452.02624930470233}
+GLMM_BOOT_RESPONSE {"index":36,"seed":"3132557489089459488","y":[0.25,0.5,0.7,0.6,0.4,0.7,0.3,0.45,0.75,0.15,0.4,0.5,0.4,0.6,0.7,0.15,0.25,0.35,0.6,0.65,0.6,0.4,0.75,0.85,0.7,0.8,0.85,0.75,0.85,0.85,0.1,0.1,0.35,0.25,0.2,0.6,0.3,0.3,0.35,0.2,0.2,0.6,0.75,0.8,0.9,0.25,0.65,0.75,0.3,0.15,0.45,0.2,0.25,0.2,0.75,0.75,0.9,0.35,0.4,0.6,0.15,0.3,0.5,0.15,0.1,0.1,0.05,0.4,0.5,0.3,0.4,0.3,0.35,0.4,0.8,0.1,0.35,0.35,0.25,0.55,0.55,0.45,0.85,0.9,0.2,0.45,0.55,0.15,0.05,0.2]}
+GLMM_BOOT_FIT {"index":36,"beta":[-0.2379279685292414,0.6083513802309134],"theta":[0.9413796802795948],"objective":447.2181467665742}
+GLMM_BOOT_RESPONSE {"index":37,"seed":"4469127705501440847","y":[0.25,0.1,0.7,0.8,0.9,1.0,0.25,0.4,0.7,0.35,0.5,0.6,0.6,0.65,0.8,0.25,0.4,0.5,0.05,0.2,0.25,0.5,0.8,0.95,0.9,0.95,0.85,0.2,0.3,0.4,0.5,0.6,0.85,0.35,0.2,0.3,0.65,0.7,0.8,0.5,0.65,0.85,0.5,0.6,0.8,0.25,0.55,0.8,0.3,0.3,0.45,0.65,0.6,0.8,0.25,0.5,0.75,0.25,0.35,0.75,0.0,0.35,0.25,0.0,0.25,0.4,0.4,0.5,0.75,0.15,0.25,0.45,0.35,0.25,0.35,0.15,0.25,0.55,0.0,0.15,0.2,0.15,0.5,0.55,0.25,0.2,0.45,0.15,0.45,0.65]}
+GLMM_BOOT_FIT {"index":37,"beta":[-0.15736396252261156,0.7126609684565012],"theta":[0.9998627177149039],"objective":446.9173919079224}
+GLMM_BOOT_RESPONSE {"index":38,"seed":"-6711534300252315491","y":[0.1,0.3,0.55,0.3,0.45,0.8,0.15,0.2,0.25,0.7,0.9,0.8,0.55,0.75,0.85,0.4,0.7,0.7,0.05,0.5,0.3,0.1,0.2,0.2,0.0,0.25,0.45,0.15,0.05,0.15,0.55,0.55,0.85,0.2,0.35,0.35,0.6,0.4,0.5,0.1,0.25,0.4,0.35,0.65,0.85,0.1,0.2,0.2,0.2,0.45,0.65,0.4,0.6,0.5,0.25,0.4,0.5,0.35,0.45,0.55,0.4,0.6,0.7,0.55,0.7,0.85,0.35,0.3,0.55,0.65,0.85,1.0,0.15,0.25,0.35,0.65,0.2,0.7,0.05,0.05,0.2,0.75,0.75,1.0,0.1,0.2,0.2,0.0,0.1,0.1]}
+GLMM_BOOT_FIT {"index":38,"beta":[-0.4132586914483559,0.5974395196874105],"theta":[1.1119572745982436],"objective":454.43641839870725}
+GLMM_BOOT_INTERVAL qualified=39 lower=0.5051113020066174 upper=0.7101344329487466
+mixeff4s.glmm.GlmmAnalysisSuite:
+  + documented compile fit assess predict simulate bootstrap workflow retains 39 qualified AGQ attempts 3.885s
+  + independent lme4 refits of the actual39 responses reproduce coefficients and percentile intervals 0.021s
+[info] Passed: Total 2, Failed 0, Errors 0, Passed 2
+[success] Total time: 8 s, completed Oct 27, 2026, 6:41:55 p.m.
+[info] compiling 6 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.js/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 20 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.js/target/scala-3.7.4/test-classes ...
+[info] done compiling
+[warn] multiple main classes detected: run 'show discoveredMainClasses' to see the list
+[info] Fast optimizing /Users/bbuchsbaum/code/scala/mixeff4s/.js/target/scala-3.7.4/mixeff4s-test-fastopt
+mixeff4s.glmm.CountSamplerSuite:
+  + Bernoulli and binomial boundaries are exact and deterministic 0.001s
+  + binomial samples stay integral and bounded across inversion and BTPE regimes 0.001s
+  + count moments and tail bins remain plausible without cross-row stream coupling 0.015s
+  + invalid and unsupported sampler inputs refuse with stable codes 0.000s
+  + stable Poisson PMF agrees with independent frozen density values 0.000s
+mixeff4s.glmm.CoefficientLayoutSuite:
+mixeff4s.glmm.JointDenseSuite:
+  + GLMM discloses dropped columns using the same retained coefficient layout 0.048s
+mixeff4s.glmm.CountSamplerCalibrationSuite:
+COUNT_VECTOR binomial n=100 p=0.5 values=Vector(44, 49, 48, 42, 43, 50, 51, 50)
+mixeff4s.glmm.GlmmSimulationSuite:
+COUNT_VECTOR binomial n=10000 p=0.7 values=Vector(6949, 7027, 7050, 6963, 7079, 7003, 7014, 7031)
+  + crossed vector terms and reduced-rank covariance match independent dense conditional solve 0.058s
+mixeff4s.glmm.GlmmPredictionSuite:
+mixeff4s.glmm.PirlsSuite:
+  + Bernoulli logit working observation at eta=0 0.000s
+  + working observation subtracts a supplied offset 0.000s
+  + bounded Bernoulli mean stays off the 0/1 boundary 0.000s
+mixeff4s.glmm.TerminationSuite:
+  + GLMM simulations are seeded, integral for Poisson, and condition modes without residual sigma 0.061s
+mixeff4s.glmm.GlmmRefitSuite:
+  + profiled deviance preserves wrong theta dimension as a typed error 0.009s
+mixeff4s.glmm.AdaptiveQuadratureSuite:
+  + nonfinite or negative diagonal theta is refused 0.006s
+  + power-likelihood fits refuse response simulation 0.017s
+  + an unfinished PIRLS probe returns a refusal, never a finite penalty 0.003s
+mixeff4s.glmm.GlmmAnalysisSuite:
+  + a public GLMM refuses unfinished PIRLS 0.002s
+  + a public GLMM refuses an exhausted optimizer budget 0.001s
+  + an accepted GLMM records the final inner and outer termination separately 0.006s
+mixeff4s.glmm.ContraFitSuite:
+COUNT_VECTOR binomial n=2147483647 p=5e-9 values=Vector(11, 8, 19, 16, 5, 11, 9, 10)
+mixeff4s.glmm.GlmmSimulationMomentSuite:
+COUNT_VECTOR binomial n=2147483647 p=0.5 values=Vector(1073767737, 1073727753, 1073715655, 1073760481, 1073700554, 1073739579, 1073734387, 1073725196)
+  + independent frozen binomial calibration 0.125s
+COUNT_VECTOR poisson lambda=9.9 values=Vector(7, 12, 14, 8, 6, 8, 8, 14)
+mixeff4s.stats.GlmmBootstrapSuite:
+COUNT_VECTOR poisson lambda=10 values=Vector(10, 7, 11, 16, 12, 11, 8, 9)
+COUNT_VECTOR poisson lambda=10.1 values=Vector(10, 7, 11, 16, 12, 11, 8, 9)
+mixeff4s.glmm.GlmmParitySuite:
+  + every admitted normal quadrature order has independent Gaussian polynomial moments 0.085s
+COUNT_VECTOR poisson lambda=1000 values=Vector(1001, 972, 1026, 1056, 1021, 1006, 978, 992)
+mixeff4s.glmm.GlmmAssessmentSuite:
+mixeff4s.glmm.JointLaplaceSuite:
+  + one node is exactly Laplace; zero covariance is exactly the GLM density 0.034s
+  + AGQ refuses fast mode, vector and multiple terms, and out-of-domain orders 0.001s
+COUNT_VECTOR poisson lambda=1000000 values=Vector(1000047, 999111, 1000814, 1001780, 1000660, 1000191, 999310, 999743)
+  + fixed beta modes and final-mean determinant agree with independent scalar oracle 0.018s
+  + independent frozen Poisson calibration 0.100s
+  + cold A B A probes are independent of previous modes and weights 0.002s
+mixeff4s.glmm.GlmmSuite:
+  + Normal+Identity is refused as a GLMM 0.003s
+  + noncanonical joint curvature is explicitly refused 0.001s
+  + nAGQ > 1 is refused in this slice 0.000s
+  + binomial trials and case weights affect constants, score and curvature consistently 0.026s
+  + Poisson constants, zero counts, offsets and power weights agree with scalar oracle 0.002s
+  + joint API refuses wrong dimensions and invalid theta 0.002s
+  + conditional and outer exhaustion are typed failures 0.002s
+  + fitted link and response predictions preserve the fitted conditional snapshot 0.200s
+mixeff4s.glmm.GlmmWorkflowSuite:
+  + population prediction removes modes and frozen encoding refuses unknown groups unless zero-effect is explicit 0.009s
+  + raw and Pearson residuals are finite 0.001s
+  + contra Laplace deviance at the Julia theta matches MixedModels.jl 0.176s
+  + new-data factor level order is aligned to training and incompatible columns refuse 0.002s
+  + a small Bernoulli RE intercept is labelled fast-PIRLS 0.073s
+  + a perfectly separated Bernoulli design preserves its factorization failure 0.016s
+  + true/1: A B invalid A cold refits equal independent fresh fits 0.262s
+mixeff4s.glmm.GlmmInputSuite:
+  + joint fit is separately labelled and records conditional and outer evidence 0.178s
+  + near-integer accepted input is canonicalized once even under large case weights 0.001s
+  + zero theta at extreme finite logit eta retains finite likelihood and identity Hessian 0.001s
+  + stable logistic score retains small residuals under large case weights 0.000s
+  + grouped and expanded binomial have equivalent modes and assessment despite response constants 0.003s
+  + a zero-theta saddle is not accepted on projected gradient alone 0.001s
+  + degenerate response constants are exactly zero rather than amplified under large case weights 0.001s
+  + binomial counts and ambiguous fractional responses refuse in both estimators 0.094s
+  + invalid trials, cases, offsets, controls and fractional Poisson counts refuse 0.003s
+  + estimated-dispersion families refuse until dispersion is explicitly implemented 0.001s
+  + logit inverse and derivative stay finite at large eta 0.001s
+  + offset fits require explicit compatible offsets for new data and b-zero differs from marginal mean 0.201s
+  + mixed grouped-binomial rows and positive Poisson counts provide explicit sufficient witnesses 0.288s
+  + pure groups are retained risk flags while their Gaussian-penalized modes are finite 0.109s
+  + separation and unavailable high-dimensional evidence are not mistaken for an overlap certificate 0.002s
+  + strict one-dimensional outcome hull overlap includes an interior singleton class 0.001s
+  + numerical boundary fits and fast fits remain ineligible rather than gaining a certificate 0.032s
+  + touching outcome hulls refuse and near-dependent mixed-row witnesses do not pass rank 0.002s
+  + false/1: A B invalid A cold refits equal independent fresh fits 0.405s
+GLMM_RESULT name=cbpp joint=true objective=184.05256372951786 beta=Vector(-1.398532142507698, -0.99233273483202, -1.1286720841891913, -1.5803138851987975) theta=Vector(0.6422614491806575) stop=StepBelowTolerance evals=1746 assessment=Some(JointAssessment(Available(Vector(-5.419340953568882e-10, -8.052817671947802e-10, -2.8539086896023435e-9, -1.1090657988625475e-9, 4.699055959160129e-8),4.699055959160129e-8,0.0001),Interior))
+GLMM_DELTA name=cbpp joint=true eta=9.374632936598459e-8 mu=6.665127921801073e-9
+  + cbpp joint-Laplace against frozen R fit 0.643s
+  + documented grouped-binomial workflow runs with qualified inner and outer evidence 0.580s
+GLMM_RESULT name=cbpp joint=false objective=184.10859094522775 beta=Vector(-1.36047266216468, -0.9761765042324447, -1.1110759551794052, -1.559679412677804) theta=Vector(0.6418204313116822) stop=ObjectiveStagnation evals=54 assessment=None
+GLMM_DELTA name=cbpp joint=false eta=0.0000055124591100685905 mu=0.0000010554126377848583
+  + cbpp fast-PIRLS against frozen R fit 0.040s
+AGQ_FIT name=cbpp nodes=5 objective=183.96807570515392 reference=183.96807570514318 beta=Vector(-1.3991938126483379, -0.9914381571666491, -1.127853240524957, -1.5795089076044047) theta=Vector(0.6473646119809854) assessment=Some(JointAssessment(Available(Vector(-1.286484817890864e-9, -4.310625930277941e-9, -3.4019769906576226e-9, -3.5388232555925927e-9, 4.585369121438513e-8),4.585369121438513e-8,0.0001),Interior))
+  + cbpp AGQ5 full-density fit against normalized frozen lme4 0.769s
+  + false/5: A B invalid A cold refits equal independent fresh fits 0.344s
+  + contra fast-PIRLS fit matches MixedModels.jl 0.820s
+  + separate sessions cannot contaminate each other and controls remain authoritative 0.138s
+GLMM_RESULT name=culcitalogreg joint=true objective=60.70584123131578 beta=Vector(5.096143477809315, -3.8424041556001636, -4.4312101504356844, -5.599290424926354) theta=Vector(3.4368388332718505) stop=StepBelowTolerance evals=1019 assessment=Some(JointAssessment(Available(Vector(1.429132259178818e-9, -2.6585532522798364e-8, 1.3421260776195178e-8, 1.4935978249433943e-8, 1.7045969102848037e-8),2.6585532522798364e-8,0.0001),Interior))
+GLMM_DELTA name=culcitalogreg joint=true eta=0.000400170492909524 mu=0.000013194409809402785
+  + culcitalogreg joint-Laplace against frozen R fit 0.433s
+GLMM_RESULT name=culcitalogreg joint=false objective=61.12389317059657 beta=Vector(4.11197945564696, -3.141160178710176, -3.707523325731419, -4.778199403587287) theta=Vector(3.320712803120113) stop=ObjectiveTolerance evals=51 assessment=None
+GLMM_DELTA name=culcitalogreg joint=false eta=0.00017692367155142108 mu=0.000007452742624147746
+  + culcitalogreg fast-PIRLS against frozen R fit 0.030s
+GLMM_RESULT name=synthetic_poisson_offset joint=true objective=68.33363474264094 beta=Vector(0.3260365161751499, 0.6448436012883756) theta=Vector(0.14306294094497995) stop=StepBelowTolerance evals=684 assessment=Some(JointAssessment(Available(Vector(-6.442254137558241e-9, -4.026408835973901e-9, -3.514818066226629e-8),3.514818066226629e-8,0.0001),Interior))
+GLMM_DELTA name=synthetic_poisson_offset joint=true eta=1.2081004419073338e-8 mu=6.777366667876095e-8
+  + synthetic_poisson_offset joint-Laplace against frozen R fit 0.068s
+GLMM_RESULT name=synthetic_poisson_offset joint=false objective=68.34024108816556 beta=Vector(0.3350952940246258, 0.6448436012728314) theta=Vector(0.12680392533772622) stop=ObjectiveStagnation evals=48 assessment=None
+GLMM_DELTA name=synthetic_poisson_offset joint=false eta=0.015513429456492922 mu=0.09050054970637156
+  + synthetic_poisson_offset fast-PIRLS against frozen R fit 0.011s
+AGQ_FIT name=cbpp nodes=9 objective=183.9667435926691 reference=183.96674359266925 beta=Vector(-1.3992301926838673, -0.991403876554339, -1.1278196773525857, -1.5794710162288408) theta=Vector(0.6475177127466716) assessment=Some(JointAssessment(Available(Vector(-1.8619690870566637e-9, -1.2789769243681803e-9, -1.2600289745396352e-9, -1.7394633287830213e-9, 4.6801081528731934e-8),4.6801081528731934e-8,0.0001),Interior))
+  + cbpp AGQ9 full-density fit against normalized frozen lme4 0.582s
+AGQ_FIT name=cbpp nodes=15 objective=183.9667380726923 reference=183.9667380726923 beta=Vector(-1.3992304445524884, -0.9914036723572351, -1.1278194666468186, -1.5794707501071321) theta=Vector(0.6475184786664798) assessment=Some(JointAssessment(Available(Vector(-1.45572102420704e-9, -2.1316282072803006e-9, 2.562059393555948e-9, 8.397410588297091e-10, 9.805489753489383e-9),9.805489753489383e-9,0.0001),Interior))
+  + cbpp AGQ15 full-density fit against normalized frozen lme4 0.676s
+AGQ_FIT name=culcitalogreg nodes=5 objective=60.433061568460595 reference=60.43306109714778 beta=Vector(4.962737785822191, -3.7215258250562746, -4.328515456068525, -5.516217603797275) theta=Vector(3.4365298819710297) assessment=Some(JointAssessment(Available(Vector(9.163235506530492e-10, 4.528170973041383e-9, -2.500611226012182e-9, -1.7580387145272652e-8, 9.400420363231192e-8),9.400420363231192e-8,0.0001),Interior))
+  + culcitalogreg AGQ5 full-density fit against normalized frozen lme4 0.651s
+  + injected middle failure retains later seeds, responses and independent cold-fit statistics 2.982s
+  + every budget failure is recorded without replacement responses 0.010s
+AGQ_FIT name=culcitalogreg nodes=9 objective=60.30412756383516 reference=60.3041273655668 beta=Vector(5.013908368905897, -3.7512416899211303, -4.3623762141884965, -5.546001974339059) theta=Vector(3.5053002264351876) assessment=Some(JointAssessment(Available(Vector(2.3146676199191863e-10, 3.3147685229695737e-10, -7.058122386631139e-11, -1.4178393093730465e-9, 6.415620955149298e-9),6.415620955149298e-9,0.0001),Interior))
+  + culcitalogreg AGQ9 full-density fit against normalized frozen lme4 0.753s
+  + foreign designs and estimator/options mismatches cannot count as successful replicates 0.785s
+  + invalid targets, levels and missing seeds remain precise refusals 0.229s
+AGQ_FIT name=culcitalogreg nodes=15 objective=60.30422318757298 reference=60.30422328859943 beta=Vector(5.0153677446821066, -3.7521114509804887, -4.3640719572760345, -5.548960796321183) theta=Vector(3.5092799165514634) assessment=Some(JointAssessment(Available(Vector(2.361218465364107e-12, 3.0930667978200874e-10, -1.9266614121266713e-10, -1.246350361551795e-9, 5.5073299572144e-9),5.5073299572144e-9,0.0001),Interior))
+  + culcitalogreg AGQ15 full-density fit against normalized frozen lme4 0.839s
+AGQ_FIT name=synthetic_poisson_offset nodes=5 objective=68.33667424479893 reference=68.33667424479891 beta=Vector(0.32626418752747816, 0.6448436013156639) theta=Vector(0.14134915071818194) assessment=Some(JointAssessment(Available(Vector(-2.4087398742267396e-8, -1.4684549872375404e-8, -1.4030850555476113e-7),1.4030850555476113e-7,0.0001),Interior))
+  + synthetic_poisson_offset AGQ5 full-density fit against normalized frozen lme4 0.063s
+AGQ_FIT name=synthetic_poisson_offset nodes=9 objective=68.33667500901788 reference=68.33667500901788 beta=Vector(0.3262643482805252, 0.6448436014071157) theta=Vector(0.14134788873407741) assessment=Some(JointAssessment(Available(Vector(-9.623117117977624e-8, -5.838292812162157e-8, -5.586997531281668e-7),5.586997531281668e-7,0.0001),Interior))
+  + synthetic_poisson_offset AGQ9 full-density fit against normalized frozen lme4 0.066s
+  + rare constant responses fail visibly and are never silently replaced 0.486s
+  + unqualified boundary originals refuse before any bootstrap attempts 0.024s
+AGQ_FIT name=synthetic_poisson_offset nodes=15 objective=68.33667500900863 reference=68.3366750090086 beta=Vector(0.3262643471242783, 0.6448436013018992) theta=Vector(0.1413479042069044) assessment=Some(JointAssessment(Available(Vector(-6.205406558971542e-9, -3.457974647365821e-9, -3.493501784153826e-8),3.493501784153826e-8,0.0001),Interior))
+  + synthetic_poisson_offset AGQ15 full-density fit against normalized frozen lme4 0.076s
+  + AGQ at independently integrated fixed parameters preserves full response constants 0.002s
+  + conditional-mode experiments remain explicitly labelled in the result 0.472s
+  + binomial refits preserve trials and replace cached response constants 4.083s
+  + large-trial simulated proportions roundtrip through response preparation and refit validation 0.002s
+  + drawn correlated and crossed effects reproduce multivariate Poisson-lognormal moments 5.536s
+GLMM_RESULT name=synthetic_poisson_crossed joint=true objective=1293.8553032674106 beta=Vector(1.0927556707785588, 0.3852373420140002) theta=Vector(0.5112426562649359, 0.1943774068128177, 0.4116372818441762, 0.32530894807880373) stop=StepBelowTolerance evals=1834 assessment=Some(JointAssessment(Available(Vector(-1.81370876455981e-7, 5.017379104780654e-7, 2.0312048339595398e-7, -1.1027623258996755e-7, 1.8189894035458565e-7, -3.4143946929058683e-7),5.017379104780654e-7,0.0001),Interior))
+GLMM_DELTA name=synthetic_poisson_crossed joint=true eta=0.000010645622873228788 mu=0.000016586966446574536
+  + synthetic_poisson_crossed joint-Laplace against frozen R fit 4.670s
+  + grouped binomial simulation agrees with independently integrated logistic-normal moments 0.569s
+  + conditional modes produce independent Poisson observations with fitted means and no RE resampling 0.124s
+  + Bernoulli mixtures reproduce independently integrated probability and within-group covariance 0.148s
+GLMM_RESULT name=synthetic_poisson_crossed joint=false objective=1293.859673145249 beta=Vector(1.104757082396092, 0.38272960405264816) theta=Vector(0.5112654058110682, 0.19437838355053455, 0.41162384888177683, 0.3253872735226246) stop=ObjectiveStagnation evals=316 assessment=None
+GLMM_DELTA name=synthetic_poisson_crossed joint=false eta=0.0000032418143353085682 mu=0.000011916261126287964
+  + synthetic_poisson_crossed fast-PIRLS against frozen R fit 0.647s
+GLMM_BOOT_RESPONSE {"index":0,"seed":"7671909092089349006","y":[0.25,0.35,0.6,0.6,0.75,0.8,0.45,0.6,0.85,0.25,0.45,0.3,0.45,0.7,0.8,0.25,0.35,0.25,0.35,0.4,0.55,0.2,0.4,0.6,0.25,0.3,0.55,0.15,0.25,0.45,0.35,0.5,0.7,0.35,0.45,0.35,0.25,0.3,0.6,0.4,0.35,0.7,0.45,0.85,0.9,0.1,0.05,0.1,0.45,0.3,0.5,0.1,0,0.25,0.15,0.1,0.55,0.25,0.5,0.7,0.1,0.3,0.25,0.3,0.6,0.55,0.3,0.05,0.05,0.25,0.75,0.6,0.3,0.5,0.6,0.25,0.45,0.65,0.15,0.55,0.6,0.1,0.15,0.1,0.3,0.45,0.7,0.3,0.4,0.35]}
+GLMM_BOOT_FIT {"index":0,"beta":[-0.47885833083362367,0.5672363124136667],"theta":[0.7690964295999829],"objective":451.05668734117216}
+GLMM_BOOT_RESPONSE {"index":1,"seed":"7159423796239308355","y":[0.25,0.4,0.55,0.1,0.25,0.3,0.8,0.75,0.85,0.6,0.5,0.65,0.35,0.45,0.8,0.05,0.1,0.3,0.7,0.85,0.9,0.2,0.3,0.45,0.5,0.2,0.55,0.5,0.2,0.6,0.6,0.85,0.75,0.1,0.1,0.2,0.15,0.3,0.25,0,0.1,0,0.25,0.7,0.7,0.4,0.7,0.55,0.1,0.1,0.2,0.45,0.65,0.7,0.45,0.75,0.6,0.2,0.25,0.6,0.25,0.4,0.4,0.05,0,0.2,0,0.05,0.15,0.35,0.45,0.55,0.55,0.85,0.85,0.45,0.5,0.75,0.05,0.25,0.35,0.2,0.3,0.4,0.05,0.25,0.55,0.4,0.45,0.5]}
+GLMM_BOOT_FIT {"index":1,"beta":[-0.5250924142656052,0.535301486699821],"theta":[1.1313837246586513],"objective":444.3273022304144}
+GLMM_BOOT_RESPONSE {"index":2,"seed":"-2249291010902640172","y":[0.3,0.6,0.8,0.4,0.55,0.7,0.15,0.25,0.3,0.3,0.45,0.7,0.1,0.3,0.5,0.3,0.5,0.45,0.35,0.45,0.55,0.95,0.95,1,0.45,0.8,0.95,0.45,0.55,0.65,0.35,0.5,0.55,0.25,0.35,0.4,0.8,0.8,0.75,0.45,0.4,0.8,0,0,0,0.25,0.4,0.6,0.6,0.6,0.7,0.1,0.25,0.35,0.05,0.2,0.25,0.35,0.55,0.35,0.05,0.15,0.1,0.2,0.35,0.4,0.25,0.4,0.4,0.25,0.5,0.6,0.4,0.45,0.65,0.5,0.9,0.85,0.25,0.4,0.6,0.1,0,0.2,0.35,0.5,0.7,0.2,0.4,0.6]}
+GLMM_BOOT_FIT {"index":2,"beta":[-0.3273839339562608,0.5840794347454726],"theta":[1.171737905119348],"objective":431.43903410896775}
+GLMM_BOOT_RESPONSE {"index":3,"seed":"-7687153211708749473","y":[0.2,0.25,0.4,0.35,0.5,0.45,0.1,0.2,0.3,0.2,0.2,0.3,0.2,0.35,0.55,0.6,0.75,0.65,0.25,0.5,0.5,0.45,0.75,0.75,0.55,0.8,0.95,0.45,0.45,0.55,0.65,0.55,0.85,0.25,0.25,0.3,0.3,0.4,0.8,0.2,0.4,0.75,0.4,0.6,0.65,0.6,0.6,0.75,0.45,0.65,0.7,0.4,0.45,0.8,0.4,0.35,0.45,0.55,0.7,0.8,0.2,0.25,0.45,0.35,0.6,0.65,0.2,0.3,0.55,0.5,0.65,0.8,0.9,0.7,0.95,0.25,0.4,0.55,0.3,0.45,0.9,0.15,0.1,0.25,0.5,0.85,0.65,0.65,0.9,0.9]}
+GLMM_BOOT_FIT {"index":3,"beta":[0.017812314358799788,0.5718250918126578],"theta":[0.8000896188898358],"objective":438.2425053572068}
+GLMM_BOOT_RESPONSE {"index":4,"seed":"-520484740000317658","y":[0.2,0.15,0.25,0.35,0.65,0.65,0.35,0.65,0.7,0.45,0.85,0.75,0,0.1,0.4,0.1,0.25,0.2,0.65,0.6,0.75,0.45,0.45,0.95,0.3,0.5,0.45,0.2,0.3,0.3,0.2,0.55,0.65,0.15,0.25,0.35,0.7,0.5,0.65,0.1,0.2,0.35,0.35,0.55,0.8,0.4,0.55,0.65,0.4,0.55,0.75,0.2,0.4,0.45,0.4,0.25,0.5,0.3,0.3,0.65,0.6,0.75,0.85,0.9,0.9,0.95,0.1,0.2,0.3,0.7,0.85,0.8,0.4,0.7,0.7,0.3,0.1,0.5,0.5,0.65,0.65,0,0.1,0.15,0.3,0.5,0.45,0.25,0.45,0.65]}
+GLMM_BOOT_FIT {"index":4,"beta":[-0.20368441889188457,0.5633985356369672],"theta":[0.9665919865419319],"objective":444.54497277084323}
+GLMM_BOOT_RESPONSE {"index":5,"seed":"-4157317065267611256","y":[0.85,0.85,1,0.35,0.6,0.7,0.15,0.2,0.2,0.15,0.3,0.5,0.25,0.55,0.65,0.2,0.35,0.55,0.3,0.65,0.6,0.75,0.7,0.7,0.3,0.5,0.75,0.1,0.4,0.5,0.25,0.45,0.7,0.35,0.45,0.7,0.2,0.2,0.15,0.25,0.25,0.25,0.2,0.5,0.45,0.2,0.15,0.4,0.35,0.55,0.85,0.2,0.2,0.25,0.25,0.45,0.5,0.35,0.45,0.4,0.25,0.45,0.35,0.15,0.3,0.5,0.05,0.1,0.4,0.4,0.3,0.55,0.2,0.15,0.35,0.45,0.55,0.7,0.1,0.3,0.45,0.5,0.6,0.7,0.15,0.35,0.35,0.25,0.15,0.35]}
+GLMM_BOOT_FIT {"index":5,"beta":[-0.45538502285479776,0.5570027088387898],"theta":[0.7486796326179777],"objective":427.837197281763}
+GLMM_BOOT_RESPONSE {"index":6,"seed":"-1100934587152754907","y":[0.15,0.35,0.5,0.85,0.7,0.9,0.3,0.25,0.6,0.1,0.3,0.5,0,0.05,0.2,0.65,0.65,0.75,0.05,0.35,0.35,0.55,0.7,0.8,0.25,0.35,0.7,0.35,0.25,0.6,0.1,0.1,0.4,0.1,0.4,0.4,0.1,0.3,0.6,0.1,0.05,0.2,0.9,0.85,0.8,0.25,0.45,0.75,0.15,0.25,0.4,0.3,0.2,0.5,0.15,0.15,0.5,0.2,0.35,0.55,0.1,0.15,0.2,0.35,0.8,0.75,0.5,0.75,0.9,0.05,0.2,0.45,0.15,0.2,0.55,0.3,0.5,0.55,0.2,0.3,0.3,0.05,0,0.1,0.45,0.65,0.75,0.05,0.2,0.1]}
+GLMM_BOOT_FIT {"index":6,"beta":[-0.6198857618014917,0.7100014577206964],"theta":[1.0904812564179862],"objective":432.44655081823703}
+GLMM_BOOT_RESPONSE {"index":7,"seed":"7969557305820953073","y":[0.35,0.5,0.65,0.15,0.25,0.35,0.05,0.2,0.6,0,0.15,0.05,0.3,0.3,0.65,0.35,0.35,0.55,0.15,0.3,0.35,0.2,0.35,0.45,0.9,0.9,0.95,0.1,0.25,0.55,0.3,0.75,0.75,0.25,0.65,0.65,0.3,0.6,0.8,0.3,0.4,0.85,0.5,0.4,0.6,0.2,0.5,0.5,0.15,0.4,0.3,0.35,0.45,0.8,0.05,0.4,0.25,0.1,0,0.55,0.25,0.35,0.35,0.25,0.45,0.55,0.05,0.2,0.45,0,0.1,0.4,0.65,0.9,0.85,0.4,0.4,0.65,0.55,0.7,0.85,0.6,0.6,0.85,0.65,0.55,0.65,0.75,0.65,0.65]}
+GLMM_BOOT_FIT {"index":7,"beta":[-0.2869530416203699,0.6791730942862201],"theta":[0.9516943051640713],"objective":460.4098087621478}
+GLMM_BOOT_RESPONSE {"index":8,"seed":"-1780550020906685641","y":[0.65,0.7,0.8,0.8,0.9,0.95,0.9,0.7,0.85,0.45,0.65,0.9,0.2,0.05,0.35,0.25,0.7,0.4,0.1,0.25,0.25,0.3,0.15,0.4,0.15,0.45,0.45,0.65,0.6,0.9,0.2,0.15,0.25,0.4,0.7,0.75,0.35,0.4,0.5,0.2,0.4,0.65,0.5,0.8,0.75,0.3,0.55,0.65,0.2,0.1,0.45,0.5,0.5,0.55,0.15,0.3,0.45,0.25,0.5,0.6,0.55,0.55,0.85,0.5,0.75,0.9,0.3,0.55,0.6,0.05,0.15,0.2,0.25,0.4,0.5,0,0,0,0.45,0.5,0.5,0.5,0.6,0.6,0.5,0.6,0.45,0.45,0.7,0.85]}
+GLMM_BOOT_FIT {"index":8,"beta":[-0.16057216758296183,0.515772440030068],"theta":[1.083191278617325],"objective":449.96484441612057}
+GLMM_BOOT_RESPONSE {"index":9,"seed":"763331269162978962","y":[0.15,0.45,0.6,0.4,0.55,0.85,0.15,0.2,0.15,0.45,0.45,0.7,0.2,0.05,0.3,0.15,0.15,0.4,0.2,0.35,0.5,0.5,0.55,0.65,0.2,0.3,0.65,0.15,0.25,0.35,0.35,0.5,0.65,0.45,0.6,0.85,0.05,0.05,0.2,0.45,0.65,0.75,0.1,0.2,0.3,0.35,0.25,0.35,0.15,0.2,0.45,0.3,0.65,0.75,0.15,0.35,0.25,0.25,0.45,0.55,0.2,0.5,0.9,0.1,0.35,0.35,0.3,0.4,0.45,0.35,0.8,0.7,0.4,0.55,0.85,0.7,0.55,0.85,0.25,0.2,0.35,0.55,0.9,0.7,0.5,0.4,0.75,0.1,0.4,0.55]}
+GLMM_BOOT_FIT {"index":9,"beta":[-0.40374179455243764,0.647338807100337],"theta":[0.7825430080963526],"objective":439.94593716787983}
+GLMM_BOOT_RESPONSE {"index":10,"seed":"1140995503871405255","y":[0.3,0.6,0.8,0.45,0.8,0.55,0.05,0.2,0.45,0.55,0.75,0.65,0.45,0.4,0.7,0.9,0.8,0.95,0.1,0.25,0.6,0.05,0.55,0.4,0.8,0.7,0.85,0,0.05,0.25,0.25,0.55,0.7,0.1,0.35,0.7,0.2,0.45,0.85,0.95,0.95,0.75,0.3,0.4,0.2,0.3,0.3,0.65,0.65,0.75,0.9,0.25,0.25,0.3,0.45,0.45,0.65,0.5,0.9,0.9,0.5,0.5,0.55,0.15,0.45,0.45,0.05,0.1,0.05,0.35,0.65,0.7,0.1,0.25,0.45,0.3,0.2,0.45,0.45,0.45,0.7,0.25,0.35,0.55,0.25,0.55,0.65,0.3,0.45,0.35]}
+GLMM_BOOT_FIT {"index":10,"beta":[-0.13827623784754642,0.6074371084994648],"theta":[1.0057858951608158],"objective":477.56465140880925}
+GLMM_BOOT_RESPONSE {"index":11,"seed":"-714080475460422687","y":[0.15,0.3,0.35,0.2,0.45,0.6,0.7,0.65,0.85,0.15,0.45,0.6,0.5,0.65,0.7,0.1,0.3,0.4,0.25,0.35,0.85,0.15,0.2,0.25,0.05,0.05,0,0.55,0.85,0.85,0.35,0.4,0.5,0.25,0.4,0.5,0.6,0.7,0.9,0.35,0.3,0.35,0.5,0.35,0.7,0.15,0.45,0.45,0.3,0.75,0.9,0.25,0.5,0.5,0.05,0.3,0.55,0.1,0.45,0.35,0.45,0.6,0.65,0.5,0.55,1,0.3,0.35,0.4,0.1,0.2,0.25,0.4,0.45,0.75,0.4,0.4,0.65,0.4,0.65,0.7,0.45,0.6,0.65,0.05,0.2,0.35,0.25,0.55,0.7]}
+GLMM_BOOT_FIT {"index":11,"beta":[-0.30076383934373296,0.6560618432549097],"theta":[0.8438680608429996],"objective":442.54499414427977}
+GLMM_BOOT_RESPONSE {"index":12,"seed":"-1983077304808040061","y":[0.05,0.05,0,0.3,0.4,0.7,0.2,0.15,0.45,0.8,0.95,0.9,0.25,0.45,0.45,0.6,0.45,0.65,0.25,0.45,0.7,0.35,0.35,0.55,0.35,0.55,0.6,0.3,0.25,0.55,0.3,0.5,0.7,0.25,0.5,0.5,0.05,0.05,0.35,0.6,0.3,0.7,0.6,0.75,0.6,0.6,0.7,0.8,0.45,0.45,0.55,0.2,0.55,0.9,0.55,0.45,0.6,0.3,0.3,0.1,0.35,0.65,0.7,0.5,0.7,0.8,0.35,0.6,0.4,0.05,0.15,0.2,0.3,0.55,0.5,0.1,0.2,0.3,0.05,0.15,0.55,0.5,0.6,0.75,0.1,0.15,0.25,0.7,0.75,0.95]}
+GLMM_BOOT_FIT {"index":12,"beta":[-0.277891024969645,0.5187328631957049],"theta":[0.9738843191820976],"objective":459.3760417318763}
+GLMM_BOOT_RESPONSE {"index":13,"seed":"8677473043790307244","y":[0.2,0.1,0.4,0.1,0.25,0.35,0.5,0.7,0.65,0.05,0.45,0.45,0.55,0.5,0.65,0.05,0.25,0.3,0.7,0.65,0.85,0.35,0.35,0.8,0.75,0.85,0.85,0.3,0.45,0.7,0.15,0.1,0.4,0.35,0.7,0.55,0.05,0,0.4,0.3,0.35,0.3,0.1,0.2,0.25,0.35,0.25,0.5,0.2,0.25,0.4,0.05,0.1,0.5,0.45,0.55,0.7,0.15,0.4,0.4,0.75,0.8,0.95,0.25,0.4,0.45,0.4,0.4,0.4,0.1,0.4,0.3,0.05,0.3,0.4,0.6,0.7,0.65,0.3,0.3,0.25,0.1,0.1,0.35,0.25,0.15,0.2,0.05,0.05,0.2]}
+GLMM_BOOT_FIT {"index":13,"beta":[-0.5751529643795971,0.5150382733500334],"theta":[0.9230173149051308],"objective":447.0941561441045}
+GLMM_BOOT_RESPONSE {"index":14,"seed":"-2270437618814336371","y":[0.2,0.25,0.6,0.7,0.7,0.85,0.6,0.6,0.75,0.1,0.15,0.15,0.5,0.9,0.85,0.2,0.5,0.65,0.1,0.1,0.15,0.45,0.45,0.65,0,0.25,0.35,0.25,0.35,0.6,0.2,0.35,0.8,0.25,0.2,0.35,0.5,0.8,0.95,0.1,0.25,0.35,0.3,0.25,0.5,0.1,0.15,0.3,0.2,0.05,0.55,0.35,0.8,0.9,0.35,0.15,0.25,0.35,0.4,0.65,0.2,0.25,0.25,0.3,0.3,0.5,0.35,0.45,0.55,0.45,0.55,0.8,0.35,0.3,0.35,0.5,0.45,0.7,0.1,0.05,0.2,0.1,0.25,0.4,0.25,0.2,0.4,0.1,0.05,0.25]}
+GLMM_BOOT_FIT {"index":14,"beta":[-0.57053883434013,0.6058835273277378],"theta":[0.9153546747457929],"objective":442.8190260005256}
+GLMM_BOOT_RESPONSE {"index":15,"seed":"-7211833070974514982","y":[0.4,0.4,0.55,0.45,0.3,0.5,0.55,0.65,0.55,0.15,0.35,0.7,0.55,0.3,0.75,0.6,0.75,0.95,0.1,0.35,0.25,0.1,0.25,0.45,0.1,0.1,0.5,0.55,0.5,0.85,0.05,0.05,0.25,0.1,0.15,0.1,0.55,0.6,0.75,0.1,0.25,0.35,0.25,0.35,0.45,0.45,0.7,0.45,0,0.1,0.05,0.55,0.7,0.8,0.5,0.65,0.8,0.1,0.1,0.15,0.45,0.5,0.75,0.2,0.3,0.4,0.8,1,1,0.45,0.65,0.7,0.15,0.2,0.4,0.4,0.55,0.85,0.1,0.3,0.2,0.2,0.2,0.15,0.4,0.4,0.45,0.3,0.3,0.4]}
+GLMM_BOOT_FIT {"index":15,"beta":[-0.4438132482206731,0.5051810351413359],"theta":[1.095689177945425],"objective":445.9290322474354}
+GLMM_BOOT_RESPONSE {"index":16,"seed":"5732183820345318735","y":[0.55,0.6,0.65,0,0.2,0.2,0.1,0.15,0.25,0.3,0.4,0.45,0.25,0.5,0.6,0.15,0.6,0.6,0.95,0.85,0.85,0.1,0.15,0.2,0.2,0.25,0.5,0.5,0.5,0.8,0.4,0.7,0.95,0.35,0.4,0.65,0.4,0.25,0.7,0.35,0.5,0.65,0.1,0.3,0.2,0.4,0.3,0.6,0.65,0.65,0.7,0.2,0.25,0.5,0,0.05,0.1,0.2,0.25,0.5,0.15,0.2,0.4,0.1,0.15,0.25,0.15,0.15,0.25,0.15,0.15,0.2,0.5,0.75,0.75,0.4,0.45,0.65,0.45,0.2,0.45,0.45,0.7,0.75,0.3,0.5,0.55,0.4,0.7,0.7]}
+GLMM_BOOT_FIT {"index":16,"beta":[-0.47085645604574267,0.537026883424575],"theta":[0.9807007638520676],"objective":433.75644530895806}
+GLMM_BOOT_RESPONSE {"index":17,"seed":"-1580576034234919429","y":[0.1,0.65,0.45,0.3,0.45,0.55,0.05,0.25,0.3,0,0.1,0.05,0.2,0.7,0.7,0.25,0.65,0.65,0.05,0.15,0.25,0.7,0.7,0.8,0.05,0.4,0.45,0.05,0.35,0.4,0.45,0.55,0.85,0.15,0.25,0.4,0.15,0.45,0.4,0.75,0.8,0.9,0.4,0.5,0.8,0.25,0.4,0.5,0.45,0.45,0.55,0.3,0.55,0.65,0.25,0.5,0.45,0.25,0.35,0.3,0.1,0.1,0.35,0.15,0.25,0.6,0.45,0.25,0.45,0.55,0.45,0.85,0.35,0.6,0.55,0.2,0.45,0.4,0.15,0.25,0.45,0.1,0.05,0.4,0.05,0.3,0.45,0.35,0.6,0.45]}
+GLMM_BOOT_FIT {"index":17,"beta":[-0.5137527497242903,0.6303074996026152],"theta":[0.8110038071532806],"objective":445.2203859294108}
+GLMM_BOOT_RESPONSE {"index":18,"seed":"5179313653002382152","y":[0.1,0.15,0.55,0.6,0.45,0.75,0.65,0.55,0.9,0.2,0.35,0.3,0.5,0.7,0.85,0.2,0.55,0.6,0.05,0.15,0.1,0.45,0.3,0.5,0.25,0.15,0.4,0.8,0.85,0.8,0.2,0.3,0.65,0.3,0.4,0.35,0.05,0.3,0.4,0.35,0.3,0.75,0.35,0.6,0.8,0.1,0.3,0.5,0.35,0.5,0.35,0.25,0.5,0.55,0,0.1,0.1,0.15,0.55,0.55,0.7,0.8,1,0.1,0.25,0.3,0.45,0.6,0.7,0.35,0.35,0.45,0.5,0.6,0.6,0.05,0.1,0.5,0.2,0.55,0.7,0.35,0.25,0.7,0.25,0.3,0.55,0.15,0.25,0.15]}
+GLMM_BOOT_FIT {"index":18,"beta":[-0.4064964760690841,0.6058882202442872],"theta":[0.9011031467695405],"objective":453.9363301041185}
+GLMM_BOOT_RESPONSE {"index":19,"seed":"2419182098151237618","y":[0.85,0.75,0.85,0.7,0.6,0.9,0.6,0.55,0.75,0.05,0.1,0.65,0.05,0.1,0.2,0.55,0.75,0.6,0.3,0.85,0.9,0.65,0.45,0.55,0.15,0,0.15,0.35,0.55,0.7,0.55,0.65,0.75,0.6,0.6,0.75,0.5,0.45,0.8,0.1,0.15,0.1,0.35,0.4,0.65,0.6,0.7,0.95,0.3,0.4,0.5,0.1,0.2,0.2,0.15,0.5,0.25,0.55,0.65,0.65,0.4,0.5,0.8,0.35,0.3,0.5,0.35,0.4,0.55,0.4,0.65,0.75,0.25,0.45,0.65,0.2,0.2,0.2,0.35,0.7,0.8,0.25,0.25,0.45,0.6,0.55,0.9,0.25,0.15,0.4]}
+GLMM_BOOT_FIT {"index":19,"beta":[-0.14452476788704965,0.5192374280019575],"theta":[0.957020998074389],"objective":464.0170160042406}
+GLMM_BOOT_RESPONSE {"index":20,"seed":"-7527625467060160797","y":[0.5,0.55,0.7,0.05,0.15,0.35,0.25,0.35,0.6,0.35,0.5,0.7,0.7,0.55,0.95,0.25,0.5,0.65,0.5,0.75,0.85,0.25,0.2,0.25,0.6,0.45,0.65,0.4,0.65,0.65,0.25,0.5,0.75,0.1,0.15,0.15,0.2,0.35,0.35,0.3,0.5,0.55,0.35,0.35,0.45,0.25,0.15,0.4,0.15,0.05,0.3,0.4,0.35,0.7,0.1,0.45,0.45,0.25,0.5,0.4,0.25,0.4,0.65,0.5,0.85,0.8,0.2,0.35,0.4,0.65,0.9,0.9,0.1,0.2,0.3,0.3,0.5,0.4,0.2,0.25,0.55,0.8,0.85,0.8,0.5,0.75,0.85,0.2,0.05,0.25]}
+GLMM_BOOT_FIT {"index":20,"beta":[-0.27805764605787525,0.5546028093847308],"theta":[0.8908552663806422],"objective":438.5168907168028}
+GLMM_BOOT_RESPONSE {"index":21,"seed":"-5250651968881590020","y":[0.4,0.35,0.55,0.15,0.2,0.6,0.8,0.75,0.85,0.1,0.1,0.4,0.05,0.15,0.3,0.1,0.15,0.5,0.65,0.75,0.95,0.3,0.35,0.6,0.25,0.45,0.85,0.7,0.9,0.9,0.3,0.7,0.85,0.55,0.65,0.5,0.7,0.7,0.9,0.5,0.65,0.85,0.35,0.25,0.8,0.35,0.45,0.45,0.1,0.2,0.15,0.5,0.7,0.8,0.5,0.55,0.65,0.25,0.2,0.45,0.25,0.4,0.55,0.1,0.15,0.25,0.4,0.65,0.75,0.2,0.35,0.45,0.25,0.1,0.4,0.65,0.75,0.6,0.6,0.7,0.55,0.15,0.2,0.25,0.35,0.4,0.6,0.3,0.5,0.65]}
+GLMM_BOOT_FIT {"index":21,"beta":[-0.1536501844453136,0.5770784693433008],"theta":[0.9267258110930426],"objective":448.4901541751299}
+GLMM_BOOT_RESPONSE {"index":22,"seed":"6554588598005757623","y":[0.25,0.5,0.6,0.45,0.2,0.35,0.35,0.55,0.85,0.5,0.55,0.8,0.25,0.35,0.45,0.15,0.25,0.4,0.55,0.75,0.75,0.15,0.15,0.15,0.25,0.5,0.5,0.65,0.75,0.95,0.15,0.55,0.5,0.1,0.35,0.35,0.05,0.25,0.5,0.3,0.6,0.7,0.55,0.6,0.7,0.65,0.75,0.8,0.2,0.4,0.45,0.2,0.3,0.75,0.45,0.55,0.7,0.55,0.55,0.7,0.05,0.1,0.25,0.2,0.15,0.6,0.35,0.5,0.9,0.65,0.9,0.9,0.35,0.45,0.55,0.2,0.3,0.45,0.25,0.35,0.35,0.3,0.5,0.6,0.45,0.5,0.8,0.05,0.1,0.15]}
+GLMM_BOOT_FIT {"index":22,"beta":[-0.251722304453205,0.631090765180545],"theta":[0.8561005956498884],"objective":433.78738760823234}
+GLMM_BOOT_RESPONSE {"index":23,"seed":"-7039079611495118589","y":[0.2,0.6,0.35,0.55,0.7,0.6,0.25,0.65,0.55,0.35,0.7,0.75,0.5,0.5,0.7,0.4,0.8,0.4,0.1,0.05,0.3,0.5,0.6,0.95,0.45,0.35,0.45,0.2,0.45,0.5,0.3,0.75,0.65,0.8,0.8,0.95,0.6,0.4,0.6,0.35,0.35,0.55,0.1,0.25,0.3,0.05,0.3,0.4,0.45,0.4,0.9,0.3,0.05,0.65,0.2,0.2,0.3,0.25,0.45,0.55,0.25,0.25,0.6,0.35,0.5,0.85,0.2,0.45,0.7,0.55,0.7,0.75,0.1,0.2,0.3,0.65,0.85,0.85,0.4,0.4,0.65,0.65,0.55,0.85,0.4,0.4,0.5,0.2,0.05,0.35]}
+GLMM_BOOT_FIT {"index":23,"beta":[-0.14922934236452604,0.5528178217465822],"theta":[0.7762656619041484],"objective":474.68324826785255}
+GLMM_BOOT_RESPONSE {"index":24,"seed":"-7113280578443679513","y":[0.35,0.4,0.4,0,0.05,0.1,0.5,0.7,0.85,0.05,0.1,0.1,0.3,0.35,0.45,0.15,0.2,0.4,0.1,0.25,0.25,0.5,0.6,0.8,0.2,0.35,0.6,0.1,0.35,0.45,0.25,0.45,0.7,0.45,0.6,0.5,0.8,0.9,0.95,0.1,0.3,0.35,0,0.3,0.25,0.65,0.7,0.85,0.5,0.7,0.8,0.15,0.05,0.2,0.15,0.4,0.35,0.05,0.25,0.45,0.25,0.3,0.65,0.5,0.7,0.8,0.6,0.55,0.85,0.4,0.75,0.85,0.55,0.65,0.85,0.05,0.1,0.35,0.6,0.75,0.8,0.85,0.65,0.9,0.35,0.4,0.65,0.2,0.45,0.6]}
+GLMM_BOOT_FIT {"index":24,"beta":[-0.30098178334525166,0.6502342244706928],"theta":[1.152348801866597],"objective":427.31417357831833}
+GLMM_BOOT_RESPONSE {"index":25,"seed":"-8741581885997507417","y":[0.4,0.5,0.6,0.2,0.3,0.5,0.15,0.3,0.45,0.6,0.5,0.95,0.65,0.9,0.9,0.3,0.45,0.45,0.5,0.45,0.65,0.1,0.15,0.6,0.4,0.3,0.55,0.35,0.65,0.85,0.35,0.15,0.55,0.35,0.25,0.5,0.75,0.75,0.8,0.15,0.2,0.5,0.2,0.3,0.4,0.65,0.5,0.75,0.4,0.55,0.6,0.1,0.4,0.4,0.9,0.95,0.95,0.1,0.1,0.35,0.7,0.75,0.9,0.3,0.3,0.6,0.65,0.6,0.75,0.35,0.3,0.25,0.3,0.35,0.5,0.45,0.35,0.5,0.25,0.35,0.4,0.4,0.55,0.7,0.35,0.5,0.55,0.45,0.7,0.8]}
+GLMM_BOOT_FIT {"index":25,"beta":[-0.057788899662878354,0.503786376705448],"theta":[0.8390935492405492],"objective":441.85230498756374}
+GLMM_BOOT_RESPONSE {"index":26,"seed":"2706522658282097813","y":[0.35,0.45,0.6,0.3,0.65,0.75,0.4,0.35,0.4,0.3,0.45,0.65,0.2,0.3,0.6,0.8,0.8,0.8,0.55,0.65,0.6,0.3,0.45,0.6,0.2,0.1,0.3,0.4,0.65,0.5,0.25,0.3,0.65,0.15,0.15,0.6,0.25,0.45,0.45,0.5,0.5,0.8,0.1,0.5,0.45,0.35,0.55,0.65,0.55,0.75,0.85,0.15,0.4,0.55,0.3,0.45,0.65,0.25,0.4,0.75,0.6,0.5,0.7,0.35,0.45,0.65,0.05,0.2,0.2,0.05,0.1,0.45,0.85,0.95,1,0.15,0.3,0.35,0.05,0.15,0.3,0.35,0.6,0.65,0.25,0.35,0.5,0.35,0.6,0.75]}
+GLMM_BOOT_FIT {"index":26,"beta":[-0.2019469313378659,0.6313636570860637],"theta":[0.82359030860575],"objective":431.0603201900263}
+GLMM_BOOT_RESPONSE {"index":27,"seed":"4425776167835404326","y":[0.05,0.2,0.25,0.1,0.3,0.45,0.2,0.3,0.5,0.35,0.5,0.65,0.4,0.4,0.6,0.2,0.15,0.4,0,0.15,0.35,0.5,0.6,0.7,0.6,0.8,0.95,0.15,0.15,0.35,0.3,0.7,0.8,0.25,0.4,0.65,0.05,0.3,0.5,0.4,0.55,0.55,0.45,0.4,0.6,0.05,0.35,0.4,0.7,0.85,1,0.45,0.55,0.5,0.4,0.65,0.8,0.25,0.35,0.55,0.75,0.7,0.85,0.25,0.4,0.5,0.15,0.4,0.15,0.7,0.8,0.85,0.05,0.1,0.35,0.35,0.6,0.65,0.8,0.95,0.8,0.1,0.35,0.3,0.1,0.15,0.3,0.3,0.4,0.5]}
+GLMM_BOOT_FIT {"index":27,"beta":[-0.27629719335973624,0.6219412190660218],"theta":[0.987639744086463],"objective":432.9352637524643}
+GLMM_BOOT_RESPONSE {"index":28,"seed":"-1943355308328493994","y":[0.1,0.2,0.5,0.1,0.1,0.35,0.25,0.7,0.85,0.35,0.35,0.6,0.35,0.35,0.45,0.45,0.5,0.75,0.4,0.25,0.5,0.25,0.4,0.45,0.2,0.15,0.45,0.1,0.3,0.5,0.65,0.75,0.8,0.15,0.1,0.5,0.45,0.7,0.75,0.8,0.85,0.75,0.45,0.55,0.75,0.35,0.65,0.8,0.4,0.45,0.6,0.4,0.3,0.6,0.2,0.2,0.6,0.05,0.05,0.2,0.15,0.1,0.4,0.4,0.5,0.75,0.6,0.75,0.9,0.05,0.3,0.2,0,0.1,0.2,0.2,0.25,0.45,0.3,0.2,0.35,0.2,0.5,0.35,0.5,0.65,0.7,0.15,0.4,0.25]}
+GLMM_BOOT_FIT {"index":28,"beta":[-0.4373116086362879,0.60139835263298],"theta":[0.883240965089658],"objective":437.99579260609295}
+GLMM_BOOT_RESPONSE {"index":29,"seed":"6094730459724335138","y":[0.2,0.25,0.55,0.45,0.3,0.4,0.05,0,0.2,0.25,0.1,0.35,0.3,0.3,0.4,0.15,0.45,0.5,0.2,0.5,0.7,0.25,0.5,0.75,0.45,0.55,0.8,0.25,0.35,0.85,0.8,0.8,0.75,0.3,0.45,0.5,0.25,0.1,0.35,0.05,0.35,0.55,0.15,0.5,0.25,0.3,0.55,0.65,0.05,0.1,0.25,0.3,0.3,0.3,0.5,0.85,0.85,0.2,0.45,0.8,0.35,0.45,0.65,0.5,0.55,0.55,0.6,0.9,0.9,0.2,0.45,0.7,0.45,0.4,0.75,0,0.1,0.25,0.65,0.75,0.95,0.25,0.6,0.45,0,0.05,0.3,0.15,0.1,0.4]}
+GLMM_BOOT_FIT {"index":29,"beta":[-0.42782754675906765,0.6720656304229272],"theta":[0.9466328173883418],"objective":459.81379458848966}
+GLMM_BOOT_RESPONSE {"index":30,"seed":"-7533557092730529791","y":[0.4,0.3,0.5,0.3,0.6,0.75,0.25,0.55,0.45,0.2,0.2,0.45,0.3,0.45,0.55,0.05,0.2,0.15,0.55,0.7,0.9,0.3,0.45,0.8,0.45,0.55,0.8,0.1,0.15,0.4,0.2,0.25,0.3,0.1,0.2,0.25,0,0.2,0.4,0.6,0.6,0.75,0.25,0.45,0.65,0.05,0.45,0.6,0.15,0.25,0.3,0.25,0.4,0.2,0.3,0.55,0.75,0.3,0.4,0.65,0.3,0.65,0.5,0.4,0.7,0.9,0.05,0.1,0.4,0.25,0.3,0.55,0.4,0.7,0.85,0.3,0.45,0.8,0.25,0.35,0.5,0.15,0.3,0.5,0.65,0.9,0.95,0.65,0.45,0.75]}
+GLMM_BOOT_FIT {"index":30,"beta":[-0.34478149530345914,0.707935302575091],"theta":[0.815041735832194],"objective":435.1431680862733}
+GLMM_BOOT_RESPONSE {"index":31,"seed":"8201266955966403053","y":[0.25,0.35,0.6,0.3,0.7,0.8,0.6,0.8,0.7,0.1,0.3,0.2,0.15,0.35,0.4,0.5,0.55,0.75,0,0.2,0.5,0.4,0.6,0.6,0.2,0.35,0.4,0.4,0.65,0.8,0.2,0.1,0.3,0.5,0.65,0.8,0.45,0.6,0.75,0.3,0.5,0.6,0.4,0.8,0.8,0.15,0.2,0.25,0.65,0.65,0.7,0.15,0.1,0.15,0.05,0.15,0.25,0.45,0.55,0.6,0.15,0.15,0.25,0.2,0.2,0.5,0.25,0.35,0.65,0.3,0.5,0.55,0.55,0.75,0.85,0.05,0,0.05,0.15,0.3,0.45,0.25,0.15,0.3,0.45,0.55,0.8,0.2,0.3,0.35]}
+GLMM_BOOT_FIT {"index":31,"beta":[-0.4692810616519983,0.5810917064499972],"theta":[0.9543531532466079],"objective":423.92271340174153}
+GLMM_BOOT_RESPONSE {"index":32,"seed":"-971862202033821497","y":[0.15,0.4,0.3,0.2,0.4,0.6,0.45,0.6,0.85,0.1,0.1,0.4,0.6,0.9,0.85,0.45,0.65,0.6,0.55,0.55,0.7,0.5,0.6,0.6,0.2,0.3,0.5,0.25,0.6,0.6,0.3,0.55,0.8,0.3,0.25,0.45,0.1,0.3,0.4,0.3,0.55,0.55,0.35,0.3,0.5,0.15,0.35,0.55,0.45,0.55,0.85,0.25,0.35,0.6,0.55,0.6,0.5,0.2,0.25,0.5,0.65,0.9,0.95,0.2,0.25,0.45,0.5,0.55,0.65,0.5,0.5,0.55,0.3,0.3,0.45,0.45,0.55,0.7,0.25,0.45,0.3,0.15,0.4,0.65,0.15,0.2,0.15,0.4,0.6,0.85]}
+GLMM_BOOT_FIT {"index":32,"beta":[-0.19014859325371342,0.5641909352429185],"theta":[0.6794730854409048],"objective":428.58728231829303}
+GLMM_BOOT_RESPONSE {"index":33,"seed":"6496655473403777907","y":[0.6,0.75,0.65,0.1,0.4,0.35,0.2,0.3,0.55,0.3,0.6,0.6,0.1,0.25,0.35,0.25,0.65,0.65,0.3,0.35,0.55,0.95,0.95,0.9,0.35,0.65,0.75,0.2,0.1,0.45,0.45,0.65,0.75,0.45,0.75,0.9,0.45,0.5,0.7,0.6,0.65,0.75,0.45,0.65,0.75,0.35,0.4,0.6,0.5,0.65,0.8,0.75,0.65,0.7,0.15,0.65,0.6,0.05,0.3,0.5,0.1,0.25,0.15,0.2,0.2,0.45,0.45,0.35,0.85,0.25,0.3,0.5,0.3,0.75,0.75,0.4,0.6,0.75,0.4,0.55,0.8,0.1,0.15,0.3,0.35,0.3,0.65,0.45,0.65,0.9]}
+GLMM_BOOT_FIT {"index":33,"beta":[-0.027045359019877067,0.6598662035019064],"theta":[0.8340907652332797],"objective":439.91193988154436}
+GLMM_BOOT_RESPONSE {"index":34,"seed":"1616075385270984241","y":[0.15,0.2,0.4,0.2,0.15,0.3,0.2,0.45,0.45,0.4,0.4,0.55,0.1,0.3,0.4,0.35,0.5,0.5,0.35,0.45,0.5,0.5,0.7,0.6,0.55,0.6,0.85,0.5,0.6,0.8,0.4,0.55,0.5,0.2,0.4,0.65,0.2,0.25,0.65,0.3,0.3,0.35,0.35,0.45,0.6,0.1,0.3,0.65,0.2,0.5,0.55,0.55,0.65,0.8,0,0.15,0.05,0.5,0.65,0.7,0.75,0.85,0.95,0.45,0.7,0.75,0.1,0.35,0.45,0.2,0.5,0.4,0.45,0.7,0.85,0.2,0.1,0.2,0.7,0.75,0.8,0.25,0.45,0.35,0.15,0.4,0.65,0.3,0.35,0.45]}
+GLMM_BOOT_FIT {"index":34,"beta":[-0.26084124415816984,0.5527990710378583],"theta":[0.8113392976058255],"objective":429.04757815240043}
+GLMM_BOOT_RESPONSE {"index":35,"seed":"2545533801159381173","y":[0.25,0.45,0.45,0.75,0.9,0.85,0.25,0.1,0.1,0.35,0.35,0.5,0.1,0.15,0.3,0.25,0.55,0.4,0.5,0.5,0.8,0.25,0.4,0.75,0.05,0.2,0.35,0.2,0.25,0.35,0.35,0.35,0.45,0.4,0.45,0.55,0,0.3,0.25,0.15,0.25,0.5,0.65,0.7,0.9,0,0,0.5,0.45,0.65,0.45,0.1,0.25,0.55,0.45,0.45,0.7,0.45,0.6,0.85,0.6,0.55,0.85,0.1,0.2,0.05,0.65,0.65,0.8,0,0.05,0.2,0.5,0.5,0.5,0.4,0.4,0.7,0.15,0.15,0.45,0.35,0.5,0.65,0.35,0.5,0.8,0.3,0.5,0.6]}
+GLMM_BOOT_FIT {"index":35,"beta":[-0.4248533543722704,0.5612245017722239],"theta":[0.9253545939982949],"objective":452.0262493047022}
+GLMM_BOOT_RESPONSE {"index":36,"seed":"3132557489089459488","y":[0.25,0.5,0.7,0.6,0.4,0.7,0.3,0.45,0.75,0.15,0.4,0.5,0.4,0.6,0.7,0.15,0.25,0.35,0.6,0.65,0.6,0.4,0.75,0.85,0.7,0.8,0.85,0.75,0.85,0.85,0.1,0.1,0.35,0.25,0.2,0.6,0.3,0.3,0.35,0.2,0.2,0.6,0.75,0.8,0.9,0.25,0.65,0.75,0.3,0.15,0.45,0.2,0.25,0.2,0.75,0.75,0.9,0.35,0.4,0.6,0.15,0.3,0.5,0.15,0.1,0.1,0.05,0.4,0.5,0.3,0.4,0.3,0.35,0.4,0.8,0.1,0.35,0.35,0.25,0.55,0.55,0.45,0.85,0.9,0.2,0.45,0.55,0.15,0.05,0.2]}
+GLMM_BOOT_FIT {"index":36,"beta":[-0.23792797090097176,0.6083513818304223],"theta":[0.9413796889519592],"objective":447.2181467665741}
+GLMM_BOOT_RESPONSE {"index":37,"seed":"4469127705501440847","y":[0.25,0.1,0.7,0.8,0.9,1,0.25,0.4,0.7,0.35,0.5,0.6,0.6,0.65,0.8,0.25,0.4,0.5,0.05,0.2,0.25,0.5,0.8,0.95,0.9,0.95,0.85,0.2,0.3,0.4,0.5,0.6,0.85,0.35,0.2,0.3,0.65,0.7,0.8,0.5,0.65,0.85,0.5,0.6,0.8,0.25,0.55,0.8,0.3,0.3,0.45,0.65,0.6,0.8,0.25,0.5,0.75,0.25,0.35,0.75,0,0.35,0.25,0,0.25,0.4,0.4,0.5,0.75,0.15,0.25,0.45,0.35,0.25,0.35,0.15,0.25,0.55,0,0.15,0.2,0.15,0.5,0.55,0.25,0.2,0.45,0.15,0.45,0.65]}
+GLMM_BOOT_FIT {"index":37,"beta":[-0.15736399546158317,0.7126609683246916],"theta":[0.999862720056096],"objective":446.91739190792265}
+GLMM_BOOT_RESPONSE {"index":38,"seed":"-6711534300252315491","y":[0.1,0.3,0.55,0.3,0.45,0.8,0.15,0.2,0.25,0.7,0.9,0.8,0.55,0.75,0.85,0.4,0.7,0.7,0.05,0.5,0.3,0.1,0.2,0.2,0,0.25,0.45,0.15,0.05,0.15,0.55,0.55,0.85,0.2,0.35,0.35,0.6,0.4,0.5,0.1,0.25,0.4,0.35,0.65,0.85,0.1,0.2,0.2,0.2,0.45,0.65,0.4,0.6,0.5,0.25,0.4,0.5,0.35,0.45,0.55,0.4,0.6,0.7,0.55,0.7,0.85,0.35,0.3,0.55,0.65,0.85,1,0.15,0.25,0.35,0.65,0.2,0.7,0.05,0.05,0.2,0.75,0.75,1,0.1,0.2,0.2,0,0.1,0.1]}
+GLMM_BOOT_FIT {"index":38,"beta":[-0.4132586875115499,0.5974395180868458],"theta":[1.1119572860552136],"objective":454.43641839870725}
+GLMM_BOOT_INTERVAL qualified=39 lower=0.5051113022195416 upper=0.7101344332508962
+  + documented compile fit assess predict simulate bootstrap workflow retains 39 qualified AGQ attempts 9.716s
+  + independent lme4 refits of the actual39 responses reproduce coefficients and percentile intervals 0.006s
+[info] Passed: Total 96, Failed 0, Errors 0, Passed 96
+[success] Total time: 21 s, completed Oct 27, 2026, 6:42:16 p.m.

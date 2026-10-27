@@ -2,6 +2,7 @@ package mixeff4s.stats
 
 import mixeff4s.error.{FitResult, MixedModelError}
 import mixeff4s.glmm.GlmmFit
+import mixeff4s.design.FixedEffectLayout
 import mixeff4s.lmm.{
   FitOptions,
   LmmAssessment,
@@ -66,7 +67,7 @@ object Bootstrap:
   ): FitResult[BootstrapResult] =
     prepare(fit, options).map(prepared => execute(fit, options, prepared, refit))
 
-  private final case class Target(label: String, weights: Vector[Double])
+  private[stats] final case class Target(label: String, weights: Vector[Double])
   private final case class Prepared(context: LmmFitContext, targets: Vector[Target], original: LmmAssessment)
 
   private def prepare(fit: LmmFit, options: BootstrapOptions): FitResult[Prepared] =
@@ -77,7 +78,7 @@ object Bootstrap:
         then Right(())
         else Left(MixedModelError.InvalidArgument("bootstrap requires positive nsim, targets and 0 < level < 1"))
       _ <- options.assessmentOptions.validate
-      targets <- compileTargets(fit, options.targets)
+      targets <- compileTargets(fit.fixedEffects, options.targets)
       original = LmmAssessment.assess(fit, options.assessmentOptions)
       _ <-
         if original.eligibleForBootstrap then Right(())
@@ -109,26 +110,29 @@ object Bootstrap:
               "Refit does not match the simulated response or retained basis."
             )
           )
-        else valuesFor(result, prepared.targets)
+        else valuesFor(result.beta, prepared.targets)
       BootstrapAttempt(index, seed, response, fitted, assessment, statistics)
     val intervals =
       prepared.targets.zipWithIndex.map((target, index) => strictInterval(target, index, attempts, options.level))
     new BootstrapResult(options, prepared.original, attempts, intervals)
 
-  private def compileTargets(fit: LmmFit, requested: Vector[BootstrapTarget]): FitResult[Vector[Target]] =
+  private[stats] def compileTargets(
+      layout: FixedEffectLayout,
+      requested: Vector[BootstrapTarget]
+  ): FitResult[Vector[Target]] =
     requested.foldLeft[FitResult[Vector[Target]]](Right(Vector.empty)): (acc, target) =>
       acc.flatMap: current =>
         val next = target match
           case BootstrapTarget.Coefficient(name) =>
-            fit.feNames.indexOf(name) match
+            layout.retainedNames.indexOf(name) match
               case i if i >= 0 =>
                 Right(
                   Target(
                     s"retained-basis coefficient: $name",
-                    Vector.tabulate(fit.beta.length)(j => if i == j then 1.0 else 0.0)
+                    Vector.tabulate(layout.rank)(j => if i == j then 1.0 else 0.0)
                   )
                 )
-              case _ if fit.fixedEffects.droppedNames.contains(name) =>
+              case _ if layout.droppedNames.contains(name) =>
                 Left(
                   MixedModelError.InferenceUnavailable(
                     "bootstrap_dropped_coefficient",
@@ -137,7 +141,7 @@ object Bootstrap:
                 )
               case _ => Left(MixedModelError.InvalidArgument(s"unknown retained coefficient `$name`"))
           case BootstrapTarget.Contrast(label, weights) =>
-            val unknown = weights.keys.filterNot(fit.feNames.contains).toVector
+            val unknown = weights.keys.filterNot(layout.retainedNames.contains).toVector
             if label.isBlank || weights.isEmpty || !weights.values.forall(_.isFinite) then
               Left(MixedModelError.InvalidArgument("contrast needs a label and finite weights"))
             else if unknown.nonEmpty then
@@ -148,11 +152,16 @@ object Bootstrap:
                 )
               )
             else
-              Right(Target(s"retained-basis contrast: $label", fit.feNames.map(name => weights.getOrElse(name, 0.0))))
+              Right(
+                Target(
+                  s"retained-basis contrast: $label",
+                  layout.retainedNames.map(name => weights.getOrElse(name, 0.0))
+                )
+              )
         next.map(current :+ _)
 
-  private def valuesFor(fit: LmmFit, targets: Vector[Target]): FitResult[Vector[Double]] =
-    val values = targets.map(t => t.weights.zip(fit.beta).map(_ * _).sum)
+  private[stats] def valuesFor(beta: Vector[Double], targets: Vector[Target]): FitResult[Vector[Double]] =
+    val values = targets.map(t => t.weights.zip(beta).map(_ * _).sum)
     if values.forall(_.isFinite) then Right(values)
     else
       Left(MixedModelError.InferenceUnavailable("bootstrap_nonfinite_statistic", "bootstrap statistic is non-finite"))
@@ -211,11 +220,14 @@ object Bootstrap:
       )
     )
 
+  def parametric(fit: GlmmFit, options: GlmmBootstrapOptions): FitResult[GlmmBootstrapResult] =
+    GlmmBootstrap.parametric(fit, options)
+
   def parametric(fit: GlmmFit, nsim: Int): FitResult[Nothing] =
     val _ = (fit, nsim)
     Left(
       MixedModelError.InferenceUnavailable(
-        "bootstrap_unavailable",
-        "GLMM parametric bootstrap is refused until a certified response simulator exists."
+        "bootstrap_seed_required",
+        "Use GlmmBootstrapOptions with an explicit seed and retained-basis targets."
       )
     )

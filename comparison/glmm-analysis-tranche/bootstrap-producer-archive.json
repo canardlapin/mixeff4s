@@ -1,0 +1,11 @@
+{
+  "source_archive": "comparison/glmm-analysis-tranche/bootstrap-producer-source.tar.gz",
+  "source_sha256": "51aeff6ccd8ba3ade71ed0e0b26b2e507e8bb9c2079a19fbe5324106bafea2a4",
+  "inputs": "bootstrap-producer-inputs.json",
+  "verified_inputs": 145,
+  "later_test_additions_preserved_separately": [
+    "src/test/scala/mixeff4s/glmm/GlmmAssessmentSuite.scala",
+    "src/test/scala/mixeff4s/glmm/GlmmPredictionSuite.scala",
+    "src/test/scala/mixeff4s/glmm/GlmmSimulationMomentSuite.scala"
+  ]
+}

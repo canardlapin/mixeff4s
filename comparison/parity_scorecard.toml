@@ -366,3 +366,122 @@ objective_abs_tol = 0.0001
 beta_abs_tol = 0.001
 theta_abs_tol = 0.001
 reason = "Labelled fast-PIRLS, documented divergence from lme4 nAGQ=0. Not joint estimator parity. Small Poisson offset fixture theta differs by about 0.014; objective and mean differences remain visible."
+
+# Qualified scalar adaptive quadrature claims.
+
+[[row]]
+dataset = "cbpp"
+formula = "proportion ~ 1 + period + (1 | herd)"
+family = "Binomial"
+link = "Logit"
+estimator = "joint_agq_5"
+class = "release_blocking_parity"
+reference = "lme4_joint_agq"
+objective_abs_tol = 0.0001
+beta_abs_tol = 0.001
+theta_abs_tol = 0.001
+reason = "Scalar AGQ5: full-density objective, coefficients and predictions compared on JVM/JS. lme4 residual-density constants corrected explicitly and independently integrated. No global-optimality or coverage claim."
+
+[[row]]
+dataset = "cbpp"
+formula = "proportion ~ 1 + period + (1 | herd)"
+family = "Binomial"
+link = "Logit"
+estimator = "joint_agq_9"
+class = "release_blocking_parity"
+reference = "lme4_joint_agq"
+objective_abs_tol = 0.0001
+beta_abs_tol = 0.001
+theta_abs_tol = 0.001
+reason = "Scalar AGQ9: full-density objective, coefficients and predictions compared on JVM/JS. lme4 residual-density constants corrected explicitly and independently integrated. No global-optimality or coverage claim."
+
+[[row]]
+dataset = "cbpp"
+formula = "proportion ~ 1 + period + (1 | herd)"
+family = "Binomial"
+link = "Logit"
+estimator = "joint_agq_15"
+class = "release_blocking_parity"
+reference = "lme4_joint_agq"
+objective_abs_tol = 0.0001
+beta_abs_tol = 0.001
+theta_abs_tol = 0.001
+reason = "Scalar AGQ15: full-density objective, coefficients and predictions compared on JVM/JS. lme4 residual-density constants corrected explicitly and independently integrated. No global-optimality or coverage claim."
+
+[[row]]
+dataset = "culcitalogreg"
+formula = "predation ~ 1 + ttt + (1 | block)"
+family = "Bernoulli"
+link = "Logit"
+estimator = "joint_agq_5"
+class = "release_blocking_parity"
+reference = "lme4_joint_agq"
+objective_abs_tol = 0.0001
+beta_abs_tol = 0.001
+theta_abs_tol = 0.001
+reason = "Scalar AGQ5: full-density objective, coefficients and predictions compared on JVM/JS. lme4 residual-density constants corrected explicitly and independently integrated. No global-optimality or coverage claim."
+
+[[row]]
+dataset = "culcitalogreg"
+formula = "predation ~ 1 + ttt + (1 | block)"
+family = "Bernoulli"
+link = "Logit"
+estimator = "joint_agq_9"
+class = "release_blocking_parity"
+reference = "lme4_joint_agq"
+objective_abs_tol = 0.0001
+beta_abs_tol = 0.001
+theta_abs_tol = 0.001
+reason = "Scalar AGQ9: full-density objective, coefficients and predictions compared on JVM/JS. lme4 residual-density constants corrected explicitly and independently integrated. No global-optimality or coverage claim."
+
+[[row]]
+dataset = "culcitalogreg"
+formula = "predation ~ 1 + ttt + (1 | block)"
+family = "Bernoulli"
+link = "Logit"
+estimator = "joint_agq_15"
+class = "release_blocking_parity"
+reference = "lme4_joint_agq"
+objective_abs_tol = 0.0001
+beta_abs_tol = 0.001
+theta_abs_tol = 0.001
+reason = "Scalar AGQ15: full-density objective, coefficients and predictions compared on JVM/JS. lme4 residual-density constants corrected explicitly and independently integrated. No global-optimality or coverage claim."
+
+[[row]]
+dataset = "synthetic_poisson_offset"
+formula = "count ~ 1 + x + (1 | group)"
+family = "Poisson"
+link = "Log"
+estimator = "joint_agq_5"
+class = "release_blocking_parity"
+reference = "lme4_joint_agq"
+objective_abs_tol = 0.0001
+beta_abs_tol = 0.001
+theta_abs_tol = 0.001
+reason = "Scalar AGQ5: full-density objective, coefficients and predictions compared on JVM/JS. lme4 residual-density constants corrected explicitly and independently integrated. No global-optimality or coverage claim."
+
+[[row]]
+dataset = "synthetic_poisson_offset"
+formula = "count ~ 1 + x + (1 | group)"
+family = "Poisson"
+link = "Log"
+estimator = "joint_agq_9"
+class = "release_blocking_parity"
+reference = "lme4_joint_agq"
+objective_abs_tol = 0.0001
+beta_abs_tol = 0.001
+theta_abs_tol = 0.001
+reason = "Scalar AGQ9: full-density objective, coefficients and predictions compared on JVM/JS. lme4 residual-density constants corrected explicitly and independently integrated. No global-optimality or coverage claim."
+
+[[row]]
+dataset = "synthetic_poisson_offset"
+formula = "count ~ 1 + x + (1 | group)"
+family = "Poisson"
+link = "Log"
+estimator = "joint_agq_15"
+class = "release_blocking_parity"
+reference = "lme4_joint_agq"
+objective_abs_tol = 0.0001
+beta_abs_tol = 0.001
+theta_abs_tol = 0.001
+reason = "Scalar AGQ15: full-density objective, coefficients and predictions compared on JVM/JS. lme4 residual-density constants corrected explicitly and independently integrated. No global-optimality or coverage claim."

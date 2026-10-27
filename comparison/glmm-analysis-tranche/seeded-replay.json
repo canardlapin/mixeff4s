@@ -1,0 +1,17 @@
+{
+  "bootstrap_responses_per_platform": 39,
+  "rows_per_response": 90,
+  "platforms": [
+    "JVM",
+    "Scala.js"
+  ],
+  "maximum_response_difference_to_independent_R_input": 0.0,
+  "primitive_sampler_vectors": 9,
+  "draws_per_vector": 8,
+  "all_sampler_vectors_identical": true,
+  "logs": [
+    "checks/cross-runtime-first.log",
+    "samplers/jvm-calibration-test.log",
+    "samplers/js-calibration-test.log"
+  ]
+}

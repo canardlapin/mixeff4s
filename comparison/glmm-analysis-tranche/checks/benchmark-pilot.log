@@ -1,0 +1,29 @@
+exit_code=0; reason=exited; duration_seconds=183.090771
+raw_log=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-pilot/run-1.log
+metadata=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-pilot/run-1.log.meta.json
+log_bytes=50882; excerpt_budget_bytes=1600
+--- 49282 BYTES OMITTED; raw log retained at /Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-pilot/run-1.log ---
+--- end ---
+esh_assessment_ns":57094291,"fresh_assessment_allocated_bytes":null,"objective":1201.2502374523835,"evaluations":1389,"error":null,"qualified":true,"projected_norm":0.000007347959278073783,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+GLMM_BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed_poisson","nAgq":1,"index":1,"phase":"refit","ns":3122171416,"allocated_bytes":null,"fresh_assessment_ns":57014417,"fresh_assessment_allocated_bytes":null,"objective":1201.2502374523835,"evaluations":1389,"error":null,"qualified":true,"projected_norm":0.000007347959278073783,"reasons":[],"risks":["finite_joint_mle_not_assessed"]}
+GLMM_BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed_poisson","nAgq":1,"index":2,"phase":"rebuild","ns":20953112167,"allocated_bytes":null,"fresh_assessment_ns":16250,"fresh_assessment_allocated_bytes":null,"objective":null,"evaluations":null,"error":"optimizer_budget_exhausted","qualified":false,"projected_norm":null,"reasons":[],"risks":[]}
+GLMM_BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed_poisson","nAgq":1,"index":2,"phase":"refit","ns":21023813875,"allocated_bytes":null,"fresh_assessment_ns":2832,"fresh_assessment_allocated_bytes":null,"objective":null,"evaluations":null,"error":"optimizer_budget_exhausted","qualified":false,"projected_norm":null,"reasons":[],"risks":[]}
+  + new responses preserve estimators and matched outcomes while reporting allocation and failures 131.348s
+[info] Passed: Total 1, Failed 0, Errors 0, Passed 1
+[success] Total time: 138 s (0:02:18.0), completed Oct 27, 2026, 6:49:42 p.m.
+
+84 samples / 42 matched pairs; distinct responses {'binomial': 3, 'crossed_poisson': 3, 'poisson_offset': 3, 'rare_bernoulli': 3}
+js binomial 1 163.905 -> 165.532 ms; fit failures 0 unqualified 0 of 3
+js binomial 5 202.876 -> 202.963 ms; fit failures 0 unqualified 0 of 3
+js crossed_poisson 1 4000.432 -> 3980.9 ms; fit failures 1 unqualified 0 of 3
+js poisson_offset 1 122.616 -> 122.582 ms; fit failures 0 unqualified 2 of 3
+js poisson_offset 5 151.823 -> 152.268 ms; fit failures 0 unqualified 2 of 3
+js rare_bernoulli 1 184.626 -> 183.943 ms; fit failures 0 unqualified 0 of 3
+js rare_bernoulli 5 263.21 -> 266.799 ms; fit failures 0 unqualified 0 of 3
+jvm binomial 1 48.919 -> 46.959 ms; fit failures 0 unqualified 0 of 3
+jvm binomial 5 64.143 -> 63.453 ms; fit failures 0 unqualified 0 of 3
+jvm crossed_poisson 1 1014.35 -> 1005.983 ms; fit failures 1 unqualified 0 of 3
+jvm poisson_offset 1 39.286 -> 32.672 ms; fit failures 0 unqualified 2 of 3
+jvm poisson_offset 5 43.226 -> 43.19 ms; fit failures 0 unqualified 2 of 3
+jvm rare_bernoulli 1 62.795 -> 56.597 ms; fit failures 0 unqualified 0 of 3
+jvm rare_bernoulli 5 87.939 -> 87.07 ms; fit failures 0 unqualified 0 of 3

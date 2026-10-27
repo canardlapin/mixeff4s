@@ -1,0 +1,12 @@
+{
+  "source_log": "/tmp/mixeff4s-glmm-analysis-bootstrap-qualified.log",
+  "responses": 39,
+  "seed": 20261027,
+  "estimator": "joint-AGQ",
+  "nAgq": 5,
+  "simulation_mode": "DrawRandomEffects",
+  "family": "Binomial",
+  "rows_per_response": 90,
+  "input_hashes": "bootstrap-producer-inputs.json",
+  "csv_sha256": "3e25d42e9793a8f105f5d36654517e35c64a935800d212e0ca9b68aa95e1b0e5"
+}

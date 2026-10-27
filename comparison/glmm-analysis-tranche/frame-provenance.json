@@ -1,0 +1,14 @@
+{
+  "source": "comparison/scripts/make_glmm_analysis_frame.R",
+  "seed": 2026102701,
+  "R": "4.5.1",
+  "command": [
+    "Rscript",
+    "comparison/scripts/make_glmm_analysis_frame.R"
+  ],
+  "exit_code": 0,
+  "rows": 90,
+  "trials_per_row": 20,
+  "script_sha256": "b36ffa7a02d44126b6f90740e1928e034d598df8901df47f8f528823051e587c",
+  "frame_sha256": "9b06b4a92fc6aad65f3c9715d35b0221fb26c2b2ec067432d710fbe2384e0c05"
+}

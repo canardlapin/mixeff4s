@@ -96,7 +96,7 @@ object Simulation:
     }
 
   /** Stateless SplitMix64 plus Box--Muller: reproducible on JVM and Scala.js. */
-  private[lmm] def normal(seed: Long, index: Long): Double =
+  private[mixeff4s] def normal(seed: Long, index: Long): Double =
     val pair = index >>> 1
     val u1 = uniform(seedFor(seed, pair * 2L))
     val u2 = uniform(seedFor(seed, pair * 2L + 1L))
@@ -104,7 +104,7 @@ object Simulation:
     val angle = 2.0 * math.Pi * u2
     if (index & 1L) == 0L then radius * math.cos(angle) else radius * math.sin(angle)
 
-  private[lmm] def uniform(bits: Long): Double =
+  private[mixeff4s] def uniform(bits: Long): Double =
     // Open interval avoids log(0), using the high 53 bits without platform RNGs.
     (((bits >>> 12).toDouble) + 0.5) * math.pow(2.0, -52.0)
 

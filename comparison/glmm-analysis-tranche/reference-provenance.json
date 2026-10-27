@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "frame_sha256": {
+    "cbpp": "2798bc7704a4bdb8ade4e164d8c3a6397efa7ba5fb25c1ec11f517b4ffb940a7",
+    "culcitalogreg": "0147190ecdea59319cf3143cee5e1ca5c2afcc94d88e00a8c88c321079e44138",
+    "synthetic_poisson_offset": "7d7e742a9e6d7b407fe647f07b3a46342bac53c984ec73cf0a992dcc6b365271"
+  },
+  "artifact_sha256": {
+    "references.json": "d85239033179870ff7ee852381b05e7252eecb80d1b6eaa0371a9b3e380eabdc",
+    "integrals.json": "e04d3218b752f9c756adb60a7f49b1bf4918fb9c228c34e19b0bb9334f063890"
+  },
+  "generator_sha256": {
+    "freeze_glmm_analysis.R": "2e43d1f625545423e25adb37873b0f24b21502e4b8e99079590dd95afc433d90",
+    "embed_glmm_analysis.py": "b8a073a23457fa059173961fd8366c9dde2592688eb789a0590dcc4abb26facf"
+  },
+  "factor_coding": "R treatment contrasts with explicit levels listed per dataset",
+  "normalization_policy": "Retain lme4 raw -2 logLik and full conditional-density -2 log integral; compare only after measured response-only saturated correction.",
+  "controls": {
+    "optimizer": "bobyqa",
+    "maxfun": 100000,
+    "rhoend": 1e-09,
+    "tolPwrss": 1e-10
+  },
+  "python": "3.14.7"
+}

@@ -28,18 +28,20 @@ final case class GlmmOptions(
 object GlmmOptions:
   def fastLaplace: GlmmOptions = GlmmOptions()
   def jointLaplace: GlmmOptions = GlmmOptions(fast = false, maxEvaluations = 10000)
+  def jointAgq(nodes: Int): GlmmOptions = jointLaplace.copy(nAgq = nodes)
 
 /** Fast and joint objectives have explicit, different definitions. */
 enum Approximation:
-  case FastPirls, JointLaplace
+  case FastPirls, JointLaplace, JointAgq
 
   def label: String = this match
     case FastPirls    => "fast-PIRLS"
     case JointLaplace => "joint-Laplace"
+    case JointAgq     => "joint-AGQ"
 
   def objectiveDefinition: String = this match
-    case FastPirls    => "deviance_residuals_plus_penalty_plus_logdet"
-    case JointLaplace => "minus_two_loglikelihood_with_response_constants"
+    case FastPirls               => "deviance_residuals_plus_penalty_plus_logdet"
+    case JointLaplace | JointAgq => "minus_two_loglikelihood_with_response_constants"
 
 /** Inner-loop criteria are distinct types; neither implies outer stationarity. */
 enum GlmmInnerResult:
@@ -71,12 +73,17 @@ final class GlmmFit private[glmm] (
     val conditionalEta: Vector[Double],
     val conditionalMean: Vector[Double],
     val randomEffects: Vector[GlmmRandomEffects],
-    val jointAssessment: Option[JointAssessment] = None
+    val jointAssessment: Option[JointAssessment],
+    private[mixeff4s] val context: GlmmFitContext
 ):
   require(beta.length == fixedEffects.rank, "beta length must match retained fixed-effect layout")
   def feNames: Vector[String] = fixedEffects.retainedNames
   def algorithmLabel: String = approximation.label
   def objectiveDefinition: String = approximation.objectiveDefinition
+  def options: GlmmOptions = context.options
+  def y: Vector[Double] = context.response.y
+  def n: Int = context.design.n
+  private[mixeff4s] def validatedContext: FitResult[GlmmFitContext] = Right(context)
 
 /** Generalized mixed models with separately labelled estimators. */
 object Glmm:
@@ -92,27 +99,32 @@ object Glmm:
       options: GlmmOptions = GlmmOptions.fastLaplace
   ): FitResult[GlmmFit] =
     val resolved = link.getOrElse(family.canonicalLink)
-    for
-      _ <- validate(family, resolved, options)
-      design <- compile(formula, frame)
-      response <- GlmmResponse.prepare(family, responseValues(design), options)
-      _ <-
-        if response.y.nonEmpty && response.y.forall(_ == response.y.head) then Left(MixedModelError.ConstantResponse)
-        else Right(())
-      fit <-
-        if options.fast then fastFit(design, family, resolved, response, options)
-        else JointLaplace.fit(design, family, resolved, response, options)
-    yield fit
+    validate(family, resolved, options).flatMap(_ => prepare(formula, frame, family, link).flatMap(_.fit(options)))
 
-  private def fastFit(
+  /** Immutable encoded plan; independent sessions own their numerical scratch. */
+  def prepare(formula: Formula, frame: ModelFrame, family: Family, link: Option[Link] = None): FitResult[CompiledGlmm] =
+    val resolved = link.getOrElse(family.canonicalLink)
+    Pirls
+      .refuseFamilyLink(family, resolved)
+      .flatMap(_ => compile(formula, frame).map(new CompiledGlmm(_, family, resolved)))
+
+  def prepare(source: String, frame: ModelFrame, family: Family, link: Option[Link]): FitResult[CompiledGlmm] =
+    Formula.parse(source).left.map(MixedModelError.Formula.apply).flatMap(prepare(_, frame, family, link))
+
+  def prepare(source: String, frame: ModelFrame, family: Family): FitResult[CompiledGlmm] =
+    prepare(source, frame, family, None)
+
+  private[glmm] def fastFitWorkspace(
       design: CompiledDesign,
       family: Family,
       link: Link,
       response: GlmmResponse,
-      options: GlmmOptions
+      options: GlmmOptions,
+      workspace: GlmmWorkspace
   ): FitResult[GlmmFit] =
     for
-      workspace <- fastWorkspace(design, family, link, response, options)
+      _ <- workspace.pls.setTheta(design.theta)
+      _ = workspace.replaceResponse(response.y)
       result <- TrustBq.minimize(
         workspace.theta,
         workspace.lowerBounds,
@@ -137,7 +149,9 @@ object Glmm:
       GlmmInnerResult.FastPirls(evaluation.pirls),
       workspace.currentEta,
       workspace.currentMu,
-      workspace.currentModes
+      workspace.currentModes,
+      None,
+      new GlmmFitContext(design, response, options, family, link)
     )
 
   /** Fast-PIRLS objective at theta; never dispatches to a different estimator. */
@@ -193,7 +207,7 @@ object Glmm:
   def fit(source: String, frame: ModelFrame, family: Family): FitResult[GlmmFit] =
     fit(source, frame, family, None, GlmmOptions.fastLaplace)
 
-  private def validate(family: Family, link: Link, options: GlmmOptions): FitResult[Unit] =
+  private[glmm] def validate(family: Family, link: Link, options: GlmmOptions): FitResult[Unit] =
     for
       _ <- Pirls.refuseFamilyLink(family, link)
       _ <- GlmmResponse.validatePath(family, link, options)
@@ -202,10 +216,10 @@ object Glmm:
         .validate
     yield ()
 
-  private def responseValues(design: CompiledDesign): Vector[Double] =
+  private[glmm] def responseValues(design: CompiledDesign): Vector[Double] =
     Vector.tabulate(design.n)(i => design.xy.xy(i, design.p))
 
-  private def fastWorkspace(
+  private[glmm] def fastWorkspace(
       design: CompiledDesign,
       family: Family,
       link: Link,
@@ -216,13 +230,13 @@ object Glmm:
       GlmmWorkspace(pls, family, link, response.y, response.workingWeights, response.offset, options.pirlsMaxIterations)
     )
 
-private final case class GlmmEvaluation(deviance: Double, pirls: PirlsResult)
+private[glmm] final case class GlmmEvaluation(deviance: Double, pirls: PirlsResult)
 
-private final class GlmmWorkspace(
+private[glmm] final class GlmmWorkspace(
     val pls: PlsWorkspace,
     val family: Family,
     val link: Link,
-    val y: Vector[Double],
+    private var y: Vector[Double],
     val weights: Vector[Double],
     val offset: Vector[Double],
     val maxIterations: Int
@@ -235,6 +249,10 @@ private final class GlmmWorkspace(
   private val mu = Array.fill(n)(0.0)
   private val sqrtwts = Array.fill(n)(0.0)
   private val workingY = Array.fill(n)(0.0)
+
+  private[glmm] def replaceResponse(values: Vector[Double]): Unit =
+    require(values.length == n)
+    y = values
 
   def nTheta: Int = pls.nTheta
   def theta: Vector[Double] = pls.theta

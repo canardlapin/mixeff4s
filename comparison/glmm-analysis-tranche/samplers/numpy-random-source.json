@@ -1,0 +1,17 @@
+{
+  "retrieved_utc": "2026-10-27",
+  "upstream": "https://github.com/numpy/numpy",
+  "commit": "b833c1b9bf6712cc8a03bb301b77c48984a2373d",
+  "distribution_source": {
+    "path": "numpy/random/src/distributions/distributions.c",
+    "raw_url": "https://raw.githubusercontent.com/numpy/numpy/b833c1b9bf6712cc8a03bb301b77c48984a2373d/numpy/random/src/distributions/distributions.c",
+    "sha256": "8526b63d5dc3541fad81505e4ad6cf59dd78722aa35abf256337f6447e46be22"
+  },
+  "license_source": {
+    "path": "numpy/random/LICENSE.md",
+    "raw_url": "https://raw.githubusercontent.com/numpy/numpy/b833c1b9bf6712cc8a03bb301b77c48984a2373d/numpy/random/LICENSE.md",
+    "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+    "license": "NCSA OR BSD-3-Clause"
+  },
+  "adapted_algorithms": ["binomial full inversion", "binomial BTPE", "Poisson inversion", "Poisson PTRS"]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-27T23:01:37.478479+00:00",
+  "finished_utc": "2026-10-27T23:04:19.072472+00:00",
+  "duration_seconds": 161.592857,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/testOnly mixeff4s.benchmark.GlmmWorkflowBenchmarkSuite",
+    "mixeff4sJS/testOnly mixeff4s.benchmark.GlmmWorkflowBenchmarkSuite"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/benchmarks-final/run-2.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 192564
+}

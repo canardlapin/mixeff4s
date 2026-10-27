@@ -1,0 +1,33 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 4 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+mixeff4s.glmm.CountSamplerSuite:
+  + Bernoulli and binomial boundaries are exact and deterministic 0.007s
+  + binomial samples stay integral and bounded across inversion and BTPE regimes 0.001s
+  + count moments and tail bins remain plausible without cross-row stream coupling 0.03s
+  + invalid and unsupported sampler inputs refuse with stable codes 0.006s
+mixeff4s.glmm.GlmmSimulationSuite:
+  + GLMM simulations are seeded, integral for Poisson, and condition modes without residual sigma 0.172s
+  + power-likelihood fits refuse response simulation 0.023s
+mixeff4s.glmm.GlmmPredictionSuite:
+  + fitted link and response predictions preserve the fitted conditional snapshot 0.204s
+==> X mixeff4s.glmm.GlmmPredictionSuite.population prediction removes modes and frozen encoding refuses unknown groups unless zero-effect is explicit  0.011s java.util.NoSuchElementException: None.get
+    at scala.None$.get(Option.scala:627)
+    at scala.None$.get(Option.scala:626)
+    at mixeff4s.glmm.GlmmPredictionSuite.$init$$$anonfun$2(GlmmPredictionSuite.scala:28)
+  + raw and Pearson residuals are finite 0.002s
+[error] Failed: Total 9, Failed 1, Errors 0, Passed 8
+[error] Failed tests:
+[error] 	mixeff4s.glmm.GlmmPredictionSuite
+[error] (mixeff4sJVM / Test / testOnly) sbt.TestsFailedException: Tests unsuccessful
+[error] Total time: 4 s, completed Oct 27, 2026, 6:04:40 p.m.

@@ -1,0 +1,51 @@
+[
+  {
+    "log": "comparison/glmm-analysis-tranche/checks/earlier-compile.log",
+    "original_log": "/tmp/mixeff4s-glmm-analysis-compile.log",
+    "exec_session_id": 16997,
+    "exit_code": 0,
+    "provenance": "Actual completed exec status preserved in task continuity; logs copied without modification."
+  },
+  {
+    "log": "comparison/glmm-analysis-tranche/checks/earlier-agq-first.log",
+    "original_log": "/tmp/mixeff4s-glmm-analysis-agq-first.log",
+    "exec_session_id": 47555,
+    "exit_code": 1,
+    "provenance": "Actual completed exec status preserved in task continuity; logs copied without modification."
+  },
+  {
+    "log": "comparison/glmm-analysis-tranche/checks/earlier-bootstrap-compile.log",
+    "original_log": "/tmp/mixeff4s-glmm-analysis-bootstrap-compile.log",
+    "exec_session_id": 51441,
+    "exit_code": 1,
+    "provenance": "Actual completed exec status preserved in task continuity; logs copied without modification."
+  },
+  {
+    "log": "comparison/glmm-analysis-tranche/checks/earlier-refit-assessment.log",
+    "original_log": "/tmp/mixeff4s-glmm-analysis-refit-assessment.log",
+    "exec_session_id": 70467,
+    "exit_code": 0,
+    "provenance": "Actual completed exec status preserved in task continuity; logs copied without modification."
+  },
+  {
+    "log": "comparison/glmm-analysis-tranche/checks/earlier-workflow-probe.log",
+    "original_log": "/tmp/mixeff4s-glmm-analysis-workflow-probe.log",
+    "exec_session_id": 36793,
+    "exit_code": 0,
+    "provenance": "Actual completed exec status preserved in task continuity; logs copied without modification."
+  },
+  {
+    "log": "comparison/glmm-analysis-tranche/checks/earlier-bootstrap-qualified.log",
+    "original_log": "/tmp/mixeff4s-glmm-analysis-bootstrap-qualified.log",
+    "exec_session_id": 65762,
+    "exit_code": 0,
+    "provenance": "Actual completed exec status preserved in task continuity; logs copied without modification."
+  },
+  {
+    "log": "comparison/glmm-analysis-tranche/checks/earlier-cross-runtime.log",
+    "original_log": "/tmp/mixeff4s-glmm-analysis-cross-runtime.log",
+    "exec_session_id": 85081,
+    "exit_code": 1,
+    "provenance": "Actual completed exec status preserved in task continuity; logs copied without modification."
+  }
+]

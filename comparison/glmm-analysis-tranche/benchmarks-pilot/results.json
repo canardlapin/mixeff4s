@@ -1,0 +1,446 @@
+{
+  "repeats": 1,
+  "responses_per_small_workload": 3,
+  "samples": 84,
+  "matched_pairs": 42,
+  "distinct_responses": {
+    "binomial": 3,
+    "crossed_poisson": 3,
+    "poisson_offset": 3,
+    "rare_bernoulli": 3
+  },
+  "maximum_response_difference": 0.0,
+  "host": {
+    "platform": "macOS-14.3-arm64-arm-64bit-Mach-O",
+    "machine": "arm64"
+  },
+  "summary": [
+    {
+      "platform": "js",
+      "workload": "binomial",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        163.905334
+      ],
+      "median_ms": 163.905334,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 5.441542,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "binomial",
+      "nAgq": 1,
+      "phase": "refit",
+      "process_medians_ms": [
+        165.531667
+      ],
+      "median_ms": 165.531667,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 5.094208,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "binomial",
+      "nAgq": 5,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        202.87575
+      ],
+      "median_ms": 202.87575,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 6.182833,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "binomial",
+      "nAgq": 5,
+      "phase": "refit",
+      "process_medians_ms": [
+        202.962708
+      ],
+      "median_ms": 202.962708,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 6.097208,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "crossed_poisson",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        4000.431917
+      ],
+      "median_ms": 4000.431917,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 57.094291,
+      "fit_failures": 1,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "crossed_poisson",
+      "nAgq": 1,
+      "phase": "refit",
+      "process_medians_ms": [
+        3980.899708
+      ],
+      "median_ms": 3980.899708,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 55.808958,
+      "fit_failures": 1,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "poisson_offset",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        122.616
+      ],
+      "median_ms": 122.616,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 0.79825,
+      "fit_failures": 0,
+      "unqualified": 2,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "poisson_offset",
+      "nAgq": 1,
+      "phase": "refit",
+      "process_medians_ms": [
+        122.582292
+      ],
+      "median_ms": 122.582292,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 0.690208,
+      "fit_failures": 0,
+      "unqualified": 2,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "poisson_offset",
+      "nAgq": 5,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        151.823084
+      ],
+      "median_ms": 151.823084,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 1.110458,
+      "fit_failures": 0,
+      "unqualified": 2,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "poisson_offset",
+      "nAgq": 5,
+      "phase": "refit",
+      "process_medians_ms": [
+        152.268
+      ],
+      "median_ms": 152.268,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 1.080875,
+      "fit_failures": 0,
+      "unqualified": 2,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "rare_bernoulli",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        184.626167
+      ],
+      "median_ms": 184.626167,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 5.667417,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "rare_bernoulli",
+      "nAgq": 1,
+      "phase": "refit",
+      "process_medians_ms": [
+        183.943166
+      ],
+      "median_ms": 183.943166,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 5.613125,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "rare_bernoulli",
+      "nAgq": 5,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        263.210208
+      ],
+      "median_ms": 263.210208,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 7.188167,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "js",
+      "workload": "rare_bernoulli",
+      "nAgq": 5,
+      "phase": "refit",
+      "process_medians_ms": [
+        266.798833
+      ],
+      "median_ms": 266.798833,
+      "allocated_bytes": null,
+      "fresh_assessment_ms": 7.175125,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "binomial",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        48.919084
+      ],
+      "median_ms": 48.919084,
+      "allocated_bytes": 29371984,
+      "fresh_assessment_ms": 2.087875,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "binomial",
+      "nAgq": 1,
+      "phase": "refit",
+      "process_medians_ms": [
+        46.958792
+      ],
+      "median_ms": 46.958792,
+      "allocated_bytes": 29224168,
+      "fresh_assessment_ms": 1.964458,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "binomial",
+      "nAgq": 5,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        64.14325
+      ],
+      "median_ms": 64.14325,
+      "allocated_bytes": 36835672,
+      "fresh_assessment_ms": 2.373125,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "binomial",
+      "nAgq": 5,
+      "phase": "refit",
+      "process_medians_ms": [
+        63.45275
+      ],
+      "median_ms": 63.45275,
+      "allocated_bytes": 36677512,
+      "fresh_assessment_ms": 2.338125,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed_poisson",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        1014.349917
+      ],
+      "median_ms": 1014.349917,
+      "allocated_bytes": 152922800,
+      "fresh_assessment_ms": 15.391625,
+      "fit_failures": 1,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed_poisson",
+      "nAgq": 1,
+      "phase": "refit",
+      "process_medians_ms": [
+        1005.982959
+      ],
+      "median_ms": 1005.982959,
+      "allocated_bytes": 152307752,
+      "fresh_assessment_ms": 15.070417,
+      "fit_failures": 1,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "poisson_offset",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        39.28625
+      ],
+      "median_ms": 39.28625,
+      "allocated_bytes": 27770256,
+      "fresh_assessment_ms": 0.57775,
+      "fit_failures": 0,
+      "unqualified": 2,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "poisson_offset",
+      "nAgq": 1,
+      "phase": "refit",
+      "process_medians_ms": [
+        32.672083
+      ],
+      "median_ms": 32.672083,
+      "allocated_bytes": 27701632,
+      "fresh_assessment_ms": 0.413916,
+      "fit_failures": 0,
+      "unqualified": 2,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "poisson_offset",
+      "nAgq": 5,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        43.225917
+      ],
+      "median_ms": 43.225917,
+      "allocated_bytes": 34366200,
+      "fresh_assessment_ms": 0.731125,
+      "fit_failures": 0,
+      "unqualified": 2,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "poisson_offset",
+      "nAgq": 5,
+      "phase": "refit",
+      "process_medians_ms": [
+        43.189541
+      ],
+      "median_ms": 43.189541,
+      "allocated_bytes": 34310344,
+      "fresh_assessment_ms": 0.541291,
+      "fit_failures": 0,
+      "unqualified": 2,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "rare_bernoulli",
+      "nAgq": 1,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        62.794916
+      ],
+      "median_ms": 62.794916,
+      "allocated_bytes": 16672296,
+      "fresh_assessment_ms": 2.6015,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "rare_bernoulli",
+      "nAgq": 1,
+      "phase": "refit",
+      "process_medians_ms": [
+        56.597125
+      ],
+      "median_ms": 56.597125,
+      "allocated_bytes": 16501960,
+      "fresh_assessment_ms": 2.134875,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "rare_bernoulli",
+      "nAgq": 5,
+      "phase": "rebuild",
+      "process_medians_ms": [
+        87.9385
+      ],
+      "median_ms": 87.9385,
+      "allocated_bytes": 22112848,
+      "fresh_assessment_ms": 2.803125,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    },
+    {
+      "platform": "jvm",
+      "workload": "rare_bernoulli",
+      "nAgq": 5,
+      "phase": "refit",
+      "process_medians_ms": [
+        87.070458
+      ],
+      "median_ms": 87.070458,
+      "allocated_bytes": 21947440,
+      "fresh_assessment_ms": 2.753833,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 3
+    }
+  ],
+  "limits": [
+    "Fits include their built-in outer diagnostic; fresh inference assessment is timed separately",
+    "Each response draws new random effects and response noise; process repetitions reuse that response bank",
+    "Cold starts preserve estimator/controls; full rebuild includes frame/design compilation",
+    "Current-thread JVM allocation only; JS allocation unavailable; no peak-memory claim",
+    "Fit failures and stricter assessment failures are distinct; all observations retained"
+  ]
+}

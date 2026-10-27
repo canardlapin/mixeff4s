@@ -1,0 +1,47 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[warn] -- [E198] Unused Symbol Warning: /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/glmm/CountSamplers.scala:131:38 
+[warn] 131 |    val slam = math.sqrt(lambda); val loglam = math.log(lambda)
+[warn]     |                                      ^^^^^^
+[warn]     |                                      unused local definition
+[warn] one warning found
+[info] done compiling
+[info] compiling 4 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[error] -- [E007] Type Mismatch Error: /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/glmm/GlmmPredictionSuite.scala:28:67 
+[error] 28 |    val unknown = right(ModelFrame.of("ttt" -> data.numeric("ttt").get, "block" -> ModelFrame.factor(Vector.fill(data.nRows)("new-block"))))
+[error]    |                                               ^^^^^^^^^^^^^^^^^^^^^^^
+[error]    |                                          Found:    Vector[Double]
+[error]    |                                          Required: mixeff4s.data.Column
+[error]    |
+[error]    | longer explanation available when compiling with `-explain`
+[error] -- [E008] Not Found Error: /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/glmm/GlmmSimulationSuite.scala:11:15 
+[error] 11 |    GlmmFrames.syntheticPoissonOffset, Family.Poisson,
+[error]    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[error]    |value syntheticPoissonOffset is not a member of object mixeff4s.fixtures.GlmmFrames
+[error] -- [E008] Not Found Error: /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/glmm/GlmmSimulationSuite.scala:12:68 
+[error] 12 |    options = GlmmOptions.fastLaplace.copy(offset = Some(GlmmFrames.syntheticPoissonOffset.numeric("exposure").get.map(math.log)), maxEvaluations = 10000)))
+[error]    |                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[error]    |value syntheticPoissonOffset is not a member of object mixeff4s.fixtures.GlmmFrames
+[error] -- [E008] Not Found Error: /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/glmm/GlmmSimulationSuite.scala:23:104 
+[error] 23 |    val weighted = right(Glmm.fit(Formula.parse("count ~ 1 + x + (1 | group)").toOption.get, GlmmFrames.syntheticPoissonOffset,
+[error]    |                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[error]    |value syntheticPoissonOffset is not a member of object mixeff4s.fixtures.GlmmFrames
+[error] -- [E008] Not Found Error: /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/glmm/GlmmSimulationSuite.scala:24:99 
+[error] 24 |      Family.Poisson, options = GlmmOptions.fastLaplace.copy(weights = Some(Vector.fill(GlmmFrames.syntheticPoissonOffset.nRows)(2.0)),
+[error]    |                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[error]    |value syntheticPoissonOffset is not a member of object mixeff4s.fixtures.GlmmFrames
+[error] -- [E008] Not Found Error: /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/glmm/GlmmSimulationSuite.scala:25:33 
+[error] 25 |        offset = Some(GlmmFrames.syntheticPoissonOffset.numeric("exposure").get.map(math.log)), maxEvaluations = 10000)))
+[error]    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[error]    |value syntheticPoissonOffset is not a member of object mixeff4s.fixtures.GlmmFrames
+[error] 6 errors found
+[error] (mixeff4sJVM / Test / compileIncremental) Compilation failed
+[error] Total time: 4 s, completed Oct 27, 2026, 6:04:11 p.m.

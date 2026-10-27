@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-27T22:46:38.727668+00:00",
+  "finished_utc": "2026-10-27T22:49:42.267995+00:00",
+  "duration_seconds": 183.537894,
+  "command": [
+    "python3",
+    "comparison/scripts/run_glmm_analysis_benchmarks.py",
+    "--output",
+    "comparison/glmm-analysis-tranche/benchmarks-pilot",
+    "--repeats",
+    "1",
+    "--responses",
+    "3"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/Users/bbuchsbaum/code/scala/mixeff4s/comparison/glmm-analysis-tranche/checks/benchmark-pilot.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 3261
+}
