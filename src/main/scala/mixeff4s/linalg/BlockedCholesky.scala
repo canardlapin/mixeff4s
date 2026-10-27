@@ -45,6 +45,8 @@ object BlockedCholesky:
 
       case MatrixBlock.Dense(mat) =>
         choleskyDense(mat, zeroPadTolerance)
+      case MatrixBlock.Sparse(_) =>
+        throw IllegalArgumentException("cholesky: sparse diagonal factors are unsupported")
 
   private def choleskyDense(mat: WorkMat, zeroPadTolerance: Double): Either[MixedModelError, Unit] =
     val n = mat.rows
@@ -135,6 +137,34 @@ object BlockedCholesky:
             i += 1
           rowOffset += s
           b += 1
+      case MatrixBlock.Sparse(_) =>
+        throw IllegalArgumentException("rankKDowndate: sparse target requires MatrixBlock source")
+
+  /** C -= A A' without forcing a sparse A through a dense temporary. */
+  def rankKDowndate(c: MatrixBlock, a: MatrixBlock): Unit =
+    if !rankKFits(c, a) then
+      throw IllegalArgumentException("rankKDowndate: target lacks structural support; promote before mutation")
+    a match
+      case MatrixBlock.Dense(mat) =>
+        // Keep the established dense hot path bit-for-bit and allocation-free.
+        rankKDowndate(c, mat)
+        return
+      case MatrixBlock.Sparse(mat) =>
+        subtractSparseRankK(c, mat)
+        return
+      case _ => ()
+    var i = 0
+    while i < a.rows do
+      var j = 0
+      while j < a.rows do
+        var k = 0
+        var sum = 0.0
+        while k < a.cols do
+          sum += a(i, k) * a(j, k)
+          k += 1
+        subtractBlockValue(c, i, j, sum)
+        j += 1
+      i += 1
 
   /** A = A * L^{-T} for lower-triangular L. */
   def rdivLowerTranspose(a: MatrixBlock, l: MatrixBlock): Unit =
@@ -218,6 +248,53 @@ object BlockedCholesky:
               aMat(i, j) = s / lMat(j, j)
               i += 1
           j += 1
+
+      case (MatrixBlock.Sparse(aMat), MatrixBlock.Diagonal(lDiag)) =>
+        if aMat.cols != lDiag.length then throw IllegalArgumentException("rdivLowerTranspose: dimension mismatch")
+        var col = 0
+        while col < aMat.cols do
+          val denom = lDiag(col)
+          var index = aMat.colOffsets(col)
+          while index < aMat.colOffsets(col + 1) do
+            aMat.values(index) = if math.abs(denom) < SolveZeroTolerance then 0.0 else aMat.values(index) / denom
+            index += 1
+          col += 1
+
+      case (MatrixBlock.Sparse(aMat), MatrixBlock.BlockDiagonal(lBlocks)) =>
+        if !sparseRightSolveClosed(aMat, lBlocks) then
+          throw IllegalArgumentException(
+            "rdivLowerTranspose: sparse target lacks full level-block closure; promote first"
+          )
+        var offset = 0
+        var b = 0
+        while b < lBlocks.length do
+          val block = lBlocks(b)
+          var row = 0
+          while row < aMat.rows do
+            // A fully absent row-level rectangle is valid sparse support and
+            // must remain absent: no solve slot exists to update there.
+            var occupied = false
+            var member = 0
+            while member < block.cols do
+              if aMat.hasEntry(row, offset + member) then occupied = true
+              member += 1
+            if occupied then
+              var j = 0
+              while j < block.cols do
+                var value = aMat(row, offset + j)
+                var k = 0
+                while k < j do
+                  value -= aMat(row, offset + k) * block(j, k)
+                  k += 1
+                val denom = block(j, j)
+                aMat.update(row, offset + j, if math.abs(denom) < SolveZeroTolerance then 0.0 else value / denom)
+                j += 1
+            row += 1
+          offset += block.cols
+          b += 1
+
+      case (MatrixBlock.Sparse(_), MatrixBlock.Dense(_)) =>
+        throw IllegalArgumentException("rdivLowerTranspose: dense divisor requires sparse target promotion")
 
       case _ =>
         throw IllegalArgumentException("rdivLowerTranspose: unsupported block pair")
@@ -372,24 +449,88 @@ object BlockedCholesky:
   def copyAndScaleOffdiag(l: MatrixBlock, a: MatrixBlock, lambdaI: WorkMat, lambdaJ: WorkMat): Unit =
     val si = lambdaI.rows
     val sj = lambdaJ.rows
-    val aMat = a match
-      case MatrixBlock.Dense(mat) => mat
-      case other                  => other.asDense
-    val lMat = l match
-      case MatrixBlock.Dense(mat) => mat
-      case _                      => throw IllegalArgumentException("copyAndScaleOffdiag expects a dense L block")
+    require(a.rows == l.rows && a.cols == l.cols, "copyAndScaleOffdiag shape mismatch")
+    require(lambdaI.cols == si && lambdaJ.cols == sj, "copyAndScaleOffdiag requires square lambda blocks")
+    a match
+      case MatrixBlock.Sparse(source) =>
+        l match
+          case MatrixBlock.Dense(dst) =>
+            dst.fill(0.0)
+            source.foreachStored { (sourceRow, sourceCol, value) =>
+              val levelI = sourceRow / si
+              val levelJ = sourceCol / sj
+              val localI = sourceRow % si
+              val localJ = sourceCol % sj
+              var row = 0
+              while row < si do
+                var col = 0
+                while col < sj do
+                  dst(levelI * si + row, levelJ * sj + col) += lambdaI(localI, row) * value * lambdaJ(localJ, col)
+                  col += 1
+                row += 1
+            }
+            return
+          case MatrixBlock.Sparse(dst) =>
+            if si == 1 && sj == 1 && (dst.colOffsets eq source.colOffsets) && (dst.rowIndices eq source.rowIndices) then
+              val scale = lambdaI(0, 0) * lambdaJ(0, 0)
+              var index = 0
+              while index < source.values.length do
+                dst.values(index) = source.values(index) * scale
+                index += 1
+              return
+            if !scaledSparseOffdiagFits(dst, source, si, sj) then
+              throw IllegalArgumentException(
+                "copyAndScaleOffdiag: sparse target lacks transformed structural support; promote first"
+              )
+            dst.clear()
+            // Each occupied source level rectangle may spread across its entire
+            // transformed rectangle. Compute only those rectangles, never gaps.
+            val occupied = occupiedRectangles(source, si, sj)
+            var rect = 0
+            while rect < occupied.length do
+              if occupied(rect) then
+                val levelI = rect / (source.cols / sj)
+                val levelJ = rect % (source.cols / sj)
+                var row = 0
+                while row < si do
+                  var col = 0
+                  while col < sj do
+                    var sum = 0.0
+                    var ir = 0
+                    while ir < si do
+                      var ic = 0
+                      while ic < sj do
+                        sum += lambdaI(ir, row) * source(levelI * si + ir, levelJ * sj + ic) * lambdaJ(ic, col)
+                        ic += 1
+                      ir += 1
+                    dst.update(levelI * si + row, levelJ * sj + col, sum)
+                    col += 1
+                  row += 1
+              rect += 1
+            return
+          case _ => throw IllegalArgumentException("copyAndScaleOffdiag expects dense or sparse L block")
+      case _ => ()
+    l match
+      case MatrixBlock.Sparse(dst) =>
+        if !scaledOffdiagFits(dst, a, si, sj) then
+          throw IllegalArgumentException(
+            "copyAndScaleOffdiag: sparse target lacks transformed structural support; promote first"
+          )
+        dst.clear()
+      case MatrixBlock.Dense(mat) => mat.fill(0.0)
+      case _ => throw IllegalArgumentException("copyAndScaleOffdiag expects dense or sparse L block")
     if si == 1 && sj == 1 then
       val scale = lambdaI(0, 0) * lambdaJ(0, 0)
       var i = 0
-      while i < aMat.rows do
+      while i < a.rows do
         var j = 0
-        while j < aMat.cols do
-          lMat(i, j) = aMat(i, j) * scale
+        while j < a.cols do
+          setBlockValue(l, i, j, a(i, j) * scale)
           j += 1
         i += 1
     else
-      val nLevelsI = aMat.rows / si
-      val nLevelsJ = aMat.cols / sj
+      val nLevelsI = a.rows / si
+      val nLevelsJ = a.cols / sj
       var bi = 0
       while bi < nLevelsI do
         var bj = 0
@@ -403,10 +544,10 @@ object BlockedCholesky:
               while ir < si do
                 var ic = 0
                 while ic < sj do
-                  sum += lambdaI(ir, row) * aMat(bi * si + ir, bj * sj + ic) * lambdaJ(ic, col)
+                  sum += lambdaI(ir, row) * a(bi * si + ir, bj * sj + ic) * lambdaJ(ic, col)
                   ic += 1
                 ir += 1
-              lMat(bi * si + row, bj * sj + col) = sum
+              setBlockValue(l, bi * si + row, bj * sj + col, sum)
               col += 1
             row += 1
           bj += 1
@@ -414,6 +555,25 @@ object BlockedCholesky:
 
   /** C -= A * B'. */
   def subtractProduct(c: MatrixBlock, a: MatrixBlock, b: MatrixBlock): Unit =
+    val prepared = prepareSubtractTarget(c, a, b)
+    if !(prepared eq c) then
+      throw IllegalArgumentException(
+        "subtractProduct: target lacks structural support; use prepareSubtractTarget result"
+      )
+    (c, a, b) match
+      case (MatrixBlock.Sparse(target), MatrixBlock.Sparse(left), MatrixBlock.Sparse(right)) =>
+        subtractSparseSparseInto(target, left, right)
+        return
+      case (MatrixBlock.Dense(target), MatrixBlock.Sparse(left), MatrixBlock.Sparse(right)) =>
+        subtractSparseSparseIntoDense(target, left, right)
+        return
+      case (MatrixBlock.Dense(target), MatrixBlock.Sparse(left), MatrixBlock.Dense(right)) =>
+        subtractSparseDenseIntoDense(target, left, right)
+        return
+      case (MatrixBlock.Dense(target), MatrixBlock.Dense(left), MatrixBlock.Sparse(right)) =>
+        subtractDenseSparseIntoDense(target, left, right)
+        return
+      case _ => ()
     val aMat = a match
       case MatrixBlock.Dense(mat) => mat
       case other                  => other.asDense
@@ -459,6 +619,297 @@ object BlockedCholesky:
             j += 1
           i += 1
         throw IllegalArgumentException("subtractProduct cannot write back into BlockDiagonal")
+      case MatrixBlock.Sparse(_) =>
+        // The all-sparse fast path above is the only sparse-preserving product;
+        // other combinations are rejected before writing rather than dropping fill.
+        throw IllegalArgumentException("subtractProduct: unsupported sparse operand combination")
+
+  /** Returns c unchanged when its representation can receive the whole product, otherwise a dense copy before any
+    * mutation.
+    */
+  /** A dense representation can have broader structural support than its current numerical zeros. */
+  def prepareRankKTarget(c: MatrixBlock, a: MatrixBlock): MatrixBlock =
+    if rankKFits(c, a) then c else MatrixBlock.Dense(c.asDense)
+
+  def prepareSubtractTarget(c: MatrixBlock, a: MatrixBlock, b: MatrixBlock): MatrixBlock =
+    c match
+      case MatrixBlock.Sparse(target) =>
+        (a, b) match
+          case (MatrixBlock.Sparse(_), MatrixBlock.Sparse(_)) if productFits(target, a, b) => c
+          // Only the CSC×CSC path mutates sparse C. Promote every other pair
+          // before mutation instead of returning an unusable sparse target.
+          case _ => MatrixBlock.Dense(c.asDense)
+      case _ => c
+
+  /** Sparse right solves are retained only when their structural closure makes every in-place substitution slot
+    * available.
+    */
+  def prepareRightSolveTarget(a: MatrixBlock, l: MatrixBlock): MatrixBlock =
+    (a, l) match
+      case (MatrixBlock.Sparse(_), MatrixBlock.Diagonal(_))                                                    => a
+      case (MatrixBlock.Sparse(mat), MatrixBlock.BlockDiagonal(blocks)) if sparseRightSolveClosed(mat, blocks) => a
+      case (MatrixBlock.Sparse(_), _) => MatrixBlock.Dense(a.asDense)
+      case _                          => a
+
+  private def setBlockValue(block: MatrixBlock, row: Int, col: Int, value: Double): Unit = block match
+    case MatrixBlock.Dense(mat)  => mat(row, col) = value
+    case MatrixBlock.Sparse(mat) => mat.update(row, col, value)
+    case _                       => throw IllegalArgumentException("setBlockValue requires dense or sparse block")
+
+  private def subtractBlockValue(block: MatrixBlock, row: Int, col: Int, value: Double): Unit = block match
+    case MatrixBlock.Dense(mat)            => mat(row, col) -= value
+    case MatrixBlock.Diagonal(values)      => values(row) -= value
+    case MatrixBlock.Sparse(mat)           => mat.add(row, col, -value)
+    case MatrixBlock.BlockDiagonal(blocks) =>
+      var offset = 0
+      var b = 0
+      while b < blocks.length do
+        val current = blocks(b)
+        if row >= offset && row < offset + current.rows && col >= offset && col < offset + current.cols then
+          current(row - offset, col - offset) -= value
+          return
+        offset += current.rows
+        b += 1
+      throw IllegalArgumentException("rankKDowndate: missing block-diagonal target slot")
+
+  private def structuralAt(block: MatrixBlock, row: Int, col: Int): Boolean = block match
+    case MatrixBlock.Dense(_)              => row >= 0 && row < block.rows && col >= 0 && col < block.cols
+    case MatrixBlock.Diagonal(values)      => row == col && row >= 0 && row < values.length
+    case MatrixBlock.BlockDiagonal(blocks) =>
+      var offset = 0
+      var b = 0
+      while b < blocks.length do
+        val current = blocks(b)
+        if row >= offset && row < offset + current.rows && col >= offset && col < offset + current.cols then return true
+        offset += current.rows
+        b += 1
+      false
+    case MatrixBlock.Sparse(mat) => mat.hasEntry(row, col)
+
+  private def productFits(target: SparseWorkMat, a: MatrixBlock, b: MatrixBlock): Boolean =
+    if a.cols != b.cols || target.rows != a.rows || target.cols != b.rows then false
+    else
+      (a, b) match
+        case (MatrixBlock.Sparse(left), MatrixBlock.Sparse(right)) =>
+          var col = 0
+          while col < left.cols do
+            var covered = true
+            left.foreachColumnEntry(col) { (leftRow, _) =>
+              right.foreachColumnEntry(col) { (rightRow, _) =>
+                if !target.hasEntry(leftRow, rightRow) then covered = false
+              }
+            }
+            if !covered then return false
+            col += 1
+          true
+        case _ =>
+          var i = 0
+          while i < a.rows do
+            var j = 0
+            while j < b.rows do
+              var k = 0
+              var needed = false
+              while k < a.cols && !needed do
+                needed = structuralAt(a, i, k) && structuralAt(b, j, k)
+                k += 1
+              if needed && !target.hasEntry(i, j) then return false
+              j += 1
+            i += 1
+          true
+
+  private def rankKFits(target: MatrixBlock, a: MatrixBlock): Boolean =
+    if target.rows != a.rows || target.cols != a.rows then false
+    else
+      a match
+        case MatrixBlock.Sparse(source) => sparseRankKFits(target, source)
+        case _                          =>
+          target match
+            case MatrixBlock.Dense(_) => true
+            case _                    => rankKGenericFits(target, a)
+
+  private def rankKGenericFits(target: MatrixBlock, a: MatrixBlock): Boolean =
+    var i = 0
+    while i < a.rows do
+      var j = 0
+      while j < a.rows do
+        var k = 0
+        var needed = false
+        while k < a.cols && !needed do
+          needed = structuralAt(a, i, k) && structuralAt(a, j, k)
+          k += 1
+        if needed && !structuralAt(target, i, j) then return false
+        j += 1
+      i += 1
+    true
+
+  private def subtractSparseSparseInto(target: SparseWorkMat, a: SparseWorkMat, b: SparseWorkMat): Unit =
+    if a.cols != b.cols || target.rows != a.rows || target.cols != b.rows then
+      throw IllegalArgumentException("subtractProduct: dimension mismatch")
+    // Coverage was checked before this write loop. Iterate shared CSC columns,
+    // not a dense product, so structural zero slots remain meaningful.
+    var col = 0
+    while col < a.cols do
+      a.foreachColumnEntry(col) { (ai, av) =>
+        b.foreachColumnEntry(col) { (bi, bv) => target.add(ai, bi, -av * bv) }
+      }
+      col += 1
+
+  private def subtractSparseSparseIntoDense(target: WorkMat, a: SparseWorkMat, b: SparseWorkMat): Unit =
+    if a.cols != b.cols || target.rows != a.rows || target.cols != b.rows then
+      throw IllegalArgumentException("subtractProduct: dimension mismatch")
+    var col = 0
+    while col < a.cols do
+      a.foreachColumnEntry(col) { (ai, av) =>
+        b.foreachColumnEntry(col) { (bi, bv) => target(ai, bi) -= av * bv }
+      }
+      col += 1
+
+  private def subtractSparseDenseIntoDense(target: WorkMat, a: SparseWorkMat, b: WorkMat): Unit =
+    if a.cols != b.cols || target.rows != a.rows || target.cols != b.rows then
+      throw IllegalArgumentException("subtractProduct: dimension mismatch")
+    var col = 0
+    while col < a.cols do
+      a.foreachColumnEntry(col) { (ai, av) =>
+        var bi = 0
+        while bi < b.rows do
+          target(ai, bi) -= av * b(bi, col)
+          bi += 1
+      }
+      col += 1
+
+  private def subtractDenseSparseIntoDense(target: WorkMat, a: WorkMat, b: SparseWorkMat): Unit =
+    if a.cols != b.cols || target.rows != a.rows || target.cols != b.rows then
+      throw IllegalArgumentException("subtractProduct: dimension mismatch")
+    var col = 0
+    while col < b.cols do
+      b.foreachColumnEntry(col) { (bi, bv) =>
+        var ai = 0
+        while ai < a.rows do
+          target(ai, bi) -= a(ai, col) * bv
+          ai += 1
+      }
+      col += 1
+
+  private def sparseRankKFits(target: MatrixBlock, source: SparseWorkMat): Boolean =
+    target match
+      case MatrixBlock.Dense(_)    => true
+      case MatrixBlock.Diagonal(_) =>
+        var col = 0
+        while col < source.cols do
+          if source.colOffsets(col + 1) - source.colOffsets(col) > 1 then return false
+          col += 1
+        true
+      case _ =>
+        var col = 0
+        while col < source.cols do
+          var covered = true
+          source.foreachColumnEntry(col) { (leftRow, _) =>
+            source.foreachColumnEntry(col) { (rightRow, _) =>
+              if !structuralAt(target, leftRow, rightRow) then covered = false
+            }
+          }
+          if !covered then return false
+          col += 1
+        true
+
+  private def subtractSparseRankK(target: MatrixBlock, source: SparseWorkMat): Unit =
+    target match
+      case MatrixBlock.Diagonal(diagonal) =>
+        // Coverage preflight guarantees at most one structural row per column.
+        var index = 0
+        while index < source.values.length do
+          val value = source.values(index)
+          diagonal(source.rowIndices(index)) -= value * value
+          index += 1
+        return
+      case _ => ()
+    var col = 0
+    while col < source.cols do
+      source.foreachColumnEntry(col) { (leftRow, leftValue) =>
+        source.foreachColumnEntry(col) { (rightRow, rightValue) =>
+          subtractBlockValue(target, leftRow, rightRow, leftValue * rightValue)
+        }
+      }
+      col += 1
+
+  private def sparseRightSolveClosed(a: SparseWorkMat, blocks: Array[WorkMat]): Boolean =
+    if a.cols != blocks.map(_.cols).sum then false
+    else
+      var offset = 0
+      var b = 0
+      while b < blocks.length do
+        val width = blocks(b).cols
+        var row = 0
+        while row < a.rows do
+          var any = false
+          var col = 0
+          while col < width do
+            if a.hasEntry(row, offset + col) then any = true
+            col += 1
+          if any then
+            col = 0
+            while col < width do
+              if !a.hasEntry(row, offset + col) then return false
+              col += 1
+          row += 1
+        offset += width
+        b += 1
+      true
+
+  private def scaledOffdiagFits(target: SparseWorkMat, source: MatrixBlock, si: Int, sj: Int): Boolean =
+    if target.rows != source.rows || target.cols != source.cols || source.rows % si != 0 || source.cols % sj != 0 then
+      false
+    else
+      var bi = 0
+      while bi < source.rows / si do
+        var bj = 0
+        while bj < source.cols / sj do
+          var sourcePresent = false
+          var ir = 0
+          while ir < si do
+            var ic = 0
+            while ic < sj do
+              if structuralAt(source, bi * si + ir, bj * sj + ic) then sourcePresent = true
+              ic += 1
+            ir += 1
+          if sourcePresent then
+            var row = 0
+            while row < si do
+              var col = 0
+              while col < sj do
+                if !target.hasEntry(bi * si + row, bj * sj + col) then return false
+                col += 1
+              row += 1
+          bj += 1
+        bi += 1
+      true
+
+  private def occupiedRectangles(source: SparseWorkMat, si: Int, sj: Int): Array[Boolean] =
+    val levelCols = source.cols / sj
+    val result = new Array[Boolean]((source.rows / si) * levelCols)
+    source.foreachStored { (row, col, _) => result((row / si) * levelCols + col / sj) = true }
+    result
+
+  private def scaledSparseOffdiagFits(target: SparseWorkMat, source: SparseWorkMat, si: Int, sj: Int): Boolean =
+    if target.rows != source.rows || target.cols != source.cols || source.rows % si != 0 || source.cols % sj != 0 then
+      false
+    else
+      val occupied = occupiedRectangles(source, si, sj)
+      val levelCols = source.cols / sj
+      var rect = 0
+      while rect < occupied.length do
+        if occupied(rect) then
+          val levelI = rect / levelCols
+          val levelJ = rect % levelCols
+          var row = 0
+          while row < si do
+            var col = 0
+            while col < sj do
+              if !target.hasEntry(levelI * si + row, levelJ * sj + col) then return false
+              col += 1
+            row += 1
+        rect += 1
+      true
 
   /** Forward-solve `L x = rhs` in place for a lower-triangular Cholesky block. */
   def solveLowerAgainstRhs(l: MatrixBlock, rhs: Array[Double]): Unit =
@@ -503,6 +954,8 @@ object BlockedCholesky:
               inner += 1
             rhs(row) = sum / diag
           row += 1
+      case MatrixBlock.Sparse(_) =>
+        throw IllegalArgumentException("solveLowerAgainstRhs: sparse diagonal factors are unsupported")
 
   /** Back-solve `L' x = rhs` in place, treating `L` as lower-triangular. */
   def solveUpperFromLowerTransposeAgainstRhs(l: MatrixBlock, rhs: Array[Double]): Unit =
@@ -547,6 +1000,10 @@ object BlockedCholesky:
               inner += 1
             rhs(row) = sum / diag
           row -= 1
+      case MatrixBlock.Sparse(_) =>
+        throw IllegalArgumentException(
+          "solveUpperFromLowerTransposeAgainstRhs: sparse diagonal factors are unsupported"
+        )
 
   /** logdet(A) = 2 Σ log(diag(L)) for a Cholesky block. */
   def logdet(block: MatrixBlock): Double =
@@ -575,4 +1032,6 @@ object BlockedCholesky:
             if d > 0.0 then ld += math.log(d)
             i += 1
           ld
+        case MatrixBlock.Sparse(_) =>
+          throw IllegalArgumentException("logdet: sparse diagonal factors are unsupported")
     sumLogs * 2.0

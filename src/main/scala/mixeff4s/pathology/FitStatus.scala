@@ -1,5 +1,14 @@
 package mixeff4s.pathology
 
+/** Parameter geometry alone carries no optimizer or stationarity evidence. */
+enum ThetaGeometry:
+  case NotAssessed, Interior, Boundary
+
+  def code: String = this match
+    case NotAssessed => "not_assessed"
+    case Interior    => "interior"
+    case Boundary    => "boundary"
+
 /** Contract fit status. Design-time certificates use `NotAssessed` until a fit is run. */
 enum FitStatus:
   case ConvergedInterior, ConvergedBoundary, ConvergedReducedRank, ConvergedPenalised,
@@ -32,7 +41,7 @@ enum BoundaryKind:
 
   def code: String =
     this match
-      case BoundaryKind.ZeroVariance(index) => s"zero_variance:$index"
+      case BoundaryKind.ZeroVariance(index)   => s"zero_variance:$index"
       case BoundaryKind.UnitCorrelation(i, j) =>
         s"unit_correlation:$i,$j"
 
@@ -48,12 +57,12 @@ enum StructuralIssue:
 
   def code: String =
     this match
-      case StructuralIssue.RankSaturated(_, _)        => "rank_saturated_fixed_effects"
-      case StructuralIssue.FewLevels(_, _)            => "few_random_effect_levels"
-      case StructuralIssue.SingletonsWithSlope(_, _)  => "singletons_with_slope"
-      case StructuralIssue.InformationSaturated(_, _) => "information_saturated"
-      case StructuralIssue.MalformedSpec(_)           => "malformed_spec"
-      case StructuralIssue.Separation(_)              => "separation"
+      case StructuralIssue.RankSaturated(_, _)         => "rank_saturated_fixed_effects"
+      case StructuralIssue.FewLevels(_, _)             => "few_random_effect_levels"
+      case StructuralIssue.SingletonsWithSlope(_, _)   => "singletons_with_slope"
+      case StructuralIssue.InformationSaturated(_, _)  => "information_saturated"
+      case StructuralIssue.MalformedSpec(_)            => "malformed_spec"
+      case StructuralIssue.Separation(_)               => "separation"
       case StructuralIssue.CollinearFixedEffects(_, _) =>
         "collinear_fixed_effects"
       case StructuralIssue.DisconnectedCrossings(_) => "disconnected_crossings"

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-26T20:56:20.551621+00:00",
+  "finished_utc": "2026-10-26T20:56:31.698850+00:00",
+  "duration_seconds": 11.146981,
+  "command": [
+    "sbt",
+    "-Dmixeff4s.gale.build=/Users/bbuchsbaum/code/scala/gale",
+    "mixeff4sJVM / Test / testOnly mixeff4s.design.UpstreamDesignSuite mixeff4s.data.ModelFrameSuite mixeff4s.formula.ParserSuite"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-engine-tranche/upstream-design-focused-final.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 600.0,
+  "log_bytes": 3519
+}

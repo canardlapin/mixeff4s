@@ -15,7 +15,7 @@ class ContraFitSuite extends munit.FunSuite:
     assertEqualsDouble(dev, 2361.657202855648, 1.0)
 
   test("contra fast-PIRLS fit matches MixedModels.jl"):
-    val fit = Glmm.fit(formula, Contra.frame, Family.Bernoulli).getOrElse(fail("fit"))
+    val fit = Glmm.fit(formula, Contra.frame, Family.Bernoulli).fold(err => fail(err.message), identity)
     assertEquals(fit.approximation, Approximation.FastPirls)
     assertEquals(fit.algorithmLabel, "fast-PIRLS")
     assertEquals(fit.theta.length, 1)

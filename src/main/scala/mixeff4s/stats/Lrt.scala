@@ -1,10 +1,9 @@
 package mixeff4s.stats
 
 import mixeff4s.error.{FitResult, MixedModelError}
-import mixeff4s.formula.{FixedTerm, GroupingFactor, RandomTerm}
-import mixeff4s.lmm.{Criterion, LmmFit}
+import mixeff4s.lmm.{Criterion, LmmDesignEvidence, LmmFit, RandomDesignEvidence}
 
-/** Likelihood-ratio comparison of two nested LMM fits. */
+/** An asymptotic chi-square comparison of nested fixed-effect ML models. */
 final case class Lrt(
     nobs: Int,
     formulas: Vector[String],
@@ -16,70 +15,142 @@ final case class Lrt(
     pvalue: Double
 )
 
+/** Verified nested likelihood comparison. Parameter-count difference is not a reference distribution. */
+final case class LrtStatistic(
+    nobs: Int,
+    formulas: Vector[String],
+    dof: Vector[Int],
+    loglik: Vector[Double],
+    deviance: Vector[Double],
+    likelihoodRatio: Double,
+    parameterDifference: Int
+)
+
 object Lrt:
   private val LogLikTol = 1.0e-10
+  private val BoundaryTolerance = 1.0e-8
 
+  /** Ordinary asymptotic calibration is supported only for fixed-effect ML changes with unchanged RE design. Covariance
+    * changes and fitted boundaries require a calibration not implemented here.
+    */
   def compare(smaller: LmmFit, larger: LmmFit): FitResult[Lrt] =
-    refuse(smaller, larger).map: _ =>
-      val ll0 = smaller.loglikelihood
-      val ll1 = larger.loglikelihood
-      val diff = ll1 - ll0
-      val withinTol = diff <= 0.0
-      val chi = if withinTol then 0.0 else 2.0 * diff
-      val ddof = larger.dof - smaller.dof
+    for
+      evidence <- validated(smaller, larger)
+      (small, large) = evidence
+      _ <-
+        if !sameRandom(small, large) then
+          unavailable("random-effect covariance changes require an explicit reference law", "lrt_reference_unavailable")
+        else if atBoundary(smaller) || atBoundary(larger) then
+          unavailable(
+            "fitted covariance is on or near a boundary; ordinary chi-square calibration is not qualified",
+            "lrt_reference_unavailable"
+          )
+        else Right(())
+    yield
+      val result = summarize(smaller, larger)
       Lrt(
-        smaller.n,
-        Vector(smaller.formula.toString, larger.formula.toString),
-        Vector(smaller.dof, larger.dof),
-        Vector(ll0, ll1),
-        Vector(smaller.objective, larger.objective),
-        chi,
-        ddof,
-        ChiSquare.sf(chi, ddof)
+        result.nobs,
+        result.formulas,
+        result.dof,
+        result.loglik,
+        result.deviance,
+        result.likelihoodRatio,
+        result.parameterDifference,
+        ChiSquare.sf(result.likelihoodRatio, result.parameterDifference)
       )
 
-  private def refuse(smaller: LmmFit, larger: LmmFit): FitResult[Unit] =
-    if smaller.n != larger.n || smaller.y != larger.y then
-      unavailable("models were not fitted to the same response values")
-    else if smaller.options.criterion != larger.options.criterion then
-      unavailable("models mix REML and ML fit criteria; refit with a common criterion")
-    else if smaller.options.criterion == Criterion.REML && smaller.feNames != larger.feNames then
-      unavailable("REML likelihood-ratio tests require identical fixed effects; refit with ML")
-    else if !fixedNested(smaller, larger) then unavailable("fixed-effect column spaces are not nested")
-    else if !randomNested(smaller, larger) then unavailable("random-effect term structures are not nested")
-    else if larger.dof <= smaller.dof then
-      unavailable("larger model must have more degrees of freedom than the smaller model")
-    else if larger.loglikelihood - smaller.loglikelihood < -LogLikTol then
-      unavailable("Log-likelihood must not be lower in models with more degrees of freedom")
-    else Right(())
+  /** Certify nesting by exact inclusion of fitted basis columns and matching grouping partitions. Equivalent
+    * reparameterizations not witnessed by column inclusion are conservatively refused. REML additionally requires the
+    * same retained fixed-effect basis, up to permutation.
+    */
+  def statistic(smaller: LmmFit, larger: LmmFit): FitResult[LrtStatistic] =
+    validated(smaller, larger).map(_ => summarize(smaller, larger))
 
-  private def fixedNested(smaller: LmmFit, larger: LmmFit): Boolean =
-    smaller.feNames.toSet.subsetOf(larger.feNames.toSet)
+  private def validated(smaller: LmmFit, larger: LmmFit): FitResult[(LmmDesignEvidence, LmmDesignEvidence)] =
+    for
+      small <- evidence(smaller)
+      large <- evidence(larger)
+      _ <-
+        if smaller.n != larger.n || smaller.y != larger.y then
+          unavailable("models were not fitted to the same row-aligned response values")
+        else if smaller.options.criterion != larger.options.criterion then
+          unavailable("models mix REML and ML fit criteria; refit with a common criterion")
+        else if smaller.options.criterion == Criterion.REML &&
+          !sameColumns(small.fixedColumns, large.fixedColumns)
+        then unavailable("REML likelihood comparisons require identical retained fixed-effect bases; refit with ML")
+        else if !includes(small.fixedColumns, large.fixedColumns)(_ == _) then
+          unavailable("fixed-effect nesting is not certified by exact fitted-column inclusion")
+        else if !includes(small.randomBlocks, large.randomBlocks)(blockCovered) then
+          unavailable(
+            "random-effect nesting is not certified by grouping partitions, basis columns and covariance constraints"
+          )
+        else if larger.dof <= smaller.dof then
+          unavailable("larger model must have more parameters than the smaller model")
+        else if larger.loglikelihood - smaller.loglikelihood < -LogLikTol then
+          unavailable("log-likelihood must not be lower in the larger model")
+        else Right(())
+    yield (small, large)
 
-  private def randomNested(smaller: LmmFit, larger: LmmFit): Boolean =
-    smaller.formula.randomTerms.forall: small =>
-      larger.formula.randomTerms.exists(large => termCovers(large, small))
+  private def evidence(fit: LmmFit): FitResult[LmmDesignEvidence] =
+    fit.designEvidence match
+      case Some(value)
+          if value.matches(fit) && fit.objective.isFinite && fit.sigma.isFinite && fit.sigma > 0.0 &&
+            fit.optimizer.x == fit.theta && fit.optimizer.fmin == fit.objective &&
+            fit.optimizer.requireConvergence.isRight =>
+        Right(value)
+      case _ =>
+        Left(
+          MixedModelError.InferenceUnavailable(
+            "lrt_unavailable",
+            "fit lacks matching design and numerical termination evidence"
+          )
+        )
 
-  private def termCovers(large: RandomTerm, small: RandomTerm): Boolean =
-    groupingCompatible(large.grouping, small.grouping) &&
-      columnsOf(small).subsetOf(columnsOf(large))
+  private def summarize(smaller: LmmFit, larger: LmmFit): LrtStatistic =
+    LrtStatistic(
+      smaller.n,
+      Vector(smaller.formula.toString, larger.formula.toString),
+      Vector(smaller.dof, larger.dof),
+      Vector(smaller.loglikelihood, larger.loglikelihood),
+      Vector(smaller.objective, larger.objective),
+      math.max(0.0, 2.0 * (larger.loglikelihood - smaller.loglikelihood)),
+      larger.dof - smaller.dof
+    )
 
-  private def groupingCompatible(large: GroupingFactor, small: GroupingFactor): Boolean =
-    large == small || groupingNames(small).toSet.subsetOf(groupingNames(large).toSet)
+  private def sameColumns(a: Vector[Vector[Double]], b: Vector[Vector[Double]]): Boolean =
+    a.length == b.length && includes(a, b)(_ == _)
 
-  private def groupingNames(grouping: GroupingFactor): Vector[String] =
-    grouping match
-      case GroupingFactor.Single(name)       => Vector(name)
-      case GroupingFactor.Interaction(names) => names
-      case GroupingFactor.Cell(names)        => names
+  private def blockCovered(small: RandomDesignEvidence, large: RandomDesignEvidence): Boolean =
+    small.partition == large.partition && (small.diagonal || !large.diagonal) &&
+      includes(small.columns, large.columns)(_ == _)
 
-  private def columnsOf(term: RandomTerm): Set[String] =
-    val cols = term.terms.flatMap:
-      case FixedTerm.Column(name)                      => Vector(name)
-      case FixedTerm.Interaction(names)                => Vector(names.mkString(":"))
-      case FixedTerm.Intercept | FixedTerm.NoIntercept =>
-        Vector.empty
-    if cols.isEmpty then Set("1") else cols.toSet
+  private def sameRandom(a: LmmDesignEvidence, b: LmmDesignEvidence): Boolean =
+    a.randomBlocks.length == b.randomBlocks.length &&
+      includes(a.randomBlocks, b.randomBlocks): (small, large) =>
+        small.diagonal == large.diagonal && small.columns.length == large.columns.length &&
+          blockCovered(small, large)
 
-  private def unavailable(details: String): FitResult[Unit] =
-    Left(MixedModelError.InferenceUnavailable("lrt_unavailable", details))
+  /** Bipartite matching preserves multiplicity and avoids greedy matching failures. */
+  private def includes[A](small: Vector[A], large: Vector[A])(covers: (A, A) => Boolean): Boolean =
+    if small.length > large.length then false
+    else
+      val edges = small.map(s => large.indices.filter(j => covers(s, large(j))).toVector)
+      val owner = Array.fill(large.length)(-1)
+      def assign(i: Int, seen: Array[Boolean]): Boolean =
+        edges(i).exists: j =>
+          if seen(j) then false
+          else
+            seen(j) = true
+            if owner(j) < 0 || assign(owner(j), seen) then
+              owner(j) = i
+              true
+            else false
+      small.indices.forall(i => assign(i, Array.fill(large.length)(false)))
+
+  private def atBoundary(fit: LmmFit): Boolean =
+    fit.parmap.zip(fit.theta).exists { case ((_, row, col), value) =>
+      row == col && value <= BoundaryTolerance
+    }
+
+  private def unavailable(details: String, code: String = "lrt_unavailable"): FitResult[Unit] =
+    Left(MixedModelError.InferenceUnavailable(code, details))

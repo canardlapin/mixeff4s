@@ -1,0 +1,394 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+Cloning into '/Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale'...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 49 Scala sources to /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/core/jvm/target/scala-3.7.4/classes ...
+[info] compiling 48 Scala sources to /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/core/js/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] done compiling
+mixeff4s.model.FamilySuite:
+  + canonical links 0.011s
+  + Normal+Identity is not a supported GLMM pair 0.0s
+  + logit is inverse of logistic 0.002s
+  + probit is centered at zero 0.0s
+mixeff4s.ArchitectureSuite:
+  + layer imports stay acyclic 0.018s
+mixeff4s.data.ModelFrameSuite:
+  + builds aligned numeric and factor columns 0.011s
+  + encodes an explicit factor level order 0.002s
+  + rejects a value outside the declared factor levels 0.001s
+  + rejects length mismatch 0.001s
+  + materializes I() onto the frame 0.011s
+mixeff4s.optimizer.TrustBqSuite:
+  + recovers a shifted quadratic 0.019s
+mixeff4s.formula.ParserSuite:
+  + fixed effects with explicit intercept 0.012s
+  + implicit intercept 0.001s
+  + empty RHS is rejected 0.002s
+  + no intercept with zero 0.001s
+  + no intercept with minus one 0.001s
+  + colon interaction 0.001s
+  + star expansion 0.002s
+  + three-way star expansion 0.0s
+  + nesting slash 0.001s
+  + random intercept 0.001s
+  + random intercept and slope 0.0s
+  + random slope syntax has implicit intercept 0.0s
+  + zerocorr 0.001s
+  + covariance wrappers parse as random terms 0.001s
+  + crossed random effects 0.001s
+  + interaction grouping 0.001s
+  + cell grouping with colon 0.001s
+  + nested grouping expands to main and cell 0.004s
+  + crossed star grouping expands to main effects and cell 0.002s
+  + only random term still has implicit intercept 0.001s
+  + whitespace handling 0.002s
+  + dotted and underscored identifiers 0.001s
+  + backtick identifiers 0.002s
+  + unterminated backtick is actionable 0.002s
+  + empty backtick is rejected 0.001s
+  + bare arithmetic is refused 0.011s
+  + stateful transforms are refused 0.003s
+  + stateless subset parses with canonical labels 0.01s
+  + formula display canonicalizes terms 0.0s
+mixeff4s.design.DesignSuite:
+  + sleepstudy design shapes match mixeff-rs 0.067s
+  + zerocorr sleepstudy has two theta slots 0.008s
+mixeff4s.ReadmeExampleSuite:
+  + README quick start compiles against the public API 0.077s
+mixeff4s.glmm.PirlsSuite:
+  + Bernoulli logit working observation at eta=0 0.001s
+  + working observation subtracts a supplied offset 0.0s
+  + bounded Bernoulli mean stays off the 0/1 boundary 0.0s
+mixeff4s.comparison.ScorecardSuite:
+  + embedded scorecard uses the rust class vocabulary 0.008s
+  + dyestuff2 is a frozen lme4 boundary claim 0.009s
+  + contrast names align mixeff4s dummy labels to lme4 0.004s
+  + sleepstudy zerocorr is a frozen MixedModels.jl claim 0.008s
+  + station fixed-only formula is unsupported with a rust contract claim 0.011s
+  + fast-PIRLS contraception is documented divergence 0.006s
+  + every scorecard row has a claimed frozen reference 0.017s
+  + frozen catalog refuses p-values 0.003s
+mixeff4s.compiler.SemanticSuite:
+  + sleepstudy IR is a full Cholesky random slope 0.011s
+  + zerocorr is one diagonal term, not a silent split 0.003s
+  + cs is typed IR and marked parsed_refused 0.001s
+  + nested grouping keeps the written slash 0.003s
+mixeff4s.stats.InferenceRefusalSuite:
+  + profile intervals are a typed refusal 0.067s
+  + parametric bootstrap is a typed refusal 0.015s
+  + GLMM profile intervals stay refused 0.027s
+mixeff4s.glmm.GlmmSuite:
+  + Normal+Identity is refused as a GLMM 0.004s
+  + fast=false is refused rather than sold as glmer 0.002s
+  + nAGQ > 1 is refused in this slice 0.002s
+  + a small Bernoulli RE intercept is labelled fast-PIRLS 0.046s
+mixeff4s.comparison.HarnessGateSuite:
+  + scorecard, fixtures, and frozen files match the embedded catalogs 0.063s
+  + scorecard datasets exist and vendored directories match the catalog 0.015s
+  + every scorecard row names a loadable fixture and a frozen claim 0.049s
+mixeff4s.formula.DslSuite:
+  + typed DSL lowers to the same IR as the string parser 0.007s
+  + string interpolator 0.005s
+mixeff4s.compiler.ArtifactSuite:
+  + sleepstudy compiled-design snapshot 0.093s
+  + zerocorr sleepstudy is a diagonal theta map 0.014s
+  + assessing sleepstudy ML theta is converged_interior 0.021s
+  + penicillin compiled-design snapshot 0.014s
+  + pastes compiled-design snapshot 0.014s
+mixeff4s.comparison.DatasetSuite:
+  + catalog names match the fixture manifest 0.002s
+  + every catalog dataset loads with the declared row count 0.034s
+  + rail keeps the nlme Rail level order 0.003s
+  + ergostool keeps the nlme Subject level order 0.002s
+  + oats Variety includes a spaced level 0.003s
+mixeff4s.pathology.SeparationSuite:
+  + complete FE separation is a strict sign split 0.012s
+  + quasi-complete FE separation has a tie at zero 0.028s
+  + overlapping classes are not FE-separated 0.001s
+  + conditional scan finds all-zero and all-one groups 0.008s
+  + every singleton group is conditionally separated 0.0s
+  + empty inputs are not conditionally separated 0.003s
+  + a Gaussian spec has an empty separation report 0.002s
+  + Bernoulli generate draws a binary response 0.02s
+  + Bernoulli generate refuses an unsupported link 0.001s
+mixeff4s.pathology.PathologySuite:
+  + sleepstudy is an easy design-time certificate 0.01s
+  + no random effects maps to not_identifiable 0.004s
+  + unsupported covariance maps to not_optimized 0.001s
+  + singletons with a random slope are a refusal certificate 0.006s
+  + a single grouping level is a refusal certificate 0.001s
+  + interior theta is converged_interior 0.01s
+  + a diagonal theta at the lower bound is converged_boundary 0.006s
+  + an off-diagonal near zero is not a variance boundary 0.014s
+  + assessOutcome maps an engine error on a refusal design 0.002s
+  + refusal designs do not claim a converged fit status 0.003s
+mixeff4s.lmm.LmmSuite:
+  + refuses a formula with no random effects 0.031s
+  + parses then refuses structured covariance 0.003s
+  + single-term random intercept fits 0.042s
+  + zerocorr fits two diagonal theta slots and no correlation 0.129s
+  + parses then refuses compound symmetry 0.001s
+mixeff4s.lmm.DyestuffFitSuite:
+  + dyestuff ML matches frozen lme4 0.034s
+  + dyestuff REML matches frozen lme4 0.014s
+  + dyestuff2 ML is a certified boundary against frozen lme4 0.012s
+  + dyestuff2 REML is a certified boundary against frozen lme4 0.02s
+mixeff4s.lmm.StationFitSuite:
+  + station intercepts match frozen lme4 0.1s
+  + station duration slopes are a certified boundary against frozen lme4 0.133s
+  + station fixed-only formula is refused 0.007s
+mixeff4s.lmm.CrossedFitSuite:
+  + penicillin crossed intercepts match MixedModels.jl 0.061s
+  + penicillin REML matches mixeff-rs 0.078s
+  + pastes nested intercepts match MixedModels.jl 0.063s
+mixeff4s.lmm.SimpleLmmFitSuite:
+  + rail REML matches frozen lme4 0.085s
+  + ergostool REML matches frozen lme4 0.029s
+  + cake REML matches frozen lme4 after aligning contrast names 0.209s
+mixeff4s.stats.LrtSuite:
+  + sleepstudy nested FE LRT matches MixedModels.jl 0.193s
+  + pastes nested RE LRT matches MixedModels.jl 0.075s
+  + REML LRT with different fixed effects is refused 0.07s
+  + mixing ML and REML is refused 0.021s
+mixeff4s.lmm.SleepstudyFitSuite:
+  + objective at Julia ML theta matches MixedModels.jl 0.016s
+  + sleepstudy ML fit matches MixedModels.jl 0.093s
+  + sleepstudy REML fit matches MixedModels.jl 0.048s
+  + sleepstudy VarCorr and Wald SE match MixedModels.jl 0.087s
+  + sleepstudy zerocorr ML optimizes two diagonal theta slots 0.063s
+mixeff4s.lmm.CoreLmmFitSuite:
+  + oats REML matches frozen lme4 0.108s
+  + orthodont REML matches frozen lme4 0.168s
+  + oxide nested intercepts match MixedModels.jl 0.04s
+  + oxide nesting sugar matches the Lot + Lot:Wafer fit 0.111s
+  + machines worker-machine intercepts match frozen lme4 0.025s
+  + machines categorical random slope matches frozen lme4 0.039s
+[info] Fast optimizing /Users/bbuchsbaum/code/scala/mixeff4s/.js/target/scala-3.7.4/mixeff4s-test-fastopt
+mixeff4s.pathology.CorpusSuite:
+  + easy full-rank truth expects an interior fit 0.039s
+  + zero slope variance is a contract boundary 0.005s
+  + unit correlation is reduced-rank truth 0.004s
+  + singletons with a slope are a refusal spec 0.001s
+  + a misshapen truth covariance is a malformed spec 0.003s
+  + generate draws a deterministic Gaussian frame for an easy spec 0.039s
+  + generate refuses a misshapen truth covariance 0.001s
+  + q=3 full-rank truth is certified easy 0.001s
+  + q=3 with a zero slope variance is reduced-rank truth 0.001s
+  + generate draws a q=3 frame and an easy fit is interior 0.193s
+  + an extreme slope isolates complete FE separation 0.208s
+  + rare events isolate conditional separation 0.063s
+  + extreme Bernoulli prevalence certifies as two-tier separation 0.006s
+  + an easy spec is not weakly identified 0.002s
+  + near-collinear predictors drop the weak-id score below the threshold 0.002s
+  + a full crossing is a single connected component 0.018s
+  + block-diagonal crossings are a disconnected refusal 0.002s
+  + unit-density empty crossings match a full Cartesian product 0.0s
+  + a sparse connected crossing is not a disconnected refusal 0.001s
+  + a crossed spec generates two grouping factors 0.004s
+  + a connected crossing fits to an interior status 0.006s
+  + a disconnected crossing's engine outcome stays in the expected set 0.015s
+  + near-singular RE and scale mismatch compose without a collision 0.0s
+  + singletons via transform match the inline refusal 0.001s
+  + scale mismatch leaves the weak-id score unchanged 0.001s
+  + generate draws predictors from sqrt(D corr D) 0.059s
+  + pareto group sizes are right-skewed and still easy 0.063s
+  + perfectly collinear predictors are a structural refusal 0.008s
+  + an easy generated LMM fits to an interior status 0.015s
+mixeff4s.glmm.ContraFitSuite:
+  + contra Laplace deviance at the Julia theta matches MixedModels.jl 0.588s
+  + contra fast-PIRLS fit matches MixedModels.jl 0.769s
+[info] Passed: Total 163, Failed 0, Errors 0, Passed 163
+mixeff4s.comparison.DatasetSuite:
+mixeff4s.formula.ParserSuite:
+  + catalog names match the fixture manifest 0.003s
+  + fixed effects with explicit intercept 0.003s
+  + implicit intercept 0.000s
+  + empty RHS is rejected 0.000s
+  + no intercept with zero 0.000s
+  + no intercept with minus one 0.000s
+  + colon interaction 0.000s
+  + star expansion 0.000s
+  + three-way star expansion 0.000s
+  + nesting slash 0.000s
+  + random intercept 0.002s
+  + random intercept and slope 0.000s
+  + random slope syntax has implicit intercept 0.000s
+  + zerocorr 0.000s
+  + covariance wrappers parse as random terms 0.000s
+  + crossed random effects 0.000s
+  + interaction grouping 0.000s
+  + cell grouping with colon 0.000s
+  + nested grouping expands to main and cell 0.000s
+  + crossed star grouping expands to main effects and cell 0.000s
+  + only random term still has implicit intercept 0.000s
+  + whitespace handling 0.000s
+  + dotted and underscored identifiers 0.000s
+  + backtick identifiers 0.000s
+  + unterminated backtick is actionable 0.000s
+  + empty backtick is rejected 0.000s
+  + bare arithmetic is refused 0.000s
+  + stateful transforms are refused 0.000s
+  + stateless subset parses with canonical labels 0.002s
+  + formula display canonicalizes terms 0.000s
+  + every catalog dataset loads with the declared row count 0.015s
+  + rail keeps the nlme Rail level order 0.000s
+  + ergostool keeps the nlme Subject level order 0.000s
+  + oats Variety includes a spaced level 0.000s
+mixeff4s.design.DesignSuite:
+  + sleepstudy design shapes match mixeff-rs 0.007s
+  + zerocorr sleepstudy has two theta slots 0.001s
+mixeff4s.comparison.ScorecardSuite:
+  + embedded scorecard uses the rust class vocabulary 0.003s
+  + dyestuff2 is a frozen lme4 boundary claim 0.001s
+  + contrast names align mixeff4s dummy labels to lme4 0.001s
+  + sleepstudy zerocorr is a frozen MixedModels.jl claim 0.004s
+  + station fixed-only formula is unsupported with a rust contract claim 0.002s
+  + fast-PIRLS contraception is documented divergence 0.001s
+  + every scorecard row has a claimed frozen reference 0.002s
+  + frozen catalog refuses p-values 0.000s
+mixeff4s.stats.InferenceRefusalSuite:
+  + profile intervals are a typed refusal 0.006s
+  + parametric bootstrap is a typed refusal 0.002s
+  + GLMM profile intervals stay refused 0.004s
+mixeff4s.data.ModelFrameSuite:
+  + builds aligned numeric and factor columns 0.000s
+  + encodes an explicit factor level order 0.000s
+  + rejects a value outside the declared factor levels 0.000s
+  + rejects length mismatch 0.000s
+  + materializes I() onto the frame 0.006s
+mixeff4s.glmm.PirlsSuite:
+  + Bernoulli logit working observation at eta=0 0.000s
+  + working observation subtracts a supplied offset 0.000s
+  + bounded Bernoulli mean stays off the 0/1 boundary 0.000s
+mixeff4s.compiler.ArtifactSuite:
+  + sleepstudy compiled-design snapshot 0.006s
+  + zerocorr sleepstudy is a diagonal theta map 0.001s
+  + assessing sleepstudy ML theta is converged_interior 0.001s
+  + penicillin compiled-design snapshot 0.001s
+  + pastes compiled-design snapshot 0.001s
+mixeff4s.stats.LrtSuite:
+  + sleepstudy nested FE LRT matches MixedModels.jl 0.019s
+mixeff4s.compiler.SemanticSuite:
+  + pastes nested RE LRT matches MixedModels.jl 0.018s
+  + sleepstudy IR is a full Cholesky random slope 0.008s
+  + zerocorr is one diagonal term, not a silent split 0.000s
+  + cs is typed IR and marked parsed_refused 0.000s
+  + nested grouping keeps the written slash 0.004s
+mixeff4s.lmm.CrossedFitSuite:
+  + REML LRT with different fixed effects is refused 0.027s
+  + mixing ML and REML is refused 0.005s
+mixeff4s.lmm.SimpleLmmFitSuite:
+  + penicillin crossed intercepts match MixedModels.jl 0.025s
+  + penicillin REML matches mixeff-rs 0.009s
+  + pastes nested intercepts match MixedModels.jl 0.017s
+mixeff4s.formula.DslSuite:
+  + typed DSL lowers to the same IR as the string parser 0.000s
+  + string interpolator 0.000s
+mixeff4s.pathology.SeparationSuite:
+  + complete FE separation is a strict sign split 0.001s
+  + quasi-complete FE separation has a tie at zero 0.001s
+  + overlapping classes are not FE-separated 0.000s
+  + conditional scan finds all-zero and all-one groups 0.000s
+  + every singleton group is conditionally separated 0.000s
+  + empty inputs are not conditionally separated 0.000s
+  + a Gaussian spec has an empty separation report 0.002s
+  + Bernoulli generate draws a binary response 0.008s
+  + Bernoulli generate refuses an unsupported link 0.001s
+mixeff4s.ReadmeExampleSuite:
+mixeff4s.glmm.GlmmSuite:
+  + Normal+Identity is refused as a GLMM 0.004s
+  + fast=false is refused rather than sold as glmer 0.000s
+  + nAGQ > 1 is refused in this slice 0.001s
+  + README quick start compiles against the public API 0.013s
+  + rail REML matches frozen lme4 0.078s
+mixeff4s.glmm.ContraFitSuite:
+mixeff4s.pathology.PathologySuite:
+mixeff4s.model.FamilySuite:
+mixeff4s.lmm.SleepstudyFitSuite:
+  + canonical links 0.002s
+  + Normal+Identity is not a supported GLMM pair 0.001s
+  + logit is inverse of logistic 0.000s
+  + probit is centered at zero 0.000s
+  + ergostool REML matches frozen lme4 0.010s
+  + a small Bernoulli RE intercept is labelled fast-PIRLS 0.014s
+  + objective at Julia ML theta matches MixedModels.jl 0.010s
+mixeff4s.lmm.LmmSuite:
+  + sleepstudy is an easy design-time certificate 0.020s
+  + no random effects maps to not_identifiable 0.000s
+  + unsupported covariance maps to not_optimized 0.001s
+  + singletons with a random slope are a refusal certificate 0.001s
+  + a single grouping level is a refusal certificate 0.000s
+  + refuses a formula with no random effects 0.003s
+  + interior theta is converged_interior 0.002s
+  + parses then refuses structured covariance 0.001s
+  + sleepstudy ML fit matches MixedModels.jl 0.014s
+  + a diagonal theta at the lower bound is converged_boundary 0.002s
+  + an off-diagonal near zero is not a variance boundary 0.001s
+  + assessOutcome maps an engine error on a refusal design 0.000s
+  + single-term random intercept fits 0.007s
+  + sleepstudy REML fit matches MixedModels.jl 0.008s
+  + sleepstudy VarCorr and Wald SE match MixedModels.jl 0.006s
+mixeff4s.optimizer.TrustBqSuite:
+  + recovers a shifted quadratic 0.003s
+mixeff4s.lmm.StationFitSuite:
+  + zerocorr fits two diagonal theta slots and no correlation 0.019s
+  + parses then refuses compound symmetry 0.000s
+  + refusal designs do not claim a converged fit status 0.003s
+mixeff4s.lmm.CoreLmmFitSuite:
+mixeff4s.lmm.DyestuffFitSuite:
+  + cake REML matches frozen lme4 after aligning contrast names 0.054s
+mixeff4s.pathology.CorpusSuite:
+  + easy full-rank truth expects an interior fit 0.004s
+  + zero slope variance is a contract boundary 0.001s
+  + unit correlation is reduced-rank truth 0.000s
+  + singletons with a slope are a refusal spec 0.000s
+  + a misshapen truth covariance is a malformed spec 0.000s
+  + generate draws a deterministic Gaussian frame for an easy spec 0.008s
+  + generate refuses a misshapen truth covariance 0.000s
+  + q=3 full-rank truth is certified easy 0.000s
+  + q=3 with a zero slope variance is reduced-rank truth 0.000s
+  + station intercepts match frozen lme4 0.036s
+  + sleepstudy zerocorr ML optimizes two diagonal theta slots 0.057s
+  + dyestuff ML matches frozen lme4 0.035s
+  + oats REML matches frozen lme4 0.045s
+  + dyestuff REML matches frozen lme4 0.011s
+  + contra Laplace deviance at the Julia theta matches MixedModels.jl 0.114s
+  + dyestuff2 ML is a certified boundary against frozen lme4 0.007s
+  + dyestuff2 REML is a certified boundary against frozen lme4 0.008s
+  + station duration slopes are a certified boundary against frozen lme4 0.043s
+  + station fixed-only formula is refused 0.004s
+  + orthodont REML matches frozen lme4 0.051s
+  + generate draws a q=3 frame and an easy fit is interior 0.083s
+  + oxide nested intercepts match MixedModels.jl 0.014s
+  + oxide nesting sugar matches the Lot + Lot:Wafer fit 0.013s
+  + machines worker-machine intercepts match frozen lme4 0.004s
+  + machines categorical random slope matches frozen lme4 0.015s
+  + an extreme slope isolates complete FE separation 0.055s
+  + rare events isolate conditional separation 0.017s
+  + extreme Bernoulli prevalence certifies as two-tier separation 0.004s
+  + an easy spec is not weakly identified 0.000s
+  + near-collinear predictors drop the weak-id score below the threshold 0.000s
+  + a full crossing is a single connected component 0.001s
+  + block-diagonal crossings are a disconnected refusal 0.001s
+  + unit-density empty crossings match a full Cartesian product 0.000s
+  + a sparse connected crossing is not a disconnected refusal 0.000s
+  + a crossed spec generates two grouping factors 0.001s
+  + a connected crossing fits to an interior status 0.007s
+  + a disconnected crossing's engine outcome stays in the expected set 0.005s
+  + near-singular RE and scale mismatch compose without a collision 0.000s
+  + singletons via transform match the inline refusal 0.000s
+  + scale mismatch leaves the weak-id score unchanged 0.000s
+  + generate draws predictors from sqrt(D corr D) 0.001s
+  + pareto group sizes are right-skewed and still easy 0.008s
+  + perfectly collinear predictors are a structural refusal 0.000s
+  + an easy generated LMM fits to an interior status 0.006s
+  + contra fast-PIRLS fit matches MixedModels.jl 0.505s
+[info] Passed: Total 159, Failed 0, Errors 0, Passed 159
+[success] Total time: 15 s, completed Oct 26, 2026, 10:08:05 a.m.

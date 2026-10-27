@@ -1,0 +1,122 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 13 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+mixeff4s.glmm.PirlsSuite:
+  + Bernoulli logit working observation at eta=0 0.009s
+  + working observation subtracts a supplied offset 0.0s
+  + bounded Bernoulli mean stays off the 0/1 boundary 0.001s
+mixeff4s.glmm.TerminationSuite:
+  + profiled deviance preserves wrong theta dimension as a typed error 0.052s
+  + nonfinite or negative diagonal theta is refused 0.002s
+  + an unfinished PIRLS probe returns a refusal, never a finite penalty 0.003s
+  + a public GLMM refuses unfinished PIRLS 0.002s
+  + a public GLMM refuses an exhausted optimizer budget 0.006s
+  + an accepted GLMM records the final inner and outer termination separately 0.008s
+mixeff4s.glmm.GlmmSuite:
+  + Normal+Identity is refused as a GLMM 0.009s
+  + noncanonical joint curvature is explicitly refused 0.002s
+  + nAGQ > 1 is refused in this slice 0.0s
+  + a small Bernoulli RE intercept is labelled fast-PIRLS 0.062s
+  + a perfectly separated Bernoulli design preserves its factorization failure 0.001s
+mixeff4s.glmm.CoefficientLayoutSuite:
+  + GLMM discloses dropped columns using the same retained coefficient layout 0.083s
+mixeff4s.glmm.GlmmInputSuite:
+  + binomial counts and ambiguous fractional responses refuse in both estimators 0.102s
+  + invalid trials, cases, offsets, controls and fractional Poisson counts refuse 0.003s
+  + estimated-dispersion families refuse until dispersion is explicitly implemented 0.001s
+  + logit inverse and derivative stay finite at large eta 0.001s
+mixeff4s.glmm.JointLaplaceSuite:
+  + fixed beta modes and final-mean determinant agree with independent scalar oracle 0.074s
+  + cold A B A probes are independent of previous modes and weights 0.002s
+  + binomial trials and case weights affect constants, score and curvature consistently 0.003s
+  + Poisson constants, zero counts, offsets and power weights agree with scalar oracle 0.004s
+  + joint API refuses wrong dimensions and invalid theta 0.001s
+  + conditional and outer exhaustion are typed failures 0.002s
+  + joint fit is separately labelled and records conditional and outer evidence 0.106s
+mixeff4s.glmm.ContraFitSuite:
+  + contra Laplace deviance at the Julia theta matches MixedModels.jl 0.138s
+  + contra fast-PIRLS fit matches MixedModels.jl 0.49s
+mixeff4s.glmm.GlmmParitySuite:
+==> X mixeff4s.glmm.GlmmParitySuite.cbpp joint-Laplace against frozen R fit  0.521s munit.ComparisonFailException: src/test/scala/mixeff4s/glmm/GlmmParitySuite.scala:45 values are not the same expected: 184.05313277509163 but was: 184.05256373424194
+44:        fit.deviance - raw + data.minusTwoLogDensity(fit.conditionalEta.toArray)
+45:      assertEqualsDouble(objective, reference.req("objective_minus2loglik_with_constants").asDouble, 1e-4)
+46:      fit.conditionalEta.zip(numbers(reference, "conditional_eta")).foreach((a, b) => assertEqualsDouble(a, b, 2e-3))
+    at munit.FunSuite.assertEqualsDouble(FunSuite.scala:13)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:45)
+==> X mixeff4s.glmm.GlmmParitySuite.cbpp fast-PIRLS against frozen R fit  0.019s munit.ComparisonFailException: src/test/scala/mixeff4s/glmm/GlmmParitySuite.scala:45 values are not the same expected: 184.108693002453 but was: 184.1085909452277
+44:        fit.deviance - raw + data.minusTwoLogDensity(fit.conditionalEta.toArray)
+45:      assertEqualsDouble(objective, reference.req("objective_minus2loglik_with_constants").asDouble, 1e-4)
+46:      fit.conditionalEta.zip(numbers(reference, "conditional_eta")).foreach((a, b) => assertEqualsDouble(a, b, 2e-3))
+    at munit.FunSuite.assertEqualsDouble(FunSuite.scala:13)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:45)
+  + culcitalogreg joint-Laplace against frozen R fit 0.111s
+  + culcitalogreg fast-PIRLS against frozen R fit 0.012s
+==> X mixeff4s.glmm.GlmmParitySuite.synthetic_poisson_offset joint-Laplace against frozen R fit  0.027s munit.FailException: src/test/scala/mixeff4s/glmm/GlmmParitySuite.scala:49
+48:      if joint then
+49:        assert(fit.jointAssessment.exists(_.firstOrderPassed), clues(fit.jointAssessment))
+50:        fit.inner match
+Clues {
+  fit.jointAssessment: Option[JointAssessment] = Some(
+    value = JointAssessment(
+      gradient = Available(
+        values = Vector(
+          -9.780256012466755E-5,
+          -5.895804141194579E-5,
+          -5.788763246528106E-4
+        ),
+        projectedMaxAbs = 5.788763246528106E-4,
+        tolerance = 1.0E-4
+      ),
+      boundary = Interior()
+    )
+  )
+}
+    at munit.FunSuite.assert(FunSuite.scala:13)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:49)
+==> X mixeff4s.glmm.GlmmParitySuite.synthetic_poisson_offset fast-PIRLS against frozen R fit  0.004s munit.ComparisonFailException: src/test/scala/mixeff4s/glmm/GlmmParitySuite.scala:40 values are not the same expected: 0.14086050644766313 but was: 0.12680392533772622
+39:      fit.beta.zip(beta).foreach((a, b) => assertEqualsDouble(a, b, 1e-3))
+40:      fit.theta.zip(numbers(reference, "theta")).foreach((a, b) => assertEqualsDouble(a, b, 1e-3))
+41:      val objective = if joint then fit.deviance else
+    at munit.FunSuite.assertEqualsDouble(FunSuite.scala:13)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1$$anonfun$5(GlmmParitySuite.scala:40)
+    at scala.collection.immutable.Vector.foreach(Vector.scala:2125)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:40)
+==> X mixeff4s.glmm.GlmmParitySuite.synthetic_poisson_crossed joint-Laplace against frozen R fit  0.783s munit.FailException: src/test/scala/mixeff4s/glmm/GlmmParitySuite.scala:49
+48:      if joint then
+49:        assert(fit.jointAssessment.exists(_.firstOrderPassed), clues(fit.jointAssessment))
+50:        fit.inner match
+Clues {
+  fit.jointAssessment: Option[JointAssessment] = Some(
+    value = JointAssessment(
+      gradient = Available(
+        values = Vector(
+          -2.0772728312216104E-7,
+          2.6079760573338717E-6,
+          0.0030373958755565886,
+          1.254674468024556E-4,
+          0.002936683358711889,
+          0.004707224358450428
+        ),
+        projectedMaxAbs = 0.004707224358450428,
+        tolerance = 1.0E-4
+      ),
+      boundary = Interior()
+    )
+  )
+}
+    at munit.FunSuite.assert(FunSuite.scala:13)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:49)
+  + synthetic_poisson_crossed fast-PIRLS against frozen R fit 0.193s
+[error] Failed: Total 36, Failed 5, Errors 0, Passed 31
+[error] Failed tests:
+[error] 	mixeff4s.glmm.GlmmParitySuite
+[error] (mixeff4sJVM / Test / testOnly) sbt.TestsFailedException: Tests unsuccessful
+[error] Total time: 5 s, completed Oct 27, 2026, 3:04:57 p.m.

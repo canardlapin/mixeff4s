@@ -1,0 +1,11 @@
+library(lme4)
+d <- read.csv('comparison/datasets/singular/data.csv')
+f <- lmer(y ~ 1 + A * B * C + (A * B * C | group), data=d, REML=TRUE,
+          control=lmerControl(optimizer='bobyqa', optCtrl=list(maxfun=100000)))
+print(R.version.string)
+print(packageVersion('lme4'))
+cat('restricted_objective:', -2*as.numeric(logLik(f)), '\n')
+cat('sigma:', sigma(f), '\n')
+cat('singular:', isSingular(f), '\n')
+print(fixef(f))
+print(f@optinfo$conv)

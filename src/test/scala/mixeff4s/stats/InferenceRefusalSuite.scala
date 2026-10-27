@@ -15,11 +15,11 @@ class InferenceRefusalSuite extends munit.FunSuite:
       case other =>
         fail(s"expected profile refusal, got $other")
 
-  test("parametric bootstrap is a typed refusal"):
+  test("legacy bootstrap call requires explicit seed and targets"):
     val fit = Lmm.fit("reaction ~ 1 + days + (1 | subj)", Sleepstudy.frame, FitOptions.ml).getOrElse(fail("fit"))
     Bootstrap.parametric(fit, 100) match
       case Left(err: MixedModelError.InferenceUnavailable) =>
-        assertEquals(err.code, "bootstrap_unavailable")
+        assertEquals(err.code, "bootstrap_seed_required")
       case other =>
         fail(s"expected bootstrap refusal, got $other")
 

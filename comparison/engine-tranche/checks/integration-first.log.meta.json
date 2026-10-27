@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-26T21:09:00.261801+00:00",
+  "finished_utc": "2026-10-26T21:09:16.560938+00:00",
+  "duration_seconds": 16.298926,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/testOnly mixeff4s.lmm.ProfiledGradientSuite mixeff4s.lmm.RefitSuite mixeff4s.linalg.SparseBlockSuite mixeff4s.lmm.CrossedFitSuite"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-engine-tranche/integration-first.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 600.0,
+  "log_bytes": 3742
+}

@@ -26,11 +26,12 @@ class ArtifactSuite extends munit.FunSuite:
     assertEquals(artifact.parmap, Vector((0, 0, 0), (0, 1, 1)))
     assertEquals(artifact.thetaSlots.map(_.constraint), Vector("lower_bound_0", "lower_bound_0"))
 
-  test("assessing sleepstudy ML theta is converged_interior"):
+  test("assessing bare sleepstudy ML theta reports geometry without convergence"):
     val compiled =
       Compiler.compile("reaction ~ 1 + days + (1 + days | subj)", Sleepstudy.frame).getOrElse(fail("compile"))
     val assessed = Compiler.assess(compiled, Vector(0.9292297167514472, 0.01816466496782548, 0.22264601131030412))
-    assertEquals(assessed.pathology.fitStatus.code, "converged_interior")
+    assertEquals(assessed.pathology.fitStatus.code, "not_assessed")
+    assertEquals(assessed.pathology.thetaGeometry.code, "interior")
     assertEquals(compiled.pathology.fitStatus.code, "not_assessed")
 
   test("penicillin compiled-design snapshot"):
@@ -48,7 +49,8 @@ class ArtifactSuite extends munit.FunSuite:
     assertEquals(artifact.pathology.maxGroupSize, 24)
     assertEquals(artifact.toJson, PenicillinSnapshot.json)
     val assessed = Compiler.assess(artifact, Vector(1.5375939045981573, 3.219792193110907))
-    assertEquals(assessed.pathology.fitStatus.code, "converged_interior")
+    assertEquals(assessed.pathology.fitStatus.code, "not_assessed")
+    assertEquals(assessed.pathology.thetaGeometry.code, "interior")
 
   test("pastes compiled-design snapshot"):
     val artifact =
@@ -66,14 +68,15 @@ class ArtifactSuite extends munit.FunSuite:
     assertEquals(artifact.pathology.maxGroupSize, 6)
     assertEquals(artifact.toJson, PastesSnapshot.json)
     val assessed = Compiler.assess(artifact, Vector(3.5269029347766856, 1.3299137410046242))
-    assertEquals(assessed.pathology.fitStatus.code, "converged_interior")
+    assertEquals(assessed.pathology.fitStatus.code, "not_assessed")
+    assertEquals(assessed.pathology.thetaGeometry.code, "interior")
 
 private object SleepstudySnapshot:
   val json: String =
     """{
       |  "schema": {
       |    "name": "mixeff4s.compiled_design_artifact",
-      |    "version": 1,
+      |    "version": 2,
       |    "library_version": "0.1.0-SNAPSHOT"
       |  },
       |  "requested_formula": "reaction ~ 1 + days + (1 + days | subj)",
@@ -103,6 +106,7 @@ private object SleepstudySnapshot:
       |  "pathology": {
       |    "contract_version": "v0.1",
       |    "fit_status": "not_assessed",
+      |    "theta_geometry": "not_assessed",
       |    "expected_statuses": ["converged_interior"],
       |    "stratum": "easy",
       |    "n": 180,
@@ -121,7 +125,7 @@ private object PenicillinSnapshot:
     """{
       |  "schema": {
       |    "name": "mixeff4s.compiled_design_artifact",
-      |    "version": 1,
+      |    "version": 2,
       |    "library_version": "0.1.0-SNAPSHOT"
       |  },
       |  "requested_formula": "diameter ~ 1 + (1 | plate) + (1 | sample)",
@@ -151,6 +155,7 @@ private object PenicillinSnapshot:
       |  "pathology": {
       |    "contract_version": "v0.1",
       |    "fit_status": "not_assessed",
+      |    "theta_geometry": "not_assessed",
       |    "expected_statuses": ["converged_interior"],
       |    "stratum": "easy",
       |    "n": 144,
@@ -169,7 +174,7 @@ private object PastesSnapshot:
     """{
       |  "schema": {
       |    "name": "mixeff4s.compiled_design_artifact",
-      |    "version": 1,
+      |    "version": 2,
       |    "library_version": "0.1.0-SNAPSHOT"
       |  },
       |  "requested_formula": "strength ~ 1 + (1 | batch) + (1 | batch:cask)",
@@ -199,6 +204,7 @@ private object PastesSnapshot:
       |  "pathology": {
       |    "contract_version": "v0.1",
       |    "fit_status": "not_assessed",
+      |    "theta_geometry": "not_assessed",
       |    "expected_statuses": ["converged_interior"],
       |    "stratum": "easy",
       |    "n": 60,

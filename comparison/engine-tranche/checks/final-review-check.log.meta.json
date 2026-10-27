@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-26T21:32:13.543127+00:00",
+  "finished_utc": "2026-10-26T21:32:38.430337+00:00",
+  "duration_seconds": 24.887098,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/scalafmtOnly /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/linalg/BlockedCholesky.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/Pls.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/optimizer/GradientTrustBq.scala",
+    "mixeff4sJVM/Test/scalafmtOnly /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/lmm/SparsePlsSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/optimizer/GradientTrustBqSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/ReadmeExampleSuite.scala",
+    "test"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-engine-tranche/final-review-check.log",
+  "exit_code": 1,
+  "child_returncode": 1,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 44986
+}

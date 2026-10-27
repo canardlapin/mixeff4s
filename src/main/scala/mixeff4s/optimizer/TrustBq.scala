@@ -18,15 +18,23 @@ final case class TrustBqOptions(
     stallFtolRel: Double = -1.0,
     stallFtolAbs: Double = -1.0,
     stallRequiresStableX: Boolean = true,
-    reuseSamples: Boolean = false
+    reuseSamples: Boolean = false,
+    /** Relative bound-projected-gradient band for the gradient-oracle path; zero disables that stop. */
+    gradientTolerance: Double = 1e-6
 )
 
 enum TrustBqStopReason:
   case RadiusBelowTolerance, ObjectiveTolerance, MaxEvaluations, StepBelowTolerance,
-    ObjectiveStagnation, CertifiedConvergence
+    ObjectiveStagnation, CertifiedConvergence, GradientBelowTolerance
 
   def isAcceptableConvergence: Boolean =
-    this != TrustBqStopReason.MaxEvaluations
+    this match
+      case RadiusBelowTolerance | ObjectiveTolerance | StepBelowTolerance | ObjectiveStagnation |
+          CertifiedConvergence =>
+        true
+      case GradientBelowTolerance =>
+        true
+      case MaxEvaluations => false
 
 final case class TrustBqResult(
     x: Vector[Double],
@@ -34,8 +42,16 @@ final case class TrustBqResult(
     fevals: Int,
     iterations: Int,
     finalRadius: Double,
-    stopReason: TrustBqStopReason
-)
+    stopReason: TrustBqStopReason,
+    gradientEvaluations: Int = 0,
+    projectedGradientNorm: Option[Double] = None
+):
+  /** Numerical stopping criterion only; not a gradient/Hessian certificate. */
+  def requireConvergence: FitResult[Unit] =
+    if !stopReason.isAcceptableConvergence then Left(MixedModelError.OptimizerBudgetExhausted(fevals))
+    else if !fmin.isFinite || x.exists(v => !v.isFinite) then
+      Left(MixedModelError.Optimization("TrustBQ result must have a finite objective and parameters"))
+    else Right(())
 
 object TrustBq:
   private val MinStep = 1e-12
@@ -54,7 +70,7 @@ object TrustBq:
           val key = x.map(java.lang.Double.doubleToLongBits)
           cache.get(key) match
             case Some(cached) => Right(cached)
-            case None =>
+            case None         =>
               objective(x).flatMap: value =>
                 if !value.isFinite then
                   Left(MixedModelError.Optimization("TrustBQ objective returned a non-finite value"))
@@ -64,8 +80,7 @@ object TrustBq:
                   Right(value)
         else
           objective(x).flatMap: value =>
-            if !value.isFinite then
-              Left(MixedModelError.Optimization("TrustBQ objective returned a non-finite value"))
+            if !value.isFinite then Left(MixedModelError.Optimization("TrustBQ objective returned a non-finite value"))
             else
               fevals += 1
               Right(value)
@@ -113,17 +128,15 @@ object TrustBq:
             else
               iterations += 1
               buildQuadratic(x, f, lower, upper, radius, options, () => fevals, evaluate) match
-                case Left(err) => error = Some(err)
+                case Left(err)    => error = Some(err)
                 case Right(model) =>
-                  if fevals >= options.maxEvaluations then
-                    result = Some(done(TrustBqStopReason.MaxEvaluations))
+                  if fevals >= options.maxEvaluations then result = Some(done(TrustBqStopReason.MaxEvaluations))
                   else
                     val step = trustRegionStep(model, x, lower, upper, radius)
                     val stepNorm = norm(step)
                     if stepNorm <= options.finalRadius then
                       radius *= options.shrinkFactor
-                      if radius <= options.finalRadius then
-                        result = Some(done(TrustBqStopReason.StepBelowTolerance))
+                      if radius <= options.finalRadius then result = Some(done(TrustBqStopReason.StepBelowTolerance))
                     else
                       val predicted = model.predictedReduction(step)
                       if !predicted.isFinite || predicted <= 0.0 then radius *= options.shrinkFactor
@@ -132,7 +145,7 @@ object TrustBq:
                         if distance(x, trial) <= options.finalRadius then radius *= options.shrinkFactor
                         else
                           evaluate(trial) match
-                            case Left(err) => error = Some(err)
+                            case Left(err)     => error = Some(err)
                             case Right(trialF) =>
                               if trialF < bestF then
                                 bestF = trialF
@@ -152,6 +165,17 @@ object TrustBq:
                               else radius *= options.shrinkFactor
 
         error.toLeft(result.get)
+
+  /** Bounded trust-region minimization with a value-and-gradient oracle. The reported gradient stop is a first-order,
+    * box-projected condition only.
+    */
+  def minimizeWithGradient(
+      initial: Vector[Double],
+      lower: Vector[Double],
+      upper: Vector[Double],
+      options: TrustBqOptions
+  )(oracle: Vector[Double] => FitResult[ObjectiveGradient]): FitResult[TrustBqResult] =
+    GradientTrustBq.minimize(initial, lower, upper, options)(oracle)
 
   private final case class SideSample(delta: Double, value: Double)
   private final case class QuadraticModel(gradient: Array[Double], hessian: Array[Double], n: Int):
@@ -231,7 +255,7 @@ object TrustBq:
           fevals() < options.maxEvaluations
         then
           evalAxis(i, secondDelta) match
-            case Left(err) => error = Some(err)
+            case Left(err)     => error = Some(err)
             case Right(second) =>
               curvature = (second - 2.0 * value + f0) / (delta * delta)
               slope = (value - f0 - 0.5 * curvature * delta * delta) / delta
@@ -242,7 +266,7 @@ object TrustBq:
 
     error match
       case Some(err) => Left(err)
-      case None =>
+      case None      =>
         var crossTerms = 0
         i = 0
         while i < n && error.isEmpty && fevals() < options.maxEvaluations && crossTerms < options.maxCrossTerms do
@@ -253,7 +277,7 @@ object TrustBq:
                 val trial = project(x.updated(i, x(i) + left.delta).updated(j, x(j) + right.delta), lower, upper)
                 if distance(x, trial) > minStep then
                   evaluate(trial) match
-                    case Left(err) => error = Some(err)
+                    case Left(err)  => error = Some(err)
                     case Right(fij) =>
                       val cross = (fij - left.value - right.value + f0) / (left.delta * right.delta)
                       if cross.isFinite then
@@ -442,6 +466,8 @@ object TrustBq:
     then Left(MixedModelError.Optimization("TrustBQ requires 0 < final_radius <= initial_radius"))
     else if options.maxEvaluations <= 0 then
       Left(MixedModelError.Optimization("TrustBQ max_evaluations must be positive"))
+    else if !options.gradientTolerance.isFinite || options.gradientTolerance < 0.0 then
+      Left(MixedModelError.Optimization("TrustBQ gradient_tolerance must be finite and non-negative"))
     else if options.stallIterations <= 0 then
       Left(MixedModelError.Optimization("TrustBQ stall_iterations must be positive"))
     else if !(options.etaAccept >= 0.0 && options.etaAccept < 1.0) ||

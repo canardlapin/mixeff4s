@@ -1,0 +1,393 @@
+{
+  "source_log": "checks/mixeff4s-glmm-preserved-closure.log",
+  "results": [
+    {
+      "platform": "JVM",
+      "dataset": "cbpp",
+      "joint": true,
+      "objective": 184.05256372951789,
+      "reference_objective": 184.05256374299438,
+      "objective_abs_difference": 1.3476494586939225e-08,
+      "beta": [
+        -1.3985321424664283,
+        -0.9923327347956438,
+        -1.1286720841219704,
+        -1.5803138851450342
+      ],
+      "theta": [
+        0.6422614486515388
+      ],
+      "beta_max_abs_difference": 8.227858039333569e-08,
+      "theta_max_abs_difference": 2.1296711727458728e-08,
+      "stop": "StepBelowTolerance",
+      "main_evaluations": 1746,
+      "projected_gradient_norm": 1.2695030212247124e-08,
+      "gradient_tolerance": 0.0001,
+      "first_order_passed": true,
+      "eta_max_abs_difference": 9.328653538531739e-08,
+      "mean_max_abs_difference": 6.709983027541888e-09
+    },
+    {
+      "platform": "JVM",
+      "dataset": "cbpp",
+      "joint": false,
+      "objective": 184.10859094522772,
+      "reference_objective": 184.10859094563688,
+      "objective_abs_difference": 4.091589289600961e-10,
+      "beta": [
+        -1.3604726621646581,
+        -0.9761765042324674,
+        -1.1110759551794278,
+        -1.559679412677831
+      ],
+      "theta": [
+        0.6418204313115554
+      ],
+      "beta_max_abs_difference": 1.1030317077498353e-06,
+      "theta_max_abs_difference": 5.3613676574970626e-06,
+      "stop": "ObjectiveStagnation",
+      "main_evaluations": 54,
+      "eta_max_abs_difference": 5.512458978618184e-06,
+      "mean_max_abs_difference": 1.0554126128603514e-06
+    },
+    {
+      "platform": "JVM",
+      "dataset": "culcitalogreg",
+      "joint": true,
+      "objective": 60.70584123131575,
+      "reference_objective": 60.70589038642724,
+      "objective_abs_difference": 4.915511149050644e-05,
+      "beta": [
+        5.096143470602149,
+        -3.8424041252860315,
+        -4.431210125918024,
+        -5.599290393452696
+      ],
+      "theta": [
+        3.4368388050854493
+      ],
+      "beta_max_abs_difference": 0.00040684616288899633,
+      "theta_max_abs_difference": 0.0002218064409444942,
+      "stop": "RadiusBelowTolerance",
+      "main_evaluations": 1020,
+      "projected_gradient_norm": 3.338360010471305e-08,
+      "gradient_tolerance": 0.0001,
+      "first_order_passed": true,
+      "eta_max_abs_difference": 0.0004001340099328843,
+      "mean_max_abs_difference": 1.319314920111836e-05
+    },
+    {
+      "platform": "JVM",
+      "dataset": "culcitalogreg",
+      "joint": false,
+      "objective": 61.12389317059647,
+      "reference_objective": 61.1239592877025,
+      "objective_abs_difference": 6.611710603010579e-05,
+      "beta": [
+        4.111979455646433,
+        -3.1411601787098498,
+        -3.7075233257309543,
+        -4.7781994035865765
+      ],
+      "theta": [
+        3.3207128031185724
+      ],
+      "beta_max_abs_difference": 9.803424895427071e-05,
+      "theta_max_abs_difference": 0.00020034510403910133,
+      "stop": "ObjectiveTolerance",
+      "main_evaluations": 51,
+      "eta_max_abs_difference": 0.0001769236702422461,
+      "mean_max_abs_difference": 7.4527425627524124e-06
+    },
+    {
+      "platform": "JVM",
+      "dataset": "synthetic_poisson_offset",
+      "joint": true,
+      "objective": 68.33363474264094,
+      "reference_objective": 68.33363474264272,
+      "objective_abs_difference": 1.7763568394002505e-12,
+      "beta": [
+        0.3260365161751499,
+        0.6448436012883756
+      ],
+      "theta": [
+        0.14306294094497995
+      ],
+      "beta_max_abs_difference": 8.63827237518322e-09,
+      "theta_max_abs_difference": 4.03963948403252e-09,
+      "stop": "StepBelowTolerance",
+      "main_evaluations": 684,
+      "projected_gradient_norm": 3.514818066226629e-08,
+      "gradient_tolerance": 0.0001,
+      "first_order_passed": true,
+      "eta_max_abs_difference": 1.2081004419073338e-08,
+      "mean_max_abs_difference": 6.777366667876095e-08
+    },
+    {
+      "platform": "JVM",
+      "dataset": "synthetic_poisson_offset",
+      "joint": false,
+      "objective": 68.34024108816556,
+      "reference_objective": 68.33713315663275,
+      "objective_abs_difference": 0.003107931532809971,
+      "beta": [
+        0.3350952940246258,
+        0.6448436012728314
+      ],
+      "theta": [
+        0.12680392533772622
+      ],
+      "beta_max_abs_difference": 0.0004945787300776328,
+      "theta_max_abs_difference": 0.014056584643665715,
+      "stop": "ObjectiveStagnation",
+      "main_evaluations": 48,
+      "eta_max_abs_difference": 0.015513429456492922,
+      "mean_max_abs_difference": 0.09050054970637156
+    },
+    {
+      "platform": "JVM",
+      "dataset": "synthetic_poisson_crossed",
+      "joint": true,
+      "objective": 1293.8553032674104,
+      "reference_objective": 1293.8553080583465,
+      "objective_abs_difference": 4.790936145582236e-06,
+      "beta": [
+        1.092755651068556,
+        0.38523733976061364
+      ],
+      "theta": [
+        0.5112426600615428,
+        0.19437739914680058,
+        0.4116372801165234,
+        0.3253089559624675
+      ],
+      "beta_max_abs_difference": 1.2090616339943683e-05,
+      "theta_max_abs_difference": 7.53704012160239e-06,
+      "stop": "RadiusBelowTolerance",
+      "main_evaluations": 1837,
+      "projected_gradient_norm": 1.0816362789094515e-06,
+      "gradient_tolerance": 0.0001,
+      "first_order_passed": true,
+      "eta_max_abs_difference": 1.0653436050889198e-05,
+      "mean_max_abs_difference": 1.6594900392519207e-05
+    },
+    {
+      "platform": "JVM",
+      "dataset": "synthetic_poisson_crossed",
+      "joint": false,
+      "objective": 1293.8596731452483,
+      "reference_objective": 1293.8596731436157,
+      "objective_abs_difference": 1.6325429896824062e-09,
+      "beta": [
+        1.1047570823960495,
+        0.38272960405257905
+      ],
+      "theta": [
+        0.5112654058113139,
+        0.19437838355126133,
+        0.41162384888201914,
+        0.3253872735245155
+      ],
+      "beta_max_abs_difference": 2.9786333199943726e-07,
+      "theta_max_abs_difference": 4.40793398337469e-06,
+      "stop": "ObjectiveStagnation",
+      "main_evaluations": 316,
+      "eta_max_abs_difference": 3.2418151015845e-06,
+      "mean_max_abs_difference": 1.1916264785583053e-05
+    },
+    {
+      "platform": "Scala.js",
+      "dataset": "cbpp",
+      "joint": true,
+      "objective": 184.05256372951786,
+      "reference_objective": 184.05256374299438,
+      "objective_abs_difference": 1.3476523008648655e-08,
+      "beta": [
+        -1.398532142507698,
+        -0.99233273483202,
+        -1.1286720841891913,
+        -1.5803138851987975
+      ],
+      "theta": [
+        0.6422614491806575
+      ],
+      "beta_max_abs_difference": 8.233234360943698e-08,
+      "theta_max_abs_difference": 2.1825830476274177e-08,
+      "stop": "StepBelowTolerance",
+      "main_evaluations": 1746,
+      "projected_gradient_norm": 4.699055959160129e-08,
+      "gradient_tolerance": 0.0001,
+      "first_order_passed": true,
+      "eta_max_abs_difference": 9.374632936598459e-08,
+      "mean_max_abs_difference": 6.665127921801073e-09
+    },
+    {
+      "platform": "Scala.js",
+      "dataset": "cbpp",
+      "joint": false,
+      "objective": 184.10859094522775,
+      "reference_objective": 184.10859094563688,
+      "objective_abs_difference": 4.091305072506657e-10,
+      "beta": [
+        -1.36047266216468,
+        -0.9761765042324447,
+        -1.1110759551794052,
+        -1.559679412677804
+      ],
+      "theta": [
+        0.6418204313116822
+      ],
+      "beta_max_abs_difference": 1.103031734839277e-06,
+      "theta_max_abs_difference": 5.361367784284532e-06,
+      "stop": "ObjectiveStagnation",
+      "main_evaluations": 54,
+      "eta_max_abs_difference": 5.5124591100685905e-06,
+      "mean_max_abs_difference": 1.0554126377848583e-06
+    },
+    {
+      "platform": "Scala.js",
+      "dataset": "culcitalogreg",
+      "joint": true,
+      "objective": 60.70584123131578,
+      "reference_objective": 60.70589038642724,
+      "objective_abs_difference": 4.915511146208473e-05,
+      "beta": [
+        5.096143477809315,
+        -3.8424041556001636,
+        -4.4312101504356844,
+        -5.599290424926354
+      ],
+      "theta": [
+        3.4368388332718505
+      ],
+      "beta_max_abs_difference": 0.00040685337005541555,
+      "theta_max_abs_difference": 0.00022183462734570725,
+      "stop": "StepBelowTolerance",
+      "main_evaluations": 1019,
+      "projected_gradient_norm": 2.6585532522798364e-08,
+      "gradient_tolerance": 0.0001,
+      "first_order_passed": true,
+      "eta_max_abs_difference": 0.000400170492909524,
+      "mean_max_abs_difference": 1.3194409809402785e-05
+    },
+    {
+      "platform": "Scala.js",
+      "dataset": "culcitalogreg",
+      "joint": false,
+      "objective": 61.12389317059657,
+      "reference_objective": 61.1239592877025,
+      "objective_abs_difference": 6.61171059306298e-05,
+      "beta": [
+        4.11197945564696,
+        -3.141160178710176,
+        -3.707523325731419,
+        -4.778199403587287
+      ],
+      "theta": [
+        3.320712803120113
+      ],
+      "beta_max_abs_difference": 9.803424966481344e-05,
+      "theta_max_abs_difference": 0.0002003451055796468,
+      "stop": "ObjectiveTolerance",
+      "main_evaluations": 51,
+      "eta_max_abs_difference": 0.00017692367155142108,
+      "mean_max_abs_difference": 7.452742624147746e-06
+    },
+    {
+      "platform": "Scala.js",
+      "dataset": "synthetic_poisson_offset",
+      "joint": true,
+      "objective": 68.33363474264094,
+      "reference_objective": 68.33363474264272,
+      "objective_abs_difference": 1.7763568394002505e-12,
+      "beta": [
+        0.3260365161751499,
+        0.6448436012883756
+      ],
+      "theta": [
+        0.14306294094497995
+      ],
+      "beta_max_abs_difference": 8.63827237518322e-09,
+      "theta_max_abs_difference": 4.03963948403252e-09,
+      "stop": "StepBelowTolerance",
+      "main_evaluations": 684,
+      "projected_gradient_norm": 3.514818066226629e-08,
+      "gradient_tolerance": 0.0001,
+      "first_order_passed": true,
+      "eta_max_abs_difference": 1.2081004419073338e-08,
+      "mean_max_abs_difference": 6.777366667876095e-08
+    },
+    {
+      "platform": "Scala.js",
+      "dataset": "synthetic_poisson_offset",
+      "joint": false,
+      "objective": 68.34024108816556,
+      "reference_objective": 68.33713315663275,
+      "objective_abs_difference": 0.003107931532809971,
+      "beta": [
+        0.3350952940246258,
+        0.6448436012728314
+      ],
+      "theta": [
+        0.12680392533772622
+      ],
+      "beta_max_abs_difference": 0.0004945787300776328,
+      "theta_max_abs_difference": 0.014056584643665715,
+      "stop": "ObjectiveStagnation",
+      "main_evaluations": 48,
+      "eta_max_abs_difference": 0.015513429456492922,
+      "mean_max_abs_difference": 0.09050054970637156
+    },
+    {
+      "platform": "Scala.js",
+      "dataset": "synthetic_poisson_crossed",
+      "joint": true,
+      "objective": 1293.8553032674106,
+      "reference_objective": 1293.8553080583465,
+      "objective_abs_difference": 4.790935918208561e-06,
+      "beta": [
+        1.0927556707785588,
+        0.3852373420140002
+      ],
+      "theta": [
+        0.5112426562649359,
+        0.1943774068128177,
+        0.4116372818441762,
+        0.32530894807880373
+      ],
+      "beta_max_abs_difference": 1.2092869726476607e-05,
+      "theta_max_abs_difference": 7.529374104475739e-06,
+      "stop": "StepBelowTolerance",
+      "main_evaluations": 1834,
+      "projected_gradient_norm": 5.017379104780654e-07,
+      "gradient_tolerance": 0.0001,
+      "first_order_passed": true,
+      "eta_max_abs_difference": 1.0645622873228788e-05,
+      "mean_max_abs_difference": 1.6586966446574536e-05
+    },
+    {
+      "platform": "Scala.js",
+      "dataset": "synthetic_poisson_crossed",
+      "joint": false,
+      "objective": 1293.859673145249,
+      "reference_objective": 1293.8596731436157,
+      "objective_abs_difference": 1.6332251107087359e-09,
+      "beta": [
+        1.104757082396092,
+        0.38272960405264816
+      ],
+      "theta": [
+        0.5112654058110682,
+        0.19437838355053455,
+        0.41162384888177683,
+        0.3253872735226246
+      ],
+      "beta_max_abs_difference": 2.978632895889177e-07,
+      "theta_max_abs_difference": 4.407933737682335e-06,
+      "stop": "ObjectiveStagnation",
+      "main_evaluations": 316,
+      "eta_max_abs_difference": 3.2418143353085682e-06,
+      "mean_max_abs_difference": 1.1916261126287964e-05
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] Defining mixeff4sJVM / Test / unmanagedSources
+[info] The new value will be used by mixeff4sJVM / Test / bspBuildTargetSourcesItem, mixeff4sJVM / Test / scalafmt and 1 others.
+[info] 	Run `last` for details.
+[info] Reapplying settings...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+ASSESSMENT unfitted theta status=ConvergedInterior
+ASSESSMENT wrong theta dimension=Right(1.0E300)
+ASSESSMENT names=Vector((Intercept), days) beta=Vector(251.40510484848238, 10.467285959596026) se=Vector(9.506213922312948, NaN, 0.8017351011444122) z=Vector(26.446396736179615, NaN)
+ASSESSMENT nonnested same-name LRT=Right(Lrt(180,Vector(reaction ~ 1 + days + (1 | subj), reaction ~ 1 + days + cube + (1 | subj)),Vector(4, 5),Vector(-899.5815191875334, -896.5074270474589),Vector(1799.163038375067, 1793.0148540949178),6.148184280149053,1,0.013154729955540331))
+ASSESSMENT valid nested RE comparison=Left(random-effect term structures are not nested)
+mixeff4s.assessment.AssessmentProbeSuite:
+  + an unfitted theta is labelled converged 0.052s
+  + invalid GLMM theta becomes successful finite penalty 0.006s
+  + dropped middle column misaligns standard errors 0.02s
+  + LRT accepts different nonnested predictor values under the same name 0.01s
+  + LRT refuses the genuinely nested random intercept to random slope comparison 0.015s
+[info] Passed: Total 5, Failed 0, Errors 0, Passed 5
+[success] Total time: 2 s, completed Oct 26, 2026, 10:10:45 a.m.

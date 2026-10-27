@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-26T14:10:36.951753+00:00",
+  "finished_utc": "2026-10-26T14:10:45.219889+00:00",
+  "duration_seconds": 8.267907,
+  "command": [
+    "sbt",
+    "-batch",
+    "set mixeff4sJVM / Test / unmanagedSources += file(\"/tmp/mixeff4s-assessment-20261026/AssessmentProbeSuite.scala\")",
+    "mixeff4sJVM/testOnly mixeff4s.assessment.AssessmentProbeSuite"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-assessment-20261026/probes-v2.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 300.0,
+  "log_bytes": 2285
+}

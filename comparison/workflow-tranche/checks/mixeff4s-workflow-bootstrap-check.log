@@ -1,0 +1,39 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 4 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 9 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 23 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+BOOTSTRAP_WITNESS qualified=39 lower=9.066105347530183 upper=11.74643118383828 level=0.95
+mixeff4s.lmm.WorkflowParitySuite:
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy ML DerivativeFree 0.109s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy ML AnalyticGradient 0.01s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy REML DerivativeFree 0.009s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy REML AnalyticGradient 0.007s
+  + frozen lme4 fit/prediction/residual/modes: penicillin ML DerivativeFree 0.016s
+  + frozen lme4 fit/prediction/residual/modes: penicillin ML AnalyticGradient 0.008s
+  + frozen lme4 fit/prediction/residual/modes: penicillin REML DerivativeFree 0.008s
+  + frozen lme4 fit/prediction/residual/modes: penicillin REML AnalyticGradient 0.007s
+  + frozen lme4 fit/prediction/residual/modes: pastes ML DerivativeFree 0.017s
+  + frozen lme4 fit/prediction/residual/modes: pastes ML AnalyticGradient 0.014s
+  + frozen lme4 fit/prediction/residual/modes: pastes REML DerivativeFree 0.012s
+  + frozen lme4 fit/prediction/residual/modes: pastes REML AnalyticGradient 0.012s
+mixeff4s.stats.BootstrapSuite:
+  + explicit tight controls produce 39 independently assessed bootstrap refits and intervals 0.177s
+  + ML and REML originals can request tight controls without changing assessment thresholds 0.076s
+  + injected middle failure retains later responses, seeds and cold-fit statistics 0.019s
+  + unqualified replicas remain visible and authoritative fit budget overrides low-level controls 0.002s
+  + percentile convention is R type 7 and confidence level is explicit 0.004s
+  + target validation and unqualified original fit refusals happen before sampling 0.02s
+  + invalid exposed numerical controls are refused by fits and sessions 0.001s
+[info] Passed: Total 19, Failed 0, Errors 0, Passed 19
+[success] Total time: 7 s, completed Oct 26, 2026, 9:38:19 p.m.

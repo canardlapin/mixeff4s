@@ -1,0 +1,812 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-baseline-h22t9gqp-build from plugins.sbt...
+[info] loading project definition from /private/var/folders/9h/nkjq6vss7mqdl4ck7q1hd8ph0000gp/T/mixeff4s-baseline-h22t9gqp/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+[info] set current project to mixeff4s-root (in build file:/private/var/folders/9h/nkjq6vss7mqdl4ck7q1hd8ph0000gp/T/mixeff4s-baseline-h22t9gqp/)
+BENCH_FIT {"platform":"jvm","workload":"sleepstudy","objective":1751.9393444749871,"evaluations":206,"n":180,"theta_count":3}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"first_fit","sample":0,"ns":123955958,"allocated_bytes":15005352,"heap_delta_bytes":15551488}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"compile","sample":0,"ns":1180208,"allocated_bytes":263288,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"compile","sample":1,"ns":867417,"allocated_bytes":188808,"heap_delta_bytes":177152}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"compile","sample":2,"ns":864792,"allocated_bytes":188808,"heap_delta_bytes":427488}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"compile","sample":3,"ns":844375,"allocated_bytes":188808,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"compile","sample":4,"ns":843500,"allocated_bytes":188808,"heap_delta_bytes":427488}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"compile","sample":5,"ns":864875,"allocated_bytes":188808,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"compile","sample":6,"ns":860375,"allocated_bytes":188808,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"workspace","sample":0,"ns":2948709,"allocated_bytes":91840,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"workspace","sample":1,"ns":502666,"allocated_bytes":17816,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"workspace","sample":2,"ns":487958,"allocated_bytes":17872,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"workspace","sample":3,"ns":5594250,"allocated_bytes":17816,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"workspace","sample":4,"ns":485208,"allocated_bytes":17816,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"workspace","sample":5,"ns":457791,"allocated_bytes":17816,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"workspace","sample":6,"ns":4598500,"allocated_bytes":17816,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":0,"ns":673292,"allocated_bytes":73064,"heap_delta_bytes":427488}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":1,"ns":155833,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":2,"ns":20500,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":3,"ns":19125,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":4,"ns":19083,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":5,"ns":18917,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":6,"ns":18875,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":7,"ns":18875,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":8,"ns":18792,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":9,"ns":18625,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":10,"ns":48958,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":11,"ns":19167,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":12,"ns":18541,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":13,"ns":18750,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":14,"ns":18750,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":15,"ns":18708,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":16,"ns":18625,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":17,"ns":37250,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":18,"ns":15375,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"objective","sample":19,"ns":12708,"allocated_bytes":2712,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"warm_fit","sample":0,"ns":16023125,"allocated_bytes":1154792,"heap_delta_bytes":1225744}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"warm_fit","sample":1,"ns":4010250,"allocated_bytes":1154072,"heap_delta_bytes":1476064}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"warm_fit","sample":2,"ns":4137584,"allocated_bytes":1154072,"heap_delta_bytes":1048584}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"warm_fit","sample":3,"ns":3635125,"allocated_bytes":1154072,"heap_delta_bytes":1048632}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"warm_fit","sample":4,"ns":4727083,"allocated_bytes":1144144,"heap_delta_bytes":1048512}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"warm_fit","sample":5,"ns":4253375,"allocated_bytes":1142560,"heap_delta_bytes":1476192}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"warm_fit","sample":6,"ns":2936500,"allocated_bytes":1142720,"heap_delta_bytes":1048520}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":0,"ns":8688167,"allocated_bytes":227152,"heap_delta_bytes":193528}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":1,"ns":11958,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":2,"ns":3750,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":3,"ns":2917,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":4,"ns":2542,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":5,"ns":2375,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":6,"ns":2375,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":7,"ns":2291,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":8,"ns":2291,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":9,"ns":2250,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":10,"ns":2375,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":11,"ns":2167,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":12,"ns":2334,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":13,"ns":2333,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":14,"ns":2292,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":15,"ns":2333,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":16,"ns":2125,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":17,"ns":2250,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":18,"ns":2166,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"inspection","sample":19,"ns":2167,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"response_batch_rebuild_5","sample":0,"ns":12900625,"allocated_bytes":5666816,"heap_delta_bytes":5654056}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"response_batch_rebuild_5","sample":1,"ns":11661875,"allocated_bytes":5608392,"heap_delta_bytes":5863928}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"sleepstudy","phase":"response_batch_rebuild_5","sample":2,"ns":11671542,"allocated_bytes":5568576,"heap_delta_bytes":5670384}
+BENCH_FIT {"platform":"jvm","workload":"pastes","objective":247.9944658625397,"evaluations":192,"n":60,"theta_count":2}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"first_fit","sample":0,"ns":40827416,"allocated_bytes":2721872,"heap_delta_bytes":3145696}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"compile","sample":0,"ns":450125,"allocated_bytes":81048,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"compile","sample":1,"ns":365458,"allocated_bytes":81048,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"compile","sample":2,"ns":360583,"allocated_bytes":81048,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"compile","sample":3,"ns":683542,"allocated_bytes":81048,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"compile","sample":4,"ns":531584,"allocated_bytes":81048,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"compile","sample":5,"ns":386625,"allocated_bytes":81048,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"compile","sample":6,"ns":458584,"allocated_bytes":81048,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"workspace","sample":0,"ns":109667,"allocated_bytes":12104,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"workspace","sample":1,"ns":86792,"allocated_bytes":12104,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"workspace","sample":2,"ns":85083,"allocated_bytes":12104,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"workspace","sample":3,"ns":156458,"allocated_bytes":12104,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"workspace","sample":4,"ns":119166,"allocated_bytes":12104,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"workspace","sample":5,"ns":94042,"allocated_bytes":12104,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"workspace","sample":6,"ns":177458,"allocated_bytes":12104,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":0,"ns":33500,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":1,"ns":10875,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":2,"ns":10042,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":3,"ns":9708,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":4,"ns":9667,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":5,"ns":9125,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":6,"ns":9125,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":7,"ns":9291,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":8,"ns":10416,"allocated_bytes":8336,"heap_delta_bytes":193304}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":9,"ns":9208,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":10,"ns":9000,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":11,"ns":9167,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":12,"ns":9750,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":13,"ns":9084,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":14,"ns":9042,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":15,"ns":9000,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":16,"ns":30959,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":17,"ns":9125,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":18,"ns":16875,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"objective","sample":19,"ns":18292,"allocated_bytes":8336,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"warm_fit","sample":0,"ns":2344666,"allocated_bytes":1913256,"heap_delta_bytes":1903568}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"warm_fit","sample":1,"ns":2072750,"allocated_bytes":1913000,"heap_delta_bytes":2097152}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"warm_fit","sample":2,"ns":2071959,"allocated_bytes":1913000,"heap_delta_bytes":2097160}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"warm_fit","sample":3,"ns":2082333,"allocated_bytes":1904032,"heap_delta_bytes":1669648}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"warm_fit","sample":4,"ns":1981041,"allocated_bytes":1873752,"heap_delta_bytes":2097152}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"warm_fit","sample":5,"ns":1806542,"allocated_bytes":1709144,"heap_delta_bytes":1476312}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"warm_fit","sample":6,"ns":1851042,"allocated_bytes":1709144,"heap_delta_bytes":1669416}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":0,"ns":7541,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":1,"ns":2875,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":2,"ns":2250,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":3,"ns":2000,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":4,"ns":1792,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":5,"ns":1875,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":6,"ns":1750,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":7,"ns":1709,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":8,"ns":1875,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":9,"ns":24709,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":10,"ns":3833,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":11,"ns":6541,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":12,"ns":4209,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":13,"ns":3542,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":14,"ns":2958,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":15,"ns":2916,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":16,"ns":2750,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":17,"ns":3042,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":18,"ns":2875,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"inspection","sample":19,"ns":2875,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"response_batch_rebuild_5","sample":0,"ns":12453208,"allocated_bytes":8644520,"heap_delta_bytes":8816104}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"response_batch_rebuild_5","sample":1,"ns":12323958,"allocated_bytes":8625992,"heap_delta_bytes":8582192}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"pastes","phase":"response_batch_rebuild_5","sample":2,"ns":14707292,"allocated_bytes":8550728,"heap_delta_bytes":8816224}
+BENCH_FIT {"platform":"jvm","workload":"penicillin","objective":332.18834866846316,"evaluations":112,"n":144,"theta_count":2}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"first_fit","sample":0,"ns":5786125,"allocated_bytes":924384,"heap_delta_bytes":620960}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"compile","sample":0,"ns":2315083,"allocated_bytes":128520,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"compile","sample":1,"ns":1357375,"allocated_bytes":128520,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"compile","sample":2,"ns":436792,"allocated_bytes":128520,"heap_delta_bytes":193584}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"compile","sample":3,"ns":415166,"allocated_bytes":128520,"heap_delta_bytes":427496}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"compile","sample":4,"ns":262250,"allocated_bytes":128520,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"compile","sample":5,"ns":238208,"allocated_bytes":128520,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"compile","sample":6,"ns":241125,"allocated_bytes":128520,"heap_delta_bytes":428064}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"workspace","sample":0,"ns":160500,"allocated_bytes":15080,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"workspace","sample":1,"ns":119375,"allocated_bytes":15080,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"workspace","sample":2,"ns":116084,"allocated_bytes":15080,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"workspace","sample":3,"ns":114750,"allocated_bytes":15080,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"workspace","sample":4,"ns":114916,"allocated_bytes":15080,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"workspace","sample":5,"ns":115292,"allocated_bytes":15080,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"workspace","sample":6,"ns":196084,"allocated_bytes":15080,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":0,"ns":58334,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":1,"ns":28375,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":2,"ns":26500,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":3,"ns":26333,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":4,"ns":19500,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":5,"ns":24750,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":6,"ns":24709,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":7,"ns":25167,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":8,"ns":74084,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":9,"ns":38791,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":10,"ns":77459,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":11,"ns":35541,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":12,"ns":29167,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":13,"ns":37250,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":14,"ns":37917,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":15,"ns":32666,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":16,"ns":210708,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":17,"ns":62250,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":18,"ns":93541,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"objective","sample":19,"ns":47792,"allocated_bytes":5360,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"warm_fit","sample":0,"ns":5069666,"allocated_bytes":898224,"heap_delta_bytes":1177128}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"warm_fit","sample":1,"ns":3274833,"allocated_bytes":894504,"heap_delta_bytes":919456}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"warm_fit","sample":2,"ns":3052916,"allocated_bytes":892800,"heap_delta_bytes":1048576}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"warm_fit","sample":3,"ns":3026958,"allocated_bytes":892800,"heap_delta_bytes":621200}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"warm_fit","sample":4,"ns":3005666,"allocated_bytes":892536,"heap_delta_bytes":1048456}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"warm_fit","sample":5,"ns":3896584,"allocated_bytes":893072,"heap_delta_bytes":1048584}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"warm_fit","sample":6,"ns":5040750,"allocated_bytes":892800,"heap_delta_bytes":621072}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":0,"ns":14959,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":1,"ns":3708,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":2,"ns":3041,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":3,"ns":18958,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":4,"ns":3666,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":5,"ns":10125,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":6,"ns":2875,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":7,"ns":31666,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":8,"ns":22500,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":9,"ns":4292,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":10,"ns":3417,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":11,"ns":3208,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":12,"ns":2834,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":13,"ns":2958,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":14,"ns":2917,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":15,"ns":2833,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":16,"ns":3000,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":17,"ns":3083,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":18,"ns":2917,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"inspection","sample":19,"ns":2917,"allocated_bytes":848,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"response_batch_rebuild_5","sample":0,"ns":14694917,"allocated_bytes":4299856,"heap_delta_bytes":4621800}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"response_batch_rebuild_5","sample":1,"ns":4544166,"allocated_bytes":4266480,"heap_delta_bytes":4194304}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"penicillin","phase":"response_batch_rebuild_5","sample":2,"ns":7228750,"allocated_bytes":4255720,"heap_delta_bytes":4194304}
+BENCH_FIT {"platform":"jvm","workload":"station_boundary","objective":999.7488662952172,"evaluations":428,"n":54,"theta_count":6}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"first_fit","sample":0,"ns":16337417,"allocated_bytes":2256328,"heap_delta_bytes":2097184}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"compile","sample":0,"ns":394708,"allocated_bytes":75256,"heap_delta_bytes":427616}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"compile","sample":1,"ns":218000,"allocated_bytes":75256,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"compile","sample":2,"ns":196625,"allocated_bytes":75256,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"compile","sample":3,"ns":199584,"allocated_bytes":75256,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"compile","sample":4,"ns":192125,"allocated_bytes":75256,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"compile","sample":5,"ns":188958,"allocated_bytes":75256,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"compile","sample":6,"ns":195000,"allocated_bytes":75256,"heap_delta_bytes":193344}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"workspace","sample":0,"ns":157333,"allocated_bytes":7496,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"workspace","sample":1,"ns":89167,"allocated_bytes":7496,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"workspace","sample":2,"ns":85541,"allocated_bytes":7496,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"workspace","sample":3,"ns":85542,"allocated_bytes":7496,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"workspace","sample":4,"ns":87500,"allocated_bytes":7496,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"workspace","sample":5,"ns":84750,"allocated_bytes":7496,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"workspace","sample":6,"ns":83875,"allocated_bytes":7496,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":0,"ns":100250,"allocated_bytes":3392,"heap_delta_bytes":427616}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":1,"ns":32458,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":2,"ns":28375,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":3,"ns":18292,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":4,"ns":14959,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":5,"ns":14291,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":6,"ns":14209,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":7,"ns":7875,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":8,"ns":20375,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":9,"ns":22041,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":10,"ns":16459,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":11,"ns":17125,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":12,"ns":14666,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":13,"ns":14125,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":14,"ns":14125,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":15,"ns":11500,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":16,"ns":14083,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":17,"ns":14042,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":18,"ns":15459,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"objective","sample":19,"ns":14000,"allocated_bytes":3392,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"warm_fit","sample":0,"ns":7403375,"allocated_bytes":2068136,"heap_delta_bytes":2097088}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"warm_fit","sample":1,"ns":7687709,"allocated_bytes":2067736,"heap_delta_bytes":2097088}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"warm_fit","sample":2,"ns":8338750,"allocated_bytes":2067368,"heap_delta_bytes":2097168}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"warm_fit","sample":3,"ns":4733375,"allocated_bytes":2067368,"heap_delta_bytes":1669648}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"warm_fit","sample":4,"ns":1681041,"allocated_bytes":2067480,"heap_delta_bytes":2097152}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"warm_fit","sample":5,"ns":1451833,"allocated_bytes":2067368,"heap_delta_bytes":2097152}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"warm_fit","sample":6,"ns":1417750,"allocated_bytes":2067368,"heap_delta_bytes":2097152}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":0,"ns":7208,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":1,"ns":3000,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":2,"ns":2583,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":3,"ns":2625,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":4,"ns":2291,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":5,"ns":2209,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":6,"ns":2167,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":7,"ns":2125,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":8,"ns":2166,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":9,"ns":2125,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":10,"ns":2042,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":11,"ns":2125,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":12,"ns":2125,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":13,"ns":2083,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":14,"ns":2209,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":15,"ns":2375,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":16,"ns":2083,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":17,"ns":2125,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":18,"ns":2209,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"inspection","sample":19,"ns":2167,"allocated_bytes":920,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"response_batch_rebuild_5","sample":0,"ns":8902791,"allocated_bytes":10373120,"heap_delta_bytes":10485760}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"response_batch_rebuild_5","sample":1,"ns":10355625,"allocated_bytes":10380072,"heap_delta_bytes":10485760}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"station_boundary","phase":"response_batch_rebuild_5","sample":2,"ns":8920042,"allocated_bytes":10370256,"heap_delta_bytes":10292232}
+BENCH_FIT {"platform":"jvm","workload":"nested1200","objective":-490.18412392904827,"evaluations":123,"n":1200,"theta_count":2}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"first_fit","sample":0,"ns":9131708,"allocated_bytes":3619376,"heap_delta_bytes":3766752}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"compile","sample":0,"ns":759750,"allocated_bytes":1061920,"heap_delta_bytes":1062960}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"compile","sample":1,"ns":1267584,"allocated_bytes":1061920,"heap_delta_bytes":1034176}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"compile","sample":2,"ns":846041,"allocated_bytes":1061920,"heap_delta_bytes":1048584}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"compile","sample":3,"ns":935416,"allocated_bytes":980240,"heap_delta_bytes":1061560}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"compile","sample":4,"ns":755958,"allocated_bytes":1061920,"heap_delta_bytes":1049984}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"compile","sample":5,"ns":681542,"allocated_bytes":1061920,"heap_delta_bytes":1034176}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"compile","sample":6,"ns":687375,"allocated_bytes":1061920,"heap_delta_bytes":1048584}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"workspace","sample":0,"ns":504708,"allocated_bytes":144576,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"workspace","sample":1,"ns":488667,"allocated_bytes":144808,"heap_delta_bytes":180608}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"workspace","sample":2,"ns":468500,"allocated_bytes":144576,"heap_delta_bytes":427488}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"workspace","sample":3,"ns":475792,"allocated_bytes":144576,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"workspace","sample":4,"ns":468250,"allocated_bytes":144576,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"workspace","sample":5,"ns":467292,"allocated_bytes":144576,"heap_delta_bytes":430368}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"workspace","sample":6,"ns":462167,"allocated_bytes":144576,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":0,"ns":23291,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":1,"ns":13541,"allocated_bytes":15624,"heap_delta_bytes":190720}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":2,"ns":11708,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":3,"ns":11375,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":4,"ns":10958,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":5,"ns":11125,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":6,"ns":11083,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":7,"ns":10958,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":8,"ns":11667,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":9,"ns":11125,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":10,"ns":11167,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":11,"ns":10916,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":12,"ns":13000,"allocated_bytes":15624,"heap_delta_bytes":427496}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":13,"ns":11458,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":14,"ns":11209,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":15,"ns":10917,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":16,"ns":11000,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":17,"ns":10875,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":18,"ns":10958,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"objective","sample":19,"ns":10916,"allocated_bytes":15624,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"warm_fit","sample":0,"ns":3280083,"allocated_bytes":3619064,"heap_delta_bytes":3573224}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"warm_fit","sample":1,"ns":3175792,"allocated_bytes":3618272,"heap_delta_bytes":3766808}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"warm_fit","sample":2,"ns":3312959,"allocated_bytes":3618272,"heap_delta_bytes":3573216}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"warm_fit","sample":3,"ns":4395083,"allocated_bytes":3618560,"heap_delta_bytes":3339320}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"warm_fit","sample":4,"ns":3089417,"allocated_bytes":3618272,"heap_delta_bytes":4000720}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"warm_fit","sample":5,"ns":3325125,"allocated_bytes":3618272,"heap_delta_bytes":3339312}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"warm_fit","sample":6,"ns":5658000,"allocated_bytes":3618272,"heap_delta_bytes":3573224}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":0,"ns":17666,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":1,"ns":3875,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":2,"ns":3458,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":3,"ns":6042,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":4,"ns":3500,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":5,"ns":3333,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":6,"ns":3250,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":7,"ns":21042,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":8,"ns":3750,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":9,"ns":2542,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":10,"ns":2250,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":11,"ns":2167,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":12,"ns":2083,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":13,"ns":1959,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":14,"ns":2000,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":15,"ns":2042,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":16,"ns":2042,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":17,"ns":2041,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":18,"ns":2000,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"inspection","sample":19,"ns":2042,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"response_batch_rebuild_5","sample":0,"ns":15009459,"allocated_bytes":18091344,"heap_delta_bytes":18019152}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"response_batch_rebuild_5","sample":1,"ns":20307750,"allocated_bytes":18091344,"heap_delta_bytes":18253280}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"nested1200","phase":"response_batch_rebuild_5","sample":2,"ns":16426208,"allocated_bytes":18091344,"heap_delta_bytes":18253296}
+BENCH_FIT {"platform":"jvm","workload":"crossed1200","objective":-429.07117047828183,"evaluations":144,"n":1200,"theta_count":2}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"first_fit","sample":0,"ns":5546375,"allocated_bytes":3757584,"heap_delta_bytes":3766928}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"compile","sample":0,"ns":804041,"allocated_bytes":1062080,"heap_delta_bytes":1048576}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"compile","sample":1,"ns":1612291,"allocated_bytes":1062080,"heap_delta_bytes":1048576}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"compile","sample":2,"ns":1805708,"allocated_bytes":1062080,"heap_delta_bytes":1476072}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"compile","sample":3,"ns":1003666,"allocated_bytes":1062080,"heap_delta_bytes":1053368}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"compile","sample":4,"ns":748083,"allocated_bytes":1062080,"heap_delta_bytes":1053376}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"compile","sample":5,"ns":691917,"allocated_bytes":1062080,"heap_delta_bytes":1043776}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"compile","sample":6,"ns":756791,"allocated_bytes":1062080,"heap_delta_bytes":1053376}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"workspace","sample":0,"ns":223292,"allocated_bytes":128632,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"workspace","sample":1,"ns":270084,"allocated_bytes":128632,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"workspace","sample":2,"ns":198458,"allocated_bytes":128632,"heap_delta_bytes":427496}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"workspace","sample":3,"ns":197625,"allocated_bytes":128632,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"workspace","sample":4,"ns":195250,"allocated_bytes":128632,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"workspace","sample":5,"ns":317792,"allocated_bytes":128632,"heap_delta_bytes":193592}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"workspace","sample":6,"ns":196709,"allocated_bytes":128632,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":0,"ns":22833,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":1,"ns":17000,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":2,"ns":16708,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":3,"ns":16542,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":4,"ns":16500,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":5,"ns":16333,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":6,"ns":16292,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":7,"ns":16500,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":8,"ns":16458,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":9,"ns":16417,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":10,"ns":16792,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":11,"ns":16333,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":12,"ns":16458,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":13,"ns":16292,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":14,"ns":16292,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":15,"ns":16333,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":16,"ns":16292,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":17,"ns":16417,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":18,"ns":16417,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"objective","sample":19,"ns":16167,"allocated_bytes":14320,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"warm_fit","sample":0,"ns":3587417,"allocated_bytes":3757584,"heap_delta_bytes":3745680}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"warm_fit","sample":1,"ns":3398917,"allocated_bytes":3757584,"heap_delta_bytes":4000712}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"warm_fit","sample":2,"ns":3340250,"allocated_bytes":3757584,"heap_delta_bytes":3766808}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"warm_fit","sample":3,"ns":3319000,"allocated_bytes":3757584,"heap_delta_bytes":3573232}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"warm_fit","sample":4,"ns":3419750,"allocated_bytes":3757584,"heap_delta_bytes":3766808}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"warm_fit","sample":5,"ns":3357375,"allocated_bytes":3757584,"heap_delta_bytes":3766808}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"warm_fit","sample":6,"ns":3694542,"allocated_bytes":3757584,"heap_delta_bytes":4000720}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":0,"ns":11709,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":1,"ns":3208,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":2,"ns":2417,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":3,"ns":2333,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":4,"ns":2084,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":5,"ns":2584,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":6,"ns":2084,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":7,"ns":2125,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":8,"ns":2000,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":9,"ns":2000,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":10,"ns":2084,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":11,"ns":1917,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":12,"ns":2000,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":13,"ns":2042,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":14,"ns":2000,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":15,"ns":2125,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":16,"ns":2000,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":17,"ns":2083,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":18,"ns":2000,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"inspection","sample":19,"ns":1916,"allocated_bytes":888,"heap_delta_bytes":0}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"response_batch_rebuild_5","sample":0,"ns":17557000,"allocated_bytes":17998176,"heap_delta_bytes":18446872}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"response_batch_rebuild_5","sample":1,"ns":17464000,"allocated_bytes":17328792,"heap_delta_bytes":17204704}
+BENCH {"platform":"jvm","runtime":"OpenJDK 64-Bit Server VM 25.0.1","workload":"crossed1200","phase":"response_batch_rebuild_5","sample":2,"ns":24644750,"allocated_bytes":17325784,"heap_delta_bytes":17398304}
+mixeff4s.benchmark.EngineBenchmarkSuite:
+  + matched engine measurements 0.912s
+[info] Passed: Total 1, Failed 0, Errors 0, Passed 1
+[success] Total time: 2 s, completed Oct 26, 2026, 5:43:35 p.m.
+mixeff4s.benchmark.EngineBenchmarkSuite:
+BENCH_FIT {"platform":"js","workload":"sleepstudy","objective":1751.9393444749871,"evaluations":206,"n":180,"theta_count":3}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"first_fit","sample":0,"ns":26940166,"allocated_bytes":null,"heap_delta_bytes":3822160}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"compile","sample":0,"ns":1060375,"allocated_bytes":null,"heap_delta_bytes":692536}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"compile","sample":1,"ns":780208,"allocated_bytes":null,"heap_delta_bytes":-665856}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"compile","sample":2,"ns":637833,"allocated_bytes":null,"heap_delta_bytes":104792}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"compile","sample":3,"ns":618334,"allocated_bytes":null,"heap_delta_bytes":127616}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"compile","sample":4,"ns":632000,"allocated_bytes":null,"heap_delta_bytes":543568}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"compile","sample":5,"ns":647084,"allocated_bytes":null,"heap_delta_bytes":-179992}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"compile","sample":6,"ns":648042,"allocated_bytes":null,"heap_delta_bytes":108912}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"workspace","sample":0,"ns":121416,"allocated_bytes":null,"heap_delta_bytes":32176}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"workspace","sample":1,"ns":106208,"allocated_bytes":null,"heap_delta_bytes":-205752}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"workspace","sample":2,"ns":88750,"allocated_bytes":null,"heap_delta_bytes":30304}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"workspace","sample":3,"ns":125583,"allocated_bytes":null,"heap_delta_bytes":30376}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"workspace","sample":4,"ns":100791,"allocated_bytes":null,"heap_delta_bytes":31216}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"workspace","sample":5,"ns":104917,"allocated_bytes":null,"heap_delta_bytes":-188448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"workspace","sample":6,"ns":86375,"allocated_bytes":null,"heap_delta_bytes":30184}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":0,"ns":24250,"allocated_bytes":null,"heap_delta_bytes":254824}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":1,"ns":17917,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":2,"ns":16375,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":3,"ns":15583,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":4,"ns":15542,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":5,"ns":15833,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":6,"ns":16125,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":7,"ns":15625,"allocated_bytes":null,"heap_delta_bytes":89736}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":8,"ns":15541,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":9,"ns":15500,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":10,"ns":15542,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":11,"ns":15375,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":12,"ns":15333,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":13,"ns":15500,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":14,"ns":15416,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":15,"ns":15958,"allocated_bytes":null,"heap_delta_bytes":25160}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":16,"ns":15416,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":17,"ns":15458,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":18,"ns":15458,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"objective","sample":19,"ns":15291,"allocated_bytes":null,"heap_delta_bytes":25152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"warm_fit","sample":0,"ns":5852249,"allocated_bytes":null,"heap_delta_bytes":-2116624}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"warm_fit","sample":1,"ns":4332458,"allocated_bytes":null,"heap_delta_bytes":244296}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"warm_fit","sample":2,"ns":4508083,"allocated_bytes":null,"heap_delta_bytes":2985448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"warm_fit","sample":3,"ns":6298917,"allocated_bytes":null,"heap_delta_bytes":-1738296}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"warm_fit","sample":4,"ns":2786708,"allocated_bytes":null,"heap_delta_bytes":-1860448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"warm_fit","sample":5,"ns":2763208,"allocated_bytes":null,"heap_delta_bytes":2416176}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"warm_fit","sample":6,"ns":2914375,"allocated_bytes":null,"heap_delta_bytes":-1681176}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":0,"ns":114500,"allocated_bytes":null,"heap_delta_bytes":5984}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":1,"ns":8792,"allocated_bytes":null,"heap_delta_bytes":2704}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":2,"ns":5875,"allocated_bytes":null,"heap_delta_bytes":2704}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":3,"ns":5125,"allocated_bytes":null,"heap_delta_bytes":2704}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":4,"ns":10083,"allocated_bytes":null,"heap_delta_bytes":3976}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":5,"ns":9875,"allocated_bytes":null,"heap_delta_bytes":3088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":6,"ns":5625,"allocated_bytes":null,"heap_delta_bytes":2704}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":7,"ns":3833,"allocated_bytes":null,"heap_delta_bytes":2608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":8,"ns":9666,"allocated_bytes":null,"heap_delta_bytes":3360}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":9,"ns":10292,"allocated_bytes":null,"heap_delta_bytes":2832}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":10,"ns":4083,"allocated_bytes":null,"heap_delta_bytes":2608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":11,"ns":3625,"allocated_bytes":null,"heap_delta_bytes":2608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":12,"ns":3417,"allocated_bytes":null,"heap_delta_bytes":2608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":13,"ns":3500,"allocated_bytes":null,"heap_delta_bytes":2608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":14,"ns":4000,"allocated_bytes":null,"heap_delta_bytes":2608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":15,"ns":13292,"allocated_bytes":null,"heap_delta_bytes":2608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":16,"ns":3500,"allocated_bytes":null,"heap_delta_bytes":2608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":17,"ns":3000,"allocated_bytes":null,"heap_delta_bytes":2608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":18,"ns":2792,"allocated_bytes":null,"heap_delta_bytes":2608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"inspection","sample":19,"ns":2708,"allocated_bytes":null,"heap_delta_bytes":2608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"response_batch_rebuild_5","sample":0,"ns":12291666,"allocated_bytes":null,"heap_delta_bytes":-225168}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"response_batch_rebuild_5","sample":1,"ns":10391125,"allocated_bytes":null,"heap_delta_bytes":3998912}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"sleepstudy","phase":"response_batch_rebuild_5","sample":2,"ns":11325416,"allocated_bytes":null,"heap_delta_bytes":-702720}
+BENCH_FIT {"platform":"js","workload":"pastes","objective":247.9944658625397,"evaluations":192,"n":60,"theta_count":2}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"first_fit","sample":0,"ns":13281167,"allocated_bytes":null,"heap_delta_bytes":4477760}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"compile","sample":0,"ns":432500,"allocated_bytes":null,"heap_delta_bytes":531792}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"compile","sample":1,"ns":294292,"allocated_bytes":null,"heap_delta_bytes":-462768}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"compile","sample":2,"ns":272542,"allocated_bytes":null,"heap_delta_bytes":597200}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"compile","sample":3,"ns":256875,"allocated_bytes":null,"heap_delta_bytes":116128}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"compile","sample":4,"ns":253541,"allocated_bytes":null,"heap_delta_bytes":117640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"compile","sample":5,"ns":340750,"allocated_bytes":null,"heap_delta_bytes":-260344}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"compile","sample":6,"ns":499958,"allocated_bytes":null,"heap_delta_bytes":-342096}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"workspace","sample":0,"ns":92333,"allocated_bytes":null,"heap_delta_bytes":15128}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"workspace","sample":1,"ns":68292,"allocated_bytes":null,"heap_delta_bytes":9744}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"workspace","sample":2,"ns":112375,"allocated_bytes":null,"heap_delta_bytes":9744}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"workspace","sample":3,"ns":69375,"allocated_bytes":null,"heap_delta_bytes":9744}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"workspace","sample":4,"ns":65750,"allocated_bytes":null,"heap_delta_bytes":9744}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"workspace","sample":5,"ns":63125,"allocated_bytes":null,"heap_delta_bytes":9744}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"workspace","sample":6,"ns":62541,"allocated_bytes":null,"heap_delta_bytes":9744}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":0,"ns":45709,"allocated_bytes":null,"heap_delta_bytes":17832}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":1,"ns":23459,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":2,"ns":22084,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":3,"ns":20542,"allocated_bytes":null,"heap_delta_bytes":17720}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":4,"ns":19542,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":5,"ns":19459,"allocated_bytes":null,"heap_delta_bytes":212720}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":6,"ns":36417,"allocated_bytes":null,"heap_delta_bytes":-413584}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":7,"ns":19500,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":8,"ns":19167,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":9,"ns":19333,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":10,"ns":19292,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":11,"ns":19083,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":12,"ns":19125,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":13,"ns":19208,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":14,"ns":20292,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":15,"ns":19250,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":16,"ns":19500,"allocated_bytes":null,"heap_delta_bytes":17656}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":17,"ns":19083,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":18,"ns":19958,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"objective","sample":19,"ns":19167,"allocated_bytes":null,"heap_delta_bytes":17640}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"warm_fit","sample":0,"ns":3914042,"allocated_bytes":null,"heap_delta_bytes":3459416}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"warm_fit","sample":1,"ns":4075541,"allocated_bytes":null,"heap_delta_bytes":3282112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"warm_fit","sample":2,"ns":3442458,"allocated_bytes":null,"heap_delta_bytes":-4748040}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"warm_fit","sample":3,"ns":3214542,"allocated_bytes":null,"heap_delta_bytes":3303848}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"warm_fit","sample":4,"ns":3460292,"allocated_bytes":null,"heap_delta_bytes":-4986192}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"warm_fit","sample":5,"ns":3690500,"allocated_bytes":null,"heap_delta_bytes":3310064}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"warm_fit","sample":6,"ns":3309292,"allocated_bytes":null,"heap_delta_bytes":3276920}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":0,"ns":11083,"allocated_bytes":null,"heap_delta_bytes":2608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":1,"ns":3250,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":2,"ns":2125,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":3,"ns":1750,"allocated_bytes":null,"heap_delta_bytes":106800}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":4,"ns":1875,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":5,"ns":1708,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":6,"ns":1667,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":7,"ns":1583,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":8,"ns":1625,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":9,"ns":1625,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":10,"ns":1583,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":11,"ns":1666,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":12,"ns":1625,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":13,"ns":1625,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":14,"ns":1625,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":15,"ns":1625,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":16,"ns":1666,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":17,"ns":1667,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":18,"ns":1709,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"inspection","sample":19,"ns":1708,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"response_batch_rebuild_5","sample":0,"ns":16014709,"allocated_bytes":null,"heap_delta_bytes":-1159736}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"response_batch_rebuild_5","sample":1,"ns":15784375,"allocated_bytes":null,"heap_delta_bytes":-2125968}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"pastes","phase":"response_batch_rebuild_5","sample":2,"ns":15817500,"allocated_bytes":null,"heap_delta_bytes":-2308296}
+BENCH_FIT {"platform":"js","workload":"penicillin","objective":332.18834866846316,"evaluations":112,"n":144,"theta_count":2}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"first_fit","sample":0,"ns":4502834,"allocated_bytes":null,"heap_delta_bytes":2909512}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"compile","sample":0,"ns":365750,"allocated_bytes":null,"heap_delta_bytes":118392}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"compile","sample":1,"ns":325334,"allocated_bytes":null,"heap_delta_bytes":111352}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"compile","sample":2,"ns":305583,"allocated_bytes":null,"heap_delta_bytes":111816}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"compile","sample":3,"ns":330042,"allocated_bytes":null,"heap_delta_bytes":110824}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"compile","sample":4,"ns":430917,"allocated_bytes":null,"heap_delta_bytes":111688}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"compile","sample":5,"ns":278333,"allocated_bytes":null,"heap_delta_bytes":111944}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"compile","sample":6,"ns":260417,"allocated_bytes":null,"heap_delta_bytes":109592}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"workspace","sample":0,"ns":71208,"allocated_bytes":null,"heap_delta_bytes":6648}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"workspace","sample":1,"ns":57500,"allocated_bytes":null,"heap_delta_bytes":6656}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"workspace","sample":2,"ns":67708,"allocated_bytes":null,"heap_delta_bytes":8144}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"workspace","sample":3,"ns":54042,"allocated_bytes":null,"heap_delta_bytes":6648}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"workspace","sample":4,"ns":53500,"allocated_bytes":null,"heap_delta_bytes":6648}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"workspace","sample":5,"ns":54042,"allocated_bytes":null,"heap_delta_bytes":6648}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"workspace","sample":6,"ns":53209,"allocated_bytes":null,"heap_delta_bytes":6648}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":0,"ns":20875,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":1,"ns":13958,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":2,"ns":12750,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":3,"ns":12709,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":4,"ns":12417,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":5,"ns":12167,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":6,"ns":12250,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":7,"ns":12416,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":8,"ns":12041,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":9,"ns":12625,"allocated_bytes":null,"heap_delta_bytes":19056}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":10,"ns":43875,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":11,"ns":15791,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":12,"ns":13542,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":13,"ns":12875,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":14,"ns":12708,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":15,"ns":12625,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":16,"ns":12459,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":17,"ns":12500,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":18,"ns":12417,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"objective","sample":19,"ns":12542,"allocated_bytes":null,"heap_delta_bytes":19048}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"warm_fit","sample":0,"ns":2624584,"allocated_bytes":null,"heap_delta_bytes":2533272}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"warm_fit","sample":1,"ns":2220167,"allocated_bytes":null,"heap_delta_bytes":-5749728}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"warm_fit","sample":2,"ns":1971291,"allocated_bytes":null,"heap_delta_bytes":2527736}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"warm_fit","sample":3,"ns":2070083,"allocated_bytes":null,"heap_delta_bytes":2529688}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"warm_fit","sample":4,"ns":2535542,"allocated_bytes":null,"heap_delta_bytes":-5688216}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"warm_fit","sample":5,"ns":1987125,"allocated_bytes":null,"heap_delta_bytes":2534848}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"warm_fit","sample":6,"ns":2261458,"allocated_bytes":null,"heap_delta_bytes":2528112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":0,"ns":8750,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":1,"ns":2791,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":2,"ns":2333,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":3,"ns":1833,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":4,"ns":1750,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":5,"ns":1791,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":6,"ns":1709,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":7,"ns":1625,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":8,"ns":1625,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":9,"ns":1625,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":10,"ns":1666,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":11,"ns":1542,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":12,"ns":1583,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":13,"ns":1542,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":14,"ns":1584,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":15,"ns":1583,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":16,"ns":1667,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":17,"ns":1708,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":18,"ns":1667,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"inspection","sample":19,"ns":1709,"allocated_bytes":null,"heap_delta_bytes":2384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"response_batch_rebuild_5","sample":0,"ns":10057292,"allocated_bytes":null,"heap_delta_bytes":746400}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"response_batch_rebuild_5","sample":1,"ns":9491166,"allocated_bytes":null,"heap_delta_bytes":25672}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","phase":"response_batch_rebuild_5","sample":2,"ns":10315500,"allocated_bytes":null,"heap_delta_bytes":-65200}
+BENCH_FIT {"platform":"js","workload":"station_boundary","objective":999.7488662952172,"evaluations":428,"n":54,"theta_count":6}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"first_fit","sample":0,"ns":8435375,"allocated_bytes":null,"heap_delta_bytes":-754296}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"compile","sample":0,"ns":312417,"allocated_bytes":null,"heap_delta_bytes":98408}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"compile","sample":1,"ns":277209,"allocated_bytes":null,"heap_delta_bytes":98384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"compile","sample":2,"ns":282917,"allocated_bytes":null,"heap_delta_bytes":105032}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"compile","sample":3,"ns":241750,"allocated_bytes":null,"heap_delta_bytes":98408}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"compile","sample":4,"ns":217126,"allocated_bytes":null,"heap_delta_bytes":98384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"compile","sample":5,"ns":416124,"allocated_bytes":null,"heap_delta_bytes":-8160032}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"compile","sample":6,"ns":213792,"allocated_bytes":null,"heap_delta_bytes":98384}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"workspace","sample":0,"ns":87042,"allocated_bytes":null,"heap_delta_bytes":14832}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"workspace","sample":1,"ns":65792,"allocated_bytes":null,"heap_delta_bytes":191760}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"workspace","sample":2,"ns":100125,"allocated_bytes":null,"heap_delta_bytes":-158208}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"workspace","sample":3,"ns":64000,"allocated_bytes":null,"heap_delta_bytes":14760}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"workspace","sample":4,"ns":66251,"allocated_bytes":null,"heap_delta_bytes":14904}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"workspace","sample":5,"ns":67709,"allocated_bytes":null,"heap_delta_bytes":-71392}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"workspace","sample":6,"ns":58709,"allocated_bytes":null,"heap_delta_bytes":14760}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":0,"ns":19918,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":1,"ns":9541,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":2,"ns":7375,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":3,"ns":6750,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":4,"ns":7001,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":5,"ns":6457,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":6,"ns":6376,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":7,"ns":6250,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":8,"ns":5958,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":9,"ns":6167,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":10,"ns":6166,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":11,"ns":6167,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":12,"ns":6125,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":13,"ns":6125,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":14,"ns":6084,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":15,"ns":6167,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":16,"ns":6042,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":17,"ns":5959,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":18,"ns":6001,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"objective","sample":19,"ns":6001,"allocated_bytes":null,"heap_delta_bytes":11088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"warm_fit","sample":0,"ns":3895667,"allocated_bytes":null,"heap_delta_bytes":5958688}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"warm_fit","sample":1,"ns":4891958,"allocated_bytes":null,"heap_delta_bytes":-2176576}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"warm_fit","sample":2,"ns":3949792,"allocated_bytes":null,"heap_delta_bytes":-2532592}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"warm_fit","sample":3,"ns":3552875,"allocated_bytes":null,"heap_delta_bytes":5727552}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"warm_fit","sample":4,"ns":3746000,"allocated_bytes":null,"heap_delta_bytes":-2496104}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"warm_fit","sample":5,"ns":3705000,"allocated_bytes":null,"heap_delta_bytes":-2569088}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"warm_fit","sample":6,"ns":3506750,"allocated_bytes":null,"heap_delta_bytes":5718496}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":0,"ns":7084,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":1,"ns":2709,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":2,"ns":2000,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":3,"ns":1958,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":4,"ns":1875,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":5,"ns":1750,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":6,"ns":1750,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":7,"ns":1791,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":8,"ns":2291,"allocated_bytes":null,"heap_delta_bytes":2880}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":9,"ns":8417,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":10,"ns":3000,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":11,"ns":2250,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":12,"ns":7167,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":13,"ns":3334,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":14,"ns":2292,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":15,"ns":2167,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":16,"ns":1792,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":17,"ns":1792,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":18,"ns":2125,"allocated_bytes":null,"heap_delta_bytes":2560}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"inspection","sample":19,"ns":2834,"allocated_bytes":null,"heap_delta_bytes":311648}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"response_batch_rebuild_5","sample":0,"ns":17272625,"allocated_bytes":null,"heap_delta_bytes":-4913736}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"response_batch_rebuild_5","sample":1,"ns":16800208,"allocated_bytes":null,"heap_delta_bytes":3458760}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"station_boundary","phase":"response_batch_rebuild_5","sample":2,"ns":16360333,"allocated_bytes":null,"heap_delta_bytes":-4822040}
+BENCH_FIT {"platform":"js","workload":"nested1200","objective":-490.1841239307099,"evaluations":129,"n":1200,"theta_count":2}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"first_fit","sample":0,"ns":10994166,"allocated_bytes":null,"heap_delta_bytes":3671352}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"compile","sample":0,"ns":1408375,"allocated_bytes":null,"heap_delta_bytes":497120}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"compile","sample":1,"ns":1859000,"allocated_bytes":null,"heap_delta_bytes":-7560416}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"compile","sample":2,"ns":1422625,"allocated_bytes":null,"heap_delta_bytes":505944}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"compile","sample":3,"ns":1376041,"allocated_bytes":null,"heap_delta_bytes":509160}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"compile","sample":4,"ns":1356375,"allocated_bytes":null,"heap_delta_bytes":503608}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"compile","sample":5,"ns":1374459,"allocated_bytes":null,"heap_delta_bytes":513736}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"compile","sample":6,"ns":1336458,"allocated_bytes":null,"heap_delta_bytes":499736}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"workspace","sample":0,"ns":462292,"allocated_bytes":null,"heap_delta_bytes":25200}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"workspace","sample":1,"ns":443375,"allocated_bytes":null,"heap_delta_bytes":25200}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"workspace","sample":2,"ns":441667,"allocated_bytes":null,"heap_delta_bytes":25208}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"workspace","sample":3,"ns":483125,"allocated_bytes":null,"heap_delta_bytes":54792}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"workspace","sample":4,"ns":431959,"allocated_bytes":null,"heap_delta_bytes":25200}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"workspace","sample":5,"ns":431292,"allocated_bytes":null,"heap_delta_bytes":25200}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"workspace","sample":6,"ns":432083,"allocated_bytes":null,"heap_delta_bytes":25200}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":0,"ns":59500,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":1,"ns":39750,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":2,"ns":38000,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":3,"ns":37417,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":4,"ns":36916,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":5,"ns":37292,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":6,"ns":37541,"allocated_bytes":null,"heap_delta_bytes":16160}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":7,"ns":37125,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":8,"ns":37292,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":9,"ns":36958,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":10,"ns":37167,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":11,"ns":36916,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":12,"ns":37042,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":13,"ns":37167,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":14,"ns":37167,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":15,"ns":37000,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":16,"ns":36833,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":17,"ns":36958,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":18,"ns":36959,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"objective","sample":19,"ns":36958,"allocated_bytes":null,"heap_delta_bytes":16152}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"warm_fit","sample":0,"ns":8770834,"allocated_bytes":null,"heap_delta_bytes":3283200}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"warm_fit","sample":1,"ns":7078167,"allocated_bytes":null,"heap_delta_bytes":-4937712}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"warm_fit","sample":2,"ns":7126375,"allocated_bytes":null,"heap_delta_bytes":3266976}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"warm_fit","sample":3,"ns":7625333,"allocated_bytes":null,"heap_delta_bytes":-4859512}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"warm_fit","sample":4,"ns":7432916,"allocated_bytes":null,"heap_delta_bytes":3303672}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"warm_fit","sample":5,"ns":6960500,"allocated_bytes":null,"heap_delta_bytes":3256736}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"warm_fit","sample":6,"ns":7721417,"allocated_bytes":null,"heap_delta_bytes":-4696552}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":0,"ns":12334,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":1,"ns":2834,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":2,"ns":2209,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":3,"ns":2083,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":4,"ns":2125,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":5,"ns":2000,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":6,"ns":1917,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":7,"ns":1875,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":8,"ns":1917,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":9,"ns":1834,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":10,"ns":1958,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":11,"ns":1917,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":12,"ns":1916,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":13,"ns":2041,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":14,"ns":1875,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":15,"ns":1959,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":16,"ns":1959,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":17,"ns":1917,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":18,"ns":1875,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"inspection","sample":19,"ns":1917,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"response_batch_rebuild_5","sample":0,"ns":34845667,"allocated_bytes":null,"heap_delta_bytes":578464}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"response_batch_rebuild_5","sample":1,"ns":34427584,"allocated_bytes":null,"heap_delta_bytes":610808}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"nested1200","phase":"response_batch_rebuild_5","sample":2,"ns":34398709,"allocated_bytes":null,"heap_delta_bytes":641024}
+BENCH_FIT {"platform":"js","workload":"crossed1200","objective":-429.07117047679753,"evaluations":144,"n":1200,"theta_count":2}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"first_fit","sample":0,"ns":9605541,"allocated_bytes":null,"heap_delta_bytes":3375280}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"compile","sample":0,"ns":1553916,"allocated_bytes":null,"heap_delta_bytes":-7452544}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"compile","sample":1,"ns":1213250,"allocated_bytes":null,"heap_delta_bytes":508544}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"compile","sample":2,"ns":1226541,"allocated_bytes":null,"heap_delta_bytes":496616}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"compile","sample":3,"ns":1180459,"allocated_bytes":null,"heap_delta_bytes":536480}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"compile","sample":4,"ns":1142959,"allocated_bytes":null,"heap_delta_bytes":496744}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"compile","sample":5,"ns":1182500,"allocated_bytes":null,"heap_delta_bytes":501296}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"compile","sample":6,"ns":1243375,"allocated_bytes":null,"heap_delta_bytes":496976}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"workspace","sample":0,"ns":300250,"allocated_bytes":null,"heap_delta_bytes":6312}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"workspace","sample":1,"ns":260875,"allocated_bytes":null,"heap_delta_bytes":6312}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"workspace","sample":2,"ns":258292,"allocated_bytes":null,"heap_delta_bytes":6312}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"workspace","sample":3,"ns":280167,"allocated_bytes":null,"heap_delta_bytes":8768}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"workspace","sample":4,"ns":257500,"allocated_bytes":null,"heap_delta_bytes":6312}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"workspace","sample":5,"ns":255458,"allocated_bytes":null,"heap_delta_bytes":6312}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"workspace","sample":6,"ns":256084,"allocated_bytes":null,"heap_delta_bytes":6312}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":0,"ns":68417,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":1,"ns":54333,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":2,"ns":53208,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":3,"ns":52667,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":4,"ns":52500,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":5,"ns":53459,"allocated_bytes":null,"heap_delta_bytes":15264}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":6,"ns":52334,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":7,"ns":52500,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":8,"ns":52375,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":9,"ns":52291,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":10,"ns":52333,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":11,"ns":54917,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":12,"ns":55125,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":13,"ns":52167,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":14,"ns":52292,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":15,"ns":52209,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":16,"ns":52750,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":17,"ns":52292,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":18,"ns":52166,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"objective","sample":19,"ns":52208,"allocated_bytes":null,"heap_delta_bytes":15112}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"warm_fit","sample":0,"ns":9717292,"allocated_bytes":null,"heap_delta_bytes":3369120}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"warm_fit","sample":1,"ns":9965000,"allocated_bytes":null,"heap_delta_bytes":-4550024}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"warm_fit","sample":2,"ns":9605792,"allocated_bytes":null,"heap_delta_bytes":3354800}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"warm_fit","sample":3,"ns":11912125,"allocated_bytes":null,"heap_delta_bytes":-4772456}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"warm_fit","sample":4,"ns":9670666,"allocated_bytes":null,"heap_delta_bytes":3351992}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"warm_fit","sample":5,"ns":9563125,"allocated_bytes":null,"heap_delta_bytes":3350648}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"warm_fit","sample":6,"ns":10043083,"allocated_bytes":null,"heap_delta_bytes":-4693072}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":0,"ns":7625,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":1,"ns":3083,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":2,"ns":2250,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":3,"ns":2417,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":4,"ns":1875,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":5,"ns":1833,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":6,"ns":1833,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":7,"ns":1750,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":8,"ns":1667,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":9,"ns":1625,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":10,"ns":1708,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":11,"ns":2000,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":12,"ns":1708,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":13,"ns":1833,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":14,"ns":1834,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":15,"ns":1917,"allocated_bytes":null,"heap_delta_bytes":383864}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":16,"ns":1917,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":17,"ns":1833,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":18,"ns":1708,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"inspection","sample":19,"ns":1666,"allocated_bytes":null,"heap_delta_bytes":2448}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"response_batch_rebuild_5","sample":0,"ns":47826708,"allocated_bytes":null,"heap_delta_bytes":148264}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"response_batch_rebuild_5","sample":1,"ns":47686917,"allocated_bytes":null,"heap_delta_bytes":945672}
+BENCH {"platform":"js","runtime":"v26.7.0","workload":"crossed1200","phase":"response_batch_rebuild_5","sample":2,"ns":45869626,"allocated_bytes":null,"heap_delta_bytes":625400}
+  + matched engine measurements 0.897s
+[info] Passed: Total 1, Failed 0, Errors 0, Passed 1
+[success] Total time: 2 s, completed Oct 26, 2026, 5:43:37 p.m.

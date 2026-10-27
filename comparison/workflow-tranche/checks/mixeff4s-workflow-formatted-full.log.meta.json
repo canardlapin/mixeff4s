@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-27T01:52:08.782476+00:00",
+  "finished_utc": "2026-10-27T01:52:31.577519+00:00",
+  "duration_seconds": 22.794723,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/scalafmtOnly /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/prelude.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/design/PredictionDesign.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/design/Design.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/pathology/Pathology.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/Simulation.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/Pls.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/CompiledLmm.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/LmmFitContext.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/LmmAssessment.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/LmmDesignEvidence.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/Prediction.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/Lmm.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/stats/Bootstrap.scala",
+    "mixeff4sJVM/Test/scalafmtOnly /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/benchmark/WorkflowBenchmarkSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/pathology/FitEvidenceSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/examples/LmmWorkflow.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/comparison/WorkflowFrozen.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/comparison/ScorecardSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/comparison/Scorecard.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/comparison/EmbeddedFrozen.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/lmm/DyestuffFitSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/lmm/WorkflowParitySuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/lmm/SimulationSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/lmm/StationFitSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/lmm/LmmAssessmentSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/lmm/GradientFitSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/lmm/WorkflowExampleSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/lmm/PredictionSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/stats/InferenceRefusalSuite.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/stats/BootstrapSuite.scala",
+    "test"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-workflow-formatted-full.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 60283
+}

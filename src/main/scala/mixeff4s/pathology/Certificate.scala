@@ -21,5 +21,6 @@ final case class Certificate(
     weakIdScore: Double = Double.PositiveInfinity,
     weakIdThreshold: Double = 10.0,
     weakIdentification: Boolean = false,
-    crossedSummary: Option[CrossedSummary] = None
+    crossedSummary: Option[CrossedSummary] = None,
+    thetaGeometry: ThetaGeometry = ThetaGeometry.NotAssessed
 )

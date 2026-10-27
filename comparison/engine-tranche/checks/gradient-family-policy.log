@@ -1,0 +1,53 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 3 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+mixeff4s.optimizer.GradientTrustBqSuite:
+  + gradient oracle solves bounded quadratic and records first-order evidence 0.019s
+  + multidimensional box-boundary quadratic respects the active bound 0.002s
+  + zero derivative at a bounded maximum is probed before first-order stop 0.003s
+  + budget includes initial gradient oracle call and seed probes 0.001s
+  + shifted Newton direction minimizes the original quadratic along its feasible ray 0.002s
+  + disabled gradient tolerance cannot report a gradient stop 0.001s
+  + first-order stop validates a scalar feasible escape at a zero-gradient maximum 0.001s
+  + first-order stop validates a feasible mixed negative-curvature escape 0.002s
+  + returned projected-gradient evidence belongs to returned best point 0.001s
+  + negative curvature hidden from all axial and pair directions is escaped 0.001s
+  + Cauchy fallback projects outward components onto the feasible tangent cone 0.001s
+  + invalid trust-region constants are refused before oracle evaluation 0.001s
+  + invalid gradient values and dimensions are refused 0.001s
+  + a fresh escape probe remains the returned best point when the next probe exhausts budget 0.002s
+  + projected Cauchy ray uses its own directional derivative after blocking a coordinate 0.0s
+GRADIENT_FIT formula=reaction ~ 1 + days + (1 + days | subj) reml=false objective=1751.9393444632335 gradient_evals=12 interpolation_evals=206
+GRADIENT_FIT formula=strength ~ 1 + (1 | batch / cask) reml=false objective=247.9944658622946 gradient_evals=23 interpolation_evals=192
+GRADIENT_FIT formula=diameter ~ 1 + (1 | plate) + (1 | sample) reml=false objective=332.1883486684573 gradient_evals=21 interpolation_evals=112
+GRADIENT_FIT formula=reaction ~ 1 + days + (1 + days | subj) reml=true objective=1743.6282719585156 gradient_evals=20 interpolation_evals=186
+GRADIENT_FIT formula=strength ~ 1 + (1 | batch / cask) reml=true objective=246.99074585380657 gradient_evals=17 interpolation_evals=163
+GRADIENT_FIT formula=diameter ~ 1 + (1 | plate) + (1 | sample) reml=true objective=330.860588991036 gradient_evals=20 interpolation_evals=141
+GRADIENT_PW2 objective=439.73151877015755 evaluations=24
+mixeff4s.lmm.GradientFitSuite:
+  + gradient strategy preserves classic nested/crossed/slope fits: REML=false 0.242s
+  + gradient strategy preserves classic nested/crossed/slope fits: REML=true 0.06s
+  + pw2_nested default-budget REML matches frozen lme4 adoption reference 0.023s
+==> X mixeff4s.lmm.GradientFitSuite.maximal singular REML meets the Rust gradient regression bound within default budget  0.349s munit.FailException: src/test/scala/mixeff4s/lmm/GradientFitSuite.scala:46 Optimizer exhausted its budget after 1000 objective evaluations.
+45:      )
+46:      .fold(e => fail(e.message), identity)
+47:    assertEquals(fit.theta.length, 36)
+    at munit.Assertions.fail(Assertions.scala:274)
+    at munit.Assertions.fail$(Assertions.scala:24)
+    at munit.FunSuite.fail(FunSuite.scala:13)
+    at mixeff4s.lmm.GradientFitSuite.$anonfun$7(GradientFitSuite.scala:46)
+    at scala.util.Either.fold(Either.scala:198)
+    at mixeff4s.lmm.GradientFitSuite.$init$$$anonfun$3(GradientFitSuite.scala:46)
+[error] Failed: Total 19, Failed 1, Errors 0, Passed 18
+[error] Failed tests:
+[error] 	mixeff4s.lmm.GradientFitSuite
+[error] (mixeff4sJVM / Test / testOnly) sbt.TestsFailedException: Tests unsuccessful
+[error] Total time: 6 s, completed Oct 26, 2026, 5:40:04 p.m.

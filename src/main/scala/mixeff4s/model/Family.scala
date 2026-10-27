@@ -6,13 +6,13 @@ enum Family:
 
   def label: String =
     this match
-      case Family.Normal            => "normal"
-      case Family.Bernoulli         => "bernoulli"
-      case Family.Binomial          => "binomial"
-      case Family.Poisson           => "poisson"
-      case Family.NegativeBinomial  => "negative_binomial"
-      case Family.Gamma             => "gamma"
-      case Family.InverseGaussian   => "inverse_gaussian"
+      case Family.Normal           => "normal"
+      case Family.Bernoulli        => "bernoulli"
+      case Family.Binomial         => "binomial"
+      case Family.Poisson          => "poisson"
+      case Family.NegativeBinomial => "negative_binomial"
+      case Family.Gamma            => "gamma"
+      case Family.InverseGaussian  => "inverse_gaussian"
 
   def canonicalLink: Link =
     this match
@@ -77,10 +77,12 @@ enum Link:
     this match
       case Link.Identity => eta
       case Link.Log      => math.exp(eta)
-      case Link.Logit =>
-        val e = math.exp(eta)
-        e / (1.0 + e)
-      case Link.Probit => Dist.cdf(eta)
+      case Link.Logit    =>
+        if eta >= 0.0 then 1.0 / (1.0 + math.exp(-eta))
+        else
+          val e = math.exp(eta)
+          e / (1.0 + e)
+      case Link.Probit  => Dist.cdf(eta)
       case Link.Cloglog =>
         -math.expm1(-math.exp(eta))
       case Link.Inverse => 1.0 / eta
@@ -90,10 +92,10 @@ enum Link:
     this match
       case Link.Identity => 1.0
       case Link.Log      => math.exp(eta)
-      case Link.Logit =>
-        val e = math.exp(eta)
-        e / math.pow(1.0 + e, 2)
-      case Link.Probit => Dist.pdf(eta)
+      case Link.Logit    =>
+        val e = math.exp(-math.abs(eta))
+        e / ((1.0 + e) * (1.0 + e))
+      case Link.Probit  => Dist.pdf(eta)
       case Link.Cloglog =>
         if eta == Double.PositiveInfinity then 0.0
         else math.exp(eta - math.exp(eta))
@@ -120,14 +122,14 @@ private object Dist:
           + 3.754408661907416) * q + 1.0)
     else if p > 1.0 - 0.02425 then
       val q = math.sqrt(-2.0 * math.log(1.0 - p))
-      -((((( -7.784894002430293e-3 * q - 3.223964580411365e-1) * q - 2.400758277161838) * q
+      -(((((-7.784894002430293e-3 * q - 3.223964580411365e-1) * q - 2.400758277161838) * q
         - 2.549732539343734) * q + 4.374664141464968) * q + 2.938163982698783)
         / ((((7.784695709041462e-3 * q + 3.224671290700398e-1) * q + 2.445134137142996) * q
           + 3.754408661907416) * q + 1.0)
     else
       val q = p - 0.5
       val r = q * q
-      (((((( -3.969683028665376e1 * r + 2.209460984213129e2) * r - 2.759285104469687e2) * r
+      ((((((-3.969683028665376e1 * r + 2.209460984213129e2) * r - 2.759285104469687e2) * r
         + 1.383577509590705e2) * r - 3.066479806614716e1) * r + 2.506628277459239) * q)
         / (((((-5.447609879822406e1 * r + 1.615858368580409e2) * r - 1.556989798598866e2) * r
           + 6.680131188771972e1) * r - 1.328068071618342e1) * r + 1.0)

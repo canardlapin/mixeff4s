@@ -17,6 +17,10 @@ object FixtureCatalog:
       |  "penicillin",
       |  "pastes",
       |  "contraception",
+      |  "cbpp",
+      |  "culcitalogreg",
+      |  "synthetic_poisson_offset",
+      |  "synthetic_poisson_crossed",
       |]
       |
       |vendored = [

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-26T21:43:17.640286+00:00",
+  "finished_utc": "2026-10-26T21:43:27.044699+00:00",
+  "duration_seconds": 9.40427,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/testOnly mixeff4s.benchmark.EngineBenchmarkSuite",
+    "mixeff4sJS/testOnly mixeff4s.benchmark.EngineBenchmarkSuite"
+  ],
+  "cwd": "/private/var/folders/9h/nkjq6vss7mqdl4ck7q1hd8ph0000gp/T/mixeff4s-baseline-h22t9gqp",
+  "log": "/Users/bbuchsbaum/code/scala/mixeff4s/comparison/engine-tranche/before/run-2.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 136536
+}

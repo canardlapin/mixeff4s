@@ -19,7 +19,7 @@ class SimpleLmmFitSuite extends munit.FunSuite:
     val frame = Datasets.load(dataset).frame
     val design = Lmm.compile(row.key.formula, frame).getOrElse(fail(s"$dataset compile"))
     val fit = Lmm.fit(row.key.formula, frame, FitOptions.reml).fold(err => fail(err.message), identity)
-    val assessed = Pathology.assessFit(Pathology.certify(design), fit.theta, design.parmap)
+    val assessed = Pathology.assessFit(Pathology.certify(design), fit, design.parmap)
     assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior, clues(dataset))
     ref.objective.foreach: obj =>
       assertEqualsDouble(fit.objective, obj, FitCompare.objectiveTol(row, ref))
@@ -27,9 +27,12 @@ class SimpleLmmFitSuite extends munit.FunSuite:
       assertEqualsDouble(fit.sigma, sigma, FitCompare.sigmaTol(row, ref))
     ref.theta.foreach: theta =>
       assertEquals(fit.theta.length, theta.length, clues(dataset))
-      fit.theta.zip(theta).zipWithIndex.foreach: (pair, i) =>
-        val (got, expected) = pair
-        assertEqualsDouble(got, expected, FitCompare.thetaTol(row, ref), clues(dataset, i))
+      fit.theta
+        .zip(theta)
+        .zipWithIndex
+        .foreach: (pair, i) =>
+          val (got, expected) = pair
+          assertEqualsDouble(got, expected, FitCompare.thetaTol(row, ref), clues(dataset, i))
     ref.beta.foreach: beta =>
       val names = ref.coefNames.getOrElse(fail(s"$dataset missing coef_names"))
       val aligned = FitCompare.alignedBeta(fit.feNames, fit.beta, names, beta)

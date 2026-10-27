@@ -1,0 +1,71 @@
+[
+  {
+    "log": "mixeff4s-glmm-tight-controls.log",
+    "chunk_id": "c93e29",
+    "wall_time_seconds": 0.000005208,
+    "exit_code": 1,
+    "original_token_count": 0,
+    "output": ""
+  },
+  {
+    "log": "mixeff4s-glmm-qualified-tests.log",
+    "chunk_id": "c56283",
+    "wall_time_seconds": 0.000004542,
+    "exit_code": 1,
+    "original_token_count": 0,
+    "output": ""
+  },
+  {
+    "log": "mixeff4s-glmm-both-targeted.log",
+    "chunk_id": "3bed58",
+    "wall_time_seconds": 0.000004583,
+    "exit_code": 0,
+    "original_token_count": 0,
+    "output": ""
+  },
+  {
+    "log": "mixeff4s-glmm-full.log",
+    "chunk_id": "ef7433",
+    "wall_time_seconds": 0.000007875,
+    "exit_code": 0,
+    "original_token_count": 0,
+    "output": ""
+  },
+  {
+    "log": "mixeff4s-glmm-closure.log",
+    "chunk_id": "2bbf94",
+    "wall_time_seconds": 0.000002292,
+    "exit_code": 0,
+    "original_token_count": 0,
+    "output": ""
+  },
+  {
+    "log": "mixeff4s-glmm-preserved-closure.log",
+    "exit_code": 0,
+    "command": "sbt -batch test 'mixeff4sJVM/Test/runMain mixeff4s.examples.GlmmWorkflow'"
+  },
+  {
+    "log": "mixeff4s-glmm-compile.log",
+    "exit_code": 1
+  },
+  {
+    "log": "mixeff4s-glmm-compile-authorized.log",
+    "exit_code": 1
+  },
+  {
+    "log": "mixeff4s-glmm-first-tests.log",
+    "exit_code": 1
+  },
+  {
+    "log": "mixeff4s-glmm-oracle-tests.log",
+    "exit_code": 0
+  },
+  {
+    "log": "mixeff4s-glmm-parity-first.log",
+    "exit_code": 1
+  },
+  {
+    "log": "mixeff4s-glmm-parity-second.log",
+    "exit_code": 1
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-26",
+  "scala_head": "ec1937e2d2611c021519c4049c7eda49249f6311",
+  "rust_head": "696e5e74623301280142e73cbb6bf7f2650647d7",
+  "gale_tested": "f869613cec0a89e57b6c995b0a02cf471ac7127c",
+  "tracked_input_diff_sha256": "41a118dd550d1a3ed1c46c5d82e2f42a60274517d4438b5e065df33555b37f7b",
+  "station_untracked_sha256": "e22db09213c38e46cc70436db82cf37c9676ff7b7df802671ad56f435338aed4",
+  "runtime": {
+    "sbt": "1.12.14",
+    "scala": "3.7.4",
+    "sbt_java": "Homebrew Java 25.0.1",
+    "node": "26.7.0"
+  },
+  "baseline": {
+    "jvm_passed": 163,
+    "js_passed": 159,
+    "exit_code": 0
+  },
+  "observational_probes": {
+    "jvm_passed": 5,
+    "exit_code": 0,
+    "meaning": "Passing confirms observed defects, not scientific correctness."
+  },
+  "initial_probe": {
+    "exit_code": 1,
+    "explanation": "Attempt to expose nonnested FE acceptance was intercepted by a separate incorrect RE-nesting refusal. Revised probes isolate both behaviors."
+  },
+  "source_changes": "None; pre-existing dirty parity inputs preserved.",
+  "files": {
+    "AssessmentProbeSuite.scala": "db7cf36448956727136124723a1195f2cf8e8168d39d40faf1c08279fa002d79",
+    "baseline-authorized.log": "66d376d2f05cd79f5b0bd2c4b80aa5a5958eaaa54031188766d15f19821b1d3b",
+    "baseline-authorized.log.meta.json": "fa06b9f7da1c70c2e2a27aad2d3914f76e6ada5df34f58302ad2149dce776481",
+    "baseline.log": "9dd8ea77df4f8e2a4e1958a2cb2a27b4b541e79495822974c311c629bf334a9b",
+    "baseline.log.meta.json": "5fa789cee2f0dc3d16171005c77c4cde48db908d67192942cf325daa70664884",
+    "probes-v2.log": "374f6e237f365a91450ba480af37dd253311c2429fd28db785e3f82313b4d94d",
+    "probes-v2.log.meta.json": "00837fed9471451cbc0253d794ace2fbe69cd1f27b6623c62ec34acb483673a4",
+    "probes.log": "d1e99d8fe53038902ac7692fe6a9b433d0a003785e65717215f224d4f12ef52b",
+    "probes.log.meta.json": "04137a413a664be5971d252b031c69121c94e73d016f05460bd09d8dbd24ec6a"
+  }
+}

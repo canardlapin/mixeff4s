@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-27T01:35:27.575797+00:00",
+  "finished_utc": "2026-10-27T01:35:35.180171+00:00",
+  "duration_seconds": 7.604204,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/testOnly mixeff4s.lmm.WorkflowParitySuite mixeff4s.lmm.PredictionSuite"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-workflow-parity-first.log",
+  "exit_code": 1,
+  "child_returncode": 1,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 1204
+}

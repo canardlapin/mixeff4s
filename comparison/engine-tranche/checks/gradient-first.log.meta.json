@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-26T21:02:28.457929+00:00",
+  "finished_utc": "2026-10-26T21:02:42.060295+00:00",
+  "duration_seconds": 13.602144,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/testOnly mixeff4s.lmm.ProfiledGradientSuite mixeff4s.lmm.CoefficientLayoutSuite mixeff4s.lmm.TerminationSuite"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-engine-tranche/gradient-first.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 600.0,
+  "log_bytes": 3788
+}

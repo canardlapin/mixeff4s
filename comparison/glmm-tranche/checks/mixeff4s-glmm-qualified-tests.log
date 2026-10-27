@@ -1,0 +1,112 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 4 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+mixeff4s.glmm.PirlsSuite:
+  + Bernoulli logit working observation at eta=0 0.009s
+  + working observation subtracts a supplied offset 0.0s
+  + bounded Bernoulli mean stays off the 0/1 boundary 0.001s
+mixeff4s.glmm.TerminationSuite:
+  + profiled deviance preserves wrong theta dimension as a typed error 0.054s
+  + nonfinite or negative diagonal theta is refused 0.002s
+  + an unfinished PIRLS probe returns a refusal, never a finite penalty 0.003s
+  + a public GLMM refuses unfinished PIRLS 0.001s
+  + a public GLMM refuses an exhausted optimizer budget 0.004s
+  + an accepted GLMM records the final inner and outer termination separately 0.01s
+mixeff4s.glmm.GlmmSuite:
+  + Normal+Identity is refused as a GLMM 0.009s
+  + noncanonical joint curvature is explicitly refused 0.001s
+  + nAGQ > 1 is refused in this slice 0.001s
+  + a small Bernoulli RE intercept is labelled fast-PIRLS 0.063s
+  + a perfectly separated Bernoulli design preserves its factorization failure 0.001s
+mixeff4s.glmm.CoefficientLayoutSuite:
+  + GLMM discloses dropped columns using the same retained coefficient layout 0.083s
+mixeff4s.glmm.JointDenseSuite:
+  + crossed vector terms and reduced-rank covariance match independent dense conditional solve 0.088s
+mixeff4s.glmm.GlmmInputSuite:
+  + binomial counts and ambiguous fractional responses refuse in both estimators 0.126s
+  + invalid trials, cases, offsets, controls and fractional Poisson counts refuse 0.003s
+  + estimated-dispersion families refuse until dispersion is explicitly implemented 0.001s
+  + logit inverse and derivative stay finite at large eta 0.0s
+mixeff4s.glmm.JointLaplaceSuite:
+  + fixed beta modes and final-mean determinant agree with independent scalar oracle 0.077s
+  + cold A B A probes are independent of previous modes and weights 0.002s
+  + binomial trials and case weights affect constants, score and curvature consistently 0.003s
+  + Poisson constants, zero counts, offsets and power weights agree with scalar oracle 0.003s
+  + joint API refuses wrong dimensions and invalid theta 0.002s
+  + conditional and outer exhaustion are typed failures 0.001s
+  + joint fit is separately labelled and records conditional and outer evidence 0.139s
+  + near-integer accepted input is canonicalized once even under large case weights 0.002s
+  + zero theta at extreme finite logit eta retains finite likelihood and identity Hessian 0.001s
+  + stable logistic score retains small residuals under large case weights 0.001s
+  + grouped and expanded binomial have equivalent modes and assessment despite response constants 0.004s
+  + a zero-theta saddle is not accepted on projected gradient alone 0.003s
+GLMM_RESULT name=cbpp joint=true objective=184.05256372951783 beta=Vector(-1.3985321416566538, -0.9923327363072008, -1.128672083749612, -1.5803138869086517) theta=Vector(0.6422614481822472) stop=StepBelowTolerance evals=1732 assessment=Some(JointAssessment(Available(Vector(1.5885443179815505E-8, -2.7569058147491887E-8, 2.2621423298452377E-8, -1.5616845421140513E-8, -8.905468954859922E-9),2.7569058147491887E-8,1.0E-4),Interior))
+GLMM_RESULT name=cbpp joint=false objective=184.1085909452277 beta=Vector(-1.3604726621646581, -0.9761765042324674, -1.1110759551794278, -1.559679412677831) theta=Vector(0.6418204313115554) stop=ObjectiveStagnation evals=54 assessment=None
+mixeff4s.glmm.ContraFitSuite:
+  + contra Laplace deviance at the Julia theta matches MixedModels.jl 0.164s
+  + contra fast-PIRLS fit matches MixedModels.jl 0.421s
+GLMM_RESULT name=culcitalogreg joint=true objective=60.70584123131575 beta=Vector(5.096143470602149, -3.8424041252860315, -4.431210125918024, -5.599290393452696) theta=Vector(3.4368388050854493) stop=RadiusBelowTolerance evals=1020 assessment=Some(JointAssessment(Available(Vector(3.338360010471305E-8, 4.903499023588372E-9, 1.592805947206448E-8, 2.4349747741760118E-8, -1.9871458383331705E-8),3.338360010471305E-8,1.0E-4),Interior))
+GLMM_RESULT name=culcitalogreg joint=false objective=61.12389317059647 beta=Vector(4.111979455646433, -3.1411601787098498, -3.7075233257309543, -4.7781994035865765) theta=Vector(3.3207128031185724) stop=ObjectiveTolerance evals=51 assessment=None
+GLMM_RESULT name=synthetic_poisson_offset joint=true objective=68.33363474264095 beta=Vector(0.32603651640469006, 0.6448436013218164) theta=Vector(0.14306293785292126) stop=StepBelowTolerance evals=682 assessment=Some(JointAssessment(Available(Vector(-2.4087398742267396E-8, -1.4376648020212693E-8, -1.4116115683767325E-7),1.4116115683767325E-7,1.0E-4),Interior))
+GLMM_RESULT name=synthetic_poisson_offset joint=false objective=68.34024108816554 beta=Vector(0.3350952940246258, 0.6448436012728314) theta=Vector(0.12680392533772622) stop=ObjectiveStagnation evals=48 assessment=None
+GLMM_RESULT name=synthetic_poisson_crossed joint=true objective=1293.8553032674101 beta=Vector(1.092755671102216, 0.3852373377894978) theta=Vector(0.5112426748776937, 0.19437741275746748, 0.4116372974667583, 0.3253089781977222) stop=StepBelowTolerance evals=1784 assessment=Some(JointAssessment(Available(Vector(-3.467894386276515E-10, 1.9326762412674725E-8, 2.9645737716540075E-6, 1.2581343374525508E-7, 2.86301352995603E-6, 4.607727532857098E-6),4.607727532857098E-6,1.0E-4),Interior))
+GLMM_RESULT name=synthetic_poisson_crossed joint=false objective=1293.8596731452483 beta=Vector(1.1047570823960495, 0.38272960405257905) theta=Vector(0.5112654058113139, 0.19437838355126133, 0.41162384888201914, 0.3253872735245155) stop=ObjectiveStagnation evals=316 assessment=None
+mixeff4s.glmm.GlmmParitySuite:
+==> X mixeff4s.glmm.GlmmParitySuite.cbpp joint-Laplace against frozen R fit  0.487s java.lang.IllegalArgumentException: expected array, got Str((Intercept))
+    at mixeff4s.comparison.JsonValue.asArray(JsonValue.scala:43)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1$$anonfun$9(GlmmParitySuite.scala:56)
+    at scala.collection.immutable.Vector.foreach(Vector.scala:2125)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:53)
+==> X mixeff4s.glmm.GlmmParitySuite.cbpp fast-PIRLS against frozen R fit  0.015s java.lang.IllegalArgumentException: expected array, got Str((Intercept))
+    at mixeff4s.comparison.JsonValue.asArray(JsonValue.scala:43)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1$$anonfun$9(GlmmParitySuite.scala:56)
+    at scala.collection.immutable.Vector.foreach(Vector.scala:2125)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:53)
+==> X mixeff4s.glmm.GlmmParitySuite.culcitalogreg joint-Laplace against frozen R fit  0.13s java.lang.IllegalArgumentException: expected array, got Str((Intercept))
+    at mixeff4s.comparison.JsonValue.asArray(JsonValue.scala:43)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1$$anonfun$9(GlmmParitySuite.scala:56)
+    at scala.collection.immutable.Vector.foreach(Vector.scala:2125)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:53)
+==> X mixeff4s.glmm.GlmmParitySuite.culcitalogreg fast-PIRLS against frozen R fit  0.011s java.lang.IllegalArgumentException: expected array, got Str((Intercept))
+    at mixeff4s.comparison.JsonValue.asArray(JsonValue.scala:43)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1$$anonfun$9(GlmmParitySuite.scala:56)
+    at scala.collection.immutable.Vector.foreach(Vector.scala:2125)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:53)
+==> X mixeff4s.glmm.GlmmParitySuite.synthetic_poisson_offset joint-Laplace against frozen R fit  0.022s java.lang.IllegalArgumentException: expected array, got Str((Intercept))
+    at mixeff4s.comparison.JsonValue.asArray(JsonValue.scala:43)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1$$anonfun$9(GlmmParitySuite.scala:56)
+    at scala.collection.immutable.Vector.foreach(Vector.scala:2125)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:53)
+==> X mixeff4s.glmm.GlmmParitySuite.synthetic_poisson_offset fast-PIRLS against frozen R fit  0.015s munit.ComparisonFailException: src/test/scala/mixeff4s/glmm/GlmmParitySuite.scala:52 values are not the same expected: 4.901315146581204 but was: 4.97113916927619
+51:      val meanTolerance = if !joint && name == "synthetic_poisson_offset" then 0.05 else 1e-2
+52:      fit.conditionalMean.zip(numbers(reference, "conditional_mu")).foreach((a, b) => assertEqualsDouble(a, b, meanTolerance))
+53:      fit.randomEffects.foreach: term =>
+    at munit.FunSuite.assertEqualsDouble(FunSuite.scala:13)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1$$anonfun$8(GlmmParitySuite.scala:52)
+    at scala.collection.immutable.Vector.foreach(Vector.scala:2125)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:52)
+==> X mixeff4s.glmm.GlmmParitySuite.synthetic_poisson_crossed joint-Laplace against frozen R fit  0.937s java.lang.IllegalArgumentException: expected array, got Str((Intercept))
+    at mixeff4s.comparison.JsonValue.asArray(JsonValue.scala:43)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1$$anonfun$9(GlmmParitySuite.scala:56)
+    at scala.collection.immutable.Vector.foreach(Vector.scala:2125)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:53)
+==> X mixeff4s.glmm.GlmmParitySuite.synthetic_poisson_crossed fast-PIRLS against frozen R fit  0.202s java.lang.IllegalArgumentException: expected array, got Str((Intercept))
+    at mixeff4s.comparison.JsonValue.asArray(JsonValue.scala:43)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1$$anonfun$9(GlmmParitySuite.scala:56)
+    at scala.collection.immutable.Vector.foreach(Vector.scala:2125)
+    at mixeff4s.glmm.GlmmParitySuite.$init$$$anonfun$1$$anonfun$1(GlmmParitySuite.scala:53)
+[error] Failed: Total 42, Failed 8, Errors 0, Passed 34
+[error] Failed tests:
+[error] 	mixeff4s.glmm.GlmmParitySuite
+[error] (mixeff4sJVM / Test / testOnly) sbt.TestsFailedException: Tests unsuccessful
+[error] Total time: 6 s, completed Oct 27, 2026, 3:08:15 p.m.

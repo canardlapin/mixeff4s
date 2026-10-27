@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-26T21:52:36.355210+00:00",
+  "finished_utc": "2026-10-26T21:52:59.259437+00:00",
+  "duration_seconds": 22.903937,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/scalafmtOnly /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/Pls.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/linalg/BlockedCholesky.scala",
+    "test"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-engine-tranche/full-density-policy.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 43872
+}

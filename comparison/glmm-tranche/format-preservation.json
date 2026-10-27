@@ -1,0 +1,38 @@
+{
+  "restored_formatter_only": [
+    "src/main/scala/mixeff4s/compiler/Semantic.scala",
+    "src/main/scala/mixeff4s/design/ReMat.scala",
+    "src/main/scala/mixeff4s/formula/Formula.scala",
+    "src/main/scala/mixeff4s/formula/Transform.scala",
+    "src/main/scala/mixeff4s/pathology/Separation.scala",
+    "src/test/scala/mixeff4s/comparison/EmbeddedFrames.scala",
+    "src/test/scala/mixeff4s/comparison/FitCompare.scala",
+    "src/test/scala/mixeff4s/comparison/FrozenReference.scala",
+    "src/test/scala/mixeff4s/compiler/SemanticSuite.scala",
+    "src/test/scala/mixeff4s/fixtures/Pastes.scala",
+    "src/test/scala/mixeff4s/fixtures/Penicillin.scala",
+    "src/test/scala/mixeff4s/fixtures/Sleepstudy.scala",
+    "src/test/scala/mixeff4s/lmm/SleepstudyFitSuite.scala"
+  ],
+  "authorized_existing_changes": [
+    "README.md",
+    "comparison/fixtures.toml",
+    "comparison/frozen/references.json",
+    "comparison/parity_scorecard.toml",
+    "comparison/scripts/vendor_harness.py",
+    "src/main/scala/mixeff4s/error/MixedModelError.scala",
+    "src/main/scala/mixeff4s/glmm/Glmm.scala",
+    "src/main/scala/mixeff4s/glmm/Pirls.scala",
+    "src/main/scala/mixeff4s/lmm/Pls.scala",
+    "src/main/scala/mixeff4s/model/Family.scala",
+    "src/main/scala/mixeff4s/prelude.scala",
+    "src/test/scala/mixeff4s/comparison/Datasets.scala",
+    "src/test/scala/mixeff4s/comparison/EmbeddedFrozen.scala",
+    "src/test/scala/mixeff4s/comparison/FixtureCatalog.scala",
+    "src/test/scala/mixeff4s/comparison/Scorecard.scala",
+    "src/test/scala/mixeff4s/comparison/ScorecardSuite.scala",
+    "src/test/scala/mixeff4s/glmm/CoefficientLayoutSuite.scala",
+    "src/test/scala/mixeff4s/glmm/GlmmSuite.scala",
+    "src/test/scala/mixeff4s/glmm/TerminationSuite.scala"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "src/test/scala/mixeff4s/fixtures/Sleepstudy.scala": "05f0e87aa4f409790316cc36f233deef2dcbb5e411ae34e79f5033bc7d1f1ce2",
+  "src/test/scala/mixeff4s/fixtures/Pastes.scala": "71c529f6f072c617f5981de534027622ad1a8933ebe3cdcaf9ebab1526b26877",
+  "src/test/scala/mixeff4s/fixtures/Penicillin.scala": "74ac47f37c8ab228ae2b92ab6466cb3b387cb88094f79add25fd49b7f26ce98e",
+  "comparison/workflow-tranche/frames/sleepstudy.csv": "f1c08ea8945a5e3f71c606bb6840f0db58efa5828b4c663dcb6bf49cbc8f4a2f",
+  "comparison/workflow-tranche/frames/pastes.csv": "a3a162e869963b97a1fbc2d9b3906542588d0efdb86d4cbd4e7306d01c25c9ee",
+  "comparison/workflow-tranche/frames/penicillin.csv": "b04329c8a8f9ec079ab5d143d57a4960e090bc43d9b088806e59b8f221f70689"
+}

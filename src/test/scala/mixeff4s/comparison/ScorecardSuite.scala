@@ -5,10 +5,14 @@ class ScorecardSuite extends munit.FunSuite:
     val scorecard = Scorecard.loadEmbedded
     assertEquals(scorecard.schemaVersion, "1.0.0")
     assertEquals(scorecard.classes, ScorecardClass.all)
-    assertEquals(scorecard.rows.length, 20)
+    assertEquals(scorecard.rows.length, 32)
     assertEquals(
       scorecard.rows.map(_.classification).toSet,
-      Set(ScorecardClass.ReleaseBlockingParity, ScorecardClass.DocumentedDivergence)
+      Set(
+        ScorecardClass.ReleaseBlockingParity,
+        ScorecardClass.DocumentedDivergence,
+        ScorecardClass.UnsupportedWithContract
+      )
     )
     assert(scorecard.rows.exists(_.reference == "lme4"), clues(scorecard.rows.map(_.reference)))
     assert(
@@ -36,6 +40,16 @@ class ScorecardSuite extends munit.FunSuite:
     assertEquals(row.reference, "mixedmodels.jl")
     val ref = FitCompare.claimed(row)
     assertEquals(ref.theta.map(_.length), Some(2))
+
+  test("station fixed-only formula is unsupported with a rust contract claim"):
+    val row = FitCompare.row(
+      "station_season_duration",
+      "ML",
+      "effect ~ 1 + duration * season * sites"
+    )
+    assertEquals(row.classification, ScorecardClass.UnsupportedWithContract)
+    assertEquals(row.reference, "rust_contract")
+    assertEquals(FitCompare.claimed(row).status, "error")
 
   test("fast-PIRLS contraception is documented divergence"):
     val row = Scorecard.loadEmbedded.rows.find(_.key.dataset == "contraception").get

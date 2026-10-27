@@ -53,6 +53,8 @@ final class ModelFrame private (
           s"column `$name` has ${values.length} rows, expected $nRows"
         )
       )
+    else if values.exists(value => !value.isFinite) then
+      Left(MixedModelError.InvalidArgument(s"numeric column `$name` contains a non-finite value"))
     else if contains(name) then Left(MixedModelError.InvalidArgument(s"duplicate column `$name`"))
     else Right(new ModelFrame(columns :+ (name -> Column.Numeric(values)), nRows))
 
@@ -86,7 +88,38 @@ object ModelFrame:
                 s"column `$name` has ${col.length} rows, expected $n"
               )
             )
+          else validateColumn(name, col).left.foreach(err => error = Some(err))
       error.toLeft(new ModelFrame(cols.toVector, n))
+
+  private def validateColumn(name: String, col: Column): Either[MixedModelError, Unit] =
+    col match
+      case Column.Numeric(values) =>
+        if values.exists(value => !value.isFinite) then
+          Left(MixedModelError.InvalidArgument(s"numeric column `$name` contains a non-finite value"))
+        else Right(())
+      case Column.Factor(levels, refs, values) =>
+        if refs.length != values.length then
+          Left(
+            MixedModelError.DimensionMismatch(
+              s"factor column `$name` has ${refs.length} refs for ${values.length} values"
+            )
+          )
+        else if levels.distinct.length != levels.length then
+          Left(MixedModelError.InvalidArgument(s"factor column `$name` has duplicate levels"))
+        else
+          refs
+            .zip(values)
+            .zipWithIndex
+            .collectFirst:
+              case ((ref, _), row) if ref < 0 || ref >= levels.length =>
+                MixedModelError.InvalidArgument(s"factor column `$name` has out-of-range ref $ref at row $row")
+              case ((ref, value), row) if levels(ref) != value =>
+                MixedModelError.InvalidArgument(
+                  s"factor column `$name` value `$value` at row $row does not match level `${levels(ref)}`"
+                )
+          match
+            case Some(error) => Left(error)
+            case None        => Right(())
 
   private def encodeFactor(
       values: Vector[String],

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-27T01:29:39.863346+00:00",
+  "finished_utc": "2026-10-27T01:29:55.445101+00:00",
+  "duration_seconds": 15.58155,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/testOnly mixeff4s.lmm.PredictionSuite mixeff4s.stats.BootstrapSuite mixeff4s.lmm.LmmAssessmentSuite mixeff4s.pathology.FitEvidenceSuite"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-workflow-integrate.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 4278
+}

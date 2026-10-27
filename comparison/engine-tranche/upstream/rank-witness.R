@@ -1,0 +1,16 @@
+x <- seq_len(8)
+z <- 10 * x
+e <- c(1, -1, -1, 1, 1, -1, -1, 1)
+y <- 3 + 2 * x + e
+X <- model.matrix(~ x + z)
+q <- qr(X)
+stopifnot(q$rank == 2L, identical(q$pivot, 1:3))
+f <- lm(y ~ x + z)
+stopifnot(is.na(coef(f)["z"]))
+stopifnot(isTRUE(all.equal(unname(coef(f)[1:2]), c(3, 2))))
+expected <- matrix(c(17/21, -1/7, -1/7, 2/63), 2)
+stopifnot(isTRUE(all.equal(unname(vcov(f)[1:2, 1:2]), expected)))
+print(R.version.string)
+print(q[c("rank", "pivot")])
+print(coef(f))
+print(vcov(f))

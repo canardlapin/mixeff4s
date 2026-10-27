@@ -66,24 +66,27 @@ class PathologySuite extends munit.FunSuite:
     val issue = cert.structuralIssue.getOrElse(fail("issue"))
     assertEquals(issue.code, "few_random_effect_levels")
 
-  test("interior theta is converged_interior"):
+  test("bare interior theta is geometry only"):
     val cert = certify("reaction ~ 1 + days + (1 + days | subj)", Sleepstudy.frame)
     val assessed =
       Pathology.assessFit(cert, Vector(0.9292, 0.0182, 0.2226), Vector((0, 0, 0), (0, 1, 0), (0, 1, 1)))
-    assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
+    assertEquals(assessed.fitStatus, FitStatus.NotAssessed)
+    assertEquals(assessed.thetaGeometry, ThetaGeometry.Interior)
     assertEquals(assessed.expectedStatuses, Vector(FitStatus.ConvergedInterior))
 
-  test("a diagonal theta at the lower bound is converged_boundary"):
+  test("a diagonal theta at the lower bound is boundary geometry only"):
     val cert = certify("reaction ~ 1 + days + (1 + days | subj)", Sleepstudy.frame)
     val assessed =
       Pathology.assessFit(cert, Vector(0.0, 0.1, 0.2), Vector((0, 0, 0), (0, 1, 0), (0, 1, 1)))
-    assertEquals(assessed.fitStatus, FitStatus.ConvergedBoundary)
+    assertEquals(assessed.fitStatus, FitStatus.NotAssessed)
+    assertEquals(assessed.thetaGeometry, ThetaGeometry.Boundary)
 
   test("an off-diagonal near zero is not a variance boundary"):
     val cert = certify("reaction ~ 1 + days + (1 + days | subj)", Sleepstudy.frame)
     val assessed =
       Pathology.assessFit(cert, Vector(0.9, 0.0, 0.2), Vector((0, 0, 0), (0, 1, 0), (0, 1, 1)))
-    assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
+    assertEquals(assessed.fitStatus, FitStatus.NotAssessed)
+    assertEquals(assessed.thetaGeometry, ThetaGeometry.Interior)
 
   test("assessOutcome maps an engine error on a refusal design"):
     val frame = ModelFrame

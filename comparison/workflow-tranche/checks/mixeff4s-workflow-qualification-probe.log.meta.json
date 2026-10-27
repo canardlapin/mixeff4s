@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-27T01:30:45.511181+00:00",
+  "finished_utc": "2026-10-27T01:30:54.284396+00:00",
+  "duration_seconds": 8.773024,
+  "command": [
+    "sbt",
+    "-batch",
+    "set mixeff4sJVM / Test / unmanagedSources += file(\"/tmp/WorkflowQualificationProbe.scala\")",
+    "mixeff4sJVM/testOnly mixeff4s.stats.WorkflowQualificationProbe"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-workflow-qualification-probe.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 4062
+}

@@ -1,0 +1,5114 @@
+{
+  "baseline_runs": 3,
+  "after_runs": 3,
+  "comparisons": [
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "first_fit",
+      "after_phase": "first_fit",
+      "before": {
+        "process_medians_ms": [
+          9.996791,
+          10.616084,
+          9.605541
+        ],
+        "median_ms": 9.996791,
+        "min_ms": 9.605541,
+        "max_ms": 10.616084,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          10.756125,
+          11.677,
+          11.167792
+        ],
+        "median_ms": 11.167792,
+        "min_ms": 10.756125,
+        "max_ms": 11.677,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.8951448057055503
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "compile",
+      "after_phase": "compile",
+      "before": {
+        "process_medians_ms": [
+          1.229375,
+          1.22825,
+          1.21325
+        ],
+        "median_ms": 1.22825,
+        "min_ms": 1.21325,
+        "max_ms": 1.229375,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          1.184583,
+          1.1865,
+          1.210584
+        ],
+        "median_ms": 1.1865,
+        "min_ms": 1.184583,
+        "max_ms": 1.210584,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.0351875263379688
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "workspace",
+      "after_phase": "workspace",
+      "before": {
+        "process_medians_ms": [
+          0.26225,
+          0.250708,
+          0.258292
+        ],
+        "median_ms": 0.258292,
+        "min_ms": 0.250708,
+        "max_ms": 0.26225,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.338333,
+          0.369792,
+          0.335917
+        ],
+        "median_ms": 0.338333,
+        "min_ms": 0.335917,
+        "max_ms": 0.369792,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.7634253826851062
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "objective",
+      "after_phase": "objective",
+      "before": {
+        "process_medians_ms": [
+          0.0526045,
+          0.057417,
+          0.0524375
+        ],
+        "median_ms": 0.0526045,
+        "min_ms": 0.0524375,
+        "max_ms": 0.057417,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0563745,
+          0.0619165,
+          0.06075
+        ],
+        "median_ms": 0.06075,
+        "min_ms": 0.0563745,
+        "max_ms": 0.0619165,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.865917695473251
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "warm_fit",
+      "after_phase": "warm_fit",
+      "before": {
+        "process_medians_ms": [
+          9.712625,
+          10.711709,
+          9.717292
+        ],
+        "median_ms": 9.717292,
+        "min_ms": 9.712625,
+        "max_ms": 10.711709,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          10.231041,
+          11.340167,
+          10.951459
+        ],
+        "median_ms": 10.951459,
+        "min_ms": 10.231041,
+        "max_ms": 11.340167,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.8873057005463839
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "inspection",
+      "after_phase": "inspection",
+      "before": {
+        "process_medians_ms": [
+          0.00175,
+          0.001709,
+          0.001833
+        ],
+        "median_ms": 0.00175,
+        "min_ms": 0.001709,
+        "max_ms": 0.001833,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.00125,
+          0.001354,
+          0.001292
+        ],
+        "median_ms": 0.001292,
+        "min_ms": 0.00125,
+        "max_ms": 0.001354,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.3544891640866874
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_rebuild_5",
+      "before": {
+        "process_medians_ms": [
+          45.948208,
+          51.091291,
+          47.686917
+        ],
+        "median_ms": 47.686917,
+        "min_ms": 45.948208,
+        "max_ms": 51.091291,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          49.012667,
+          57.012917,
+          50.977875
+        ],
+        "median_ms": 50.977875,
+        "min_ms": 49.012667,
+        "max_ms": 57.012917,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.9354434055950744
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit",
+      "before": {
+        "process_medians_ms": [
+          9.712625,
+          10.711709,
+          9.717292
+        ],
+        "median_ms": 9.717292,
+        "min_ms": 9.712625,
+        "max_ms": 10.711709,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          8.797208,
+          10.161417,
+          9.405166
+        ],
+        "median_ms": 9.405166,
+        "min_ms": 8.797208,
+        "max_ms": 10.161417,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.033186655078709
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit_gradient",
+      "before": {
+        "process_medians_ms": [
+          9.712625,
+          10.711709,
+          9.717292
+        ],
+        "median_ms": 9.717292,
+        "min_ms": 9.712625,
+        "max_ms": 10.711709,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          38.180292,
+          44.4615,
+          39.137916
+        ],
+        "median_ms": 39.137916,
+        "min_ms": 38.180292,
+        "max_ms": 44.4615,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.2482833270938596
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "objective",
+      "after_phase": "objective_gradient",
+      "before": {
+        "process_medians_ms": [
+          0.0526045,
+          0.057417,
+          0.0524375
+        ],
+        "median_ms": 0.0526045,
+        "min_ms": 0.0524375,
+        "max_ms": 0.057417,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          1.5994365,
+          1.7042915,
+          1.606063
+        ],
+        "median_ms": 1.606063,
+        "min_ms": 1.5994365,
+        "max_ms": 1.7042915,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.03275369646147131
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_independent_5",
+      "before": {
+        "process_medians_ms": [
+          45.948208,
+          51.091291,
+          47.686917
+        ],
+        "median_ms": 47.686917,
+        "min_ms": 45.948208,
+        "max_ms": 51.091291,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          40.76825,
+          47.283333,
+          43.091542
+        ],
+        "median_ms": 43.091542,
+        "min_ms": 40.76825,
+        "max_ms": 47.283333,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.1066421572938838
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_independent_5",
+      "before": {
+        "process_medians_ms": [
+          45.948208,
+          51.091291,
+          47.686917
+        ],
+        "median_ms": 47.686917,
+        "min_ms": 45.948208,
+        "max_ms": 51.091291,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          202.543458,
+          212.767291,
+          201.265083
+        ],
+        "median_ms": 202.543458,
+        "min_ms": 201.265083,
+        "max_ms": 212.767291,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.2354404208898221
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_warm_5",
+      "before": {
+        "process_medians_ms": [
+          45.948208,
+          51.091291,
+          47.686917
+        ],
+        "median_ms": 47.686917,
+        "min_ms": 45.948208,
+        "max_ms": 51.091291,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          74.203625,
+          77.602125,
+          74.271583
+        ],
+        "median_ms": 74.271583,
+        "min_ms": 74.203625,
+        "max_ms": 77.602125,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.6420614059080981
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "first_fit",
+      "after_phase": "first_fit",
+      "before": {
+        "process_medians_ms": [
+          11.604084,
+          11.2435,
+          10.994166
+        ],
+        "median_ms": 11.2435,
+        "min_ms": 10.994166,
+        "max_ms": 11.604084,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          8.718584,
+          11.114458,
+          8.757041
+        ],
+        "median_ms": 8.757041,
+        "min_ms": 8.718584,
+        "max_ms": 11.114458,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.283938261794138
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "compile",
+      "after_phase": "compile",
+      "before": {
+        "process_medians_ms": [
+          1.391208,
+          1.376459,
+          1.376041
+        ],
+        "median_ms": 1.376459,
+        "min_ms": 1.376041,
+        "max_ms": 1.391208,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          1.565542,
+          1.679584,
+          1.553917
+        ],
+        "median_ms": 1.565542,
+        "min_ms": 1.553917,
+        "max_ms": 1.679584,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.8792220202332484
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "workspace",
+      "after_phase": "workspace",
+      "before": {
+        "process_medians_ms": [
+          0.464834,
+          0.447125,
+          0.441667
+        ],
+        "median_ms": 0.447125,
+        "min_ms": 0.441667,
+        "max_ms": 0.464834,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.60875,
+          0.689875,
+          0.623416
+        ],
+        "median_ms": 0.623416,
+        "min_ms": 0.60875,
+        "max_ms": 0.689875,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.7172177165809027
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "objective",
+      "after_phase": "objective",
+      "before": {
+        "process_medians_ms": [
+          0.037708,
+          0.0367915,
+          0.037146
+        ],
+        "median_ms": 0.037146,
+        "min_ms": 0.0367915,
+        "max_ms": 0.037708,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0155005,
+          0.0152295,
+          0.0153125
+        ],
+        "median_ms": 0.0153125,
+        "min_ms": 0.0152295,
+        "max_ms": 0.0155005,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 2.425861224489796
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "warm_fit",
+      "after_phase": "warm_fit",
+      "before": {
+        "process_medians_ms": [
+          7.114375,
+          7.110834,
+          7.432916
+        ],
+        "median_ms": 7.114375,
+        "min_ms": 7.110834,
+        "max_ms": 7.432916,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          4.252959,
+          4.85175,
+          4.098167
+        ],
+        "median_ms": 4.252959,
+        "min_ms": 4.098167,
+        "max_ms": 4.85175,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.672805921712389
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "inspection",
+      "after_phase": "inspection",
+      "before": {
+        "process_medians_ms": [
+          0.0019165,
+          0.001833,
+          0.0019375
+        ],
+        "median_ms": 0.0019165,
+        "min_ms": 0.001833,
+        "max_ms": 0.0019375,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.001208,
+          0.00125,
+          0.001167
+        ],
+        "median_ms": 0.001208,
+        "min_ms": 0.001167,
+        "max_ms": 0.00125,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.5865066225165563
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_rebuild_5",
+      "before": {
+        "process_medians_ms": [
+          34.340375,
+          33.98,
+          34.427584
+        ],
+        "median_ms": 34.340375,
+        "min_ms": 33.98,
+        "max_ms": 34.427584,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          20.424584,
+          21.28325,
+          20.137709
+        ],
+        "median_ms": 20.424584,
+        "min_ms": 20.137709,
+        "max_ms": 21.28325,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.6813255535583982
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit",
+      "before": {
+        "process_medians_ms": [
+          7.114375,
+          7.110834,
+          7.432916
+        ],
+        "median_ms": 7.114375,
+        "min_ms": 7.110834,
+        "max_ms": 7.432916,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          2.925958,
+          2.936541,
+          2.801375
+        ],
+        "median_ms": 2.925958,
+        "min_ms": 2.801375,
+        "max_ms": 2.936541,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 2.431468599344215
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit_gradient",
+      "before": {
+        "process_medians_ms": [
+          7.114375,
+          7.110834,
+          7.432916
+        ],
+        "median_ms": 7.114375,
+        "min_ms": 7.110834,
+        "max_ms": 7.432916,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          12.859166,
+          13.290083,
+          12.914875
+        ],
+        "median_ms": 12.914875,
+        "min_ms": 12.859166,
+        "max_ms": 13.290083,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.5508667331274983
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "objective",
+      "after_phase": "objective_gradient",
+      "before": {
+        "process_medians_ms": [
+          0.037708,
+          0.0367915,
+          0.037146
+        ],
+        "median_ms": 0.037146,
+        "min_ms": 0.0367915,
+        "max_ms": 0.037708,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.653458,
+          0.6492290000000001,
+          0.645438
+        ],
+        "median_ms": 0.6492290000000001,
+        "min_ms": 0.645438,
+        "max_ms": 0.653458,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.05721555876277861
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_independent_5",
+      "before": {
+        "process_medians_ms": [
+          34.340375,
+          33.98,
+          34.427584
+        ],
+        "median_ms": 34.340375,
+        "min_ms": 33.98,
+        "max_ms": 34.427584,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          11.9615,
+          14.17,
+          11.535667
+        ],
+        "median_ms": 11.9615,
+        "min_ms": 11.535667,
+        "max_ms": 14.17,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 2.87090874890273
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_independent_5",
+      "before": {
+        "process_medians_ms": [
+          34.340375,
+          33.98,
+          34.427584
+        ],
+        "median_ms": 34.340375,
+        "min_ms": 33.98,
+        "max_ms": 34.427584,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          60.989416,
+          64.374167,
+          61.509584
+        ],
+        "median_ms": 61.509584,
+        "min_ms": 60.989416,
+        "max_ms": 64.374167,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.5582930783599512
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_warm_5",
+      "before": {
+        "process_medians_ms": [
+          34.340375,
+          33.98,
+          34.427584
+        ],
+        "median_ms": 34.340375,
+        "min_ms": 33.98,
+        "max_ms": 34.427584,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          21.72175,
+          22.944083,
+          21.489
+        ],
+        "median_ms": 21.72175,
+        "min_ms": 21.489,
+        "max_ms": 22.944083,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.580921196496599
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "first_fit",
+      "after_phase": "first_fit",
+      "before": {
+        "process_medians_ms": [
+          12.690375,
+          12.5005,
+          13.281167
+        ],
+        "median_ms": 12.690375,
+        "min_ms": 12.5005,
+        "max_ms": 13.281167,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          10.423333,
+          8.791166,
+          8.228083
+        ],
+        "median_ms": 8.791166,
+        "min_ms": 8.228083,
+        "max_ms": 10.423333,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.4435371826672365
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "compile",
+      "after_phase": "compile",
+      "before": {
+        "process_medians_ms": [
+          0.262583,
+          0.295958,
+          0.294292
+        ],
+        "median_ms": 0.294292,
+        "min_ms": 0.262583,
+        "max_ms": 0.295958,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.280166,
+          0.265042,
+          0.268333
+        ],
+        "median_ms": 0.268333,
+        "min_ms": 0.265042,
+        "max_ms": 0.280166,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.0967417350829007
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "workspace",
+      "after_phase": "workspace",
+      "before": {
+        "process_medians_ms": [
+          0.065458,
+          0.071083,
+          0.068292
+        ],
+        "median_ms": 0.068292,
+        "min_ms": 0.065458,
+        "max_ms": 0.071083,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.165292,
+          0.155791,
+          0.173542
+        ],
+        "median_ms": 0.165292,
+        "min_ms": 0.155791,
+        "max_ms": 0.173542,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.4131597415482903
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "objective",
+      "after_phase": "objective",
+      "before": {
+        "process_medians_ms": [
+          0.0192915,
+          0.019146,
+          0.0194795
+        ],
+        "median_ms": 0.0192915,
+        "min_ms": 0.019146,
+        "max_ms": 0.0194795,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.010083,
+          0.009646,
+          0.009479
+        ],
+        "median_ms": 0.009646,
+        "min_ms": 0.009479,
+        "max_ms": 0.010083,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.9999481650425046
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "warm_fit",
+      "after_phase": "warm_fit",
+      "before": {
+        "process_medians_ms": [
+          3.351375,
+          3.413916,
+          3.460292
+        ],
+        "median_ms": 3.413916,
+        "min_ms": 3.351375,
+        "max_ms": 3.460292,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          2.664209,
+          2.482334,
+          2.475584
+        ],
+        "median_ms": 2.482334,
+        "min_ms": 2.475584,
+        "max_ms": 2.664209,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.375284711888086
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "inspection",
+      "after_phase": "inspection",
+      "before": {
+        "process_medians_ms": [
+          0.001625,
+          0.001542,
+          0.0016665
+        ],
+        "median_ms": 0.001625,
+        "min_ms": 0.001542,
+        "max_ms": 0.0016665,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.001271,
+          0.001292,
+          0.0014165
+        ],
+        "median_ms": 0.001292,
+        "min_ms": 0.001271,
+        "max_ms": 0.0014165,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.2577399380804954
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_rebuild_5",
+      "before": {
+        "process_medians_ms": [
+          14.591834,
+          13.63875,
+          15.8175
+        ],
+        "median_ms": 14.591834,
+        "min_ms": 13.63875,
+        "max_ms": 15.8175,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          9.68675,
+          9.42725,
+          8.920667
+        ],
+        "median_ms": 9.42725,
+        "min_ms": 8.920667,
+        "max_ms": 9.68675,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.5478356890927893
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit",
+      "before": {
+        "process_medians_ms": [
+          3.351375,
+          3.413916,
+          3.460292
+        ],
+        "median_ms": 3.413916,
+        "min_ms": 3.351375,
+        "max_ms": 3.460292,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          1.84175,
+          1.712,
+          1.683417
+        ],
+        "median_ms": 1.712,
+        "min_ms": 1.683417,
+        "max_ms": 1.84175,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.9941098130841122
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit_gradient",
+      "before": {
+        "process_medians_ms": [
+          3.351375,
+          3.413916,
+          3.460292
+        ],
+        "median_ms": 3.413916,
+        "min_ms": 3.351375,
+        "max_ms": 3.460292,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          1.946667,
+          2.031,
+          2.08975
+        ],
+        "median_ms": 2.031,
+        "min_ms": 1.946667,
+        "max_ms": 2.08975,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.680903988183161
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "objective",
+      "after_phase": "objective_gradient",
+      "before": {
+        "process_medians_ms": [
+          0.0192915,
+          0.019146,
+          0.0194795
+        ],
+        "median_ms": 0.0192915,
+        "min_ms": 0.019146,
+        "max_ms": 0.0194795,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.073771,
+          0.074125,
+          0.08052100000000001
+        ],
+        "median_ms": 0.074125,
+        "min_ms": 0.073771,
+        "max_ms": 0.08052100000000001,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.26025632377740304
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_independent_5",
+      "before": {
+        "process_medians_ms": [
+          14.591834,
+          13.63875,
+          15.8175
+        ],
+        "median_ms": 14.591834,
+        "min_ms": 13.63875,
+        "max_ms": 15.8175,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          7.179083,
+          6.938,
+          6.782583
+        ],
+        "median_ms": 6.938,
+        "min_ms": 6.782583,
+        "max_ms": 7.179083,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 2.1031758431824734
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_independent_5",
+      "before": {
+        "process_medians_ms": [
+          14.591834,
+          13.63875,
+          15.8175
+        ],
+        "median_ms": 14.591834,
+        "min_ms": 13.63875,
+        "max_ms": 15.8175,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          9.609334,
+          9.641708,
+          9.589958
+        ],
+        "median_ms": 9.609334,
+        "min_ms": 9.589958,
+        "max_ms": 9.641708,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.5185062773341003
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_warm_5",
+      "before": {
+        "process_medians_ms": [
+          14.591834,
+          13.63875,
+          15.8175
+        ],
+        "median_ms": 14.591834,
+        "min_ms": 13.63875,
+        "max_ms": 15.8175,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          3.497125,
+          3.259125,
+          3.254917
+        ],
+        "median_ms": 3.259125,
+        "min_ms": 3.254917,
+        "max_ms": 3.497125,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 4.477224408391823
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "first_fit",
+      "after_phase": "first_fit",
+      "before": {
+        "process_medians_ms": [
+          3.425041,
+          3.509792,
+          4.502834
+        ],
+        "median_ms": 3.509792,
+        "min_ms": 3.425041,
+        "max_ms": 4.502834,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          4.60129,
+          8.635167,
+          4.413709
+        ],
+        "median_ms": 4.60129,
+        "min_ms": 4.413709,
+        "max_ms": 8.635167,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.7627843496063061
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "compile",
+      "after_phase": "compile",
+      "before": {
+        "process_medians_ms": [
+          0.27575,
+          0.275458,
+          0.325334
+        ],
+        "median_ms": 0.27575,
+        "min_ms": 0.275458,
+        "max_ms": 0.325334,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.272209,
+          0.311834,
+          0.287375
+        ],
+        "median_ms": 0.287375,
+        "min_ms": 0.272209,
+        "max_ms": 0.311834,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.9595476294040888
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "workspace",
+      "after_phase": "workspace",
+      "before": {
+        "process_medians_ms": [
+          0.054292,
+          0.055083,
+          0.054042
+        ],
+        "median_ms": 0.054292,
+        "min_ms": 0.054042,
+        "max_ms": 0.055083,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.097208,
+          0.105625,
+          0.099792
+        ],
+        "median_ms": 0.099792,
+        "min_ms": 0.097208,
+        "max_ms": 0.105625,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.5440516273849607
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "objective",
+      "after_phase": "objective",
+      "before": {
+        "process_medians_ms": [
+          0.0122705,
+          0.012812500000000001,
+          0.012625
+        ],
+        "median_ms": 0.012625,
+        "min_ms": 0.0122705,
+        "max_ms": 0.012812500000000001,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.015271,
+          0.0159785,
+          0.015584
+        ],
+        "median_ms": 0.015584,
+        "min_ms": 0.015271,
+        "max_ms": 0.0159785,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.8101257700205339
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "warm_fit",
+      "after_phase": "warm_fit",
+      "before": {
+        "process_medians_ms": [
+          1.974792,
+          2.086958,
+          2.220167
+        ],
+        "median_ms": 2.086958,
+        "min_ms": 1.974792,
+        "max_ms": 2.220167,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          2.378,
+          2.402792,
+          2.387334
+        ],
+        "median_ms": 2.387334,
+        "min_ms": 2.378,
+        "max_ms": 2.402792,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.8741793146664857
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "inspection",
+      "after_phase": "inspection",
+      "before": {
+        "process_medians_ms": [
+          0.001542,
+          0.0015625,
+          0.001667
+        ],
+        "median_ms": 0.0015625,
+        "min_ms": 0.001542,
+        "max_ms": 0.001667,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.001125,
+          0.001209,
+          0.001209
+        ],
+        "median_ms": 0.001209,
+        "min_ms": 0.001125,
+        "max_ms": 0.001209,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.2923904052936313
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_rebuild_5",
+      "before": {
+        "process_medians_ms": [
+          8.046083,
+          7.992583,
+          10.057292
+        ],
+        "median_ms": 8.046083,
+        "min_ms": 7.992583,
+        "max_ms": 10.057292,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          7.792667,
+          8.248666,
+          8.42575
+        ],
+        "median_ms": 8.248666,
+        "min_ms": 7.792667,
+        "max_ms": 8.42575,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.9754405136539653
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit",
+      "before": {
+        "process_medians_ms": [
+          1.974792,
+          2.086958,
+          2.220167
+        ],
+        "median_ms": 2.086958,
+        "min_ms": 1.974792,
+        "max_ms": 2.220167,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          1.49125,
+          1.582583,
+          1.582916
+        ],
+        "median_ms": 1.582583,
+        "min_ms": 1.49125,
+        "max_ms": 1.582916,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.3187036635677245
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit_gradient",
+      "before": {
+        "process_medians_ms": [
+          1.974792,
+          2.086958,
+          2.220167
+        ],
+        "median_ms": 2.086958,
+        "min_ms": 1.974792,
+        "max_ms": 2.220167,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          1.972125,
+          1.859917,
+          1.956167
+        ],
+        "median_ms": 1.956167,
+        "min_ms": 1.859917,
+        "max_ms": 1.972125,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.0668608559494155
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "objective",
+      "after_phase": "objective_gradient",
+      "before": {
+        "process_medians_ms": [
+          0.0122705,
+          0.012812500000000001,
+          0.012625
+        ],
+        "median_ms": 0.012625,
+        "min_ms": 0.0122705,
+        "max_ms": 0.012812500000000001,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.067021,
+          0.069583,
+          0.0679795
+        ],
+        "median_ms": 0.0679795,
+        "min_ms": 0.067021,
+        "max_ms": 0.069583,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.1857177531461691
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_independent_5",
+      "before": {
+        "process_medians_ms": [
+          8.046083,
+          7.992583,
+          10.057292
+        ],
+        "median_ms": 8.046083,
+        "min_ms": 7.992583,
+        "max_ms": 10.057292,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          5.5875,
+          6.095959,
+          5.32375
+        ],
+        "median_ms": 5.5875,
+        "min_ms": 5.32375,
+        "max_ms": 6.095959,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.4400148545861295
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_independent_5",
+      "before": {
+        "process_medians_ms": [
+          8.046083,
+          7.992583,
+          10.057292
+        ],
+        "median_ms": 8.046083,
+        "min_ms": 7.992583,
+        "max_ms": 10.057292,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          7.840875,
+          8.342292,
+          8.327041
+        ],
+        "median_ms": 8.327041,
+        "min_ms": 7.840875,
+        "max_ms": 8.342292,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.9662595632710347
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_warm_5",
+      "before": {
+        "process_medians_ms": [
+          8.046083,
+          7.992583,
+          10.057292
+        ],
+        "median_ms": 8.046083,
+        "min_ms": 7.992583,
+        "max_ms": 10.057292,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          3.204542,
+          3.355459,
+          3.201666
+        ],
+        "median_ms": 3.204542,
+        "min_ms": 3.201666,
+        "max_ms": 3.355459,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 2.5108371180655453
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "first_fit",
+      "after_phase": "first_fit",
+      "before": {
+        "process_medians_ms": [
+          24.999042,
+          24.3205,
+          26.940166
+        ],
+        "median_ms": 24.999042,
+        "min_ms": 24.3205,
+        "max_ms": 26.940166,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          21.109333,
+          24.35075,
+          21.9685
+        ],
+        "median_ms": 21.9685,
+        "min_ms": 21.109333,
+        "max_ms": 24.35075,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.1379494275895032
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "compile",
+      "after_phase": "compile",
+      "before": {
+        "process_medians_ms": [
+          0.674584,
+          0.688375,
+          0.647084
+        ],
+        "median_ms": 0.674584,
+        "min_ms": 0.647084,
+        "max_ms": 0.688375,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.629416,
+          0.616167,
+          0.584875
+        ],
+        "median_ms": 0.616167,
+        "min_ms": 0.584875,
+        "max_ms": 0.629416,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.0948070896364135
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "workspace",
+      "after_phase": "workspace",
+      "before": {
+        "process_medians_ms": [
+          0.106375,
+          0.091375,
+          0.104917
+        ],
+        "median_ms": 0.104917,
+        "min_ms": 0.091375,
+        "max_ms": 0.106375,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.069125,
+          0.067458,
+          0.068708
+        ],
+        "median_ms": 0.068708,
+        "min_ms": 0.067458,
+        "max_ms": 0.069125,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.5269983116958723
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "objective",
+      "after_phase": "objective",
+      "before": {
+        "process_medians_ms": [
+          0.015396,
+          0.0156455,
+          0.0155415
+        ],
+        "median_ms": 0.0155415,
+        "min_ms": 0.015396,
+        "max_ms": 0.0156455,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0123125,
+          0.012,
+          0.0135415
+        ],
+        "median_ms": 0.0123125,
+        "min_ms": 0.012,
+        "max_ms": 0.0135415,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.262253807106599
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "warm_fit",
+      "after_phase": "warm_fit",
+      "before": {
+        "process_medians_ms": [
+          3.161958,
+          2.944084,
+          4.332458
+        ],
+        "median_ms": 3.161958,
+        "min_ms": 2.944084,
+        "max_ms": 4.332458,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          3.439292,
+          2.880042,
+          3.25475
+        ],
+        "median_ms": 3.25475,
+        "min_ms": 2.880042,
+        "max_ms": 3.439292,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.9714902834319071
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "inspection",
+      "after_phase": "inspection",
+      "before": {
+        "process_medians_ms": [
+          0.0044165,
+          0.0054795,
+          0.0046040000000000005
+        ],
+        "median_ms": 0.0046040000000000005,
+        "min_ms": 0.0044165,
+        "max_ms": 0.0054795,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0030625,
+          0.0031665,
+          0.0029785000000000002
+        ],
+        "median_ms": 0.0030625,
+        "min_ms": 0.0029785000000000002,
+        "max_ms": 0.0031665,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.5033469387755103
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_rebuild_5",
+      "before": {
+        "process_medians_ms": [
+          10.445416,
+          10.323125,
+          11.325416
+        ],
+        "median_ms": 10.445416,
+        "min_ms": 10.323125,
+        "max_ms": 11.325416,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          8.647,
+          9.064375,
+          8.926416
+        ],
+        "median_ms": 8.926416,
+        "min_ms": 8.647,
+        "max_ms": 9.064375,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.1701690801773075
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit",
+      "before": {
+        "process_medians_ms": [
+          3.161958,
+          2.944084,
+          4.332458
+        ],
+        "median_ms": 3.161958,
+        "min_ms": 2.944084,
+        "max_ms": 4.332458,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          1.396791,
+          1.3825,
+          1.411667
+        ],
+        "median_ms": 1.396791,
+        "min_ms": 1.3825,
+        "max_ms": 1.411667,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 2.263730221629435
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit_gradient",
+      "before": {
+        "process_medians_ms": [
+          3.161958,
+          2.944084,
+          4.332458
+        ],
+        "median_ms": 3.161958,
+        "min_ms": 2.944084,
+        "max_ms": 4.332458,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          1.306375,
+          1.410042,
+          1.1875
+        ],
+        "median_ms": 1.306375,
+        "min_ms": 1.1875,
+        "max_ms": 1.410042,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 2.4204060855420533
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "objective",
+      "after_phase": "objective_gradient",
+      "before": {
+        "process_medians_ms": [
+          0.015396,
+          0.0156455,
+          0.0155415
+        ],
+        "median_ms": 0.0155415,
+        "min_ms": 0.015396,
+        "max_ms": 0.0156455,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0391245,
+          0.038167,
+          0.041333
+        ],
+        "median_ms": 0.0391245,
+        "min_ms": 0.038167,
+        "max_ms": 0.041333,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.39723191350688186
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_independent_5",
+      "before": {
+        "process_medians_ms": [
+          10.445416,
+          10.323125,
+          11.325416
+        ],
+        "median_ms": 10.445416,
+        "min_ms": 10.323125,
+        "max_ms": 11.325416,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          6.757708,
+          6.76925,
+          5.845542
+        ],
+        "median_ms": 6.757708,
+        "min_ms": 5.845542,
+        "max_ms": 6.76925,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.5457039576140312
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_independent_5",
+      "before": {
+        "process_medians_ms": [
+          10.445416,
+          10.323125,
+          11.325416
+        ],
+        "median_ms": 10.445416,
+        "min_ms": 10.323125,
+        "max_ms": 11.325416,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          5.042917,
+          4.341542,
+          4.102917
+        ],
+        "median_ms": 4.341542,
+        "min_ms": 4.102917,
+        "max_ms": 5.042917,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 2.4059230568309604
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_warm_5",
+      "before": {
+        "process_medians_ms": [
+          10.445416,
+          10.323125,
+          11.325416
+        ],
+        "median_ms": 10.445416,
+        "min_ms": 10.323125,
+        "max_ms": 11.325416,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          2.260667,
+          2.397,
+          2.159083
+        ],
+        "median_ms": 2.260667,
+        "min_ms": 2.159083,
+        "max_ms": 2.397,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 4.620501825346236
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "first_fit",
+      "after_phase": "first_fit",
+      "before": {
+        "process_medians_ms": [
+          7.980208,
+          7.916083,
+          8.435375
+        ],
+        "median_ms": 7.980208,
+        "min_ms": 7.916083,
+        "max_ms": 8.435375,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          6.620125,
+          6.8365,
+          6.532542
+        ],
+        "median_ms": 6.620125,
+        "min_ms": 6.532542,
+        "max_ms": 6.8365,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.2054467249485472
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "compile",
+      "after_phase": "compile",
+      "before": {
+        "process_medians_ms": [
+          0.215167,
+          0.240333,
+          0.277209
+        ],
+        "median_ms": 0.240333,
+        "min_ms": 0.215167,
+        "max_ms": 0.277209,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.172625,
+          0.189167,
+          0.174042
+        ],
+        "median_ms": 0.174042,
+        "min_ms": 0.172625,
+        "max_ms": 0.189167,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.3808908194573724
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "workspace",
+      "after_phase": "workspace",
+      "before": {
+        "process_medians_ms": [
+          0.063542,
+          0.065041,
+          0.066251
+        ],
+        "median_ms": 0.065041,
+        "min_ms": 0.063542,
+        "max_ms": 0.066251,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.04825,
+          0.05075,
+          0.052708
+        ],
+        "median_ms": 0.05075,
+        "min_ms": 0.04825,
+        "max_ms": 0.052708,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.2815960591133004
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "objective",
+      "after_phase": "objective",
+      "before": {
+        "process_medians_ms": [
+          0.006333,
+          0.0066455,
+          0.006167
+        ],
+        "median_ms": 0.006333,
+        "min_ms": 0.006167,
+        "max_ms": 0.0066455,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.006125,
+          0.006729499999999999,
+          0.006770999999999999
+        ],
+        "median_ms": 0.006729499999999999,
+        "min_ms": 0.006125,
+        "max_ms": 0.006770999999999999,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.9410803180028235
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "warm_fit",
+      "after_phase": "warm_fit",
+      "before": {
+        "process_medians_ms": [
+          3.664,
+          3.935792,
+          3.746
+        ],
+        "median_ms": 3.746,
+        "min_ms": 3.664,
+        "max_ms": 3.935792,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          3.489834,
+          3.810875,
+          3.497375
+        ],
+        "median_ms": 3.497375,
+        "min_ms": 3.489834,
+        "max_ms": 3.810875,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.0710890310590087
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "inspection",
+      "after_phase": "inspection",
+      "before": {
+        "process_medians_ms": [
+          0.001834,
+          0.0020415,
+          0.0022085
+        ],
+        "median_ms": 0.0020415,
+        "min_ms": 0.001834,
+        "max_ms": 0.0022085,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0013955,
+          0.0015415,
+          0.001375
+        ],
+        "median_ms": 0.0013955,
+        "min_ms": 0.001375,
+        "max_ms": 0.0015415,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.462916517377284
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_rebuild_5",
+      "before": {
+        "process_medians_ms": [
+          16.971375,
+          17.670543,
+          16.800208
+        ],
+        "median_ms": 16.971375,
+        "min_ms": 16.800208,
+        "max_ms": 17.670543,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          15.677542,
+          18.331583,
+          17.095291
+        ],
+        "median_ms": 17.095291,
+        "min_ms": 15.677542,
+        "max_ms": 18.331583,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.9927514541870038
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit",
+      "before": {
+        "process_medians_ms": [
+          3.664,
+          3.935792,
+          3.746
+        ],
+        "median_ms": 3.746,
+        "min_ms": 3.664,
+        "max_ms": 3.935792,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          2.893667,
+          3.30725,
+          3.194167
+        ],
+        "median_ms": 3.194167,
+        "min_ms": 2.893667,
+        "max_ms": 3.30725,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.1727627265575031
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit_gradient",
+      "before": {
+        "process_medians_ms": [
+          3.664,
+          3.935792,
+          3.746
+        ],
+        "median_ms": 3.746,
+        "min_ms": 3.664,
+        "max_ms": 3.935792,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          1.69275,
+          1.822417,
+          1.724709
+        ],
+        "median_ms": 1.724709,
+        "min_ms": 1.69275,
+        "max_ms": 1.822417,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 2.171960603209005
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "objective",
+      "after_phase": "objective_gradient",
+      "before": {
+        "process_medians_ms": [
+          0.006333,
+          0.0066455,
+          0.006167
+        ],
+        "median_ms": 0.006333,
+        "min_ms": 0.006167,
+        "max_ms": 0.0066455,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          0.01975,
+          0.0202915,
+          0.0202295
+        ],
+        "median_ms": 0.0202295,
+        "min_ms": 0.01975,
+        "max_ms": 0.0202915,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 0.31305766331347784
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_independent_5",
+      "before": {
+        "process_medians_ms": [
+          16.971375,
+          17.670543,
+          16.800208
+        ],
+        "median_ms": 16.971375,
+        "min_ms": 16.800208,
+        "max_ms": 17.670543,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          14.493209,
+          15.936541,
+          15.598917
+        ],
+        "median_ms": 15.598917,
+        "min_ms": 14.493209,
+        "max_ms": 15.936541,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 1.087984185055924
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_independent_5",
+      "before": {
+        "process_medians_ms": [
+          16.971375,
+          17.670543,
+          16.800208
+        ],
+        "median_ms": 16.971375,
+        "min_ms": 16.800208,
+        "max_ms": 17.670543,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          7.321792,
+          8.614,
+          7.081125
+        ],
+        "median_ms": 7.321792,
+        "min_ms": 7.081125,
+        "max_ms": 8.614,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 2.31792640380934
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_warm_5",
+      "before": {
+        "process_medians_ms": [
+          16.971375,
+          17.670543,
+          16.800208
+        ],
+        "median_ms": 16.971375,
+        "min_ms": 16.800208,
+        "max_ms": 17.670543,
+        "allocated_bytes": null
+      },
+      "after": {
+        "process_medians_ms": [
+          2.686416,
+          3.007084,
+          2.834542
+        ],
+        "median_ms": 2.834542,
+        "min_ms": 2.686416,
+        "max_ms": 3.007084,
+        "allocated_bytes": null
+      },
+      "time_ratio_before_over_after": 5.987342928769444
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "first_fit",
+      "after_phase": "first_fit",
+      "before": {
+        "process_medians_ms": [
+          3.781583,
+          3.68925,
+          5.546375
+        ],
+        "median_ms": 3.781583,
+        "min_ms": 3.68925,
+        "max_ms": 5.546375,
+        "allocated_bytes": 3841024
+      },
+      "after": {
+        "process_medians_ms": [
+          3.42575,
+          5.2885,
+          5.108
+        ],
+        "median_ms": 5.108,
+        "min_ms": 3.42575,
+        "max_ms": 5.2885,
+        "allocated_bytes": 3904936
+      },
+      "time_ratio_before_over_after": 0.7403255677368834
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "compile",
+      "after_phase": "compile",
+      "before": {
+        "process_medians_ms": [
+          0.67875,
+          0.730666,
+          0.804041
+        ],
+        "median_ms": 0.730666,
+        "min_ms": 0.67875,
+        "max_ms": 0.804041,
+        "allocated_bytes": 1138880
+      },
+      "after": {
+        "process_medians_ms": [
+          0.667708,
+          0.966458,
+          0.764542
+        ],
+        "median_ms": 0.764542,
+        "min_ms": 0.667708,
+        "max_ms": 0.966458,
+        "allocated_bytes": 1197648
+      },
+      "time_ratio_before_over_after": 0.955691119650719
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "workspace",
+      "after_phase": "workspace",
+      "before": {
+        "process_medians_ms": [
+          0.132458,
+          0.216167,
+          0.198458
+        ],
+        "median_ms": 0.198458,
+        "min_ms": 0.132458,
+        "max_ms": 0.216167,
+        "allocated_bytes": 128632
+      },
+      "after": {
+        "process_medians_ms": [
+          0.239917,
+          0.286792,
+          0.193625
+        ],
+        "median_ms": 0.239917,
+        "min_ms": 0.193625,
+        "max_ms": 0.286792,
+        "allocated_bytes": 215752
+      },
+      "time_ratio_before_over_after": 0.8271944047316364
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "objective",
+      "after_phase": "objective",
+      "before": {
+        "process_medians_ms": [
+          0.016417,
+          0.016771,
+          0.016417
+        ],
+        "median_ms": 0.016417,
+        "min_ms": 0.016417,
+        "max_ms": 0.016771,
+        "allocated_bytes": 14320.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.014,
+          0.018312,
+          0.015584
+        ],
+        "median_ms": 0.015584,
+        "min_ms": 0.014,
+        "max_ms": 0.018312,
+        "allocated_bytes": 14280.0
+      },
+      "time_ratio_before_over_after": 1.0534522587268995
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "warm_fit",
+      "after_phase": "warm_fit",
+      "before": {
+        "process_medians_ms": [
+          3.657375,
+          3.637083,
+          3.398917
+        ],
+        "median_ms": 3.637083,
+        "min_ms": 3.398917,
+        "max_ms": 3.657375,
+        "allocated_bytes": 3841024
+      },
+      "after": {
+        "process_medians_ms": [
+          4.677,
+          3.977708,
+          3.558208
+        ],
+        "median_ms": 3.977708,
+        "min_ms": 3.558208,
+        "max_ms": 4.677,
+        "allocated_bytes": 3903680
+      },
+      "time_ratio_before_over_after": 0.9143665145857867
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "inspection",
+      "after_phase": "inspection",
+      "before": {
+        "process_medians_ms": [
+          0.002104,
+          0.0021045,
+          0.0020835000000000003
+        ],
+        "median_ms": 0.002104,
+        "min_ms": 0.0020835000000000003,
+        "max_ms": 0.0021045,
+        "allocated_bytes": 888.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0015,
+          0.001583,
+          0.0015205000000000002
+        ],
+        "median_ms": 0.0015205000000000002,
+        "min_ms": 0.0015,
+        "max_ms": 0.001583,
+        "allocated_bytes": 888.0
+      },
+      "time_ratio_before_over_after": 1.3837553436369614
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_rebuild_5",
+      "before": {
+        "process_medians_ms": [
+          17.25525,
+          18.160125,
+          17.557
+        ],
+        "median_ms": 17.557,
+        "min_ms": 17.25525,
+        "max_ms": 18.160125,
+        "allocated_bytes": 17743376
+      },
+      "after": {
+        "process_medians_ms": [
+          13.942292,
+          19.41125,
+          15.978083
+        ],
+        "median_ms": 15.978083,
+        "min_ms": 13.942292,
+        "max_ms": 19.41125,
+        "allocated_bytes": 18849504
+      },
+      "time_ratio_before_over_after": 1.09881767418532
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit",
+      "before": {
+        "process_medians_ms": [
+          3.657375,
+          3.637083,
+          3.398917
+        ],
+        "median_ms": 3.637083,
+        "min_ms": 3.398917,
+        "max_ms": 3.657375,
+        "allocated_bytes": 3841024
+      },
+      "after": {
+        "process_medians_ms": [
+          3.40325,
+          2.655708,
+          2.477541
+        ],
+        "median_ms": 2.655708,
+        "min_ms": 2.477541,
+        "max_ms": 3.40325,
+        "allocated_bytes": 2706000
+      },
+      "time_ratio_before_over_after": 1.3695342259013414
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit_gradient",
+      "before": {
+        "process_medians_ms": [
+          3.657375,
+          3.637083,
+          3.398917
+        ],
+        "median_ms": 3.637083,
+        "min_ms": 3.398917,
+        "max_ms": 3.657375,
+        "allocated_bytes": 3841024
+      },
+      "after": {
+        "process_medians_ms": [
+          9.610958,
+          8.887709,
+          7.95875
+        ],
+        "median_ms": 8.887709,
+        "min_ms": 7.95875,
+        "max_ms": 9.610958,
+        "allocated_bytes": 1029880
+      },
+      "time_ratio_before_over_after": 0.4092261571570357
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "objective",
+      "after_phase": "objective_gradient",
+      "before": {
+        "process_medians_ms": [
+          0.016417,
+          0.016771,
+          0.016417
+        ],
+        "median_ms": 0.016417,
+        "min_ms": 0.016417,
+        "max_ms": 0.016771,
+        "allocated_bytes": 14320.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.3316875,
+          0.4046875,
+          0.3580415
+        ],
+        "median_ms": 0.3580415,
+        "min_ms": 0.3316875,
+        "max_ms": 0.4046875,
+        "allocated_bytes": 18264.0
+      },
+      "time_ratio_before_over_after": 0.045852226627360236
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_independent_5",
+      "before": {
+        "process_medians_ms": [
+          17.25525,
+          18.160125,
+          17.557
+        ],
+        "median_ms": 17.557,
+        "min_ms": 17.25525,
+        "max_ms": 18.160125,
+        "allocated_bytes": 17743376
+      },
+      "after": {
+        "process_medians_ms": [
+          10.141542,
+          12.495625,
+          11.151125
+        ],
+        "median_ms": 11.151125,
+        "min_ms": 10.141542,
+        "max_ms": 12.495625,
+        "allocated_bytes": 11903456
+      },
+      "time_ratio_before_over_after": 1.5744599760113889
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_independent_5",
+      "before": {
+        "process_medians_ms": [
+          17.25525,
+          18.160125,
+          17.557
+        ],
+        "median_ms": 17.557,
+        "min_ms": 17.25525,
+        "max_ms": 18.160125,
+        "allocated_bytes": 17743376
+      },
+      "after": {
+        "process_medians_ms": [
+          39.300625,
+          48.279708,
+          40.434542
+        ],
+        "median_ms": 40.434542,
+        "min_ms": 39.300625,
+        "max_ms": 48.279708,
+        "allocated_bytes": 4236232
+      },
+      "time_ratio_before_over_after": 0.4342079601148938
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_warm_5",
+      "before": {
+        "process_medians_ms": [
+          17.25525,
+          18.160125,
+          17.557
+        ],
+        "median_ms": 17.557,
+        "min_ms": 17.25525,
+        "max_ms": 18.160125,
+        "allocated_bytes": 17743376
+      },
+      "after": {
+        "process_medians_ms": [
+          12.030166,
+          15.213042,
+          13.257667
+        ],
+        "median_ms": 13.257667,
+        "min_ms": 12.030166,
+        "max_ms": 15.213042,
+        "allocated_bytes": 2613200
+      },
+      "time_ratio_before_over_after": 1.3242903144271159
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "first_fit",
+      "after_phase": "first_fit",
+      "before": {
+        "process_medians_ms": [
+          4.674042,
+          4.498959,
+          9.131708
+        ],
+        "median_ms": 4.674042,
+        "min_ms": 4.498959,
+        "max_ms": 9.131708,
+        "allocated_bytes": 3699128
+      },
+      "after": {
+        "process_medians_ms": [
+          4.9415,
+          7.433208,
+          6.23775
+        ],
+        "median_ms": 6.23775,
+        "min_ms": 4.9415,
+        "max_ms": 7.433208,
+        "allocated_bytes": 3827392
+      },
+      "time_ratio_before_over_after": 0.7493153781411567
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "compile",
+      "after_phase": "compile",
+      "before": {
+        "process_medians_ms": [
+          0.766042,
+          0.860708,
+          0.75975
+        ],
+        "median_ms": 0.766042,
+        "min_ms": 0.75975,
+        "max_ms": 0.860708,
+        "allocated_bytes": 1138720
+      },
+      "after": {
+        "process_medians_ms": [
+          0.840291,
+          1.475917,
+          1.413083
+        ],
+        "median_ms": 1.413083,
+        "min_ms": 0.840291,
+        "max_ms": 1.475917,
+        "allocated_bytes": 1197488
+      },
+      "time_ratio_before_over_after": 0.5421068684571253
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "workspace",
+      "after_phase": "workspace",
+      "before": {
+        "process_medians_ms": [
+          0.457125,
+          0.478875,
+          0.4685
+        ],
+        "median_ms": 0.4685,
+        "min_ms": 0.457125,
+        "max_ms": 0.478875,
+        "allocated_bytes": 144576
+      },
+      "after": {
+        "process_medians_ms": [
+          0.530625,
+          0.675625,
+          1.082292
+        ],
+        "median_ms": 0.675625,
+        "min_ms": 0.530625,
+        "max_ms": 1.082292,
+        "allocated_bytes": 286000
+      },
+      "time_ratio_before_over_after": 0.693432007400555
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "objective",
+      "after_phase": "objective",
+      "before": {
+        "process_medians_ms": [
+          0.011020499999999999,
+          0.011458,
+          0.011125
+        ],
+        "median_ms": 0.011125,
+        "min_ms": 0.011020499999999999,
+        "max_ms": 0.011458,
+        "allocated_bytes": 15624.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.00575,
+          0.007457999999999999,
+          0.014896
+        ],
+        "median_ms": 0.007457999999999999,
+        "min_ms": 0.00575,
+        "max_ms": 0.014896,
+        "allocated_bytes": 15592.0
+      },
+      "time_ratio_before_over_after": 1.491686779297399
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "warm_fit",
+      "after_phase": "warm_fit",
+      "before": {
+        "process_medians_ms": [
+          3.060292,
+          2.962042,
+          3.312959
+        ],
+        "median_ms": 3.060292,
+        "min_ms": 2.962042,
+        "max_ms": 3.312959,
+        "allocated_bytes": 3698464
+      },
+      "after": {
+        "process_medians_ms": [
+          2.357583,
+          3.268958,
+          4.296375
+        ],
+        "median_ms": 3.268958,
+        "min_ms": 2.357583,
+        "max_ms": 4.296375,
+        "allocated_bytes": 3827392
+      },
+      "time_ratio_before_over_after": 0.9361674270516782
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "inspection",
+      "after_phase": "inspection",
+      "before": {
+        "process_medians_ms": [
+          0.0035830000000000002,
+          0.002042,
+          0.0023959999999999997
+        ],
+        "median_ms": 0.0023959999999999997,
+        "min_ms": 0.002042,
+        "max_ms": 0.0035830000000000002,
+        "allocated_bytes": 888.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0015,
+          0.0021245,
+          0.001646
+        ],
+        "median_ms": 0.001646,
+        "min_ms": 0.0015,
+        "max_ms": 0.0021245,
+        "allocated_bytes": 888.0
+      },
+      "time_ratio_before_over_after": 1.4556500607533414
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_rebuild_5",
+      "before": {
+        "process_medians_ms": [
+          13.551833,
+          15.601375,
+          16.426208
+        ],
+        "median_ms": 15.601375,
+        "min_ms": 13.551833,
+        "max_ms": 16.426208,
+        "allocated_bytes": 18492304
+      },
+      "after": {
+        "process_medians_ms": [
+          14.898791,
+          22.902041,
+          11.267084
+        ],
+        "median_ms": 14.898791,
+        "min_ms": 11.267084,
+        "max_ms": 22.902041,
+        "allocated_bytes": 19796592
+      },
+      "time_ratio_before_over_after": 1.047157114963221
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit",
+      "before": {
+        "process_medians_ms": [
+          3.060292,
+          2.962042,
+          3.312959
+        ],
+        "median_ms": 3.060292,
+        "min_ms": 2.962042,
+        "max_ms": 3.312959,
+        "allocated_bytes": 3698464
+      },
+      "after": {
+        "process_medians_ms": [
+          1.151834,
+          1.588333,
+          2.328292
+        ],
+        "median_ms": 1.588333,
+        "min_ms": 1.151834,
+        "max_ms": 2.328292,
+        "allocated_bytes": 2629920
+      },
+      "time_ratio_before_over_after": 1.926731988820984
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit_gradient",
+      "before": {
+        "process_medians_ms": [
+          3.060292,
+          2.962042,
+          3.312959
+        ],
+        "median_ms": 3.060292,
+        "min_ms": 2.962042,
+        "max_ms": 3.312959,
+        "allocated_bytes": 3698464
+      },
+      "after": {
+        "process_medians_ms": [
+          5.372958,
+          8.809917,
+          5.263083
+        ],
+        "median_ms": 5.372958,
+        "min_ms": 5.263083,
+        "max_ms": 8.809917,
+        "allocated_bytes": 1167872
+      },
+      "time_ratio_before_over_after": 0.569573035932907
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "objective",
+      "after_phase": "objective_gradient",
+      "before": {
+        "process_medians_ms": [
+          0.011020499999999999,
+          0.011458,
+          0.011125
+        ],
+        "median_ms": 0.011125,
+        "min_ms": 0.011020499999999999,
+        "max_ms": 0.011458,
+        "allocated_bytes": 15624.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.2529795,
+          0.323396,
+          0.254208
+        ],
+        "median_ms": 0.254208,
+        "min_ms": 0.2529795,
+        "max_ms": 0.323396,
+        "allocated_bytes": 24208.0
+      },
+      "time_ratio_before_over_after": 0.043763374874118834
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_independent_5",
+      "before": {
+        "process_medians_ms": [
+          13.551833,
+          15.601375,
+          16.426208
+        ],
+        "median_ms": 15.601375,
+        "min_ms": 13.551833,
+        "max_ms": 16.426208,
+        "allocated_bytes": 18492304
+      },
+      "after": {
+        "process_medians_ms": [
+          4.961166,
+          12.286125,
+          5.195667
+        ],
+        "median_ms": 5.195667,
+        "min_ms": 4.961166,
+        "max_ms": 12.286125,
+        "allocated_bytes": 12468776
+      },
+      "time_ratio_before_over_after": 3.0027665360385876
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_independent_5",
+      "before": {
+        "process_medians_ms": [
+          13.551833,
+          15.601375,
+          16.426208
+        ],
+        "median_ms": 15.601375,
+        "min_ms": 13.551833,
+        "max_ms": 16.426208,
+        "allocated_bytes": 18492304
+      },
+      "after": {
+        "process_medians_ms": [
+          25.895208,
+          27.653167,
+          26.04075
+        ],
+        "median_ms": 26.04075,
+        "min_ms": 25.895208,
+        "max_ms": 27.653167,
+        "allocated_bytes": 4380696
+      },
+      "time_ratio_before_over_after": 0.5991138888088862
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_warm_5",
+      "before": {
+        "process_medians_ms": [
+          13.551833,
+          15.601375,
+          16.426208
+        ],
+        "median_ms": 15.601375,
+        "min_ms": 13.551833,
+        "max_ms": 16.426208,
+        "allocated_bytes": 18492304
+      },
+      "after": {
+        "process_medians_ms": [
+          8.889125,
+          11.069542,
+          9.756459
+        ],
+        "median_ms": 9.756459,
+        "min_ms": 8.889125,
+        "max_ms": 11.069542,
+        "allocated_bytes": 2730200
+      },
+      "time_ratio_before_over_after": 1.5990816955208853
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "first_fit",
+      "after_phase": "first_fit",
+      "before": {
+        "process_medians_ms": [
+          35.485125,
+          25.727,
+          40.827416
+        ],
+        "median_ms": 35.485125,
+        "min_ms": 25.727,
+        "max_ms": 40.827416,
+        "allocated_bytes": 2708032
+      },
+      "after": {
+        "process_medians_ms": [
+          24.108042,
+          24.726167,
+          36.57125
+        ],
+        "median_ms": 24.726167,
+        "min_ms": 24.108042,
+        "max_ms": 36.57125,
+        "allocated_bytes": 4212256
+      },
+      "time_ratio_before_over_after": 1.4351243765359991
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "compile",
+      "after_phase": "compile",
+      "before": {
+        "process_medians_ms": [
+          0.399625,
+          0.438375,
+          0.450125
+        ],
+        "median_ms": 0.438375,
+        "min_ms": 0.399625,
+        "max_ms": 0.450125,
+        "allocated_bytes": 81000
+      },
+      "after": {
+        "process_medians_ms": [
+          0.367375,
+          0.3365,
+          0.37525
+        ],
+        "median_ms": 0.367375,
+        "min_ms": 0.3365,
+        "max_ms": 0.37525,
+        "allocated_bytes": 88352
+      },
+      "time_ratio_before_over_after": 1.1932630146308267
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "workspace",
+      "after_phase": "workspace",
+      "before": {
+        "process_medians_ms": [
+          0.084959,
+          0.086417,
+          0.109667
+        ],
+        "median_ms": 0.086417,
+        "min_ms": 0.084959,
+        "max_ms": 0.109667,
+        "allocated_bytes": 12104
+      },
+      "after": {
+        "process_medians_ms": [
+          0.196791,
+          0.183208,
+          0.190833
+        ],
+        "median_ms": 0.190833,
+        "min_ms": 0.183208,
+        "max_ms": 0.196791,
+        "allocated_bytes": 43656
+      },
+      "time_ratio_before_over_after": 0.45284096566107535
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "objective",
+      "after_phase": "objective",
+      "before": {
+        "process_medians_ms": [
+          0.017313,
+          0.009833,
+          0.009479000000000001
+        ],
+        "median_ms": 0.009833,
+        "min_ms": 0.009479000000000001,
+        "max_ms": 0.017313,
+        "allocated_bytes": 8264.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.009041500000000001,
+          0.023542,
+          0.030958
+        ],
+        "median_ms": 0.023542,
+        "min_ms": 0.009041500000000001,
+        "max_ms": 0.030958,
+        "allocated_bytes": 9688.0
+      },
+      "time_ratio_before_over_after": 0.4176790417126837
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "warm_fit",
+      "after_phase": "warm_fit",
+      "before": {
+        "process_medians_ms": [
+          4.566792,
+          1.934167,
+          2.071959
+        ],
+        "median_ms": 2.071959,
+        "min_ms": 1.934167,
+        "max_ms": 4.566792,
+        "allocated_bytes": 1885320
+      },
+      "after": {
+        "process_medians_ms": [
+          2.364333,
+          3.08725,
+          4.377125
+        ],
+        "median_ms": 3.08725,
+        "min_ms": 2.364333,
+        "max_ms": 4.377125,
+        "allocated_bytes": 2199864
+      },
+      "time_ratio_before_over_after": 0.6711341809053365
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "inspection",
+      "after_phase": "inspection",
+      "before": {
+        "process_medians_ms": [
+          0.001917,
+          0.0017915000000000001,
+          0.002875
+        ],
+        "median_ms": 0.001917,
+        "min_ms": 0.0017915000000000001,
+        "max_ms": 0.002875,
+        "allocated_bytes": 848.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.001291,
+          0.001375,
+          0.0013335
+        ],
+        "median_ms": 0.0013335,
+        "min_ms": 0.001291,
+        "max_ms": 0.001375,
+        "allocated_bytes": 848.0
+      },
+      "time_ratio_before_over_after": 1.437570303712036
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_rebuild_5",
+      "before": {
+        "process_medians_ms": [
+          9.250792,
+          9.290417,
+          12.453208
+        ],
+        "median_ms": 9.290417,
+        "min_ms": 9.250792,
+        "max_ms": 12.453208,
+        "allocated_bytes": 8597072
+      },
+      "after": {
+        "process_medians_ms": [
+          6.501083,
+          6.481458,
+          6.5095
+        ],
+        "median_ms": 6.501083,
+        "min_ms": 6.481458,
+        "max_ms": 6.5095,
+        "allocated_bytes": 8564120
+      },
+      "time_ratio_before_over_after": 1.4290568202251839
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit",
+      "before": {
+        "process_medians_ms": [
+          4.566792,
+          1.934167,
+          2.071959
+        ],
+        "median_ms": 2.071959,
+        "min_ms": 1.934167,
+        "max_ms": 4.566792,
+        "allocated_bytes": 1885320
+      },
+      "after": {
+        "process_medians_ms": [
+          2.06125,
+          1.826958,
+          2.481
+        ],
+        "median_ms": 2.06125,
+        "min_ms": 1.826958,
+        "max_ms": 2.481,
+        "allocated_bytes": 1961024
+      },
+      "time_ratio_before_over_after": 1.0051953911461493
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit_gradient",
+      "before": {
+        "process_medians_ms": [
+          4.566792,
+          1.934167,
+          2.071959
+        ],
+        "median_ms": 2.071959,
+        "min_ms": 1.934167,
+        "max_ms": 4.566792,
+        "allocated_bytes": 1885320
+      },
+      "after": {
+        "process_medians_ms": [
+          8.4255,
+          7.964333,
+          8.458125
+        ],
+        "median_ms": 8.4255,
+        "min_ms": 7.964333,
+        "max_ms": 8.458125,
+        "allocated_bytes": 2515960
+      },
+      "time_ratio_before_over_after": 0.24591525725476235
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "objective",
+      "after_phase": "objective_gradient",
+      "before": {
+        "process_medians_ms": [
+          0.017313,
+          0.009833,
+          0.009479000000000001
+        ],
+        "median_ms": 0.009833,
+        "min_ms": 0.009479000000000001,
+        "max_ms": 0.017313,
+        "allocated_bytes": 8264.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0628125,
+          0.39085400000000003,
+          0.047396
+        ],
+        "median_ms": 0.0628125,
+        "min_ms": 0.047396,
+        "max_ms": 0.39085400000000003,
+        "allocated_bytes": 13952.0
+      },
+      "time_ratio_before_over_after": 0.15654527363184081
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_independent_5",
+      "before": {
+        "process_medians_ms": [
+          9.250792,
+          9.290417,
+          12.453208
+        ],
+        "median_ms": 9.290417,
+        "min_ms": 9.250792,
+        "max_ms": 12.453208,
+        "allocated_bytes": 8597072
+      },
+      "after": {
+        "process_medians_ms": [
+          3.749583,
+          4.52825,
+          4.456959
+        ],
+        "median_ms": 4.456959,
+        "min_ms": 3.749583,
+        "max_ms": 4.52825,
+        "allocated_bytes": 7754376
+      },
+      "time_ratio_before_over_after": 2.0844744140567593
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_independent_5",
+      "before": {
+        "process_medians_ms": [
+          9.250792,
+          9.290417,
+          12.453208
+        ],
+        "median_ms": 9.290417,
+        "min_ms": 9.250792,
+        "max_ms": 12.453208,
+        "allocated_bytes": 8597072
+      },
+      "after": {
+        "process_medians_ms": [
+          6.088125,
+          8.196333,
+          6.833083
+        ],
+        "median_ms": 6.833083,
+        "min_ms": 6.088125,
+        "max_ms": 8.196333,
+        "allocated_bytes": 2326888
+      },
+      "time_ratio_before_over_after": 1.3596230281411772
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_warm_5",
+      "before": {
+        "process_medians_ms": [
+          9.250792,
+          9.290417,
+          12.453208
+        ],
+        "median_ms": 9.290417,
+        "min_ms": 9.250792,
+        "max_ms": 12.453208,
+        "allocated_bytes": 8597072
+      },
+      "after": {
+        "process_medians_ms": [
+          2.371125,
+          4.447625,
+          3.711958
+        ],
+        "median_ms": 3.711958,
+        "min_ms": 2.371125,
+        "max_ms": 4.447625,
+        "allocated_bytes": 825872
+      },
+      "time_ratio_before_over_after": 2.502834622590018
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "first_fit",
+      "after_phase": "first_fit",
+      "before": {
+        "process_medians_ms": [
+          6.244542,
+          3.885958,
+          5.786125
+        ],
+        "median_ms": 5.786125,
+        "min_ms": 3.885958,
+        "max_ms": 6.244542,
+        "allocated_bytes": 921000
+      },
+      "after": {
+        "process_medians_ms": [
+          4.351125,
+          5.355042,
+          5.455667
+        ],
+        "median_ms": 5.355042,
+        "min_ms": 4.351125,
+        "max_ms": 5.455667,
+        "allocated_bytes": 896136
+      },
+      "time_ratio_before_over_after": 1.080500395701845
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "compile",
+      "after_phase": "compile",
+      "before": {
+        "process_medians_ms": [
+          0.282625,
+          0.228375,
+          0.415166
+        ],
+        "median_ms": 0.282625,
+        "min_ms": 0.228375,
+        "max_ms": 0.415166,
+        "allocated_bytes": 128520
+      },
+      "after": {
+        "process_medians_ms": [
+          0.201125,
+          0.247625,
+          0.215167
+        ],
+        "median_ms": 0.215167,
+        "min_ms": 0.201125,
+        "max_ms": 0.247625,
+        "allocated_bytes": 144728
+      },
+      "time_ratio_before_over_after": 1.3135146188774303
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "workspace",
+      "after_phase": "workspace",
+      "before": {
+        "process_medians_ms": [
+          0.115375,
+          0.114334,
+          0.116084
+        ],
+        "median_ms": 0.115375,
+        "min_ms": 0.114334,
+        "max_ms": 0.116084,
+        "allocated_bytes": 15080
+      },
+      "after": {
+        "process_medians_ms": [
+          0.085083,
+          0.099334,
+          0.176667
+        ],
+        "median_ms": 0.099334,
+        "min_ms": 0.085083,
+        "max_ms": 0.176667,
+        "allocated_bytes": 26720
+      },
+      "time_ratio_before_over_after": 1.1614854933859504
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "objective",
+      "after_phase": "objective",
+      "before": {
+        "process_medians_ms": [
+          0.021459,
+          0.024416,
+          0.0363955
+        ],
+        "median_ms": 0.024416,
+        "min_ms": 0.021459,
+        "max_ms": 0.0363955,
+        "allocated_bytes": 5360.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0246455,
+          0.0222085,
+          0.0326875
+        ],
+        "median_ms": 0.0246455,
+        "min_ms": 0.0222085,
+        "max_ms": 0.0326875,
+        "allocated_bytes": 5184.0
+      },
+      "time_ratio_before_over_after": 0.9906879552048041
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "warm_fit",
+      "after_phase": "warm_fit",
+      "before": {
+        "process_medians_ms": [
+          3.24025,
+          3.097583,
+          3.274833
+        ],
+        "median_ms": 3.24025,
+        "min_ms": 3.097583,
+        "max_ms": 3.274833,
+        "allocated_bytes": 878832
+      },
+      "after": {
+        "process_medians_ms": [
+          2.255084,
+          2.802125,
+          2.698625
+        ],
+        "median_ms": 2.698625,
+        "min_ms": 2.255084,
+        "max_ms": 2.802125,
+        "allocated_bytes": 890712
+      },
+      "time_ratio_before_over_after": 1.2007040622539258
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "inspection",
+      "after_phase": "inspection",
+      "before": {
+        "process_medians_ms": [
+          0.001854,
+          0.001708,
+          0.0031455
+        ],
+        "median_ms": 0.001854,
+        "min_ms": 0.001708,
+        "max_ms": 0.0031455,
+        "allocated_bytes": 848.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0011454999999999998,
+          0.0011875000000000002,
+          0.0013544999999999998
+        ],
+        "median_ms": 0.0011875000000000002,
+        "min_ms": 0.0011454999999999998,
+        "max_ms": 0.0013544999999999998,
+        "allocated_bytes": 848.0
+      },
+      "time_ratio_before_over_after": 1.5612631578947365
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_rebuild_5",
+      "before": {
+        "process_medians_ms": [
+          5.08575,
+          4.636416,
+          7.22875
+        ],
+        "median_ms": 5.08575,
+        "min_ms": 4.636416,
+        "max_ms": 7.22875,
+        "allocated_bytes": 4304808
+      },
+      "after": {
+        "process_medians_ms": [
+          3.607875,
+          5.794833,
+          4.126583
+        ],
+        "median_ms": 4.126583,
+        "min_ms": 3.607875,
+        "max_ms": 5.794833,
+        "allocated_bytes": 4390032
+      },
+      "time_ratio_before_over_after": 1.232436134205952
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit",
+      "before": {
+        "process_medians_ms": [
+          3.24025,
+          3.097583,
+          3.274833
+        ],
+        "median_ms": 3.24025,
+        "min_ms": 3.097583,
+        "max_ms": 3.274833,
+        "allocated_bytes": 878832
+      },
+      "after": {
+        "process_medians_ms": [
+          0.4725,
+          2.12525,
+          0.426334
+        ],
+        "median_ms": 0.4725,
+        "min_ms": 0.426334,
+        "max_ms": 2.12525,
+        "allocated_bytes": 738312
+      },
+      "time_ratio_before_over_after": 6.8576719576719585
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit_gradient",
+      "before": {
+        "process_medians_ms": [
+          3.24025,
+          3.097583,
+          3.274833
+        ],
+        "median_ms": 3.24025,
+        "min_ms": 3.097583,
+        "max_ms": 3.274833,
+        "allocated_bytes": 878832
+      },
+      "after": {
+        "process_medians_ms": [
+          2.544042,
+          3.098125,
+          2.370209
+        ],
+        "median_ms": 2.544042,
+        "min_ms": 2.370209,
+        "max_ms": 3.098125,
+        "allocated_bytes": 354360
+      },
+      "time_ratio_before_over_after": 1.2736621486594955
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "objective",
+      "after_phase": "objective_gradient",
+      "before": {
+        "process_medians_ms": [
+          0.021459,
+          0.024416,
+          0.0363955
+        ],
+        "median_ms": 0.024416,
+        "min_ms": 0.021459,
+        "max_ms": 0.0363955,
+        "allocated_bytes": 5360.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.440458,
+          0.137708,
+          0.068042
+        ],
+        "median_ms": 0.137708,
+        "min_ms": 0.068042,
+        "max_ms": 0.440458,
+        "allocated_bytes": 8688.0
+      },
+      "time_ratio_before_over_after": 0.17730269846341534
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_independent_5",
+      "before": {
+        "process_medians_ms": [
+          5.08575,
+          4.636416,
+          7.22875
+        ],
+        "median_ms": 5.08575,
+        "min_ms": 4.636416,
+        "max_ms": 7.22875,
+        "allocated_bytes": 4304808
+      },
+      "after": {
+        "process_medians_ms": [
+          1.862959,
+          3.764917,
+          2.539875
+        ],
+        "median_ms": 2.539875,
+        "min_ms": 1.862959,
+        "max_ms": 3.764917,
+        "allocated_bytes": 3577008
+      },
+      "time_ratio_before_over_after": 2.0023623209803634
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_independent_5",
+      "before": {
+        "process_medians_ms": [
+          5.08575,
+          4.636416,
+          7.22875
+        ],
+        "median_ms": 5.08575,
+        "min_ms": 4.636416,
+        "max_ms": 7.22875,
+        "allocated_bytes": 4304808
+      },
+      "after": {
+        "process_medians_ms": [
+          3.557333,
+          5.181208,
+          4.745833
+        ],
+        "median_ms": 4.745833,
+        "min_ms": 3.557333,
+        "max_ms": 5.181208,
+        "allocated_bytes": 1610736
+      },
+      "time_ratio_before_over_after": 1.0716243070499951
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_warm_5",
+      "before": {
+        "process_medians_ms": [
+          5.08575,
+          4.636416,
+          7.22875
+        ],
+        "median_ms": 5.08575,
+        "min_ms": 4.636416,
+        "max_ms": 7.22875,
+        "allocated_bytes": 4304808
+      },
+      "after": {
+        "process_medians_ms": [
+          1.604334,
+          1.971667,
+          1.673584
+        ],
+        "median_ms": 1.673584,
+        "min_ms": 1.604334,
+        "max_ms": 1.971667,
+        "allocated_bytes": 674824
+      },
+      "time_ratio_before_over_after": 3.038837608390138
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "first_fit",
+      "after_phase": "first_fit",
+      "before": {
+        "process_medians_ms": [
+          107.577417,
+          92.635375,
+          123.955958
+        ],
+        "median_ms": 107.577417,
+        "min_ms": 92.635375,
+        "max_ms": 123.955958,
+        "allocated_bytes": 15005352
+      },
+      "after": {
+        "process_medians_ms": [
+          83.190459,
+          133.427625,
+          108.713458
+        ],
+        "median_ms": 108.713458,
+        "min_ms": 83.190459,
+        "max_ms": 133.427625,
+        "allocated_bytes": 15704320
+      },
+      "time_ratio_before_over_after": 0.9895501346300657
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "compile",
+      "after_phase": "compile",
+      "before": {
+        "process_medians_ms": [
+          1.647292,
+          0.879542,
+          0.864792
+        ],
+        "median_ms": 0.879542,
+        "min_ms": 0.864792,
+        "max_ms": 1.647292,
+        "allocated_bytes": 188808
+      },
+      "after": {
+        "process_medians_ms": [
+          0.757166,
+          0.82925,
+          0.958458
+        ],
+        "median_ms": 0.82925,
+        "min_ms": 0.757166,
+        "max_ms": 0.958458,
+        "allocated_bytes": 211184
+      },
+      "time_ratio_before_over_after": 1.0606475731082303
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "workspace",
+      "after_phase": "workspace",
+      "before": {
+        "process_medians_ms": [
+          0.376459,
+          0.376583,
+          0.502666
+        ],
+        "median_ms": 0.376583,
+        "min_ms": 0.376459,
+        "max_ms": 0.502666,
+        "allocated_bytes": 17816
+      },
+      "after": {
+        "process_medians_ms": [
+          0.273,
+          0.305292,
+          0.494
+        ],
+        "median_ms": 0.305292,
+        "min_ms": 0.273,
+        "max_ms": 0.494,
+        "allocated_bytes": 17920
+      },
+      "time_ratio_before_over_after": 1.233517419388651
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "objective",
+      "after_phase": "objective",
+      "before": {
+        "process_medians_ms": [
+          0.0083545,
+          0.009625,
+          0.018875
+        ],
+        "median_ms": 0.009625,
+        "min_ms": 0.0083545,
+        "max_ms": 0.018875,
+        "allocated_bytes": 2712.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.008292,
+          0.008687,
+          0.0069375
+        ],
+        "median_ms": 0.008292,
+        "min_ms": 0.0069375,
+        "max_ms": 0.008687,
+        "allocated_bytes": 2840.0
+      },
+      "time_ratio_before_over_after": 1.1607573564881812
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "warm_fit",
+      "after_phase": "warm_fit",
+      "before": {
+        "process_medians_ms": [
+          3.343416,
+          3.271916,
+          4.137584
+        ],
+        "median_ms": 3.343416,
+        "min_ms": 3.271916,
+        "max_ms": 4.137584,
+        "allocated_bytes": 1144440
+      },
+      "after": {
+        "process_medians_ms": [
+          3.638959,
+          3.68975,
+          3.62125
+        ],
+        "median_ms": 3.638959,
+        "min_ms": 3.62125,
+        "max_ms": 3.68975,
+        "allocated_bytes": 1234104
+      },
+      "time_ratio_before_over_after": 0.9187836411457233
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "inspection",
+      "after_phase": "inspection",
+      "before": {
+        "process_medians_ms": [
+          0.002521,
+          0.0023125000000000003,
+          0.002333
+        ],
+        "median_ms": 0.002333,
+        "min_ms": 0.0023125000000000003,
+        "max_ms": 0.002521,
+        "allocated_bytes": 920.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.001667,
+          0.001979,
+          0.001792
+        ],
+        "median_ms": 0.001792,
+        "min_ms": 0.001667,
+        "max_ms": 0.001979,
+        "allocated_bytes": 920.0
+      },
+      "time_ratio_before_over_after": 1.3018973214285714
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_rebuild_5",
+      "before": {
+        "process_medians_ms": [
+          13.89725,
+          12.448833,
+          11.671542
+        ],
+        "median_ms": 12.448833,
+        "min_ms": 11.671542,
+        "max_ms": 13.89725,
+        "allocated_bytes": 5601944
+      },
+      "after": {
+        "process_medians_ms": [
+          10.458833,
+          9.163542,
+          8.727
+        ],
+        "median_ms": 9.163542,
+        "min_ms": 8.727,
+        "max_ms": 10.458833,
+        "allocated_bytes": 5802960
+      },
+      "time_ratio_before_over_after": 1.3585175906870948
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit",
+      "before": {
+        "process_medians_ms": [
+          3.343416,
+          3.271916,
+          4.137584
+        ],
+        "median_ms": 3.343416,
+        "min_ms": 3.271916,
+        "max_ms": 4.137584,
+        "allocated_bytes": 1144440
+      },
+      "after": {
+        "process_medians_ms": [
+          1.646792,
+          1.875625,
+          1.884542
+        ],
+        "median_ms": 1.875625,
+        "min_ms": 1.646792,
+        "max_ms": 1.884542,
+        "allocated_bytes": 1030424
+      },
+      "time_ratio_before_over_after": 1.782561012995668
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit_gradient",
+      "before": {
+        "process_medians_ms": [
+          3.343416,
+          3.271916,
+          4.137584
+        ],
+        "median_ms": 3.343416,
+        "min_ms": 3.271916,
+        "max_ms": 4.137584,
+        "allocated_bytes": 1144440
+      },
+      "after": {
+        "process_medians_ms": [
+          1.974,
+          1.946042,
+          2.088917
+        ],
+        "median_ms": 1.974,
+        "min_ms": 1.946042,
+        "max_ms": 2.088917,
+        "allocated_bytes": 589128
+      },
+      "time_ratio_before_over_after": 1.693726443768997
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "objective",
+      "after_phase": "objective_gradient",
+      "before": {
+        "process_medians_ms": [
+          0.0083545,
+          0.009625,
+          0.018875
+        ],
+        "median_ms": 0.009625,
+        "min_ms": 0.0083545,
+        "max_ms": 0.018875,
+        "allocated_bytes": 2712.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0290415,
+          0.031375,
+          0.0370415
+        ],
+        "median_ms": 0.031375,
+        "min_ms": 0.0290415,
+        "max_ms": 0.0370415,
+        "allocated_bytes": 20952.0
+      },
+      "time_ratio_before_over_after": 0.30677290836653387
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_independent_5",
+      "before": {
+        "process_medians_ms": [
+          13.89725,
+          12.448833,
+          11.671542
+        ],
+        "median_ms": 12.448833,
+        "min_ms": 11.671542,
+        "max_ms": 13.89725,
+        "allocated_bytes": 5601944
+      },
+      "after": {
+        "process_medians_ms": [
+          6.633834,
+          6.164042,
+          7.536084
+        ],
+        "median_ms": 6.633834,
+        "min_ms": 6.164042,
+        "max_ms": 7.536084,
+        "allocated_bytes": 4890240
+      },
+      "time_ratio_before_over_after": 1.876566854099756
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_independent_5",
+      "before": {
+        "process_medians_ms": [
+          13.89725,
+          12.448833,
+          11.671542
+        ],
+        "median_ms": 12.448833,
+        "min_ms": 11.671542,
+        "max_ms": 13.89725,
+        "allocated_bytes": 5601944
+      },
+      "after": {
+        "process_medians_ms": [
+          5.021042,
+          5.236917,
+          5.549958
+        ],
+        "median_ms": 5.236917,
+        "min_ms": 5.021042,
+        "max_ms": 5.549958,
+        "allocated_bytes": 2809112
+      },
+      "time_ratio_before_over_after": 2.3771300939083053
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_warm_5",
+      "before": {
+        "process_medians_ms": [
+          13.89725,
+          12.448833,
+          11.671542
+        ],
+        "median_ms": 12.448833,
+        "min_ms": 11.671542,
+        "max_ms": 13.89725,
+        "allocated_bytes": 5601944
+      },
+      "after": {
+        "process_medians_ms": [
+          2.844875,
+          2.87475,
+          4.4575
+        ],
+        "median_ms": 2.87475,
+        "min_ms": 2.844875,
+        "max_ms": 4.4575,
+        "allocated_bytes": 1469360
+      },
+      "time_ratio_before_over_after": 4.330405426558831
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "first_fit",
+      "after_phase": "first_fit",
+      "before": {
+        "process_medians_ms": [
+          10.028125,
+          10.240291,
+          16.337417
+        ],
+        "median_ms": 10.240291,
+        "min_ms": 10.028125,
+        "max_ms": 16.337417,
+        "allocated_bytes": 2296936
+      },
+      "after": {
+        "process_medians_ms": [
+          6.275375,
+          8.421416,
+          6.64075
+        ],
+        "median_ms": 6.64075,
+        "min_ms": 6.275375,
+        "max_ms": 8.421416,
+        "allocated_bytes": 2222016
+      },
+      "time_ratio_before_over_after": 1.5420383239844897
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "compile",
+      "after_phase": "compile",
+      "before": {
+        "process_medians_ms": [
+          0.197459,
+          0.2305,
+          0.196625
+        ],
+        "median_ms": 0.197459,
+        "min_ms": 0.196625,
+        "max_ms": 0.2305,
+        "allocated_bytes": 78584
+      },
+      "after": {
+        "process_medians_ms": [
+          0.149166,
+          0.178375,
+          0.234542
+        ],
+        "median_ms": 0.178375,
+        "min_ms": 0.149166,
+        "max_ms": 0.234542,
+        "allocated_bytes": 82648
+      },
+      "time_ratio_before_over_after": 1.106988086895585
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "workspace",
+      "after_phase": "workspace",
+      "before": {
+        "process_medians_ms": [
+          0.086,
+          0.08475,
+          0.085542
+        ],
+        "median_ms": 0.085542,
+        "min_ms": 0.08475,
+        "max_ms": 0.086,
+        "allocated_bytes": 7496
+      },
+      "after": {
+        "process_medians_ms": [
+          0.036541,
+          0.039958,
+          0.04
+        ],
+        "median_ms": 0.039958,
+        "min_ms": 0.036541,
+        "max_ms": 0.04,
+        "allocated_bytes": 10488
+      },
+      "time_ratio_before_over_after": 2.1407978377296164
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "objective",
+      "after_phase": "objective",
+      "before": {
+        "process_medians_ms": [
+          0.002708,
+          0.0033955,
+          0.0148125
+        ],
+        "median_ms": 0.0033955,
+        "min_ms": 0.002708,
+        "max_ms": 0.0148125,
+        "allocated_bytes": 3392.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0030835000000000003,
+          0.005396,
+          0.004583500000000001
+        ],
+        "median_ms": 0.004583500000000001,
+        "min_ms": 0.0030835000000000003,
+        "max_ms": 0.005396,
+        "allocated_bytes": 3408.0
+      },
+      "time_ratio_before_over_after": 0.740809425111814
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "warm_fit",
+      "after_phase": "warm_fit",
+      "before": {
+        "process_medians_ms": [
+          1.541584,
+          1.9445,
+          4.733375
+        ],
+        "median_ms": 1.9445,
+        "min_ms": 1.541584,
+        "max_ms": 4.733375,
+        "allocated_bytes": 2102232
+      },
+      "after": {
+        "process_medians_ms": [
+          1.668208,
+          2.392167,
+          3.530542
+        ],
+        "median_ms": 2.392167,
+        "min_ms": 1.668208,
+        "max_ms": 3.530542,
+        "allocated_bytes": 2084952
+      },
+      "time_ratio_before_over_after": 0.8128613094319919
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "inspection",
+      "after_phase": "inspection",
+      "before": {
+        "process_medians_ms": [
+          0.002,
+          0.002229,
+          0.002167
+        ],
+        "median_ms": 0.002167,
+        "min_ms": 0.002,
+        "max_ms": 0.002229,
+        "allocated_bytes": 920.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.0015,
+          0.001667,
+          0.001583
+        ],
+        "median_ms": 0.001583,
+        "min_ms": 0.0015,
+        "max_ms": 0.001667,
+        "allocated_bytes": 888.0
+      },
+      "time_ratio_before_over_after": 1.368919772583702
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_rebuild_5",
+      "before": {
+        "process_medians_ms": [
+          7.92375,
+          8.927583,
+          8.920042
+        ],
+        "median_ms": 8.920042,
+        "min_ms": 7.92375,
+        "max_ms": 8.927583,
+        "allocated_bytes": 10509776
+      },
+      "after": {
+        "process_medians_ms": [
+          6.056375,
+          9.67175,
+          5.708125
+        ],
+        "median_ms": 6.056375,
+        "min_ms": 5.708125,
+        "max_ms": 9.67175,
+        "allocated_bytes": 10310256
+      },
+      "time_ratio_before_over_after": 1.472835153041217
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit",
+      "before": {
+        "process_medians_ms": [
+          1.541584,
+          1.9445,
+          4.733375
+        ],
+        "median_ms": 1.9445,
+        "min_ms": 1.541584,
+        "max_ms": 4.733375,
+        "allocated_bytes": 2102232
+      },
+      "after": {
+        "process_medians_ms": [
+          1.640083,
+          1.96975,
+          1.477875
+        ],
+        "median_ms": 1.640083,
+        "min_ms": 1.477875,
+        "max_ms": 1.96975,
+        "allocated_bytes": 1979808
+      },
+      "time_ratio_before_over_after": 1.1856107282375343
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "warm_fit",
+      "after_phase": "compiled_fit_gradient",
+      "before": {
+        "process_medians_ms": [
+          1.541584,
+          1.9445,
+          4.733375
+        ],
+        "median_ms": 1.9445,
+        "min_ms": 1.541584,
+        "max_ms": 4.733375,
+        "allocated_bytes": 2102232
+      },
+      "after": {
+        "process_medians_ms": [
+          1.137208,
+          1.778625,
+          1.058708
+        ],
+        "median_ms": 1.137208,
+        "min_ms": 1.058708,
+        "max_ms": 1.778625,
+        "allocated_bytes": 779968
+      },
+      "time_ratio_before_over_after": 1.709889483718018
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "objective",
+      "after_phase": "objective_gradient",
+      "before": {
+        "process_medians_ms": [
+          0.002708,
+          0.0033955,
+          0.0148125
+        ],
+        "median_ms": 0.0033955,
+        "min_ms": 0.002708,
+        "max_ms": 0.0148125,
+        "allocated_bytes": 3392.0
+      },
+      "after": {
+        "process_medians_ms": [
+          0.012104,
+          0.0242295,
+          0.0134375
+        ],
+        "median_ms": 0.0134375,
+        "min_ms": 0.012104,
+        "max_ms": 0.0242295,
+        "allocated_bytes": 5776.0
+      },
+      "time_ratio_before_over_after": 0.25268837209302325
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_independent_5",
+      "before": {
+        "process_medians_ms": [
+          7.92375,
+          8.927583,
+          8.920042
+        ],
+        "median_ms": 8.920042,
+        "min_ms": 7.92375,
+        "max_ms": 8.927583,
+        "allocated_bytes": 10509776
+      },
+      "after": {
+        "process_medians_ms": [
+          4.502083,
+          6.732333,
+          4.670667
+        ],
+        "median_ms": 4.670667,
+        "min_ms": 4.502083,
+        "max_ms": 6.732333,
+        "allocated_bytes": 9848576
+      },
+      "time_ratio_before_over_after": 1.9098004631886625
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_independent_5",
+      "before": {
+        "process_medians_ms": [
+          7.92375,
+          8.927583,
+          8.920042
+        ],
+        "median_ms": 8.920042,
+        "min_ms": 7.92375,
+        "max_ms": 8.927583,
+        "allocated_bytes": 10509776
+      },
+      "after": {
+        "process_medians_ms": [
+          3.835708,
+          6.526416,
+          5.458917
+        ],
+        "median_ms": 5.458917,
+        "min_ms": 3.835708,
+        "max_ms": 6.526416,
+        "allocated_bytes": 3832888
+      },
+      "time_ratio_before_over_after": 1.634031438836678
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "baseline_phase": "response_batch_rebuild_5",
+      "after_phase": "response_batch_refit_gradient_warm_5",
+      "before": {
+        "process_medians_ms": [
+          7.92375,
+          8.927583,
+          8.920042
+        ],
+        "median_ms": 8.920042,
+        "min_ms": 7.92375,
+        "max_ms": 8.927583,
+        "allocated_bytes": 10509776
+      },
+      "after": {
+        "process_medians_ms": [
+          1.511917,
+          2.699833,
+          1.632042
+        ],
+        "median_ms": 1.632042,
+        "min_ms": 1.511917,
+        "max_ms": 2.699833,
+        "allocated_bytes": 1220376
+      },
+      "time_ratio_before_over_after": 5.4655713517176645
+    }
+  ],
+  "objective_checks": [
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "strategy": "derivative_free",
+      "run": 1,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "strategy": "analytic_gradient",
+      "run": 1,
+      "objective_difference": 1.0085159374284558e-09,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "strategy": "derivative_free",
+      "run": 2,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "strategy": "analytic_gradient",
+      "run": 2,
+      "objective_difference": 1.0085159374284558e-09,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "strategy": "derivative_free",
+      "run": 3,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "crossed1200",
+      "strategy": "analytic_gradient",
+      "run": 3,
+      "objective_difference": 1.0085159374284558e-09,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "strategy": "derivative_free",
+      "run": 1,
+      "objective_difference": 3.81646714231465e-10,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "strategy": "analytic_gradient",
+      "run": 1,
+      "objective_difference": 6.380105332937092e-10,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "strategy": "derivative_free",
+      "run": 2,
+      "objective_difference": 3.81646714231465e-10,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "strategy": "analytic_gradient",
+      "run": 2,
+      "objective_difference": 6.380105332937092e-10,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "strategy": "derivative_free",
+      "run": 3,
+      "objective_difference": 3.81646714231465e-10,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "nested1200",
+      "strategy": "analytic_gradient",
+      "run": 3,
+      "objective_difference": 6.380105332937092e-10,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "strategy": "derivative_free",
+      "run": 1,
+      "objective_difference": 3.12070369545836e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "strategy": "analytic_gradient",
+      "run": 1,
+      "objective_difference": 4.567368705465924e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "strategy": "derivative_free",
+      "run": 2,
+      "objective_difference": 3.12070369545836e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "strategy": "analytic_gradient",
+      "run": 2,
+      "objective_difference": 4.567368705465924e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "strategy": "derivative_free",
+      "run": 3,
+      "objective_difference": 3.12070369545836e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "strategy": "analytic_gradient",
+      "run": 3,
+      "objective_difference": 4.567368705465924e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "strategy": "derivative_free",
+      "run": 1,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "strategy": "analytic_gradient",
+      "run": 1,
+      "objective_difference": 2.950173438875936e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "strategy": "derivative_free",
+      "run": 2,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "strategy": "analytic_gradient",
+      "run": 2,
+      "objective_difference": 2.950173438875936e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "strategy": "derivative_free",
+      "run": 3,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "strategy": "analytic_gradient",
+      "run": 3,
+      "objective_difference": 2.950173438875936e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "strategy": "derivative_free",
+      "run": 1,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "strategy": "analytic_gradient",
+      "run": 1,
+      "objective_difference": 1.1753627404686995e-08,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "strategy": "derivative_free",
+      "run": 2,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "strategy": "analytic_gradient",
+      "run": 2,
+      "objective_difference": 1.1753627404686995e-08,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "strategy": "derivative_free",
+      "run": 3,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy",
+      "strategy": "analytic_gradient",
+      "run": 3,
+      "objective_difference": 1.1753627404686995e-08,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "strategy": "derivative_free",
+      "run": 1,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "strategy": "analytic_gradient",
+      "run": 1,
+      "objective_difference": 3.898912837030366e-08,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "strategy": "derivative_free",
+      "run": 2,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "strategy": "analytic_gradient",
+      "run": 2,
+      "objective_difference": 3.898912837030366e-08,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "strategy": "derivative_free",
+      "run": 3,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "js",
+      "workload": "station_boundary",
+      "strategy": "analytic_gradient",
+      "run": 3,
+      "objective_difference": 3.898912837030366e-08,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "strategy": "derivative_free",
+      "run": 1,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "strategy": "analytic_gradient",
+      "run": 1,
+      "objective_difference": 1.6927970136748627e-09,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "strategy": "derivative_free",
+      "run": 2,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "strategy": "analytic_gradient",
+      "run": 2,
+      "objective_difference": 1.6927970136748627e-09,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "strategy": "derivative_free",
+      "run": 3,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "crossed1200",
+      "strategy": "analytic_gradient",
+      "run": 3,
+      "objective_difference": 1.6927970136748627e-09,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "strategy": "derivative_free",
+      "run": 1,
+      "objective_difference": 9.586074156686664e-10,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "strategy": "analytic_gradient",
+      "run": 1,
+      "objective_difference": 1.840135155362077e-09,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "strategy": "derivative_free",
+      "run": 2,
+      "objective_difference": 9.586074156686664e-10,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "strategy": "analytic_gradient",
+      "run": 2,
+      "objective_difference": 1.840135155362077e-09,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "strategy": "derivative_free",
+      "run": 3,
+      "objective_difference": 9.586074156686664e-10,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "nested1200",
+      "strategy": "analytic_gradient",
+      "run": 3,
+      "objective_difference": 1.840135155362077e-09,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "strategy": "derivative_free",
+      "run": 1,
+      "objective_difference": 1.5688783605583012e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "strategy": "analytic_gradient",
+      "run": 1,
+      "objective_difference": 4.567368705465924e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "strategy": "derivative_free",
+      "run": 2,
+      "objective_difference": 1.5688783605583012e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "strategy": "analytic_gradient",
+      "run": 2,
+      "objective_difference": 4.567368705465924e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "strategy": "derivative_free",
+      "run": 3,
+      "objective_difference": 1.5688783605583012e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "strategy": "analytic_gradient",
+      "run": 3,
+      "objective_difference": 4.567368705465924e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "strategy": "derivative_free",
+      "run": 1,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "strategy": "analytic_gradient",
+      "run": 1,
+      "objective_difference": 2.950173438875936e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "strategy": "derivative_free",
+      "run": 2,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "strategy": "analytic_gradient",
+      "run": 2,
+      "objective_difference": 2.950173438875936e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "strategy": "derivative_free",
+      "run": 3,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "strategy": "analytic_gradient",
+      "run": 3,
+      "objective_difference": 2.950173438875936e-11,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "strategy": "derivative_free",
+      "run": 1,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "strategy": "analytic_gradient",
+      "run": 1,
+      "objective_difference": 1.1753627404686995e-08,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "strategy": "derivative_free",
+      "run": 2,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "strategy": "analytic_gradient",
+      "run": 2,
+      "objective_difference": 1.1753627404686995e-08,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "strategy": "derivative_free",
+      "run": 3,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy",
+      "strategy": "analytic_gradient",
+      "run": 3,
+      "objective_difference": 1.1753627404686995e-08,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "strategy": "derivative_free",
+      "run": 1,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "strategy": "analytic_gradient",
+      "run": 1,
+      "objective_difference": 3.898912837030366e-08,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "strategy": "derivative_free",
+      "run": 2,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "strategy": "analytic_gradient",
+      "run": 2,
+      "objective_difference": 3.898912837030366e-08,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "strategy": "derivative_free",
+      "run": 3,
+      "objective_difference": 0.0,
+      "within_0_002": true
+    },
+    {
+      "platform": "jvm",
+      "workload": "station_boundary",
+      "strategy": "analytic_gradient",
+      "run": 3,
+      "objective_difference": 3.898912837030366e-08,
+      "within_0_002": true
+    }
+  ],
+  "limits": [
+    "Ratios compare process medians on this host, not universal speed guarantees",
+    "JVM current-thread allocation only; JS allocations unavailable",
+    "API and optimizer changes are separate comparison rows",
+    "WarmSequential refits are explicitly order-dependent"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-26T21:41:07.783549+00:00",
+  "finished_utc": "2026-10-26T21:41:19.353722+00:00",
+  "duration_seconds": 11.570032,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/testOnly mixeff4s.lmm.GradientFitSuite mixeff4s.optimizer.GradientTrustBqSuite"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-engine-tranche/gradient-positive-curvature.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 3656
+}

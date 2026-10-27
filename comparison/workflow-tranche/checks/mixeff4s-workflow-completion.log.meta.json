@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-27T02:10:05.738662+00:00",
+  "finished_utc": "2026-10-27T02:10:13.660977+00:00",
+  "duration_seconds": 7.922154,
+  "command": [
+    "sbt",
+    "-batch",
+    "test"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-workflow-completion.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 59575
+}

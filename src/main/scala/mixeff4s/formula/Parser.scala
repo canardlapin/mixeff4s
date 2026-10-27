@@ -267,7 +267,7 @@ object Parser:
             else if negate then error = Some(FormulaError.NegatedRandomEffect(pos))
             else
               parseRandomTerm() match
-                case Left(err) => error = Some(err)
+                case Left(err)  => error = Some(err)
                 case Right(rts) =>
                   random ++= rts
                   expectTerm = false
@@ -288,8 +288,7 @@ object Parser:
               negate = false
               expectTerm = false
               pendingOperator = false
-          case Some(Token.Ident(name))
-              if peekNext.contains(Token.LParen) && covarianceWrapper(name).isDefined =>
+          case Some(Token.Ident(name)) if peekNext.contains(Token.LParen) && covarianceWrapper(name).isDefined =>
             if !expectTerm then error = Some(FormulaError.MissingTermSeparator(pos))
             else if negate then error = Some(FormulaError.NegatedRandomEffect(pos))
             else
@@ -300,7 +299,7 @@ object Parser:
                   error = Some(FormulaError.Other(s"unknown random-effect covariance wrapper `$name`"))
                 case Some(cov) =>
                   parseRandomTermWithCovariance(sourceStart, cov) match
-                    case Left(err) => error = Some(err)
+                    case Left(err)  => error = Some(err)
                     case Right(rts) =>
                       random ++= rts
                       negate = false
@@ -310,12 +309,12 @@ object Parser:
             if !expectTerm then error = Some(FormulaError.MissingTermSeparator(pos))
             else
               parseTermExpr() match
-                case Left(err) => error = Some(err)
+                case Left(err)    => error = Some(err)
                 case Right(terms) =>
                   if negate then
                     val current = fixed.result()
                     fixed.clear()
-                    fixed ++= current.filterNot(terms.contains)
+                    fixed ++= current.filterNot(currentTerm => terms.exists(sameModelTerm(currentTerm, _)))
                   else fixed ++= terms
                   negate = false
                   expectTerm = false
@@ -359,7 +358,7 @@ object Parser:
             while err.isEmpty && peek.contains(Token.Slash) do
               advance()
               parseAtom() match
-                case Left(e) => err = Some(e)
+                case Left(e)     => err = Some(e)
                 case Right(name) =>
                   names += name
                   terms += FixedTerm.Interaction(names.result())
@@ -420,7 +419,7 @@ object Parser:
               negate = false
             case Some(Token.Ident(_)) =>
               parseTermExpr() match
-                case Left(err) => error = Some(err)
+                case Left(err)        => error = Some(err)
                 case Right(exprTerms) =>
                   terms ++= exprTerms
                   negate = false
@@ -428,7 +427,7 @@ object Parser:
               error = Some(FormulaError.UnexpectedToken(other.toString, pos))
         error match
           case Some(err) => Left(err)
-          case None =>
+          case None      =>
             val collected = terms.result()
             if collected.isEmpty then Left(FormulaError.EmptyRandomTerms)
             else
@@ -532,11 +531,12 @@ object Parser:
     terms.result()
 
   private def expandNestedGrouping(names: Vector[String]): Vector[GroupingFactor] =
-    names.indices.map: end =>
-      val slice = names.take(end + 1)
-      if slice.length == 1 then GroupingFactor.Single(slice.head)
-      else GroupingFactor.Cell(slice)
-    .toVector
+    names.indices
+      .map: end =>
+        val slice = names.take(end + 1)
+        if slice.length == 1 then GroupingFactor.Single(slice.head)
+        else GroupingFactor.Cell(slice)
+      .toVector
 
   private def expandCrossedGrouping(names: Vector[String]): Vector[GroupingFactor] =
     (1 to names.length).toVector.flatMap: size =>
@@ -551,3 +551,10 @@ object Parser:
         (start to names.length - remaining).toVector.flatMap: idx =>
           loop(idx + 1, remaining - 1, current :+ names(idx))
     loop(0, size, Vector.empty)
+
+  /** Formula subtraction treats an interaction as a set of variables, as R does. */
+  private def sameModelTerm(left: FixedTerm, right: FixedTerm): Boolean =
+    (left, right) match
+      case (FixedTerm.Interaction(leftNames), FixedTerm.Interaction(rightNames)) =>
+        leftNames.toSet == rightNames.toSet
+      case _ => left == right

@@ -2,6 +2,7 @@ package mixeff4s.pathology
 
 import mixeff4s.design.{CompiledDesign, ReMat}
 import mixeff4s.error.{FitResult, LinAlgError, MixedModelError}
+import mixeff4s.lmm.{LmmAssessment, LmmFit}
 import mixeff4s.model.Family
 
 /** Design-time pathology front door. */
@@ -44,8 +45,7 @@ object Pathology:
           .filter(_.nComponents > 1)
           .map(summary => StructuralIssue.DisconnectedCrossings(summary.nComponents))
       .orElse:
-        if spec.family == Family.Bernoulli then
-          Separation.detect(spec).kind.map(StructuralIssue.Separation(_))
+        if spec.family == Family.Bernoulli then Separation.detect(spec).kind.map(StructuralIssue.Separation(_))
         else None
       .orElse:
         if spec.nReSlopes > 0 && spec.minGroupSize == 1 then
@@ -81,25 +81,66 @@ object Pathology:
       spec.crossedSummary
     )
 
-  /** Classify a fitted θ. Design-time expected statuses are left unchanged. */
+  /** Inspect raw θ geometry without claiming that an optimizer has run. */
   def assessFit(
       cert: Certificate,
       theta: Vector[Double],
       parmap: Vector[(Int, Int, Int)]
   ): Certificate =
     if cert.stratum == Stratum.Refusal then
-      cert.copy(notes = cert.notes :+ "fit status is not claimed for a refusal design")
+      val geometry = classifyTheta(cert, theta, parmap)
+      geometry.copy(notes = geometry.notes :+ "fit status is not claimed for a refusal design")
     else classifyTheta(cert, theta, parmap)
 
-  /** Map an engine outcome. Unlike `assessFit`, a refusal still receives a status. */
+  /** Classify a fit with its recorded numerical stopping criterion. This does not certify gradients, Hessians, or
+    * global optimality.
+    */
+  def assessFit(cert: Certificate, fit: LmmFit, parmap: Vector[(Int, Int, Int)]): Certificate =
+    if cert.stratum == Stratum.Refusal then assessFit(cert, fit.theta, parmap)
+    else classifyFit(cert, fit, parmap)
+
+  /** A raw successful θ is not evidence of optimizer convergence. */
   def assessOutcome(
       cert: Certificate,
       outcome: FitResult[Vector[Double]],
       parmap: Vector[(Int, Int, Int)]
   ): Certificate =
     outcome match
-      case Left(err)    => cert.copy(fitStatus = mapError(err), notes = cert.notes :+ err.code)
+      case Left(err)    => failedOutcome(cert, err)
       case Right(theta) => classifyTheta(cert, theta, parmap)
+
+  /** Preserve the complete fit outcome, including numerical termination evidence. */
+  def assessFitOutcome(cert: Certificate, outcome: FitResult[LmmFit], parmap: Vector[(Int, Int, Int)]): Certificate =
+    outcome match
+      case Left(err)  => failedOutcome(cert, err)
+      case Right(fit) => classifyFit(cert, fit, parmap)
+
+  private def failedOutcome(cert: Certificate, err: MixedModelError): Certificate =
+    cert.copy(fitStatus = mapError(err), thetaGeometry = ThetaGeometry.NotAssessed, notes = cert.notes :+ err.code)
+
+  private def classifyFit(cert: Certificate, fit: LmmFit, parmap: Vector[(Int, Int, Int)]): Certificate =
+    val geometry = classifyTheta(cert, fit.theta, parmap)
+    if fit.parmap != parmap || fit.optimizer.x != fit.theta || fit.n != cert.n ||
+      fit.optimizer.fmin != fit.objective
+    then geometry.copy(notes = geometry.notes :+ "fit and optimizer evidence do not match this assessment")
+    else
+      fit.optimizer.requireConvergence match
+        case Left(err) => geometry.copy(fitStatus = FitStatus.NotOptimized, notes = geometry.notes :+ err.code)
+        case Right(_) if fit.validatedContext.isLeft =>
+          geometry.copy(notes = geometry.notes :+ "fit_snapshot_mismatch")
+        case Right(_) =>
+          val assessed = LmmAssessment.assess(fit)
+          val reducedRank = assessed.covarianceRanks.exists(rank =>
+            rank.eigenvalues.nonEmpty && rank.rank.exists(_ < rank.eigenvalues.length)
+          )
+          val status =
+            if reducedRank then FitStatus.ConvergedReducedRank
+            else
+              geometry.thetaGeometry match
+                case ThetaGeometry.Interior    => FitStatus.ConvergedInterior
+                case ThetaGeometry.Boundary    => FitStatus.ConvergedBoundary
+                case ThetaGeometry.NotAssessed => FitStatus.NotAssessed
+          geometry.copy(fitStatus = status, notes = geometry.notes ++ assessed.reasonCodes)
 
   def certify(design: CompiledDesign): Certificate =
     val sizes = design.reterms.flatMap(groupSizes)
@@ -161,25 +202,24 @@ object Pathology:
       theta: Vector[Double],
       parmap: Vector[(Int, Int, Int)]
   ): Certificate =
+    val unassessed = cert.copy(fitStatus = FitStatus.NotAssessed, thetaGeometry = ThetaGeometry.NotAssessed)
     if theta.length != cert.nTheta || theta.length != parmap.length then
-      cert.copy(
-        fitStatus = FitStatus.NotAssessed,
+      unassessed.copy(
         notes = cert.notes :+ s"theta length ${theta.length} does not match n_theta ${cert.nTheta}"
       )
     else if theta.exists(v => !v.isFinite) then
-      cert.copy(
-        fitStatus = FitStatus.NotAssessed,
+      unassessed.copy(
         notes = cert.notes :+ "theta contains a non-finite value"
       )
+    else if parmap.zip(theta).exists { case ((_, row, col), value) => row == col && value < 0.0 } then
+      unassessed.copy(notes = cert.notes :+ "theta contains a negative diagonal entry")
     else
       val onBound = parmap
         .zip(theta)
         .exists:
           case ((_, row, col), value) =>
             row == col && math.abs(value) <= BoundaryTol
-      val status =
-        if onBound then FitStatus.ConvergedBoundary else FitStatus.ConvergedInterior
-      cert.copy(fitStatus = status)
+      unassessed.copy(thetaGeometry = if onBound then ThetaGeometry.Boundary else ThetaGeometry.Interior)
 
   private def structuralIssue(design: CompiledDesign, nParams: Int): Option[StructuralIssue] =
     if design.p >= design.n then Some(StructuralIssue.RankSaturated(design.p, design.n))
@@ -268,4 +308,3 @@ object Pathology:
       val trace = eigvals.map(math.abs).sum
       val cutoff = RankRelTol * math.max(trace, 1e-15)
       eigvals.count(_ > cutoff)
-

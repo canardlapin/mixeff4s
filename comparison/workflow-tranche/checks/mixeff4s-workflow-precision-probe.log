@@ -1,0 +1,62 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] Defining mixeff4sJVM / Test / unmanagedSources
+[info] The new value will be used by mixeff4sJVM / Test / bspBuildTargetSourcesItem, mixeff4sJVM / Test / scalafmt and 1 others.
+[info] 	Run `last` for details.
+[info] Reapplying settings...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+PRECISION index=0 evals=11 stop=GradientBelowTolerance gradient=Pass(1.216792959723989E-7,1.7486487077043482E-6) eligible=true
+PRECISION index=1 evals=6 stop=GradientBelowTolerance gradient=Pass(1.1863006910139973E-8,1.8202987028652172E-6) eligible=true
+PRECISION index=2 evals=8 stop=GradientBelowTolerance gradient=Pass(2.098024420860156E-9,1.7794902192013527E-6) eligible=true
+PRECISION index=3 evals=11 stop=GradientBelowTolerance gradient=Pass(7.283030956095615E-8,1.767334275122341E-6) eligible=true
+PRECISION index=4 evals=11 stop=GradientBelowTolerance gradient=Pass(2.0045535009671767E-8,1.7809029901294004E-6) eligible=true
+PRECISION index=5 evals=7 stop=GradientBelowTolerance gradient=Pass(2.8598286738734657E-8,1.7662610865831934E-6) eligible=true
+PRECISION index=6 evals=11 stop=GradientBelowTolerance gradient=Pass(1.6547429870783503E-8,1.7621304011877191E-6) eligible=true
+PRECISION index=7 evals=11 stop=GradientBelowTolerance gradient=Pass(1.0274792283659906E-7,1.8097370156166763E-6) eligible=true
+PRECISION index=8 evals=12 stop=GradientBelowTolerance gradient=Pass(1.8545835978045488E-7,1.77524708119672E-6) eligible=true
+PRECISION index=9 evals=9 stop=GradientBelowTolerance gradient=Pass(2.0922815124890803E-7,1.7717600912584542E-6) eligible=true
+PRECISION index=10 evals=9 stop=GradientBelowTolerance gradient=Pass(3.568025874756131E-10,1.772911407665105E-6) eligible=true
+PRECISION index=11 evals=9 stop=GradientBelowTolerance gradient=Pass(1.6795409507608383E-10,1.7950926372584385E-6) eligible=true
+PRECISION index=12 evals=11 stop=GradientBelowTolerance gradient=Pass(8.951757779485092E-9,1.8024065869065794E-6) eligible=true
+PRECISION index=13 evals=8 stop=GradientBelowTolerance gradient=Pass(2.0068902095715657E-10,1.8127473847368246E-6) eligible=true
+PRECISION index=14 evals=8 stop=GradientBelowTolerance gradient=Pass(6.391108575698468E-8,1.8151498059577678E-6) eligible=true
+PRECISION index=15 evals=8 stop=GradientBelowTolerance gradient=Pass(7.402467172568095E-8,1.765277276109065E-6) eligible=true
+PRECISION index=16 evals=8 stop=GradientBelowTolerance gradient=Pass(3.356342830329595E-7,1.8260120590512247E-6) eligible=true
+PRECISION index=17 evals=11 stop=GradientBelowTolerance gradient=Pass(2.479612737360526E-9,1.80295190582416E-6) eligible=true
+PRECISION index=18 evals=11 stop=GradientBelowTolerance gradient=Pass(6.705657362715556E-9,1.7799350887009218E-6) eligible=true
+PRECISION index=19 evals=13 stop=GradientBelowTolerance gradient=Pass(7.947047464540447E-9,1.8091135103843605E-6) eligible=true
+PRECISION index=20 evals=12 stop=GradientBelowTolerance gradient=Pass(1.6839862837514374E-12,1.787144993717813E-6) eligible=true
+PRECISION index=21 evals=11 stop=GradientBelowTolerance gradient=Pass(2.4432204037694305E-8,1.7659424542259697E-6) eligible=true
+PRECISION index=22 evals=11 stop=GradientBelowTolerance gradient=Pass(1.7649303085676138E-7,1.8020103549237245E-6) eligible=true
+PRECISION index=23 evals=9 stop=GradientBelowTolerance gradient=Pass(5.197741146378831E-7,1.8050824231745775E-6) eligible=true
+PRECISION index=24 evals=11 stop=GradientBelowTolerance gradient=Pass(1.6485250942110952E-8,1.7485399357975817E-6) eligible=true
+PRECISION index=25 evals=7 stop=GradientBelowTolerance gradient=Pass(5.077458453683903E-10,1.78929454094263E-6) eligible=true
+PRECISION index=26 evals=11 stop=GradientBelowTolerance gradient=Pass(1.0374207937147162E-8,1.7811441189360152E-6) eligible=true
+PRECISION index=27 evals=12 stop=GradientBelowTolerance gradient=Pass(8.353244762560053E-10,1.757891984914661E-6) eligible=true
+PRECISION index=28 evals=13 stop=GradientBelowTolerance gradient=Pass(1.7823520437332263E-12,1.8015420385188545E-6) eligible=true
+PRECISION index=29 evals=11 stop=GradientBelowTolerance gradient=Pass(1.597307996981101E-8,1.77938155129763E-6) eligible=true
+PRECISION index=30 evals=11 stop=GradientBelowTolerance gradient=Pass(1.6725875440215532E-6,1.7725599716593041E-6) eligible=true
+PRECISION index=31 evals=11 stop=GradientBelowTolerance gradient=Pass(2.46801743930547E-7,1.8189865649695192E-6) eligible=true
+PRECISION index=32 evals=12 stop=GradientBelowTolerance gradient=Pass(4.947511289543627E-10,1.799206270767971E-6) eligible=true
+PRECISION index=33 evals=11 stop=GradientBelowTolerance gradient=Pass(9.430548502109559E-7,1.773678480369617E-6) eligible=true
+PRECISION index=34 evals=11 stop=GradientBelowTolerance gradient=Pass(2.7501179111766305E-10,1.788592776192448E-6) eligible=true
+PRECISION index=35 evals=9 stop=GradientBelowTolerance gradient=Pass(1.5643478645799291E-7,1.770697218362143E-6) eligible=true
+PRECISION index=36 evals=8 stop=GradientBelowTolerance gradient=Pass(1.0493432789360213E-9,1.7826752668475909E-6) eligible=true
+PRECISION index=37 evals=8 stop=GradientBelowTolerance gradient=Pass(1.4448564424895949E-6,1.8242537470519723E-6) eligible=true
+PRECISION index=38 evals=9 stop=GradientBelowTolerance gradient=Pass(5.908918865316082E-8,1.7789353479096812E-6) eligible=true
+PRECISION unqualified=0 of39
+mixeff4s.lmm.WorkflowPrecisionProbe:
+  + measure explicit tight gradient controls 0.437s
+[info] Passed: Total 1, Failed 0, Errors 0, Passed 1
+[success] Total time: 9 s, completed Oct 26, 2026, 9:34:19 p.m.

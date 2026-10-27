@@ -11,7 +11,8 @@ final case class CompiledDesign(
     fe: FeTerm,
     xy: FeMat,
     reterms: Vector[ReMat],
-    parmap: Vector[(Int, Int, Int)]
+    parmap: Vector[(Int, Int, Int)],
+    prediction: Option[PredictionDesign] = None
 ):
   def n: Int = xy.n
   def p: Int = fe.rank
@@ -31,8 +32,16 @@ object Design:
       xy <- FeMat(fe, y)
       reterms <- buildReTerms(formula, materialized)
     yield
-      val ordered = reterms.sortBy(rt => -rt.nRanef)
-      CompiledDesign(formula, fe, xy, ordered, ReMat.buildParmap(ordered))
+      val paired = reterms.zip(formula.randomTerms).sortBy(pair => -pair._1.nRanef)
+      val ordered = paired.map(_._1)
+      CompiledDesign(
+        formula,
+        fe,
+        xy,
+        ordered,
+        ReMat.buildParmap(ordered),
+        Some(PredictionDesign.capture(formula, materialized, fe, xy, paired.map(_._2), ordered))
+      )
 
   private def refuseUnsupportedCovariance(formula: Formula): FitResult[Unit] =
     formula.randomTerms.collectFirst:
@@ -49,12 +58,12 @@ object Design:
   private def response(formula: Formula, frame: ModelFrame): FitResult[Vector[Double]] =
     frame.column(formula.response) match
       case Some(Column.Numeric(values)) => Right(values)
-      case Some(_) =>
+      case Some(_)                      =>
         Left(MixedModelError.InvalidArgument(s"response `${formula.response}` must be numeric"))
       case None =>
         Left(MixedModelError.InvalidArgument(s"column `${formula.response}` is not present in the model frame"))
 
-  private def buildFixedDesign(
+  private[design] def buildFixedDesign(
       formula: Formula,
       frame: ModelFrame
   ): FitResult[(DMat, Vector[String])] =
@@ -62,16 +71,7 @@ object Design:
     val intercept =
       if formula.hasIntercept then Vector(EncodedColumn("(Intercept)", Vector.fill(n)(1.0)))
       else Vector.empty
-    formula.fixedTerms
-      .foldLeft[FitResult[Vector[EncodedColumn]]](Right(intercept)): (acc, term) =>
-        acc.flatMap: soFar =>
-          term match
-            case FixedTerm.Intercept | FixedTerm.NoIntercept =>
-              Right(soFar)
-            case FixedTerm.Column(name) =>
-              expandFactor(name, frame, CategoricalCoding.Treatment).map(soFar ++ _)
-            case FixedTerm.Interaction(vars) =>
-              expandInteraction(vars, frame, n, CategoricalCoding.Treatment).map(soFar ++ _)
+    buildBasis(formula.fixedTerms, formula.hasIntercept, frame, intercept)
       .map: built =>
         if built.isEmpty then (Matrix.zeros(n, 0), Vector.empty)
         else (Matrix.tabulate(n, built.length)((i, j) => built(j).values(i)), built.map(_.name))
@@ -93,23 +93,36 @@ object Design:
       if rt.zerocorr || rt.covariance == RandomCovariance.Diagonal then remat.zerocorr
       else remat
 
-  private def reBasis(rt: RandomTerm, frame: ModelFrame): FitResult[Vector[EncodedColumn]] =
-    val coding =
-      if rt.terms.exists(_ == FixedTerm.NoIntercept) then CategoricalCoding.CellMeans
-      else CategoricalCoding.Treatment
+  private[design] def reBasis(rt: RandomTerm, frame: ModelFrame): FitResult[Vector[EncodedColumn]] =
     val hasIntercept = rt.terms.exists(_ == FixedTerm.Intercept) || rt.terms.isEmpty
     val start =
       if hasIntercept then Vector(EncodedColumn("(Intercept)", Vector.fill(frame.nRows)(1.0)))
       else Vector.empty
-    rt.terms.foldLeft[FitResult[Vector[EncodedColumn]]](Right(start)): (acc, term) =>
+    buildBasis(rt.terms, hasIntercept, frame, start)
+
+  /** Apply R's contrast assignment to either fixed terms or a random-slope basis. */
+  private def buildBasis(
+      terms: Vector[FixedTerm],
+      hasIntercept: Boolean,
+      frame: ModelFrame,
+      start: Vector[EncodedColumn]
+  ): FitResult[Vector[EncodedColumn]] =
+    val fullCoded = noInterceptFullCodingTarget(terms, hasIntercept, frame)
+    val order = variableOrder(terms)
+    terms.foldLeft[FitResult[Vector[EncodedColumn]]](Right(start)): (acc, term) =>
       acc.flatMap: soFar =>
         term match
           case FixedTerm.Intercept | FixedTerm.NoIntercept =>
             Right(soFar)
           case FixedTerm.Column(name) =>
+            val coding =
+              if fullCoded.contains(name) then CategoricalCoding.CellMeans
+              else CategoricalCoding.Treatment
             expandFactor(name, frame, coding).map(soFar ++ _)
           case FixedTerm.Interaction(vars) =>
-            expandInteraction(vars, frame, frame.nRows, coding).map(soFar ++ _)
+            val treatment = interactionTreatmentVariables(terms, vars) -- fullCoded
+            val ordered = order.filter(vars.contains)
+            expandInteraction(ordered, frame, frame.nRows, treatment).map(soFar ++ _)
 
   private def groupingLevels(
       grouping: GroupingFactor,
@@ -118,8 +131,8 @@ object Design:
     grouping match
       case GroupingFactor.Single(name) =>
         frame.factor(name) match
-          case Some(factor) => Right((name, factor.refs, factor.levels))
-          case None =>
+          case Some(factor) => Right(compactGrouping(name, factor))
+          case None         =>
             Left(
               MixedModelError.InvalidArgument(s"Grouping factor '$name' not found or not categorical")
             )
@@ -138,12 +151,24 @@ object Design:
       Left(MixedModelError.InvalidArgument(s"Grouping factor '$missing' not found"))
     else
       val factors = cats.flatten
+      // Keep the tuple structured: labels such as ("a_b", "c") and ("a", "b_c")
+      // must not collapse to one grouping level.
       val keys = Vector.tabulate(frame.nRows): obs =>
-        factors.map(f => f.levels(f.refs(obs))).mkString("_")
-      val order = scala.collection.mutable.LinkedHashMap.empty[String, Int]
+        factors.map(f => f.levels(f.refs(obs)))
+      val order = scala.collection.mutable.LinkedHashMap.empty[Vector[String], Int]
       val refs = keys.map: key =>
         order.getOrElseUpdate(key, order.size)
-      Right((names.mkString(" & "), refs, order.keys.toVector))
+      val labels = order.keysIterator.map(tuple => tuple.map(value => s"${value.length}:$value").mkString("|"))
+      Right((names.mkString(" & "), refs, labels.toVector))
+
+  private def compactGrouping(
+      name: String,
+      factor: Column.Factor
+  ): (String, Vector[Int], Vector[String]) =
+    val used = factor.refs.toSet
+    val retained = factor.levels.zipWithIndex.collect { case (level, old) if used(old) => (level, old) }
+    val oldToNew = retained.zipWithIndex.map { case ((_, old), next) => old -> next }.toMap
+    (name, factor.refs.map(oldToNew), retained.map(_._1))
 
   private def expandFactor(
       name: String,
@@ -162,12 +187,58 @@ object Design:
       vars: Vector[String],
       frame: ModelFrame,
       n: Int,
-      coding: CategoricalCoding
+      treatmentVariables: Set[String]
   ): FitResult[Vector[EncodedColumn]] =
     vars
       .foldLeft[FitResult[Vector[Vector[EncodedColumn]]]](Right(Vector.empty)): (acc, name) =>
+        val coding =
+          if treatmentVariables(name) then CategoricalCoding.Treatment
+          else CategoricalCoding.CellMeans
         acc.flatMap(soFar => expandFactor(name, frame, coding).map(soFar :+ _))
       .map(cartesianInteraction(_, n))
+
+  /** Variables in their formula first-appearance order. */
+  private def variableOrder(terms: Vector[FixedTerm]): Vector[String] =
+    terms.foldLeft(Vector.empty[String]): (order, term) =>
+      term.columnNames.foldLeft(order): (soFar, name) =>
+        if soFar.contains(name) then soFar else soFar :+ name
+
+  /** The first categorical variable in R's no-intercept term order gets full indicators. */
+  private def noInterceptFullCodingTarget(
+      terms: Vector[FixedTerm],
+      hasIntercept: Boolean,
+      frame: ModelFrame
+  ): Option[String] =
+    if hasIntercept then None
+    else
+      val order = variableOrder(terms)
+      terms.zipWithIndex
+        .collect { case (term, index) if term.columnNames.nonEmpty => (index, term.columnNames) }
+        .sortBy { case (index, names) => (names.length, index) }
+        .iterator
+        .flatMap: (_, names) =>
+          order.iterator.filter(name => names.contains(name) && frame.factor(name).isDefined)
+        .toSeq
+        .headOption
+
+  /** R's marginality rule: only variables present in every not-yet-covered ANOVA component of an interaction receive
+    * ordinary treatment contrasts.
+    */
+  private def interactionTreatmentVariables(
+      terms: Vector[FixedTerm],
+      vars: Vector[String]
+  ): Set[String] =
+    val lower = terms.flatMap: term =>
+      val names = term.columnNames
+      if names.nonEmpty && names.length < vars.length && names.forall(vars.contains) then Some(names.toSet)
+      else None
+    val components = nonEmptySubsets(vars.distinct).filterNot: component =>
+      lower.exists(lowerTerm => component.subsetOf(lowerTerm))
+    components.reduceOption(_ intersect _).getOrElse(Set.empty)
+
+  private def nonEmptySubsets(names: Vector[String]): Vector[Set[String]] =
+    (1 until (1 << names.length)).toVector.map: mask =>
+      names.indices.collect { case index if (mask & (1 << index)) != 0 => names(index) }.toSet
 
   private def cartesianInteraction(
       perVar: Vector[Vector[EncodedColumn]],
@@ -175,8 +246,8 @@ object Design:
   ): Vector[EncodedColumn] =
     if perVar.isEmpty then Vector.empty
     else
-      perVar.foldLeft(Vector(EncodedColumn("", Vector.fill(n)(1.0)))): (acc, cols) =>
-        acc.flatMap: left =>
-          cols.map: right =>
-            val name = if left.name.isEmpty then right.name else s"${left.name}:${right.name}"
+      perVar.foldRight(Vector(EncodedColumn("", Vector.fill(n)(1.0)))): (cols, acc) =>
+        acc.flatMap: right =>
+          cols.map: left =>
+            val name = if right.name.isEmpty then left.name else s"${left.name}:${right.name}"
             EncodedColumn(name, left.values.zip(right.values).map(_ * _))

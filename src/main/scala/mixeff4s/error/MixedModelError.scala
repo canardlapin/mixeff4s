@@ -7,6 +7,9 @@ enum MixedModelError:
   case Formula(error: FormulaError)
   case LinAlg(error: LinAlgError)
   case Optimization(details: String)
+  case OptimizerBudgetExhausted(evaluations: Int)
+  case PirlsNotConverged(iterations: Int)
+  case PirlsStepFailed(iteration: Int, halvings: Int)
   case DimensionMismatch(details: String)
   case NotFitted
   case AlreadyFitted
@@ -27,6 +30,9 @@ enum MixedModelError:
       case MixedModelError.Formula(_)                      => "formula"
       case MixedModelError.LinAlg(_)                       => "linalg"
       case MixedModelError.Optimization(_)                 => "optimization"
+      case MixedModelError.OptimizerBudgetExhausted(_)     => "optimizer_budget_exhausted"
+      case MixedModelError.PirlsNotConverged(_)            => "pirls_not_converged"
+      case MixedModelError.PirlsStepFailed(_, _)           => "pirls_step_failed"
       case MixedModelError.DimensionMismatch(_)            => "dimension_mismatch"
       case MixedModelError.NotFitted                       => "not_fitted"
       case MixedModelError.AlreadyFitted                   => "already_fitted"
@@ -51,6 +57,12 @@ enum MixedModelError:
         s"Linear algebra error: ${error.message}"
       case MixedModelError.Optimization(details) =>
         s"Optimization error: $details"
+      case MixedModelError.OptimizerBudgetExhausted(evaluations) =>
+        s"Optimizer exhausted its budget after $evaluations objective evaluations."
+      case MixedModelError.PirlsNotConverged(iterations) =>
+        s"PIRLS did not converge within $iterations iterations."
+      case MixedModelError.PirlsStepFailed(iteration, halvings) =>
+        s"PIRLS iteration $iteration did not find an acceptable finite step after $halvings halvings."
       case MixedModelError.DimensionMismatch(details) =>
         s"Dimension mismatch: $details"
       case MixedModelError.NotFitted =>

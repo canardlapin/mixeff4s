@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-26T21:42:11.258810+00:00",
+  "finished_utc": "2026-10-26T21:42:36.058546+00:00",
+  "duration_seconds": 24.79958,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/scalafmtOnly /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/Pls.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/CompiledLmm.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/optimizer/GradientTrustBq.scala",
+    "mixeff4sJVM/Test/scalafmtOnly /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/lmm/GradientFitSuite.scala",
+    "test"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-engine-tranche/full-final.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 43953
+}

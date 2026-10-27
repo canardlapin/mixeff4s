@@ -1,0 +1,66 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/gale/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project ravel-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/03b7f0d36fcba51e6ed8/ravel/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (34692 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+mixeff4s.data.ModelFrameSuite:
+  + builds aligned numeric and factor columns 0.006s
+  + encodes an explicit factor level order 0.001s
+  + rejects a value outside the declared factor levels 0.001s
+  + rejects length mismatch 0.0s
+  + rejects non-finite numeric input at the frame boundary 0.001s
+  + rejects non-finite numeric columns added after frame construction 0.001s
+  + validates raw factor references and values 0.0s
+  + permits a legitimate empty aligned frame 0.001s
+  + materializes I() onto the frame 0.008s
+mixeff4s.formula.ParserSuite:
+  + fixed effects with explicit intercept 0.017s
+  + implicit intercept 0.0s
+  + empty RHS is rejected 0.001s
+  + no intercept with zero 0.001s
+  + no intercept with minus one 0.0s
+  + colon interaction 0.0s
+  + interaction subtraction is insensitive to variable order 0.001s
+  + star expansion 0.003s
+  + three-way star expansion 0.0s
+  + nesting slash 0.0s
+  + random intercept 0.001s
+  + random intercept and slope 0.001s
+  + random slope syntax has implicit intercept 0.0s
+  + zerocorr 0.001s
+  + covariance wrappers parse as random terms 0.001s
+  + crossed random effects 0.001s
+  + interaction grouping 0.001s
+  + cell grouping with colon 0.001s
+  + nested grouping expands to main and cell 0.002s
+  + crossed star grouping expands to main effects and cell 0.001s
+  + only random term still has implicit intercept 0.0s
+  + whitespace handling 0.0s
+  + dotted and underscored identifiers 0.001s
+  + backtick identifiers 0.001s
+  + unterminated backtick is actionable 0.001s
+  + empty backtick is rejected 0.0s
+  + bare arithmetic is refused 0.0s
+  + stateful transforms are refused 0.005s
+  + stateless subset parses with canonical labels 0.005s
+  + formula display canonicalizes terms 0.0s
+mixeff4s.design.UpstreamDesignSuite:
+  + no-intercept main effects full-code only the first categorical variable 0.062s
+  + no-intercept factor interaction full-codes both factors 0.002s
+  + interaction contrasts follow marginality and formula variable order 0.002s
+  + numeric by factor interaction uses full factor indicators when uncovered 0.001s
+  + random-slope bases use the same no-intercept contrast assignment 0.0s
+  + random no-intercept interaction full-codes both factor bases 0.001s
+  + grouping drops unused declared levels in their declared order 0.001s
+  + combined grouping retains distinct tuples with underscore-containing levels 0.002s
+[info] Passed: Total 47, Failed 0, Errors 0, Passed 47
+[success] Total time: 4 s, completed Oct 26, 2026, 4:56:31 p.m.

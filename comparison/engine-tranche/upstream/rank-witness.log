@@ -1,0 +1,19 @@
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_MONETARY failed, using "C" 
+[1] "R version 4.5.1 (2025-06-13)"
+$rank
+[1] 2
+
+$pivot
+[1] 1 2 3
+
+(Intercept)           x           z 
+          3           2          NA 
+            (Intercept)           x  z
+(Intercept)   0.8095238 -0.14285714 NA
+x            -0.1428571  0.03174603 NA
+z                    NA          NA NA

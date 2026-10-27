@@ -48,7 +48,7 @@ final case class Scorecard(
 
 object Scorecard:
   val embeddedToml: String =
-    """# Machine-readable parity classification for every checked-in
+    """|# Machine-readable parity classification for every checked-in
       |# dataset/formula/estimator triple. Keep this in sync with
       |# comparison/fixtures.toml and comparison/frozen/references.json.
       |#
@@ -73,8 +73,8 @@ object Scorecard:
       |link = "Identity"
       |estimator = "ML"
       |class = "release_blocking_parity"
-      |reference = "mixedmodels.jl"
-      |reason = "pinned in SleepstudyFitSuite against MixedModels.jl; lme4 is not claimed until a later ticket compares the frozen lme4 row"
+      |reference = "lme4"
+      |reason = "Frozen lme4 fit, predictions, residuals, covariance and modes compared on JVM and JS; existing MixedModels.jl assertions retained"
       |
       |[[row]]
       |dataset = "sleepstudy"
@@ -83,8 +83,8 @@ object Scorecard:
       |link = "Identity"
       |estimator = "REML"
       |class = "release_blocking_parity"
-      |reference = "mixedmodels.jl"
-      |reason = "pinned in SleepstudyFitSuite against MixedModels.jl; lme4 is not claimed until a later ticket compares the frozen lme4 row"
+      |reference = "lme4"
+      |reason = "Frozen lme4 fit, predictions, residuals, covariance and modes compared on JVM and JS; existing MixedModels.jl assertions retained"
       |
       |[[row]]
       |dataset = "sleepstudy"
@@ -103,8 +103,8 @@ object Scorecard:
       |link = "Identity"
       |estimator = "ML"
       |class = "release_blocking_parity"
-      |reference = "mixedmodels.jl"
-      |reason = "pinned in CrossedFitSuite against MixedModels.jl"
+      |reference = "lme4"
+      |reason = "Frozen lme4 fit, predictions, residuals, covariance and modes compared on JVM and JS; existing MixedModels.jl assertions retained"
       |
       |[[row]]
       |dataset = "penicillin"
@@ -113,8 +113,8 @@ object Scorecard:
       |link = "Identity"
       |estimator = "REML"
       |class = "release_blocking_parity"
-      |reference = "mixeff-rs"
-      |reason = "only rust-labelled numeric pin in CrossedFitSuite; frozen lme4 numbers exist but are not yet a mixeff4s claim"
+      |reference = "lme4"
+      |reason = "Frozen lme4 fit, predictions, residuals, covariance and modes compared on JVM and JS; existing MixedModels.jl assertions retained"
       |
       |[[row]]
       |dataset = "pastes"
@@ -123,9 +123,9 @@ object Scorecard:
       |link = "Identity"
       |estimator = "ML"
       |class = "release_blocking_parity"
-      |reference = "mixedmodels.jl"
-      |theta_abs_tol = 0.09
-      |reason = "pinned in CrossedFitSuite against MixedModels.jl with a slack theta tolerance"
+      |reference = "lme4"
+      |theta_abs_tol = 0.005
+      |reason = "Frozen lme4 fit, predictions, residuals, covariance and modes compared on JVM and JS; existing MixedModels.jl assertions retained"
       |
       |[[row]]
       |dataset = "dyestuff"
@@ -259,6 +259,37 @@ object Scorecard:
       |reason = "categorical random slope per worker; 6-slot Cholesky compared in parmap order"
       |
       |[[row]]
+      |dataset = "station_season_duration"
+      |formula = "effect ~ 1 + duration + (1 | sites) + (1 | season)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "ML"
+      |class = "release_blocking_parity"
+      |reference = "lme4"
+      |reason = "crossed site and season intercepts; scalar theta compared after sorting"
+      |
+      |[[row]]
+      |dataset = "station_season_duration"
+      |formula = "effect ~ 1 + duration + (1 + duration | sites) + (1 + duration | season)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "ML"
+      |class = "release_blocking_parity"
+      |reference = "lme4_boundary"
+      |sigma_abs_tol = 0.03
+      |reason = "duration slope per site and season is a weakly identified boundary; assessFit must report converged_boundary. σ sits ~0.014 off on a flat ridge at the same objective"
+      |
+      |[[row]]
+      |dataset = "station_season_duration"
+      |formula = "effect ~ 1 + duration * season * sites"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "ML"
+      |class = "unsupported_with_contract"
+      |reference = "rust_contract"
+      |reason = "fixed-only formula is not a mixed model; Lmm.fit must refuse NoRandomEffects"
+      |
+      |[[row]]
       |dataset = "contraception"
       |formula = "use_num ~ 1 + age + age2 + urban + livch + (1 | urban_dist)"
       |family = "Bernoulli"
@@ -268,6 +299,123 @@ object Scorecard:
       |reference = "mixedmodels.jl_fast_pirls"
       |objective_abs_tol = 1.0
       |reason = "labelled fast-PIRLS; not lme4::glmer. Objective constants are comparable only to MixedModels.jl fast=true"
+      |
+      |[[row]]
+      |dataset = "pastes"
+      |formula = "strength ~ 1 + (1 | batch / cask)"
+      |family = "Gaussian"
+      |link = "Identity"
+      |estimator = "REML"
+      |class = "release_blocking_parity"
+      |reference = "lme4"
+      |theta_abs_tol = 0.005
+      |reason = "Frozen lme4 REML fit, predictions, residuals, covariance and modes compared on JVM and JS"
+      |
+      |# Qualified canonical GLMM workflow claims.
+      |
+      |[[row]]
+      |dataset = "cbpp"
+      |formula = "proportion ~ 1 + period + (1 | herd)"
+      |family = "Binomial"
+      |link = "Logit"
+      |estimator = "joint_laplace"
+      |class = "release_blocking_parity"
+      |reference = "lme4_joint_laplace"
+      |objective_abs_tol = 0.0001
+      |beta_abs_tol = 0.001
+      |theta_abs_tol = 0.001
+      |reason = "Joint canonical Laplace; full response constants, modes, means and first-order evidence compared on JVM/JS against explicit tolPwrss=1e-10 lme4. cbpp uses explicit trials=size; Poisson uses GlmmOptions.offset=log(exposure)."
+      |
+      |[[row]]
+      |dataset = "cbpp"
+      |formula = "proportion ~ 1 + period + (1 | herd)"
+      |family = "Binomial"
+      |link = "Logit"
+      |estimator = "fast_pirls"
+      |class = "documented_divergence"
+      |reference = "lme4_numeric_without_objective_constants"
+      |objective_abs_tol = 0.0001
+      |beta_abs_tol = 0.001
+      |theta_abs_tol = 0.001
+      |reason = "Labelled fast-PIRLS, documented divergence from lme4 nAGQ=0. Not joint estimator parity. Small Poisson offset fixture theta differs by about 0.014; objective and mean differences remain visible."
+      |
+      |[[row]]
+      |dataset = "culcitalogreg"
+      |formula = "predation ~ 1 + ttt + (1 | block)"
+      |family = "Bernoulli"
+      |link = "Logit"
+      |estimator = "joint_laplace"
+      |class = "release_blocking_parity"
+      |reference = "lme4_joint_laplace"
+      |objective_abs_tol = 0.0001
+      |beta_abs_tol = 0.001
+      |theta_abs_tol = 0.001
+      |reason = "Joint canonical Laplace; full response constants, modes, means and first-order evidence compared on JVM/JS against explicit tolPwrss=1e-10 lme4. cbpp uses explicit trials=size; Poisson uses GlmmOptions.offset=log(exposure)."
+      |
+      |[[row]]
+      |dataset = "culcitalogreg"
+      |formula = "predation ~ 1 + ttt + (1 | block)"
+      |family = "Bernoulli"
+      |link = "Logit"
+      |estimator = "fast_pirls"
+      |class = "documented_divergence"
+      |reference = "lme4_numeric_without_objective_constants"
+      |objective_abs_tol = 0.0001
+      |beta_abs_tol = 0.001
+      |theta_abs_tol = 0.001
+      |reason = "Labelled fast-PIRLS, documented divergence from lme4 nAGQ=0. Not joint estimator parity. Small Poisson offset fixture theta differs by about 0.014; objective and mean differences remain visible."
+      |
+      |[[row]]
+      |dataset = "synthetic_poisson_offset"
+      |formula = "count ~ 1 + x + (1 | group)"
+      |family = "Poisson"
+      |link = "Log"
+      |estimator = "joint_laplace"
+      |class = "release_blocking_parity"
+      |reference = "lme4_joint_laplace"
+      |objective_abs_tol = 0.0001
+      |beta_abs_tol = 0.001
+      |theta_abs_tol = 0.001
+      |reason = "Joint canonical Laplace; full response constants, modes, means and first-order evidence compared on JVM/JS against explicit tolPwrss=1e-10 lme4. cbpp uses explicit trials=size; Poisson uses GlmmOptions.offset=log(exposure)."
+      |
+      |[[row]]
+      |dataset = "synthetic_poisson_offset"
+      |formula = "count ~ 1 + x + (1 | group)"
+      |family = "Poisson"
+      |link = "Log"
+      |estimator = "fast_pirls"
+      |class = "documented_divergence"
+      |reference = "lme4_numeric_without_objective_constants"
+      |objective_abs_tol = 0.01
+      |beta_abs_tol = 0.001
+      |theta_abs_tol = 0.02
+      |reason = "Labelled fast-PIRLS, documented divergence from lme4 nAGQ=0. Not joint estimator parity. Small Poisson offset fixture theta differs by about 0.014; objective and mean differences remain visible."
+      |
+      |[[row]]
+      |dataset = "synthetic_poisson_crossed"
+      |formula = "count ~ 1 + x + (1 + x | site) + (1 | batch)"
+      |family = "Poisson"
+      |link = "Log"
+      |estimator = "joint_laplace"
+      |class = "release_blocking_parity"
+      |reference = "lme4_joint_laplace"
+      |objective_abs_tol = 0.0001
+      |beta_abs_tol = 0.001
+      |theta_abs_tol = 0.001
+      |reason = "Joint canonical Laplace; full response constants, modes, means and first-order evidence compared on JVM/JS against explicit tolPwrss=1e-10 lme4. cbpp uses explicit trials=size; Poisson uses GlmmOptions.offset=log(exposure)."
+      |
+      |[[row]]
+      |dataset = "synthetic_poisson_crossed"
+      |formula = "count ~ 1 + x + (1 + x | site) + (1 | batch)"
+      |family = "Poisson"
+      |link = "Log"
+      |estimator = "fast_pirls"
+      |class = "documented_divergence"
+      |reference = "lme4_numeric_without_objective_constants"
+      |objective_abs_tol = 0.0001
+      |beta_abs_tol = 0.001
+      |theta_abs_tol = 0.001
+      |reason = "Labelled fast-PIRLS, documented divergence from lme4 nAGQ=0. Not joint estimator parity. Small Poisson offset fixture theta differs by about 0.014; objective and mean differences remain visible."
       |""".stripMargin
 
   def loadEmbedded: Scorecard = parse(embeddedToml)

@@ -1,0 +1,52 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 5 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 3 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 16 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+mixeff4s.linalg.SparseBlockSuite:
+  + structural zeros persist and clones isolate mutable values 0.01s
+  + sparse subtraction preflight prevents late partial mutation 0.005s
+  + dense copy from sparse clears stale fill 0.002s
+  + sparse off-diagonal scaling visits stored support, not structural gaps 0.001s
+  + sparse vector off-diagonal scaling transforms only occupied rectangles 0.001s
+  + structured matvec avoids dense block traversal semantics 0.003s
+  + sparse right solve preserves diagonal and block-diagonal closures 0.001s
+  + dense right divisor promotes sparse target before mutation 0.001s
+mixeff4s.lmm.CrossedFitSuite:
+  + penicillin crossed intercepts match MixedModels.jl 0.113s
+  + penicillin REML matches mixeff-rs 0.033s
+  + pastes nested intercepts match MixedModels.jl 0.052s
+mixeff4s.lmm.ProfiledGradientSuite:
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g), REML=false 0.096s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g), REML=true 0.01s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g), REML=false 0.012s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g), REML=true 0.014s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g) + (1 | h), REML=false 0.019s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g) + (1 | h), REML=true 0.015s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g) + (1 | nested), REML=false 0.009s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g) + (1 | nested), REML=true 0.01s
+  + observation-space derivative oracle: y ~ 0 + (1 | g), REML=false 0.006s
+  + observation-space derivative oracle: y ~ 0 + (1 | g), REML=true 0.004s
+  + zero Lambda has zero gradient even at a variance maximum: closed-form witness 0.002s
+  + gradient scratch budget is enforced without a dense inverse allocation 0.003s
+  + gradient scratch sizing rejects impossible arrays before allocation 0.001s
+mixeff4s.lmm.RefitSuite:
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=false DerivativeFree 0.189s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=false AnalyticGradient 0.038s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=true DerivativeFree 0.036s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=true AnalyticGradient 0.022s
+  + previous start requires success and explicit warm refits preserve options and objective 0.01s
+  + failed numerical fit does not poison a later cold refit 0.034s
+  + independent batches reset starts and separate sessions do not share scratch 0.028s
+[info] Passed: Total 31, Failed 0, Errors 0, Passed 31
+[success] Total time: 9 s, completed Oct 26, 2026, 5:09:16 p.m.

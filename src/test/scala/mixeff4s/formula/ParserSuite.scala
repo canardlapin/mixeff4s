@@ -34,6 +34,10 @@ class ParserSuite extends munit.FunSuite:
     val f = parse("y ~ x1 + x2:x3")
     assert(f.fixedTerms.contains(FixedTerm.Interaction(Vector("x2", "x3"))))
 
+  test("interaction subtraction is insensitive to variable order"):
+    val f = parse("y ~ x + a:b - b:a")
+    assertEquals(f.fixedTerms, Vector(FixedTerm.Intercept, FixedTerm.Column("x")))
+
   test("star expansion"):
     val f = parse("y ~ x1 * x2")
     assert(f.fixedTerms.contains(FixedTerm.Column("x1")))
@@ -127,8 +131,7 @@ class ParserSuite extends munit.FunSuite:
     assertEquals(f.toString, "y ~ 1 + x1 + (1 | school) + (1 | school:class)")
     assert(f.randomTerms.forall: term =>
       term.source.exists: source =>
-        source.written == "(1 | school/class)" && source.expansion.contains(RandomTermExpansion.NestedGrouping)
-    )
+        source.written == "(1 | school/class)" && source.expansion.contains(RandomTermExpansion.NestedGrouping))
 
   test("crossed star grouping expands to main effects and cell"):
     val f = parse("y ~ x1 + (1 | subject*item)")

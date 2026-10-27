@@ -1,0 +1,40 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] Defining mixeff4sJVM / Test / unmanagedSources
+[info] The new value will be used by mixeff4sJVM / Test / bspBuildTargetSourcesItem, mixeff4sJVM / Test / scalafmt and 1 others.
+[info] 	Run `last` for details.
+[info] Reapplying settings...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+QUALIFY base=ML gradient=Pass(6.599276118901543E-7,1.794078643005245E-6) eligible=true
+QUALIFY attempts=39 qualified=23 intervals=Vector(Left(At least one replicate failed or is unqualified for retained-basis coefficient: days; all attempts are retained.))
+QUALIFY failed=2 refit=None gradient=Some(Failed(1.681189697455565E-5,1.7794902192013656E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=6 refit=None gradient=Some(Failed(7.305239925181617E-5,1.762130401187747E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=10 refit=None gradient=Some(Failed(5.319002026382691E-6,1.7729114076651095E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=11 refit=None gradient=Some(Failed(3.3494072968487387E-6,1.7950926372584412E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=12 refit=None gradient=Some(Failed(3.390146819270967E-5,1.8024065869066002E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=13 refit=None gradient=Some(Failed(2.9730554877982485E-6,1.8127473847368305E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=17 refit=None gradient=Some(Failed(1.540575772240871E-5,1.8029519058241642E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=18 refit=None gradient=Some(Failed(2.839237732255029E-5,1.7799350887009296E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=19 refit=None gradient=Some(Failed(1.664133027179382E-5,1.8091135103843616E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=20 refit=None gradient=Some(Failed(7.905987016609828E-6,1.7871449937178154E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=25 refit=None gradient=Some(Failed(9.99320168149076E-6,1.7892945409426361E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=27 refit=None gradient=Some(Failed(3.965894201263254E-6,1.7578919849146722E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=28 refit=None gradient=Some(Failed(2.293328553104601E-5,1.8015420385188592E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=32 refit=None gradient=Some(Failed(2.3533248278972962E-6,1.7992062707679793E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=34 refit=None gradient=Some(Failed(3.980983882767575E-6,1.788592776192451E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY failed=36 refit=None gradient=Some(Failed(1.096041629633504E-5,1.7826752668475977E-6)) reasons=Some(Vector(projected_gradient_failed))
+QUALIFY base=REML gradient=Failed(3.948121732211263E-6,1.786465085394935E-6) eligible=false
+QUALIFY refused=bootstrap_unqualified_original: projected_gradient_failed
+mixeff4s.stats.WorkflowQualificationProbe:
+  + measure strict bootstrap endpoint qualification 0.184s
+[info] Passed: Total 1, Failed 0, Errors 0, Passed 1
+[success] Total time: 2 s, completed Oct 26, 2026, 9:30:54 p.m.

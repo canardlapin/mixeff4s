@@ -1,0 +1,118 @@
+exit_code=0; reason=exited; duration_seconds=16.289602
+raw_log=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/workflow-tranche/benchmarks-qualified/run-1.log
+metadata=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/workflow-tranche/benchmarks-qualified/run-1.log.meta.json
+log_bytes=454300; excerpt_budget_bytes=5120
+--- beginning ---
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+FLOW_RESPONSE {"platform":"jvm","index":0,"seed":"-2310774435293913152","y":[276.83229526950475,289.36181386788604,295.4843102356411,294.2567357791858,322.6886286421073,325.3272376924095,258.29812403997687,291.7239930753788,357.033022
+--- 449180 BYTES OMITTED; raw log retained at /Users/bbuchsbaum/code/scala/mixeff4s/comparison/workflow-tranche/benchmarks-qualified/run-1.log ---
+--- end ---
+reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":9,"phase":"refit","ns":1768542,"allocated_bytes":null,"assessment_ns":171292,"assessment_allocated_bytes":null,"objective":305.4318089284907,"evaluations":23,"error":null,"qualified":true,"projected_norm":1.254752424184602e-7,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":10,"phase":"rebuild","ns":2413833,"allocated_bytes":null,"assessment_ns":167000,"assessment_allocated_bytes":null,"objective":291.17913029301326,"evaluations":28,"error":null,"qualified":true,"projected_norm":9.07816044559695e-11,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":10,"phase":"refit","ns":2206084,"allocated_bytes":null,"assessment_ns":215875,"assessment_allocated_bytes":null,"objective":291.17913029301326,"evaluations":28,"error":null,"qualified":true,"projected_norm":9.07816044559695e-11,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":11,"phase":"rebuild","ns":2138375,"allocated_bytes":null,"assessment_ns":191333,"assessment_allocated_bytes":null,"objective":331.36395151587,"evaluations":22,"error":null,"qualified":true,"projected_norm":6.317013578893693e-11,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":11,"phase":"refit","ns":1703250,"allocated_bytes":null,"assessment_ns":212875,"assessment_allocated_bytes":null,"objective":331.36395151587,"evaluations":22,"error":null,"qualified":true,"projected_norm":6.317013578893693e-11,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":12,"phase":"rebuild","ns":2232417,"allocated_bytes":null,"assessment_ns":173958,"assessment_allocated_bytes":null,"objective":335.7757518844601,"evaluations":22,"error":null,"qualified":true,"projected_norm":1.5000156672329013e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":12,"phase":"refit","ns":1753000,"allocated_bytes":null,"assessment_ns":159750,"assessment_allocated_bytes":null,"objective":335.7757518844601,"evaluations":22,"error":null,"qualified":true,"projected_norm":1.5000156672329013e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":13,"phase":"rebuild","ns":2112167,"allocated_bytes":null,"assessment_ns":222833,"assessment_allocated_bytes":null,"objective":318.1762577657719,"evaluations":20,"error":null,"qualified":true,"projected_norm":6.888001280458411e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":13,"phase":"refit","ns":1617334,"allocated_bytes":null,"assessment_ns":228917,"assessment_allocated_bytes":null,"objective":318.1762577657719,"evaluations":20,"error":null,"qualified":true,"projected_norm":6.888001280458411e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":14,"phase":"rebuild","ns":4177459,"allocated_bytes":null,"assessment_ns":176167,"assessment_allocated_bytes":null,"objective":320.2783972129944,"evaluations":52,"error":null,"qualified":true,"projected_norm":1.1148437728536464e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":14,"phase":"refit","ns":3960875,"allocated_bytes":null,"assessment_ns":198958,"assessment_allocated_bytes":null,"objective":320.2783972129944,"evaluations":52,"error":null,"qualified":true,"projected_norm":1.1148437728536464e-10,"reasons":[]}
+  + realistic simulated responses match full rebuilds and report all outcomes 0.614s
+[info] Passed: Total 1, Failed 0, Errors 0, Passed 1
+[success] Total time: 6 s, completed Oct 26, 2026, 10:05:07 p.m.
+
+exit_code=0; reason=exited; duration_seconds=7.794137
+raw_log=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/workflow-tranche/benchmarks-qualified/run-2.log
+metadata=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/workflow-tranche/benchmarks-qualified/run-2.log.meta.json
+log_bytes=453839; excerpt_budget_bytes=5120
+--- beginning ---
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+FLOW_RESPONSE {"platform":"jvm","index":0,"seed":"-2310774435293913152","y":[276.83229526950475,289.36181386788604,295.4843102356411,294.2567357791858,322.6886286421073,325.3272376924095,258.29812403997687,291.7239930753788,357.0330225883176,354.6289068291295,238.35760155709949,246.29290724898001,278.82712047340925,269.1065871814643,253.83259845961504,274.890723931489
+--- 448719 BYTES OMITTED; raw log retained at /Users/bbuchsbaum/code/scala/mixeff4s/comparison/workflow-tranche/benchmarks-qualified/run-2.log ---
+--- end ---
+reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":9,"phase":"refit","ns":1607833,"allocated_bytes":null,"assessment_ns":150917,"assessment_allocated_bytes":null,"objective":305.4318089284907,"evaluations":23,"error":null,"qualified":true,"projected_norm":1.254752424184602e-7,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":10,"phase":"rebuild","ns":2771000,"allocated_bytes":null,"assessment_ns":331375,"assessment_allocated_bytes":null,"objective":291.17913029301326,"evaluations":28,"error":null,"qualified":true,"projected_norm":9.07816044559695e-11,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":10,"phase":"refit","ns":2072167,"allocated_bytes":null,"assessment_ns":157583,"assessment_allocated_bytes":null,"objective":291.17913029301326,"evaluations":28,"error":null,"qualified":true,"projected_norm":9.07816044559695e-11,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":11,"phase":"rebuild","ns":1893375,"allocated_bytes":null,"assessment_ns":159250,"assessment_allocated_bytes":null,"objective":331.36395151587,"evaluations":22,"error":null,"qualified":true,"projected_norm":6.317013578893693e-11,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":11,"phase":"refit","ns":1564125,"allocated_bytes":null,"assessment_ns":153208,"assessment_allocated_bytes":null,"objective":331.36395151587,"evaluations":22,"error":null,"qualified":true,"projected_norm":6.317013578893693e-11,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":12,"phase":"rebuild","ns":2210916,"allocated_bytes":null,"assessment_ns":269083,"assessment_allocated_bytes":null,"objective":335.7757518844601,"evaluations":22,"error":null,"qualified":true,"projected_norm":1.5000156672329013e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":12,"phase":"refit","ns":1967333,"allocated_bytes":null,"assessment_ns":203125,"assessment_allocated_bytes":null,"objective":335.7757518844601,"evaluations":22,"error":null,"qualified":true,"projected_norm":1.5000156672329013e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":13,"phase":"rebuild","ns":2145125,"allocated_bytes":null,"assessment_ns":212542,"assessment_allocated_bytes":null,"objective":318.1762577657719,"evaluations":20,"error":null,"qualified":true,"projected_norm":6.888001280458411e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":13,"phase":"refit","ns":1488000,"allocated_bytes":null,"assessment_ns":161208,"assessment_allocated_bytes":null,"objective":318.1762577657719,"evaluations":20,"error":null,"qualified":true,"projected_norm":6.888001280458411e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":14,"phase":"rebuild","ns":4426541,"allocated_bytes":null,"assessment_ns":258458,"assessment_allocated_bytes":null,"objective":320.2783972129944,"evaluations":52,"error":null,"qualified":true,"projected_norm":1.1148437728536464e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":14,"phase":"refit","ns":3806292,"allocated_bytes":null,"assessment_ns":170792,"assessment_allocated_bytes":null,"objective":320.2783972129944,"evaluations":52,"error":null,"qualified":true,"projected_norm":1.1148437728536464e-10,"reasons":[]}
+  + realistic simulated responses match full rebuilds and report all outcomes 0.614s
+[info] Passed: Total 1, Failed 0, Errors 0, Passed 1
+[success] Total time: 1 s, completed Oct 26, 2026, 10:05:15 p.m.
+
+exit_code=0; reason=exited; duration_seconds=7.802532
+raw_log=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/workflow-tranche/benchmarks-qualified/run-3.log
+metadata=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/workflow-tranche/benchmarks-qualified/run-3.log.meta.json
+log_bytes=453855; excerpt_budget_bytes=5120
+--- beginning ---
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+FLOW_RESPONSE {"platform":"jvm","index":0,"seed":"-2310774435293913152","y":[276.83229526950475,289.36181386788604,295.4843102356411,294.2567357791858,322.6886286421073,325.3272376924095,258.29812403997687,291.7239930753788,357.0330225883176,354.6289068291295,238.35760155709949,246.29290724898001,278.82712047340925,269.1065871814643,253.83259845961504,274.890723931489
+--- 448735 BYTES OMITTED; raw log retained at /Users/bbuchsbaum/code/scala/mixeff4s/comparison/workflow-tranche/benchmarks-qualified/run-3.log ---
+--- end ---
+reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":9,"phase":"refit","ns":1778750,"allocated_bytes":null,"assessment_ns":187042,"assessment_allocated_bytes":null,"objective":305.4318089284907,"evaluations":23,"error":null,"qualified":true,"projected_norm":1.254752424184602e-7,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":10,"phase":"rebuild","ns":2625375,"allocated_bytes":null,"assessment_ns":167084,"assessment_allocated_bytes":null,"objective":291.17913029301326,"evaluations":28,"error":null,"qualified":true,"projected_norm":9.07816044559695e-11,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":10,"phase":"refit","ns":2101500,"allocated_bytes":null,"assessment_ns":177500,"assessment_allocated_bytes":null,"objective":291.17913029301326,"evaluations":28,"error":null,"qualified":true,"projected_norm":9.07816044559695e-11,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":11,"phase":"rebuild","ns":2181000,"allocated_bytes":null,"assessment_ns":236583,"assessment_allocated_bytes":null,"objective":331.36395151587,"evaluations":22,"error":null,"qualified":true,"projected_norm":6.317013578893693e-11,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":11,"phase":"refit","ns":1727083,"allocated_bytes":null,"assessment_ns":171417,"assessment_allocated_bytes":null,"objective":331.36395151587,"evaluations":22,"error":null,"qualified":true,"projected_norm":6.317013578893693e-11,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":12,"phase":"rebuild","ns":2136458,"allocated_bytes":null,"assessment_ns":168042,"assessment_allocated_bytes":null,"objective":335.7757518844601,"evaluations":22,"error":null,"qualified":true,"projected_norm":1.5000156672329013e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":12,"phase":"refit","ns":2022084,"allocated_bytes":null,"assessment_ns":221833,"assessment_allocated_bytes":null,"objective":335.7757518844601,"evaluations":22,"error":null,"qualified":true,"projected_norm":1.5000156672329013e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":13,"phase":"rebuild","ns":1815333,"allocated_bytes":null,"assessment_ns":154416,"assessment_allocated_bytes":null,"objective":318.1762577657719,"evaluations":20,"error":null,"qualified":true,"projected_norm":6.888001280458411e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":13,"phase":"refit","ns":1466000,"allocated_bytes":null,"assessment_ns":160000,"assessment_allocated_bytes":null,"objective":318.1762577657719,"evaluations":20,"error":null,"qualified":true,"projected_norm":6.888001280458411e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":14,"phase":"rebuild","ns":3935917,"allocated_bytes":null,"assessment_ns":151542,"assessment_allocated_bytes":null,"objective":320.2783972129944,"evaluations":52,"error":null,"qualified":true,"projected_norm":1.1148437728536464e-10,"reasons":[]}
+FLOW_BENCH {"platform":"js","runtime":"v26.7.0","workload":"penicillin","strategy":"AnalyticGradient","index":14,"phase":"refit","ns":3566083,"allocated_bytes":null,"assessment_ns":150916,"assessment_allocated_bytes":null,"objective":320.2783972129944,"evaluations":52,"error":null,"qualified":true,"projected_norm":1.1148437728536464e-10,"reasons":[]}
+  + realistic simulated responses match full rebuilds and report all outcomes 0.613s
+[info] Passed: Total 1, Failed 0, Errors 0, Passed 1
+[success] Total time: 1 s, completed Oct 26, 2026, 10:05:23 p.m.
+
+1440 samples, 32 summaries; raw outcomes retained at /Users/bbuchsbaum/code/scala/mixeff4s/comparison/workflow-tranche/benchmarks-qualified
+js pastes AnalyticGradient 2.288 -> 1.884 ms; failed 0 unqualified 21 of 45
+js pastes DerivativeFree 1.469 -> 1.021 ms; failed 0 unqualified 45 of 45
+js penicillin AnalyticGradient 2.103 -> 1.608 ms; failed 0 unqualified 0 of 45
+js penicillin DerivativeFree 1.882 -> 1.284 ms; failed 0 unqualified 45 of 45
+js sleepstudy_intercept AnalyticGradient 0.866 -> 0.452 ms; failed 0 unqualified 0 of 45
+js sleepstudy_intercept DerivativeFree 1.25 -> 0.69 ms; failed 0 unqualified 45 of 45
+js sleepstudy_slopes AnalyticGradient 1.482 -> 0.962 ms; failed 0 unqualified 3 of 45
+js sleepstudy_slopes DerivativeFree 2.135 -> 1.71 ms; failed 0 unqualified 45 of 45
+jvm pastes AnalyticGradient 1.387 -> 1.006 ms; failed 0 unqualified 21 of 45
+jvm pastes DerivativeFree 1.416 -> 0.88 ms; failed 0 unqualified 45 of 45
+jvm penicillin AnalyticGradient 0.936 -> 0.659 ms; failed 0 unqualified 0 of 45
+jvm penicillin DerivativeFree 1.185 -> 0.802 ms; failed 0 unqualified 45 of 45
+jvm sleepstudy_intercept AnalyticGradient 1.269 -> 0.59 ms; failed 0 unqualified 3 of 45
+jvm sleepstudy_intercept DerivativeFree 1.718 -> 0.746 ms; failed 0 unqualified 45 of 45
+jvm sleepstudy_slopes AnalyticGradient 1.394 -> 0.904 ms; failed 0 unqualified 6 of 45
+jvm sleepstudy_slopes DerivativeFree 2.15 -> 1.528 ms; failed 0 unqualified 45 of 45

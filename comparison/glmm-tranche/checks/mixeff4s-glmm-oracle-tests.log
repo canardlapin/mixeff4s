@@ -1,0 +1,50 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 2 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 12 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+mixeff4s.glmm.PirlsSuite:
+  + Bernoulli logit working observation at eta=0 0.007s
+  + working observation subtracts a supplied offset 0.0s
+  + bounded Bernoulli mean stays off the 0/1 boundary 0.001s
+mixeff4s.glmm.TerminationSuite:
+  + profiled deviance preserves wrong theta dimension as a typed error 0.062s
+  + nonfinite or negative diagonal theta is refused 0.002s
+  + an unfinished PIRLS probe returns a refusal, never a finite penalty 0.006s
+  + a public GLMM refuses unfinished PIRLS 0.005s
+  + a public GLMM refuses an exhausted optimizer budget 0.006s
+  + an accepted GLMM records the final inner and outer termination separately 0.012s
+mixeff4s.glmm.GlmmSuite:
+  + Normal+Identity is refused as a GLMM 0.007s
+  + noncanonical joint curvature is explicitly refused 0.001s
+  + nAGQ > 1 is refused in this slice 0.001s
+  + a small Bernoulli RE intercept is labelled fast-PIRLS 0.083s
+  + a perfectly separated Bernoulli design preserves its factorization failure 0.001s
+mixeff4s.glmm.CoefficientLayoutSuite:
+  + GLMM discloses dropped columns using the same retained coefficient layout 0.101s
+mixeff4s.glmm.GlmmInputSuite:
+  + binomial counts and ambiguous fractional responses refuse in both estimators 0.141s
+  + invalid trials, cases, offsets, controls and fractional Poisson counts refuse 0.005s
+  + estimated-dispersion families refuse until dispersion is explicitly implemented 0.001s
+  + logit inverse and derivative stay finite at large eta 0.0s
+mixeff4s.glmm.JointLaplaceSuite:
+  + fixed beta modes and final-mean determinant agree with independent scalar oracle 0.09s
+  + cold A B A probes are independent of previous modes and weights 0.004s
+  + binomial trials and case weights affect constants, score and curvature consistently 0.005s
+  + Poisson constants, zero counts, offsets and power weights agree with scalar oracle 0.004s
+  + joint API refuses wrong dimensions and invalid theta 0.003s
+  + conditional and outer exhaustion are typed failures 0.002s
+  + joint fit is separately labelled and records conditional and outer evidence 0.095s
+mixeff4s.glmm.ContraFitSuite:
+  + contra Laplace deviance at the Julia theta matches MixedModels.jl 0.144s
+  + contra fast-PIRLS fit matches MixedModels.jl 0.392s
+[info] Passed: Total 28, Failed 0, Errors 0, Passed 28
+[success] Total time: 5 s, completed Oct 27, 2026, 3:03:06 p.m.

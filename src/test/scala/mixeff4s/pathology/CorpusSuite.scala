@@ -140,7 +140,7 @@ class CorpusSuite extends munit.FunSuite:
     val cert = Pathology.certify(spec)
     val design = Lmm.compile(generated.formula, generated.frame).getOrElse(fail("compile"))
     val fit = Lmm.fit(generated.formula, generated.frame, FitOptions.ml).getOrElse(fail("fit"))
-    val assessed = Pathology.assessFit(cert, fit.theta, design.parmap)
+    val assessed = Pathology.assessFit(cert, fit, design.parmap)
     assert(
       cert.expectedStatuses.contains(assessed.fitStatus),
       clues(assessed.fitStatus, fit.theta, cert.expectedStatuses)
@@ -159,7 +159,7 @@ class CorpusSuite extends munit.FunSuite:
     assert(!cert.expectedStatuses.contains(FitStatus.ConvergedInterior), clues(cert.expectedStatuses))
     cert.structuralIssue match
       case Some(StructuralIssue.Separation(SeparationKind.FixedEffect(FeSeparationKind.Complete))) => ()
-      case other =>
+      case other                                                                                   =>
         fail(s"expected FixedEffect(Complete), got $other")
     assertEquals(report.feKind, Some(FeSeparationKind.Complete))
     assertEquals(report.conditionalGroups, Vector.empty)
@@ -417,7 +417,7 @@ class CorpusSuite extends munit.FunSuite:
     assertEquals(generated.frame.nRows, sizes.sum)
     val design = Lmm.compile(generated.formula, generated.frame).getOrElse(fail("compile"))
     val fit = Lmm.fit(generated.formula, generated.frame, FitOptions.ml).getOrElse(fail("fit"))
-    val assessed = Pathology.assessFit(cert, fit.theta, design.parmap)
+    val assessed = Pathology.assessFit(cert, fit, design.parmap)
     assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)
 
   test("perfectly collinear predictors are a structural refusal"):
@@ -433,7 +433,7 @@ class CorpusSuite extends munit.FunSuite:
     val generated = Pathology.generate(spec).getOrElse(fail("generate"))
     val design = Lmm.compile(generated.formula, generated.frame).getOrElse(fail("compile"))
     val fit = Lmm.fit(generated.formula, generated.frame, FitOptions.ml).getOrElse(fail("fit"))
-    val assessed = Pathology.assessFit(cert, fit.theta, design.parmap)
+    val assessed = Pathology.assessFit(cert, fit, design.parmap)
     assert(
       cert.expectedStatuses.contains(assessed.fitStatus),
       clues(assessed.fitStatus, fit.theta, cert.expectedStatuses)
@@ -508,13 +508,13 @@ class CorpusSuite extends munit.FunSuite:
   private def assessGenerated(spec: GeneratorSpec): Certificate =
     val cert = Pathology.certify(spec)
     Pathology.generate(spec) match
-      case Left(err) => Pathology.assessOutcome(cert, Left(err), Vector.empty)
+      case Left(err)        => Pathology.assessOutcome(cert, Left(err), Vector.empty)
       case Right(generated) =>
         Lmm.compile(generated.formula, generated.frame) match
-          case Left(err) => Pathology.assessOutcome(cert, Left(err), Vector.empty)
+          case Left(err)     => Pathology.assessOutcome(cert, Left(err), Vector.empty)
           case Right(design) =>
-            val outcome = Lmm.fit(generated.formula, generated.frame, FitOptions.ml).map(_.theta)
-            Pathology.assessOutcome(cert, outcome, design.parmap)
+            val outcome = Lmm.fit(generated.formula, generated.frame, FitOptions.ml)
+            Pathology.assessFitOutcome(cert, outcome, design.parmap)
 
   private def blockDiagonalSpec: GeneratorSpec =
     GeneratorSpec.blockDiagonalCrossings(

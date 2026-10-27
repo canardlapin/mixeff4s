@@ -37,18 +37,16 @@ class LmmSuite extends munit.FunSuite:
       case other =>
         fail(s"expected a certified fit, got $other")
 
-  test("zerocorr fits two diagonal theta slots and no correlation"):
+  test("tiny zerocorr design retains its map but refuses an exhausted fit"):
     val design = Lmm.compile("y ~ 1 + x + (1 + x || g)", frame).getOrElse(fail("compile"))
     assertEquals(design.nTheta, 2)
     assertEquals(design.parmap, Vector((0, 0, 0), (0, 1, 1)))
     Lmm.fit("y ~ 1 + x + (1 + x || g)", frame, FitOptions.reml) match
-      case Right(fit) =>
-        assertEquals(fit.theta.length, 2)
-        assert(fit.theta.forall(_ >= 0.0), clues(fit.theta))
-        assertEquals(fit.varcorr.components.head.correlations, Vector(0.0))
-        assert(fit.objective.isFinite, clues(fit.objective))
+      case Left(err @ MixedModelError.OptimizerBudgetExhausted(evaluations)) =>
+        assertEquals(evaluations, 1000)
+        assertEquals(err.code, "optimizer_budget_exhausted")
       case other =>
-        fail(s"expected a certified zerocorr fit, got $other")
+        fail(s"expected an exhausted-budget refusal, got $other")
 
   test("parses then refuses compound symmetry"):
     Lmm.fit("y ~ x + cs(1 + x | g)", frame, FitOptions.reml) match

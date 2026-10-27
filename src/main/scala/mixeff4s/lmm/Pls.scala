@@ -2,8 +2,8 @@ package mixeff4s.lmm
 
 import mixeff4s.design.{CompiledDesign, FeMat, ReMat}
 import mixeff4s.error.{FitResult, MixedModelError}
-import mixeff4s.linalg.{BlockedCholesky, MatrixBlock, WorkMat}
-import mixeff4s.optimizer.{TrustBq, TrustBqOptions}
+import mixeff4s.linalg.{BlockedCholesky, MatrixBlock, SparseWorkMat, WorkMat}
+import mixeff4s.optimizer.{ObjectiveGradient, TrustBq, TrustBqOptions, TrustBqResult}
 
 /** Working PLS state for a compiled LMM. */
 final class PlsWorkspace private (
@@ -19,13 +19,56 @@ final class PlsWorkspace private (
   def theta: Vector[Double] = reterms.flatMap(_.theta)
   def parmap: Vector[(Int, Int, Int)] = design.parmap
   def fittedReterms: Vector[ReMat] = reterms
+  private[lmm] def factorBlocksSnapshot: Vector[MatrixBlock] = lBlocks.iterator.map(_.cloneBlock).toVector
+  private[lmm] def crossProductBlocksSnapshot: Vector[MatrixBlock] = aBlocks.iterator.map(_.cloneBlock).toVector
 
   private val sqrtwts = Array.fill(design.n)(1.0)
   private val workingY = Array.tabulate(design.n)(i => design.xy.xy(i, design.p))
 
+  def response: Vector[Double] = workingY.toVector
+
+  /** Replace only response cross-products. Random design, topology and X'X are unchanged. */
+  def updateResponse(values: Vector[Double]): FitResult[Unit] =
+    if values.length != n then Left(MixedModelError.DimensionMismatch(s"response length ${values.length}, expected $n"))
+    else if values.exists(v => !v.isFinite) then Left(MixedModelError.InvalidArgument("response must be finite"))
+    else
+      values.indices.foreach(i => workingY(i) = values(i))
+      val k = reterms.length
+      reterms.zipWithIndex.foreach: (term, index) =>
+        val cross = aBlocks(MatrixBlock.blockIndex(k, index)).asDense
+        var col = 0
+        while col < cross.cols do
+          cross(p, col) = 0.0
+          col += 1
+        var obs = 0
+        while obs < n do
+          val wy = sqrtwts(obs) * sqrtwts(obs) * workingY(obs)
+          var j = 0
+          while j < term.vsize do
+            cross(p, term.refs(obs) * term.vsize + j) += wy * term.z(j, obs)
+            j += 1
+          obs += 1
+      val cross = aBlocks(MatrixBlock.blockIndex(k, k)).asDense
+      var j = 0
+      while j <= p do
+        var sum = 0.0
+        var obs = 0
+        while obs < n do
+          val other = if j == p then workingY(obs) else design.xy.xy(obs, j)
+          sum += sqrtwts(obs) * sqrtwts(obs) * workingY(obs) * other
+          obs += 1
+        cross(p, j) = sum
+        cross(j, p) = sum
+        j += 1
+      Right(())
+
   def setTheta(values: Vector[Double]): FitResult[Unit] =
     if values.length != nTheta then
       Left(MixedModelError.DimensionMismatch(s"theta length ${values.length}, expected $nTheta"))
+    else if values.exists(v => !v.isFinite) then
+      Left(MixedModelError.InvalidArgument("theta must contain only finite values"))
+    else if parmap.zip(values).exists { case ((_, row, col), value) => row == col && value < 0.0 } then
+      Left(MixedModelError.InvalidArgument("theta diagonal entries must be nonnegative"))
     else
       var offset = 0
       val next = Vector.newBuilder[ReMat]
@@ -41,7 +84,14 @@ final class PlsWorkspace private (
         reterms = next.result()
         ()
 
-  def updateL(): FitResult[Unit] =
+  def updateL(): FitResult[Unit] = factor(includeFixed = true)
+
+  /** Factor only I + Lambda' Z' W Z Lambda for a fixed-beta conditional solve. The fixed/response Schur block need not
+    * be positive definite in a valid GLMM. Call updateL before reading beta, sigma, vcov or an LMM objective again.
+    */
+  private[mixeff4s] def updateRandomL(): FitResult[Unit] = factor(includeFixed = false)
+
+  private def factor(includeFixed: Boolean): FitResult[Unit] =
     val k = reterms.length
     var j = 0
     while j < k do
@@ -63,26 +113,26 @@ final class PlsWorkspace private (
         )
         j += 1
       i += 1
-    j = 0
-    while j < k do
-      BlockedCholesky.copyAndRmulLambda(
-        lBlocks(MatrixBlock.blockIndex(k, j)),
-        aBlocks(MatrixBlock.blockIndex(k, j)),
-        lambdaWork(reterms(j))
-      )
-      j += 1
-    MatrixBlock.copyBlock(lBlocks(MatrixBlock.blockIndex(k, k)), aBlocks(MatrixBlock.blockIndex(k, k)))
+    if includeFixed then
+      j = 0
+      while j < k do
+        BlockedCholesky.copyAndRmulLambda(
+          lBlocks(MatrixBlock.blockIndex(k, j)),
+          aBlocks(MatrixBlock.blockIndex(k, j)),
+          lambdaWork(reterms(j))
+        )
+        j += 1
+      MatrixBlock.copyBlock(lBlocks(MatrixBlock.blockIndex(k, k)), aBlocks(MatrixBlock.blockIndex(k, k)))
 
-    val total = k + 1
+    val total = if includeFixed then k + 1 else k
     var col = 0
     var error: Option[MixedModelError] = None
     while col < total && error.isEmpty do
       val diagIdx = MatrixBlock.blockIndex(col, col)
       var jj = 0
       while jj < col do
-        val off = lBlocks(MatrixBlock.blockIndex(col, jj)) match
-          case MatrixBlock.Dense(mat) => mat
-          case other                  => other.asDense
+        val off = lBlocks(MatrixBlock.blockIndex(col, jj))
+        lBlocks(diagIdx) = BlockedCholesky.prepareRankKTarget(lBlocks(diagIdx), off)
         BlockedCholesky.rankKDowndate(lBlocks(diagIdx), off)
         jj += 1
       BlockedCholesky.cholesky(lBlocks(diagIdx)) match
@@ -93,12 +143,18 @@ final class PlsWorkspace private (
             val targetIdx = MatrixBlock.blockIndex(i, col)
             var prev = 0
             while prev < col do
+              lBlocks(targetIdx) = BlockedCholesky.prepareSubtractTarget(
+                lBlocks(targetIdx),
+                lBlocks(MatrixBlock.blockIndex(i, prev)),
+                lBlocks(MatrixBlock.blockIndex(col, prev))
+              )
               BlockedCholesky.subtractProduct(
                 lBlocks(targetIdx),
                 lBlocks(MatrixBlock.blockIndex(i, prev)),
                 lBlocks(MatrixBlock.blockIndex(col, prev))
               )
               prev += 1
+            lBlocks(targetIdx) = BlockedCholesky.prepareRightSolveTarget(lBlocks(targetIdx), lBlocks(diagIdx))
             BlockedCholesky.rdivLowerTranspose(lBlocks(targetIdx), lBlocks(diagIdx))
             i += 1
       col += 1
@@ -108,7 +164,41 @@ final class PlsWorkspace private (
     for
       _ <- setTheta(values)
       _ <- updateL()
-    yield objective
+      value = objective
+      _ <-
+        if value.isFinite then Right(())
+        else
+          Left(
+            MixedModelError.Optimization(
+              "profiled LMM objective requires positive finite residual sum of squares and fixed-effect pivots"
+            )
+          )
+    yield value
+
+  private var gradientScratch: Option[ProfiledGradient] = None
+
+  /** One factorization feeds both the value and its exact derivative; cached buffers never replace factor refresh. */
+  def objectiveAndGradientAt(
+      values: Vector[Double],
+      options: ProfiledGradientOptions = ProfiledGradientOptions()
+  ): FitResult[ProfiledEvaluation] =
+    for
+      value <- objectiveAt(values)
+      gradient <- gradientScratch match
+        case Some(workspace) =>
+          if options.maxWorkingBytes > 0 && workspace.workingBytes <= options.maxWorkingBytes then Right(workspace)
+          else
+            Left(
+              MixedModelError.InvalidArgument(
+                s"analytic gradient numeric scratch requires ${workspace.workingBytes} bytes; budget is ${options.maxWorkingBytes}"
+              )
+            )
+        case None =>
+          ProfiledGradient(design, reml, aBlocks, lBlocks, options).map: workspace =>
+            gradientScratch = Some(workspace)
+            workspace
+      result <- gradient.evaluate(reterms, beta, value, pwrss)
+    yield result
 
   def objective: Double =
     val denomdf = if reml then (n - p).toDouble else n.toDouble
@@ -163,6 +253,12 @@ final class PlsWorkspace private (
           s"IRLS weights/response length (${sqrtWeights.length}, ${yWork.length}), expected $n"
         )
       )
+    else if sqrtWeights.exists(v => !v.isFinite || v < 0.0) || yWork.exists(v => !v.isFinite) then
+      Left(
+        MixedModelError.InvalidArgument(
+          "IRLS square-root weights must be finite and nonnegative, and working responses finite"
+        )
+      )
     else
       System.arraycopy(sqrtWeights, 0, sqrtwts, 0, n)
       System.arraycopy(yWork, 0, workingY, 0, n)
@@ -170,9 +266,12 @@ final class PlsWorkspace private (
       Right(())
 
   /** Conditional modes on the spherical scale, one `nRanef` vector per RE term. */
-  def ranefU: Vector[Array[Double]] =
+  def ranefU: Vector[Array[Double]] = ranefUGivenBeta(beta)
+
+  /** Weighted conditional solve using caller-supplied retained-basis beta and current RE factors. */
+  private[mixeff4s] def ranefUGivenBeta(coef: Vector[Double]): Vector[Array[Double]] =
+    require(coef.length == p, "conditional beta must match retained fixed-effect rank")
     val k = reterms.length
-    val coef = beta
     val wr = Array.ofDim[Double](n)
     var obs = 0
     while obs < n do
@@ -220,17 +319,7 @@ final class PlsWorkspace private (
       val rhs = cVecs(j).clone()
       var m = 0
       while m < j do
-        val ljm = lBlocks(MatrixBlock.blockIndex(j, m)).asDense
-        val vm = vVecs(m)
-        var row = 0
-        while row < rhs.length do
-          var dot = 0.0
-          var col = 0
-          while col < vm.length do
-            dot += ljm(row, col) * vm(col)
-            col += 1
-          rhs(row) -= dot
-          row += 1
+        lBlocks(MatrixBlock.blockIndex(j, m)).addMatVec(vVecs(m), rhs, scale = -1.0)
         m += 1
       BlockedCholesky.solveLowerAgainstRhs(lBlocks(MatrixBlock.blockIndex(j, j)), rhs)
       vVecs(j) = rhs
@@ -242,17 +331,7 @@ final class PlsWorkspace private (
       val rhs = vVecs(j).clone()
       var m = j + 1
       while m < k do
-        val lmj = lBlocks(MatrixBlock.blockIndex(m, j)).asDense
-        val um = uVecs(m)
-        var row = 0
-        while row < rhs.length do
-          var dot = 0.0
-          var col = 0
-          while col < um.length do
-            dot += lmj(col, row) * um(col)
-            col += 1
-          rhs(row) -= dot
-          row += 1
+        lBlocks(MatrixBlock.blockIndex(m, j)).addMatVec(uVecs(m), rhs, transpose = true, scale = -1.0)
         m += 1
       BlockedCholesky.solveUpperFromLowerTransposeAgainstRhs(lBlocks(MatrixBlock.blockIndex(j, j)), rhs)
       uVecs(j) = rhs
@@ -282,6 +361,7 @@ final class PlsWorkspace private (
     block match
       case MatrixBlock.Dense(mat) =>
         mat.fill(0.0)
+      case MatrixBlock.Sparse(mat)      => mat.clear()
       case MatrixBlock.Diagonal(values) =>
         java.util.Arrays.fill(values, 0.0)
       case MatrixBlock.BlockDiagonal(blocks) =>
@@ -311,6 +391,7 @@ final class PlsWorkspace private (
               blk(si, sj) += zsi * (sw * re.z(sj, obs))
               sj += 1
             si += 1
+        case MatrixBlock.Sparse(_)  => throw IllegalStateException("diagonal random blocks cannot be sparse")
         case MatrixBlock.Dense(mat) =>
           var si = 0
           while si < s do
@@ -323,12 +404,7 @@ final class PlsWorkspace private (
       obs += 1
 
   private def fillReCrossOff(block: MatrixBlock, a: ReMat, b: ReMat): Unit =
-    val mat = block match
-      case MatrixBlock.Dense(m) =>
-        m.fill(0.0)
-        m
-      case other =>
-        throw IllegalArgumentException(s"RE×RE off-diagonal A block must stay Dense, got $other")
+    zeroBlock(block)
     var obs = 0
     while obs < n do
       val sw = sqrtwts(obs)
@@ -339,7 +415,13 @@ final class PlsWorkspace private (
         val za = sw * a.z(si, obs)
         var sj = 0
         while sj < b.vsize do
-          mat(ri * a.vsize + si, rj * b.vsize + sj) += za * (sw * b.z(sj, obs))
+          val row = ri * a.vsize + si
+          val col = rj * b.vsize + sj
+          val value = za * (sw * b.z(sj, obs))
+          block match
+            case MatrixBlock.Sparse(mat) => mat.add(row, col, value)
+            case MatrixBlock.Dense(mat)  => mat(row, col) += value
+            case _ => throw IllegalStateException("off-diagonal cross-product must be sparse or dense")
           sj += 1
         si += 1
       obs += 1
@@ -393,7 +475,7 @@ final class PlsWorkspace private (
 
   def varcorr: VarCorr = VarCorr.fromReterms(reterms, sigma)
 
-  /** Active-column vcov: σ² (Lxx^{-1})' Lxx^{-1} in pivot order. */
+  /** Active-column vcov: σ² (Lxx^{-1})' Lxx^{-1}, in the same order as beta and feNames. */
   def vcov: Vector[Vector[Double]] =
     val k = reterms.length
     val lLast = lBlocks(MatrixBlock.blockIndex(k, k)).asDense
@@ -422,33 +504,7 @@ final class PlsWorkspace private (
           sum += lInv(t)(r) * lInv(t)(c)
           t += 1
         sigmaSq * sum
-      unpivotVcov(active)
-
-  private def unpivotVcov(active: Array[Array[Double]]): Vector[Vector[Double]] =
-    val piv = design.fe.piv
-    val fullP = piv.length
-    val p = active.length
-    if p == 0 then Vector.empty
-    else if p == fullP then
-      val result = Array.fill(fullP, fullP)(0.0)
-      var i = 0
-      while i < fullP do
-        var j = 0
-        while j < fullP do
-          result(piv(i))(piv(j)) = active(i)(j)
-          j += 1
-        i += 1
-      result.iterator.map(_.toVector).toVector
-    else
-      val result = Array.fill(fullP, fullP)(Double.NaN)
-      var i = 0
-      while i < p do
-        var j = 0
-        while j < p do
-          result(piv(i))(piv(j)) = active(i)(j)
-          j += 1
-        i += 1
-      result.iterator.map(_.toVector).toVector
+      active.iterator.map(_.toVector).toVector
 
   def stderror: Vector[Double] =
     vcov.zipWithIndex.map((row, i) => math.sqrt(row(i)))
@@ -480,7 +536,8 @@ final class PlsWorkspace private (
       var i = 0
       while i < pp1 - 1 do
         val d = lDense(i, i)
-        if d > 0.0 then logdetLxx += math.log(d)
+        if !d.isFinite || d <= 0.0 then return (Double.PositiveInfinity, pwrss)
+        logdetLxx += math.log(d)
         i += 1
       logdet += 2.0 * logdetLxx
     (logdet, pwrss)
@@ -490,7 +547,11 @@ final class PlsWorkspace private (
 
 object PlsWorkspace:
   def apply(design: CompiledDesign, reml: Boolean): FitResult[PlsWorkspace] =
-    if design.reterms.isEmpty then Left(MixedModelError.NoRandomEffects)
+    if design.n <= 0 || (reml && design.n <= design.p) then
+      Left(
+        MixedModelError.InvalidArgument("LMM requires observations and positive residual degrees of freedom for REML")
+      )
+    else if design.reterms.isEmpty then Left(MixedModelError.NoRandomEffects)
     else
       val k = design.reterms.length
       val blocks = Vector.newBuilder[MatrixBlock]
@@ -568,7 +629,18 @@ object PlsWorkspace:
       MatrixBlock.BlockDiagonal(blocks)
 
   private def reCrossOff(a: ReMat, b: ReMat): MatrixBlock =
-    val result = WorkMat.zeros(a.nRanef, b.nRanef)
+    // Incidence determines topology, including basis entries currently equal to zero.
+    val pairs = a.refs.zip(b.refs).distinct
+    // Dense crossings pay CSC indexing costs without enough structural zeros to save work.
+    // Choose once from incidence, never from current numeric values or weights.
+    val cells = a.nRanef.toLong * b.nRanef
+    val block =
+      if pairs.length.toLong * 2 >= a.nLevels.toLong * b.nLevels && cells <= Int.MaxValue then
+        MatrixBlock.Dense(WorkMat.zeros(a.nRanef, b.nRanef))
+      else
+        val coordinates = pairs.flatMap: (i, j) =>
+          (0 until a.vsize).flatMap(r => (0 until b.vsize).map(c => (i * a.vsize + r, j * b.vsize + c)))
+        MatrixBlock.Sparse(SparseWorkMat.fromCoordinates(a.nRanef, b.nRanef, coordinates))
     var obs = 0
     while obs < a.nObs do
       val ri = a.refs(obs)
@@ -578,11 +650,17 @@ object PlsWorkspace:
         val za = a.z(si, obs)
         var sj = 0
         while sj < b.vsize do
-          result(ri * a.vsize + si, rj * b.vsize + sj) += za * b.z(sj, obs)
+          val row = ri * a.vsize + si
+          val col = rj * b.vsize + sj
+          val value = za * b.z(sj, obs)
+          block match
+            case MatrixBlock.Dense(mat)  => mat(row, col) += value
+            case MatrixBlock.Sparse(mat) => mat.add(row, col, value)
+            case _ => throw IllegalStateException("off-diagonal cross-products require dense or sparse storage")
           sj += 1
         si += 1
       obs += 1
-    MatrixBlock.Dense(result)
+    block
 
   private def feReCross(xy: FeMat, re: ReMat): MatrixBlock =
     val pp1 = xy.xy.cols
@@ -619,6 +697,9 @@ object PlsWorkspace:
       i += 1
     MatrixBlock.Dense(result)
 
+/** Optimizer evidence is a value, separate from the mutable workspace it evaluated. */
+final case class PlsFit(workspace: PlsWorkspace, optimizer: TrustBqResult)
+
 object Pls:
   def smallFamilyOptions(nTheta: Int): TrustBqOptions =
     TrustBqOptions(
@@ -633,22 +714,66 @@ object Pls:
       stallRequiresStableX = true
     )
 
-  def fit(design: CompiledDesign, reml: Boolean): FitResult[PlsWorkspace] =
-    PlsWorkspace(design, reml).flatMap: workspace =>
-      diagonalFirstStart(workspace).flatMap: start =>
-        TrustBq
-          .minimize(start, workspace.lowerBounds, workspace.upperBounds, smallFamilyOptions(workspace.nTheta))(
-            workspace.objectiveAt
-          )
-          .flatMap: result =>
-            workspace.objectiveAt(result.x).map(_ => workspace)
+  def fit(
+      design: CompiledDesign,
+      reml: Boolean,
+      maxEvaluations: Int = 1000,
+      optimizer: LmmOptimizer = LmmOptimizer.DerivativeFree,
+      gradientOptions: ProfiledGradientOptions = ProfiledGradientOptions(),
+      optimizerControls: Option[TrustBqOptions] = None
+  ): FitResult[PlsFit] =
+    PlsWorkspace(design, reml).flatMap(workspace =>
+      optimize(workspace, maxEvaluations, optimizer, gradientOptions, optimizerControls = optimizerControls)
+    )
+
+  /** Explicit LMM gradient policy. Large covariance models may plateau while theta drifts along a singular ridge;
+    * smaller models keep the strict stable-theta stall rule. Both policies guard objective-based stops with the
+    * projected gradient; step/radius stops remain numerical stops without a stationarity guarantee.
+    */
+  private[lmm] def gradientFamilyOptions(nTheta: Int): TrustBqOptions =
+    val small = smallFamilyOptions(nTheta).copy(gradientTolerance = 1e-9, finalRadius = 1e-6)
+    val numeric = if nTheta <= 3 then small else small.copy(ftolAbs = 1e-8, ftolRel = 1e-10)
+    if nTheta < 7 then numeric
+    else numeric.copy(stallIterations = 3, stallFtolRel = 1e-6, stallFtolAbs = 1e-8, stallRequiresStableX = false)
+
+  private[lmm] def optimize(
+      workspace: PlsWorkspace,
+      maxEvaluations: Int,
+      optimizer: LmmOptimizer,
+      gradientOptions: ProfiledGradientOptions,
+      initial: Option[Vector[Double]] = None,
+      optimizerControls: Option[TrustBqOptions] = None
+  ): FitResult[PlsFit] =
+    val start = initial match
+      case Some(values) => workspace.setTheta(values).map(_ => values)
+      case None         => workspace.setTheta(workspace.design.theta).flatMap(_ => diagonalFirstStart(workspace))
+    start.flatMap: values =>
+      val options =
+        optimizerControls.getOrElse(smallFamilyOptions(workspace.nTheta)).copy(maxEvaluations = maxEvaluations)
+      val optimized = optimizer match
+        case LmmOptimizer.DerivativeFree =>
+          TrustBq.minimize(values, workspace.lowerBounds, workspace.upperBounds, options)(workspace.objectiveAt)
+        case LmmOptimizer.AnalyticGradient =>
+          val gradientPolicy =
+            optimizerControls.getOrElse(gradientFamilyOptions(workspace.nTheta)).copy(maxEvaluations = maxEvaluations)
+          TrustBq.minimizeWithGradient(values, workspace.lowerBounds, workspace.upperBounds, gradientPolicy): point =>
+            workspace
+              .objectiveAndGradientAt(point, gradientOptions)
+              .map(e => ObjectiveGradient(e.objective, e.gradient))
+      optimized.flatMap: result =>
+        for
+          _ <- result.requireConvergence
+          value <- workspace.objectiveAt(result.x)
+          _ <-
+            if value.isFinite then Right(())
+            else Left(MixedModelError.Optimization("LMM objective is not finite at the TrustBQ minimizer"))
+        yield PlsFit(workspace, result)
 
   /** Coarse zero-correlation warm start when θ has off-diagonal slots.
     *
-    * Single-start TrustBQ from the identity λ can stall on a worse interior
-    * (orthodont: 433.40 vs 432.58). mixeff4s has no BOBYQA fallback, so the
-    * default fit runs the rust diagonal-first ladder: optimize the diagonal
-    * with correlations pinned at 0, then hand that point to the full solve.
+    * Single-start TrustBQ from the identity λ can stall on a worse interior (orthodont: 433.40 vs 432.58). mixeff4s has
+    * no BOBYQA fallback, so the default fit runs the rust diagonal-first ladder: optimize the diagonal with
+    * correlations pinned at 0, then hand that point to the full solve.
     */
   private def diagonalFirstStart(workspace: PlsWorkspace): FitResult[Vector[Double]] =
     val start = workspace.theta

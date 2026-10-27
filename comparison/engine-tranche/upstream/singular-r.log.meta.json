@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-26T21:21:18.777085+00:00",
+  "finished_utc": "2026-10-26T21:21:33.169094+00:00",
+  "duration_seconds": 14.39187,
+  "command": [
+    "Rscript",
+    "--vanilla",
+    "comparison/engine-tranche/upstream/singular-witness.R"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-engine-tranche/singular-r.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 120.0,
+  "log_bytes": 973
+}

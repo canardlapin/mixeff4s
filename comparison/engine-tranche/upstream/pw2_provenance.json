@@ -1,0 +1,8 @@
+{
+  "source": "mixeff-rs/tests/fixtures/adoption/pw2_nested.json",
+  "rust_revision": "33c8639d4e4eaf055dfa09ac36794c5b11912332",
+  "source_sha256": "76623bdae6e36f36c882b573535485e70c378b70e39ecffde7c2944d1a4586fc",
+  "reference_source": "tests/fixtures/adoption/lme4_reference.json",
+  "reference_sha256": "e5799f7653cc81fa2efa2ce2c5771a52aa31c9b467421ee91f6d38628f08c980",
+  "scope": "LMM fields only, unchanged fixture values"
+}

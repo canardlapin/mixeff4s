@@ -1,0 +1,964 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] scalafmt: Formatting 1 Scala sources (/Users/bbuchsbaum/code/scala/mixeff4s)...
+[info] scalafmt: Formatting 1 Scala sources (/Users/bbuchsbaum/code/scala/mixeff4s)...
+[info] scalafmt: Formatting 1 Scala sources (/Users/bbuchsbaum/code/scala/mixeff4s/.jvm)...
+[info] scalafmt: Formatting 2 Scala sources (/Users/bbuchsbaum/code/scala/mixeff4s/.jvm)...
+[info] scalafmt: Formatting 1 Scala sources (/Users/bbuchsbaum/code/scala/mixeff4s/.js)...
+[info] scalafmt: Formatting 1 Scala sources (/Users/bbuchsbaum/code/scala/mixeff4s/.js)...
+[info] scalafmt: Reformatted 1 Scala sources
+[info] scalafmt: Reformatted 1 Scala sources
+[info] scalafmt: Reformatted 1 Scala sources
+[success] Total time: 1 s, completed Oct 27, 2026, 3:12:42 p.m.
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.js/target/scala-3.7.4/classes ...
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] done compiling
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.js/target/scala-3.7.4/test-classes ...
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+[info] done compiling
+mixeff4s.ArchitectureSuite:
+  + layer imports stay acyclic 0.014s
+mixeff4s.optimizer.TrustBqSuite:
+  + recovers a shifted quadratic 0.019s
+mixeff4s.data.ModelFrameSuite:
+  + builds aligned numeric and factor columns 0.011s
+  + encodes an explicit factor level order 0.001s
+  + rejects a value outside the declared factor levels 0.001s
+  + rejects length mismatch 0.0s
+  + rejects non-finite numeric input at the frame boundary 0.0s
+  + rejects non-finite numeric columns added after frame construction 0.001s
+  + validates raw factor references and values 0.0s
+  + permits a legitimate empty aligned frame 0.001s
+  + materializes I() onto the frame 0.01s
+mixeff4s.glmm.PirlsSuite:
+  + Bernoulli logit working observation at eta=0 0.0s
+  + working observation subtracts a supplied offset 0.0s
+  + bounded Bernoulli mean stays off the 0/1 boundary 0.001s
+mixeff4s.formula.DslSuite:
+  + typed DSL lowers to the same IR as the string parser 0.004s
+  + string interpolator 0.003s
+mixeff4s.comparison.DatasetSuite:
+  + catalog names match the fixture manifest 0.011s
+  + every catalog dataset loads with the declared row count 0.046s
+  + rail keeps the nlme Rail level order 0.001s
+  + ergostool keeps the nlme Subject level order 0.0s
+  + oats Variety includes a spaced level 0.001s
+mixeff4s.comparison.ScorecardSuite:
+  + embedded scorecard uses the rust class vocabulary 0.023s
+  + dyestuff2 is a frozen lme4 boundary claim 0.006s
+  + contrast names align mixeff4s dummy labels to lme4 0.003s
+  + sleepstudy zerocorr is a frozen MixedModels.jl claim 0.012s
+  + station fixed-only formula is unsupported with a rust contract claim 0.014s
+  + fast-PIRLS contraception is documented divergence 0.002s
+  + every scorecard row has a claimed frozen reference 0.006s
+  + frozen catalog refuses p-values 0.001s
+mixeff4s.glmm.TerminationSuite:
+  + profiled deviance preserves wrong theta dimension as a typed error 0.06s
+  + nonfinite or negative diagonal theta is refused 0.002s
+  + an unfinished PIRLS probe returns a refusal, never a finite penalty 0.003s
+  + a public GLMM refuses unfinished PIRLS 0.004s
+  + a public GLMM refuses an exhausted optimizer budget 0.005s
+  + an accepted GLMM records the final inner and outer termination separately 0.015s
+mixeff4s.glmm.GlmmSuite:
+  + Normal+Identity is refused as a GLMM 0.013s
+  + noncanonical joint curvature is explicitly refused 0.001s
+  + nAGQ > 1 is refused in this slice 0.001s
+  + a small Bernoulli RE intercept is labelled fast-PIRLS 0.071s
+  + a perfectly separated Bernoulli design preserves its factorization failure 0.003s
+mixeff4s.comparison.HarnessGateSuite:
+  + scorecard, fixtures, and frozen files match the embedded catalogs 0.022s
+  + scorecard datasets exist and vendored directories match the catalog 0.008s
+  + every scorecard row names a loadable fixture and a frozen claim 0.026s
+mixeff4s.stats.InferenceRefusalSuite:
+  + profile intervals are a typed refusal 0.083s
+  + legacy bootstrap call requires explicit seed and targets 0.025s
+  + GLMM profile intervals stay refused 0.014s
+mixeff4s.lmm.TerminationSuite:
+  + a public LMM refuses an exhausted main optimizer budget 0.029s
+  + an accepted fit retains evidence for its actual theta and objective 0.049s
+  + a zero fixed-effect pivot cannot become a finite REML objective 0.015s
+mixeff4s.glmm.CoefficientLayoutSuite:
+  + GLMM discloses dropped columns using the same retained coefficient layout 0.049s
+mixeff4s.pathology.FitEvidenceSuite:
+  + an arbitrary raw theta does not certify optimization 0.052s
+  + raw reassessment clears previous convergence evidence and stale geometry 0.052s
+  + a mismatched or exhausted optimizer result cannot certify a fit 0.002s
+  + fitted covariance rank recognizes a nonzero off-diagonal reduced-rank Lambda 0.014s
+  + failed fit outcomes clear geometry and retain the stable reason code 0.006s
+  + compiler serializes geometry separately and requires a matching fit 0.023s
+mixeff4s.lmm.DyestuffFitSuite:
+  + dyestuff ML matches frozen lme4 0.106s
+  + dyestuff REML matches frozen lme4 0.014s
+  + dyestuff2 ML has reduced covariance rank at the boundary against frozen lme4 0.019s
+  + dyestuff2 REML has reduced covariance rank at the boundary against frozen lme4 0.014s
+mixeff4s.glmm.JointDenseSuite:
+  + crossed vector terms and reduced-rank covariance match independent dense conditional solve 0.164s
+mixeff4s.pathology.PathologySuite:
+  + sleepstudy is an easy design-time certificate 0.012s
+  + no random effects maps to not_identifiable 0.003s
+  + unsupported covariance maps to not_optimized 0.0s
+  + singletons with a random slope are a refusal certificate 0.002s
+  + a single grouping level is a refusal certificate 0.001s
+  + bare interior theta is geometry only 0.007s
+  + a diagonal theta at the lower bound is boundary geometry only 0.005s
+  + an off-diagonal near zero is not a variance boundary 0.006s
+  + assessOutcome maps an engine error on a refusal design 0.003s
+  + refusal designs do not claim a converged fit status 0.003s
+GRADIENT_FIT formula=reaction ~ 1 + days + (1 + days | subj) reml=false objective=1751.9393444632335 gradient_evals=12 interpolation_evals=206
+mixeff4s.design.DesignSuite:
+  + sleepstudy design shapes match mixeff-rs 0.023s
+  + zerocorr sleepstudy has two theta slots 0.006s
+mixeff4s.linalg.SparseBlockSuite:
+  + structural zeros persist and clones isolate mutable values 0.002s
+  + sparse subtraction preflight prevents late partial mutation 0.005s
+  + CSC subtraction updates a dense target without sparse densification 0.0s
+  + CSC rank-k uses structural support for a diagonal target 0.001s
+  + dense copy from sparse clears stale fill 0.0s
+  + sparse off-diagonal scaling visits stored support, not structural gaps 0.001s
+  + sparse vector off-diagonal scaling transforms only occupied rectangles 0.001s
+  + structured matvec avoids dense block traversal semantics 0.001s
+  + sparse right solve preserves diagonal and block-diagonal closures 0.001s
+  + sparse block solve skips entirely absent row-level rectangles 0.001s
+  + dense right divisor promotes sparse target before mutation 0.001s
+mixeff4s.lmm.CrossedFitSuite:
+  + penicillin crossed intercepts match MixedModels.jl 0.041s
+  + penicillin REML matches mixeff-rs 0.044s
+  + pastes nested intercepts match MixedModels.jl 0.077s
+mixeff4s.optimizer.GradientTrustBqSuite:
+  + gradient oracle solves bounded quadratic and records first-order evidence 0.003s
+  + multidimensional box-boundary quadratic respects the active bound 0.002s
+  + zero derivative at a bounded maximum is probed before first-order stop 0.005s
+  + budget includes initial gradient oracle call and seed probes 0.001s
+  + shifted Newton direction minimizes the original quadratic along its feasible ray 0.001s
+  + disabled gradient tolerance cannot report a gradient stop 0.001s
+  + first-order stop validates a scalar feasible escape at a zero-gradient maximum 0.005s
+  + first-order stop validates a feasible mixed negative-curvature escape 0.005s
+  + returned projected-gradient evidence belongs to returned best point 0.002s
+  + negative curvature hidden from all axial and pair directions is escaped 0.005s
+  + Cauchy fallback projects outward components onto the feasible tangent cone 0.002s
+  + invalid trust-region constants are refused before oracle evaluation 0.001s
+  + invalid gradient values and dimensions are refused 0.001s
+  + a fresh escape probe remains the returned best point when the next probe exhausts budget 0.002s
+  + projected Cauchy ray uses its own directional derivative after blocking a coordinate 0.004s
+mixeff4s.design.UpstreamDesignSuite:
+  + no-intercept main effects full-code only the first categorical variable 0.002s
+  + no-intercept factor interaction full-codes both factors 0.002s
+  + interaction contrasts follow marginality and formula variable order 0.001s
+  + numeric by factor interaction uses full factor indicators when uncovered 0.001s
+  + random-slope bases use the same no-intercept contrast assignment 0.001s
+  + random no-intercept interaction full-codes both factor bases 0.0s
+  + grouping drops unused declared levels in their declared order 0.003s
+  + combined grouping retains distinct tuples with underscore-containing levels 0.002s
+  + expanded fixed columns agree with independent R model.matrix numeric witnesses 0.004s
+mixeff4s.compiler.SemanticSuite:
+  + sleepstudy IR is a full Cholesky random slope 0.003s
+  + zerocorr is one diagonal term, not a silent split 0.002s
+  + cs is typed IR and marked parsed_refused 0.001s
+  + nested grouping keeps the written slash 0.001s
+mixeff4s.glmm.GlmmInputSuite:
+  + binomial counts and ambiguous fractional responses refuse in both estimators 0.216s
+  + invalid trials, cases, offsets, controls and fractional Poisson counts refuse 0.006s
+  + estimated-dispersion families refuse until dispersion is explicitly implemented 0.001s
+  + logit inverse and derivative stay finite at large eta 0.001s
+mixeff4s.ReadmeExampleSuite:
+  + README quick start compiles against the public API 0.03s
+mixeff4s.lmm.LmmSuite:
+  + refuses a formula with no random effects 0.001s
+  + parses then refuses structured covariance 0.001s
+  + single-term random intercept fits 0.008s
+  + tiny zerocorr design retains its map but refuses an exhausted fit 0.057s
+  + parses then refuses compound symmetry 0.001s
+GRADIENT_FIT formula=strength ~ 1 + (1 | batch / cask) reml=false objective=247.99446586249402 gradient_evals=20 interpolation_evals=192
+mixeff4s.lmm.SimpleLmmFitSuite:
+  + rail REML matches frozen lme4 0.031s
+  + ergostool REML matches frozen lme4 0.017s
+  + cake REML matches frozen lme4 after aligning contrast names 0.276s
+GRADIENT_FIT formula=diameter ~ 1 + (1 | plate) + (1 | sample) reml=false objective=332.18834866849267 gradient_evals=20 interpolation_evals=112
+mixeff4s.lmm.CoefficientLayoutSuite:
+  + ML: a dropped column at index 0 preserves all coefficient axes 0.059s
+  + REML: a dropped column at index 0 preserves all coefficient axes 0.045s
+  + ML: a dropped column at index 1 preserves all coefficient axes 0.026s
+  + REML: a dropped column at index 1 preserves all coefficient axes 0.015s
+  + ML: a dropped column at index 2 preserves all coefficient axes 0.013s
+  + REML: a dropped column at index 2 preserves all coefficient axes 0.021s
+  + original middle-column counterexample has a finite days standard error and z 0.02s
+  + balanced random-intercept covariance agrees with the analytic GLS calculation 0.017s
+  + a nonzero scaled alias at theta zero agrees with independent OLS fractions 0.008s
+  + a fitted scaled alias matches its selected reduced model in ML and REML 0.047s
+  + full-rank column reordering permutes both covariance axes 0.01s
+  + a rank-zero fixed design has empty active outputs and records its dropped column 0.005s
+  + layout construction rejects repeated and out-of-range indices, including copy 0.0s
+  + fit and coefficient table construction cannot silently truncate inconsistent shapes 0.001s
+GRADIENT_FIT formula=reaction ~ 1 + days + (1 + days | subj) reml=true objective=1743.6282719585156 gradient_evals=20 interpolation_evals=186
+mixeff4s.lmm.PredictionSuite:
+  + new data reuses training factor levels, transformations and row order 0.019s
+  + unknown fixed levels and changed predictor types refuse 0.002s
+  + new grouping levels require explicit zero-effect policy 0.004s
+  + rank-dropped columns require estimable new rows 0.015s
+  + complete snapshot seal rejects changed public fit fields 0.001s
+  + overflow in a dropped interaction cannot masquerade as an estimable row 0.013s
+  + alias estimability is invariant to the units of a dropped zero column 0.011s
+  + later response refits leave earlier modes and predictions unchanged 0.055s
+  + copied compiled designs cannot substitute another prediction recipe 0.014s
+  + chained derived recipes preserve dependencies and reject contradictory supplied helpers 0.007s
+GRADIENT_FIT formula=strength ~ 1 + (1 | batch / cask) reml=true objective=246.99074585363604 gradient_evals=17 interpolation_evals=163
+mixeff4s.lmm.WorkflowExampleSuite:
+  + documented public workflow fits, assesses, predicts, simulates and produces qualified intervals 0.548s
+GRADIENT_FIT formula=diameter ~ 1 + (1 | plate) + (1 | sample) reml=true objective=330.86058899113993 gradient_evals=20 interpolation_evals=141
+mixeff4s.compiler.ArtifactSuite:
+  + sleepstudy compiled-design snapshot 0.011s
+  + zerocorr sleepstudy is a diagonal theta map 0.006s
+  + assessing bare sleepstudy ML theta reports geometry without convergence 0.006s
+  + penicillin compiled-design snapshot 0.005s
+  + pastes compiled-design snapshot 0.007s
+mixeff4s.lmm.ProfiledGradientSuite:
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g), REML=false 0.028s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g), REML=true 0.019s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g), REML=false 0.016s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g), REML=true 0.01s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g) + (1 | h), REML=false 0.017s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g) + (1 | h), REML=true 0.012s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g) + (1 | nested), REML=false 0.008s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g) + (1 | nested), REML=true 0.022s
+  + observation-space derivative oracle: y ~ 0 + (1 | g), REML=false 0.008s
+  + observation-space derivative oracle: y ~ 0 + (1 | g), REML=true 0.005s
+  + zero Lambda has zero gradient even at a variance maximum: closed-form witness 0.002s
+  + gradient scratch budget is enforced without a dense inverse allocation 0.001s
+  + gradient scratch sizing rejects impossible arrays before allocation 0.007s
+BOOTSTRAP_WITNESS qualified=39 lower=9.066105347530183 upper=11.74643118383828 level=0.95
+mixeff4s.lmm.WorkflowParitySuite:
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy ML DerivativeFree 0.064s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy ML AnalyticGradient 0.042s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy REML DerivativeFree 0.044s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy REML AnalyticGradient 0.099s
+  + frozen lme4 fit/prediction/residual/modes: penicillin ML DerivativeFree 0.037s
+  + frozen lme4 fit/prediction/residual/modes: penicillin ML AnalyticGradient 0.029s
+  + frozen lme4 fit/prediction/residual/modes: penicillin REML DerivativeFree 0.027s
+  + frozen lme4 fit/prediction/residual/modes: penicillin REML AnalyticGradient 0.053s
+  + frozen lme4 fit/prediction/residual/modes: pastes ML DerivativeFree 0.033s
+  + frozen lme4 fit/prediction/residual/modes: pastes ML AnalyticGradient 0.03s
+  + frozen lme4 fit/prediction/residual/modes: pastes REML DerivativeFree 0.046s
+  + frozen lme4 fit/prediction/residual/modes: pastes REML AnalyticGradient 0.022s
+GRADIENT_PW2 objective=439.73151877064697 evaluations=31
+mixeff4s.model.FamilySuite:
+  + canonical links 0.001s
+  + Normal+Identity is not a supported GLMM pair 0.0s
+  + logit is inverse of logistic 0.0s
+  + probit is centered at zero 0.001s
+mixeff4s.formula.ParserSuite:
+  + fixed effects with explicit intercept 0.001s
+  + implicit intercept 0.0s
+  + empty RHS is rejected 0.002s
+  + no intercept with zero 0.001s
+  + no intercept with minus one 0.0s
+  + colon interaction 0.001s
+  + interaction subtraction is insensitive to variable order 0.0s
+  + star expansion 0.0s
+  + three-way star expansion 0.001s
+  + nesting slash 0.03s
+  + random intercept 0.001s
+  + random intercept and slope 0.001s
+  + random slope syntax has implicit intercept 0.004s
+  + zerocorr 0.001s
+  + covariance wrappers parse as random terms 0.003s
+  + crossed random effects 0.008s
+  + interaction grouping 0.002s
+  + cell grouping with colon 0.002s
+  + nested grouping expands to main and cell 0.002s
+  + crossed star grouping expands to main effects and cell 0.001s
+  + only random term still has implicit intercept 0.001s
+  + whitespace handling 0.0s
+  + dotted and underscored identifiers 0.001s
+  + backtick identifiers 0.0s
+  + unterminated backtick is actionable 0.006s
+  + empty backtick is rejected 0.0s
+  + bare arithmetic is refused 0.0s
+  + stateful transforms are refused 0.001s
+  + stateless subset parses with canonical labels 0.009s
+  + formula display canonicalizes terms 0.001s
+mixeff4s.pathology.SeparationSuite:
+  + complete FE separation is a strict sign split 0.002s
+  + quasi-complete FE separation has a tie at zero 0.001s
+  + overlapping classes are not FE-separated 0.002s
+  + conditional scan finds all-zero and all-one groups 0.001s
+  + every singleton group is conditionally separated 0.0s
+  + empty inputs are not conditionally separated 0.001s
+  + a Gaussian spec has an empty separation report 0.001s
+  + Bernoulli generate draws a binary response 0.003s
+  + Bernoulli generate refuses an unsupported link 0.001s
+mixeff4s.glmm.JointLaplaceSuite:
+  + fixed beta modes and final-mean determinant agree with independent scalar oracle 0.037s
+  + cold A B A probes are independent of previous modes and weights 0.005s
+  + binomial trials and case weights affect constants, score and curvature consistently 0.011s
+  + Poisson constants, zero counts, offsets and power weights agree with scalar oracle 0.005s
+  + joint API refuses wrong dimensions and invalid theta 0.003s
+  + conditional and outer exhaustion are typed failures 0.002s
+  + joint fit is separately labelled and records conditional and outer evidence 0.32s
+  + near-integer accepted input is canonicalized once even under large case weights 0.002s
+  + zero theta at extreme finite logit eta retains finite likelihood and identity Hessian 0.008s
+  + stable logistic score retains small residuals under large case weights 0.0s
+  + grouped and expanded binomial have equivalent modes and assessment despite response constants 0.018s
+  + a zero-theta saddle is not accepted on projected gradient alone 0.01s
+  + degenerate response constants are exactly zero rather than amplified under large case weights 0.007s
+mixeff4s.lmm.LmmAssessmentSuite:
+  + a zero-theta scalar variance maximum fails the feasible boundary probe 0.004s
+  + relative covariance rank retains nonzero off-diagonal degeneracy 0.002s
+  + tampered fit evidence is unavailable rather than trusting stored optimizer norms 0.005s
+  + weak full-rank covariance uses its own relative scale 0.003s
+  + gradient scratch refusal preserves independent covariance rank evidence 0.008s
+mixeff4s.lmm.SleepstudyFitSuite:
+  + objective at Julia ML theta matches MixedModels.jl 0.003s
+  + sleepstudy ML fit matches MixedModels.jl 0.01s
+  + sleepstudy REML fit matches MixedModels.jl 0.01s
+  + sleepstudy VarCorr and Wald SE match MixedModels.jl 0.012s
+  + sleepstudy zerocorr ML optimizes two diagonal theta slots 0.018s
+[warn] multiple main classes detected: run 'show discoveredMainClasses' to see the list
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=0,0 n=4000 expected=2251.4072120416376 observed=2324.144367784971 se=50.34299571158385
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=1,0 n=4000 expected=1296.8801410171814 observed=1323.526511312828 se=41.0814207842117
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=1,1 n=4000 expected=2251.4072120416376 observed=2268.335443215469 se=50.34299571158385
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=2,0 n=4000 expected=0.0 observed=122.06988334412227 se=35.59787365290622
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=2,1 n=4000 expected=0.0 observed=129.6742126511703 se=35.59787365290622
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=2,2 n=4000 expected=2251.4072120416376 observed=2224.866674978671 se=50.34299571158385
+mixeff4s.lmm.StationFitSuite:
+  + station intercepts match frozen lme4 0.014s
+  + station duration slopes have reduced covariance rank at the boundary against frozen lme4 0.035s
+  + station fixed-only formula is refused 0.004s
+mixeff4s.stats.LrtSuite:
+  + sleepstudy nested FE LRT matches MixedModels.jl 0.111s
+  + pastes preserves the LR statistic but refuses unqualified variance-component calibration 0.079s
+  + REML LRT with different fixed effects is refused 0.062s
+  + mixing ML and REML is refused 0.036s
+  + same-named changed predictors cannot certify fixed-effect nesting 0.027s
+  + random intercept is nested in intercept plus slope, without a fabricated p-value 0.043s
+  + same-named changed grouping partition cannot certify nesting 0.013s
+  + renamed predictors and relabeled reordered group levels preserve numerical design 0.018s
+  + diagonal covariance is nested in full covariance but calibration remains unavailable 0.024s
+  + changed random slope values refuse even when names and partitions match 0.005s
+  + group-name inclusion is not grouping-partition inclusion 0.008s
+  + REML permits the same fixed basis in a different order for a covariance statistic 0.017s
+  + REML refuses the same named fixed effects with changed values or scaling 0.075s
+  + rank-dropped zero columns do not change parameter difference or the LR statistic 0.029s
+  + unbound or modified fits cannot supply comparison evidence 0.0s
+  + different responses and non-increasing parameter counts refuse 0.023s
+  + an actual fitted zero variance permits a statistic but refuses ordinary calibration 0.009s
+  + two smaller random blocks cannot reuse one larger block 0.035s
+  + random-block matching finds an embedding that a greedy assignment would miss 0.089s
+  + equivalent scaled fixed bases are conservatively refused rather than declared nonnested 0.008s
+mixeff4s.lmm.RefitSuite:
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=false DerivativeFree 0.082s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=false AnalyticGradient 0.062s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=true DerivativeFree 0.073s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=true AnalyticGradient 0.043s
+  + previous start requires success and explicit warm refits preserve options and objective 0.022s
+  + failed numerical fit does not poison a later cold refit 0.029s
+  + independent batches reset starts and separate sessions do not share scratch 0.049s
+mixeff4s.lmm.SparsePlsSuite:
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | nested) REML=false 0.067s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | nested) REML=true 0.042s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | h) REML=false 0.044s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | h) REML=true 0.033s
+  + blocked factor equals independent dense factor across refreshes: (1 | subject) + (1 | item) + (1 | site) REML=false 0.045s
+  + blocked factor equals independent dense factor across refreshes: (1 | subject) + (1 | item) + (1 | site) REML=true 0.047s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | partial) + (1 | h) REML=false 0.043s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | partial) + (1 | h) REML=true 0.029s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | nested) REML=false 0.061s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | nested) REML=true 0.044s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | h) REML=false 0.066s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | h) REML=true 0.032s
+  + invalid weight and response refreshes leave the previous cross-products intact 0.012s
+mixeff4s.pathology.CorpusSuite:
+  + easy full-rank truth expects an interior fit 0.035s
+  + zero slope variance is a contract boundary 0.003s
+  + unit correlation is reduced-rank truth 0.001s
+  + singletons with a slope are a refusal spec 0.002s
+  + a misshapen truth covariance is a malformed spec 0.002s
+  + generate draws a deterministic Gaussian frame for an easy spec 0.031s
+  + generate refuses a misshapen truth covariance 0.002s
+  + q=3 full-rank truth is certified easy 0.001s
+  + q=3 with a zero slope variance is reduced-rank truth 0.005s
+  + generate draws a q=3 frame and an easy fit is interior 0.275s
+  + an extreme slope isolates complete FE separation 0.166s
+  + rare events isolate conditional separation 0.138s
+  + extreme Bernoulli prevalence certifies as two-tier separation 0.015s
+  + an easy spec is not weakly identified 0.005s
+  + near-collinear predictors drop the weak-id score below the threshold 0.004s
+  + a full crossing is a single connected component 0.022s
+  + block-diagonal crossings are a disconnected refusal 0.011s
+  + unit-density empty crossings match a full Cartesian product 0.0s
+  + a sparse connected crossing is not a disconnected refusal 0.004s
+  + a crossed spec generates two grouping factors 0.013s
+  + a connected crossing fits to an interior status 0.018s
+  + a disconnected crossing's engine outcome stays in the expected set 0.022s
+  + near-singular RE and scale mismatch compose without a collision 0.001s
+  + singletons via transform match the inline refusal 0.0s
+  + scale mismatch leaves the weak-id score unchanged 0.002s
+  + generate draws predictors from sqrt(D corr D) 0.012s
+  + pareto group sizes are right-skewed and still easy 0.023s
+  + perfectly collinear predictors are a structural refusal 0.001s
+  + an easy generated LMM fits to an interior status 0.056s
+mixeff4s.lmm.CoreLmmFitSuite:
+  + oats REML matches frozen lme4 0.032s
+  + orthodont REML matches frozen lme4 0.043s
+  + oxide nested intercepts match MixedModels.jl 0.014s
+  + oxide nesting sugar matches the Lot + Lot:Wafer fit 0.039s
+  + machines worker-machine intercepts match frozen lme4 0.025s
+  + machines categorical random slope matches frozen lme4 0.052s
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=0,0 n=4000 expected=954.5270710244562 observed=963.3448570554591 se=21.343874171744538
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=1,0 n=4000 expected=0.0 observed=-11.907344267587332 se=15.09239816363297
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=1,1 n=4000 expected=954.5270710244562 observed=958.2672427841516 se=21.343874171744538
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=2,0 n=4000 expected=0.0 observed=2.6796746420138806 se=15.09239816363297
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=2,1 n=4000 expected=0.0 observed=24.411553432194694 se=15.09239816363297
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=2,2 n=4000 expected=954.5270710244562 observed=987.9784626665498 se=21.343874171744538
+[info] Fast optimizing /Users/bbuchsbaum/code/scala/mixeff4s/.js/target/scala-3.7.4/mixeff4s-test-fastopt
+mixeff4s.stats.BootstrapSuite:
+  + explicit tight controls produce 39 independently assessed bootstrap refits and intervals 0.207s
+  + ML and REML originals can request tight controls without changing assessment thresholds 0.207s
+  + actual generated responses reproduce independent lme4 refits and R percentile intervals 0.097s
+  + injected middle failure retains later responses, seeds and cold-fit statistics 0.045s
+  + unqualified replicas remain visible and authoritative fit budget overrides low-level controls 0.003s
+  + percentile convention is R type 7 and confidence level is explicit 0.01s
+  + target validation and unqualified original fit refusals happen before sampling 0.005s
+  + invalid exposed numerical controls are refused by fits and sessions 0.003s
+mixeff4s.glmm.GlmmWorkflowSuite:
+  + documented grouped-binomial workflow runs with qualified inner and outer evidence 1.077s
+GLMM_RESULT name=cbpp joint=true objective=184.05256372951789 beta=Vector(-1.3985321424664283, -0.9923327347956438, -1.1286720841219704, -1.5803138851450342) theta=Vector(0.6422614486515388) stop=StepBelowTolerance evals=1746 assessment=Some(JointAssessment(Available(Vector(-1.5919314051578365E-9, 1.8947806286936006E-10, -8.39384908756563E-10, -1.198990052865148E-10, 1.2695030212247124E-8),1.2695030212247124E-8,1.0E-4),Interior))
+GLMM_DELTA name=cbpp joint=true eta=9.328653538531739E-8 mu=6.709983027541888E-9
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=0,0 n=2000 expected=1220.4557316101004 observed=1273.8995267068542 se=38.59419895295076
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=1,0 n=2000 expected=576.5722576009347 observed=649.5521070099979 se=30.731255557713073
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=1,1 n=2000 expected=1275.2486860122522 observed=1396.8779482642315 se=40.32690430935625
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=2,0 n=2000 expected=0.0 observed=37.77808058862478 se=27.290219794094234
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=2,1 n=2000 expected=0.0 observed=-26.26913858143945 se=27.896098007354922
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=2,2 n=2000 expected=1220.4557316101004 observed=1241.709173735733 se=38.59419895295076
+GLMM_RESULT name=cbpp joint=false objective=184.10859094522772 beta=Vector(-1.3604726621646581, -0.9761765042324674, -1.1110759551794278, -1.559679412677831) theta=Vector(0.6418204313115554) stop=ObjectiveStagnation evals=54 assessment=None
+GLMM_DELTA name=cbpp joint=false eta=5.512458978618184E-6 mu=1.0554126128603514E-6
+GRADIENT_MAXIMAL objective=760.6570831961285 evaluations=593 stop=StepBelowTolerance projected_gradient=Some(0.5367257607808256)
+mixeff4s.lmm.GradientFitSuite:
+  + gradient strategy preserves classic nested/crossed/slope fits: REML=false 0.317s
+  + gradient strategy preserves classic nested/crossed/slope fits: REML=true 0.135s
+  + pw2_nested default-budget REML matches frozen lme4 adoption reference 0.087s
+  + maximal singular REML meets the Rust gradient regression bound within default budget 0.486s
+mixeff4s.glmm.ContraFitSuite:
+  + contra Laplace deviance at the Julia theta matches MixedModels.jl 0.418s
+  + contra fast-PIRLS fit matches MixedModels.jl 0.593s
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=0,0 n=2000 expected=4.152612684655226 observed=4.2303424320293415 se=0.1313171432401706
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=1,0 n=2000 expected=0.7149951819388376 observed=0.7415025167827773 se=0.09422157454361299
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=1,1 n=2000 expected=4.152612684655226 observed=3.962961658505591 se=0.1313171432401706
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=2,0 n=2000 expected=3.1351923251369564 observed=3.2456028569570083 se=0.11634780407114945
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=2,1 n=2000 expected=0.0 observed=0.11763719514103159 se=0.09285524247116984
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=2,2 n=2000 expected=4.152612684655226 observed=4.2067534517784395 se=0.1313171432401706
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,0 n=2000 expected=0.0 observed=0.0985530696686671 se=0.09285524247116984
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,1 n=2000 expected=3.1351923251369564 observed=3.120661916809587 se=0.11634780407114945
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,2 n=2000 expected=0.7149951819388376 observed=0.7679178761760708 se=0.09422157454361299
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,3 n=2000 expected=4.152612684655226 observed=4.144179543726817 se=0.1313171432401706
+SIM_MOMENT name=zero mode=DrawRandomEffects pair=0,0 n=2000 expected=13.346099306666655 observed=12.935874590122236 se=0.4220407168786066
+SIM_MOMENT name=zero mode=DrawRandomEffects pair=1,0 n=2000 expected=0.0 observed=0.21817096360997487 se=0.29842785284169454
+SIM_MOMENT name=zero mode=DrawRandomEffects pair=1,1 n=2000 expected=13.346099306666655 observed=13.25836643518367 se=0.4220407168786066
+mixeff4s.lmm.SimulationSuite:
+  + seeded response simulation is deterministic and index streams differ 0.018s
+  + a copied fit without its sealed snapshot is refused 0.002s
+  + uniform conversion stays strictly open at long extremes 0.002s
+  + random-intercept simulation has analytic within-group covariance and variance 0.673s
+  + random-slope covariance includes intercept/slope correlation and is shared only within a group 0.148s
+  + crossed intercept simulation adds the covariance of each shared grouping factor 0.107s
+  + zero fitted random variance removes its covariance without removing residual noise 0.051s
+GLMM_RESULT name=culcitalogreg joint=true objective=60.70584123131575 beta=Vector(5.096143470602149, -3.8424041252860315, -4.431210125918024, -5.599290393452696) theta=Vector(3.4368388050854493) stop=RadiusBelowTolerance evals=1020 assessment=Some(JointAssessment(Available(Vector(3.338360010471305E-8, 4.903499023588372E-9, 1.592805947206448E-8, 2.4349747741760118E-8, -1.9871458383331705E-8),3.338360010471305E-8,1.0E-4),Interior))
+GLMM_DELTA name=culcitalogreg joint=true eta=4.001340099328843E-4 mu=1.319314920111836E-5
+GLMM_RESULT name=culcitalogreg joint=false objective=61.12389317059647 beta=Vector(4.111979455646433, -3.1411601787098498, -3.7075233257309543, -4.7781994035865765) theta=Vector(3.3207128031185724) stop=ObjectiveTolerance evals=51 assessment=None
+GLMM_DELTA name=culcitalogreg joint=false eta=1.769236702422461E-4 mu=7.4527425627524124E-6
+GLMM_RESULT name=synthetic_poisson_offset joint=true objective=68.33363474264094 beta=Vector(0.3260365161751499, 0.6448436012883756) theta=Vector(0.14306294094497995) stop=StepBelowTolerance evals=684 assessment=Some(JointAssessment(Available(Vector(-6.442254137558241E-9, -4.026408835973901E-9, -3.514818066226629E-8),3.514818066226629E-8,1.0E-4),Interior))
+GLMM_DELTA name=synthetic_poisson_offset joint=true eta=1.2081004419073338E-8 mu=6.777366667876095E-8
+GLMM_RESULT name=synthetic_poisson_offset joint=false objective=68.34024108816556 beta=Vector(0.3350952940246258, 0.6448436012728314) theta=Vector(0.12680392533772622) stop=ObjectiveStagnation evals=48 assessment=None
+GLMM_DELTA name=synthetic_poisson_offset joint=false eta=0.015513429456492922 mu=0.09050054970637156
+GLMM_RESULT name=synthetic_poisson_crossed joint=true objective=1293.8553032674104 beta=Vector(1.092755651068556, 0.38523733976061364) theta=Vector(0.5112426600615428, 0.19437739914680058, 0.4116372801165234, 0.3253089559624675) stop=RadiusBelowTolerance evals=1837 assessment=Some(JointAssessment(Available(Vector(-1.0816362789094515E-6, 5.301596199084694E-7, 1.004612689333347E-6, -9.905913126810144E-7, -2.6678511252005893E-7, 9.470113582210615E-7),1.0816362789094515E-6,1.0E-4),Interior))
+GLMM_DELTA name=synthetic_poisson_crossed joint=true eta=1.0653436050889198E-5 mu=1.6594900392519207E-5
+GLMM_RESULT name=synthetic_poisson_crossed joint=false objective=1293.8596731452483 beta=Vector(1.1047570823960495, 0.38272960405257905) theta=Vector(0.5112654058113139, 0.19437838355126133, 0.41162384888201914, 0.3253872735245155) stop=ObjectiveStagnation evals=316 assessment=None
+GLMM_DELTA name=synthetic_poisson_crossed joint=false eta=3.2418151015845E-6 mu=1.1916264785583053E-5
+mixeff4s.glmm.GlmmParitySuite:
+  + cbpp joint-Laplace against frozen R fit 0.985s
+  + cbpp fast-PIRLS against frozen R fit 0.024s
+  + culcitalogreg joint-Laplace against frozen R fit 0.162s
+  + culcitalogreg fast-PIRLS against frozen R fit 0.04s
+  + synthetic_poisson_offset joint-Laplace against frozen R fit 0.082s
+  + synthetic_poisson_offset fast-PIRLS against frozen R fit 0.048s
+  + synthetic_poisson_crossed joint-Laplace against frozen R fit 1.634s
+  + synthetic_poisson_crossed fast-PIRLS against frozen R fit 0.282s
+[info] Passed: Total 357, Failed 0, Errors 0, Passed 357
+mixeff4s.optimizer.TrustBqSuite:
+  + recovers a shifted quadratic 0.003s
+mixeff4s.glmm.GlmmParitySuite:
+mixeff4s.lmm.GradientFitSuite:
+mixeff4s.glmm.JointLaplaceSuite:
+mixeff4s.glmm.TerminationSuite:
+  + fixed beta modes and final-mean determinant agree with independent scalar oracle 0.021s
+  + profiled deviance preserves wrong theta dimension as a typed error 0.008s
+  + nonfinite or negative diagonal theta is refused 0.003s
+mixeff4s.glmm.GlmmWorkflowSuite:
+  + cold A B A probes are independent of previous modes and weights 0.011s
+  + an unfinished PIRLS probe returns a refusal, never a finite penalty 0.005s
+  + a public GLMM refuses unfinished PIRLS 0.001s
+  + a public GLMM refuses an exhausted optimizer budget 0.001s
+  + binomial trials and case weights affect constants, score and curvature consistently 0.007s
+  + Poisson constants, zero counts, offsets and power weights agree with scalar oracle 0.001s
+  + joint API refuses wrong dimensions and invalid theta 0.001s
+  + conditional and outer exhaustion are typed failures 0.002s
+  + an accepted GLMM records the final inner and outer termination separately 0.005s
+mixeff4s.lmm.TerminationSuite:
+GRADIENT_FIT formula=reaction ~ 1 + days + (1 + days | subj) reml=false objective=1751.9393444632335 gradient_evals=12 interpolation_evals=206
+mixeff4s.glmm.GlmmInputSuite:
+==> i <unknown> ignored
+mixeff4s.formula.DslSuite:
+mixeff4s.lmm.StationFitSuite:
+  + typed DSL lowers to the same IR as the string parser 0.006s
+  + string interpolator 0.000s
+mixeff4s.glmm.JointDenseSuite:
+mixeff4s.glmm.CoefficientLayoutSuite:
+mixeff4s.lmm.RefitSuite:
+  + a public LMM refuses an exhausted main optimizer budget 0.048s
+  + binomial counts and ambiguous fractional responses refuse in both estimators 0.039s
+  + invalid trials, cases, offsets, controls and fractional Poisson counts refuse 0.002s
+  + estimated-dispersion families refuse until dispersion is explicitly implemented 0.000s
+  + logit inverse and derivative stay finite at large eta 0.000s
+mixeff4s.lmm.SimpleLmmFitSuite:
+  + crossed vector terms and reduced-rank covariance match independent dense conditional solve 0.035s
+mixeff4s.compiler.SemanticSuite:
+  + an accepted fit retains evidence for its actual theta and objective 0.032s
+  + a zero fixed-effect pivot cannot become a finite REML objective 0.002s
+mixeff4s.pathology.FitEvidenceSuite:
+  + sleepstudy IR is a full Cholesky random slope 0.004s
+  + GLMM discloses dropped columns using the same retained coefficient layout 0.051s
+  + zerocorr is one diagonal term, not a silent split 0.000s
+  + cs is typed IR and marked parsed_refused 0.000s
+  + nested grouping keeps the written slash 0.000s
+  + an arbitrary raw theta does not certify optimization 0.005s
+mixeff4s.model.FamilySuite:
+  + canonical links 0.000s
+  + Normal+Identity is not a supported GLMM pair 0.000s
+  + logit is inverse of logistic 0.000s
+  + probit is centered at zero 0.000s
+mixeff4s.lmm.CoreLmmFitSuite:
+mixeff4s.lmm.SparsePlsSuite:
+mixeff4s.linalg.SparseBlockSuite:
+  + structural zeros persist and clones isolate mutable values 0.000s
+  + sparse subtraction preflight prevents late partial mutation 0.000s
+  + CSC subtraction updates a dense target without sparse densification 0.000s
+  + CSC rank-k uses structural support for a diagonal target 0.000s
+  + dense copy from sparse clears stale fill 0.000s
+  + sparse off-diagonal scaling visits stored support, not structural gaps 0.000s
+  + sparse vector off-diagonal scaling transforms only occupied rectangles 0.000s
+  + structured matvec avoids dense block traversal semantics 0.000s
+mixeff4s.formula.ParserSuite:
+  + sparse right solve preserves diagonal and block-diagonal closures 0.002s
+  + sparse block solve skips entirely absent row-level rectangles 0.000s
+  + dense right divisor promotes sparse target before mutation 0.000s
+  + fixed effects with explicit intercept 0.004s
+  + implicit intercept 0.000s
+  + empty RHS is rejected 0.000s
+  + no intercept with zero 0.000s
+  + no intercept with minus one 0.000s
+mixeff4s.compiler.ArtifactSuite:
+  + colon interaction 0.000s
+  + interaction subtraction is insensitive to variable order 0.000s
+  + star expansion 0.000s
+  + three-way star expansion 0.000s
+  + nesting slash 0.000s
+  + random intercept 0.001s
+  + random intercept and slope 0.000s
+  + random slope syntax has implicit intercept 0.000s
+  + zerocorr 0.000s
+  + station intercepts match frozen lme4 0.105s
+  + sleepstudy compiled-design snapshot 0.006s
+GRADIENT_FIT formula=strength ~ 1 + (1 | batch / cask) reml=false objective=247.99446586249402 gradient_evals=20 interpolation_evals=192
+  + zerocorr sleepstudy is a diagonal theta map 0.002s
+  + rail REML matches frozen lme4 0.065s
+  + assessing bare sleepstudy ML theta reports geometry without convergence 0.008s
+  + penicillin compiled-design snapshot 0.008s
+  + pastes compiled-design snapshot 0.008s
+  + covariance wrappers parse as random terms 0.031s
+  + crossed random effects 0.000s
+  + interaction grouping 0.000s
+  + cell grouping with colon 0.000s
+  + nested grouping expands to main and cell 0.000s
+  + raw reassessment clears previous convergence evidence and stale geometry 0.070s
+  + crossed star grouping expands to main effects and cell 0.000s
+  + only random term still has implicit intercept 0.000s
+  + whitespace handling 0.000s
+  + dotted and underscored identifiers 0.000s
+  + station duration slopes have reduced covariance rank at the boundary against frozen lme4 0.038s
+mixeff4s.optimizer.GradientTrustBqSuite:
+  + a mismatched or exhausted optimizer result cannot certify a fit 0.008s
+  + joint fit is separately labelled and records conditional and outer evidence 0.168s
+  + fitted covariance rank recognizes a nonzero off-diagonal reduced-rank Lambda 0.002s
+  + failed fit outcomes clear geometry and retain the stable reason code 0.001s
+GRADIENT_FIT formula=diameter ~ 1 + (1 | plate) + (1 | sample) reml=false objective=332.18834866849267 gradient_evals=20 interpolation_evals=112
+  + near-integer accepted input is canonicalized once even under large case weights 0.004s
+  + gradient strategy preserves classic nested/crossed/slope fits: REML=false 0.225s
+  + zero theta at extreme finite logit eta retains finite likelihood and identity Hessian 0.001s
+  + backtick identifiers 0.015s
+  + unterminated backtick is actionable 0.000s
+  + empty backtick is rejected 0.000s
+  + stable logistic score retains small residuals under large case weights 0.000s
+mixeff4s.lmm.LmmAssessmentSuite:
+  + a zero-theta scalar variance maximum fails the feasible boundary probe 0.000s
+  + ergostool REML matches frozen lme4 0.035s
+  + bare arithmetic is refused 0.000s
+  + stateful transforms are refused 0.000s
+  + compiler serializes geometry separately and requires a matching fit 0.004s
+  + gradient oracle solves bounded quadratic and records first-order evidence 0.007s
+  + multidimensional box-boundary quadratic respects the active bound 0.001s
+  + zero derivative at a bounded maximum is probed before first-order stop 0.001s
+  + budget includes initial gradient oracle call and seed probes 0.000s
+  + shifted Newton direction minimizes the original quadratic along its feasible ray 0.000s
+  + disabled gradient tolerance cannot report a gradient stop 0.000s
+  + relative covariance rank retains nonzero off-diagonal degeneracy 0.007s
+  + grouped and expanded binomial have equivalent modes and assessment despite response constants 0.007s
+mixeff4s.lmm.WorkflowParitySuite:
+  + a zero-theta saddle is not accepted on projected gradient alone 0.001s
+  + stateless subset parses with canonical labels 0.008s
+  + formula display canonicalizes terms 0.000s
+  + degenerate response constants are exactly zero rather than amplified under large case weights 0.001s
+  + oats REML matches frozen lme4 0.084s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | nested) REML=false 0.082s
+mixeff4s.glmm.ContraFitSuite:
+mixeff4s.glmm.PirlsSuite:
+  + Bernoulli logit working observation at eta=0 0.000s
+  + working observation subtracts a supplied offset 0.000s
+  + bounded Bernoulli mean stays off the 0/1 boundary 0.000s
+mixeff4s.lmm.CrossedFitSuite:
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | nested) REML=true 0.015s
+  + tampered fit evidence is unavailable rather than trusting stored optimizer norms 0.024s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy ML DerivativeFree 0.023s
+  + weak full-rank covariance uses its own relative scale 0.002s
+mixeff4s.design.UpstreamDesignSuite:
+  + penicillin crossed intercepts match MixedModels.jl 0.016s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | h) REML=false 0.013s
+  + no-intercept main effects full-code only the first categorical variable 0.007s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy ML AnalyticGradient 0.013s
+  + no-intercept factor interaction full-codes both factors 0.002s
+  + gradient scratch refusal preserves independent covariance rank evidence 0.012s
+  + interaction contrasts follow marginality and formula variable order 0.001s
+  + numeric by factor interaction uses full factor indicators when uncovered 0.001s
+  + random-slope bases use the same no-intercept contrast assignment 0.001s
+  + random no-intercept interaction full-codes both factor bases 0.001s
+  + penicillin REML matches mixeff-rs 0.012s
+  + grouping drops unused declared levels in their declared order 0.000s
+  + combined grouping retains distinct tuples with underscore-containing levels 0.001s
+  + expanded fixed columns agree with independent R model.matrix numeric witnesses 0.002s
+mixeff4s.lmm.LmmSuite:
+  + refuses a formula with no random effects 0.000s
+  + parses then refuses structured covariance 0.000s
+  + single-term random intercept fits 0.002s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | h) REML=true 0.008s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy REML DerivativeFree 0.009s
+mixeff4s.pathology.PathologySuite:
+  + sleepstudy is an easy design-time certificate 0.003s
+  + no random effects maps to not_identifiable 0.000s
+  + unsupported covariance maps to not_optimized 0.000s
+  + singletons with a random slope are a refusal certificate 0.001s
+  + a single grouping level is a refusal certificate 0.000s
+  + first-order stop validates a scalar feasible escape at a zero-gradient maximum 0.058s
+  + bare interior theta is geometry only 0.002s
+  + first-order stop validates a feasible mixed negative-curvature escape 0.001s
+  + returned projected-gradient evidence belongs to returned best point 0.000s
+  + a diagonal theta at the lower bound is boundary geometry only 0.001s
+  + negative curvature hidden from all axial and pair directions is escaped 0.001s
+  + an off-diagonal near zero is not a variance boundary 0.001s
+  + Cauchy fallback projects outward components onto the feasible tangent cone 0.000s
+  + invalid trust-region constants are refused before oracle evaluation 0.000s
+  + assessOutcome maps an engine error on a refusal design 0.000s
+  + invalid gradient values and dimensions are refused 0.000s
+  + a fresh escape probe remains the returned best point when the next probe exhausts budget 0.000s
+  + projected Cauchy ray uses its own directional derivative after blocking a coordinate 0.000s
+  + station fixed-only formula is refused 0.074s
+  + refusal designs do not claim a converged fit status 0.000s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=false DerivativeFree 0.195s
+mixeff4s.lmm.SimulationSuite:
+mixeff4s.lmm.WorkflowExampleSuite:
+  + tiny zerocorr design retains its map but refuses an exhausted fit 0.020s
+  + parses then refuses compound symmetry 0.000s
+GRADIENT_FIT formula=reaction ~ 1 + days + (1 + days | subj) reml=true objective=1743.6282719585156 gradient_evals=20 interpolation_evals=186
+  + seeded response simulation is deterministic and index streams differ 0.007s
+  + a copied fit without its sealed snapshot is refused 0.000s
+  + uniform conversion stays strictly open at long extremes 0.000s
+mixeff4s.lmm.DyestuffFitSuite:
+  + cake REML matches frozen lme4 after aligning contrast names 0.086s
+GRADIENT_FIT formula=strength ~ 1 + (1 | batch / cask) reml=true objective=246.99074585363604 gradient_evals=17 interpolation_evals=163
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=false AnalyticGradient 0.029s
+GRADIENT_FIT formula=diameter ~ 1 + (1 | plate) + (1 | sample) reml=true objective=330.86058899113993 gradient_evals=20 interpolation_evals=141
+  + gradient strategy preserves classic nested/crossed/slope fits: REML=true 0.051s
+mixeff4s.pathology.SeparationSuite:
+  + complete FE separation is a strict sign split 0.001s
+  + quasi-complete FE separation has a tie at zero 0.001s
+  + overlapping classes are not FE-separated 0.000s
+  + conditional scan finds all-zero and all-one groups 0.000s
+  + every singleton group is conditionally separated 0.000s
+  + empty inputs are not conditionally separated 0.000s
+  + a Gaussian spec has an empty separation report 0.000s
+  + dyestuff ML matches frozen lme4 0.031s
+  + pastes nested intercepts match MixedModels.jl 0.057s
+  + blocked factor equals independent dense factor across refreshes: (1 | subject) + (1 | item) + (1 | site) REML=false 0.062s
+mixeff4s.ReadmeExampleSuite:
+  + dyestuff REML matches frozen lme4 0.007s
+  + blocked factor equals independent dense factor across refreshes: (1 | subject) + (1 | item) + (1 | site) REML=true 0.005s
+  + Bernoulli generate draws a binary response 0.011s
+  + Bernoulli generate refuses an unsupported link 0.000s
+mixeff4s.lmm.CoefficientLayoutSuite:
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy REML AnalyticGradient 0.071s
+mixeff4s.comparison.DatasetSuite:
+  + catalog names match the fixture manifest 0.002s
+GRADIENT_PW2 objective=439.73151877064697 evaluations=31
+  + pw2_nested default-budget REML matches frozen lme4 adoption reference 0.028s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | partial) + (1 | h) REML=false 0.018s
+  + README quick start compiles against the public API 0.023s
+mixeff4s.lmm.ProfiledGradientSuite:
+  + orthodont REML matches frozen lme4 0.137s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | partial) + (1 | h) REML=true 0.014s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g), REML=false 0.008s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g), REML=true 0.003s
+  + ML: a dropped column at index 0 preserves all coefficient axes 0.033s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=true DerivativeFree 0.059s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g), REML=false 0.003s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | nested) REML=false 0.015s
+  + frozen lme4 fit/prediction/residual/modes: penicillin ML DerivativeFree 0.046s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | nested) REML=true 0.006s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g), REML=true 0.015s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g) + (1 | h), REML=false 0.004s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | h) REML=false 0.006s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g) + (1 | h), REML=true 0.003s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=true AnalyticGradient 0.027s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g) + (1 | nested), REML=false 0.002s
+  + documented public workflow fits, assesses, predicts, simulates and produces qualified intervals 0.114s
+  + previous start requires success and explicit warm refits preserve options and objective 0.003s
+  + oxide nested intercepts match MixedModels.jl 0.039s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | h) REML=true 0.009s
+  + REML: a dropped column at index 0 preserves all coefficient axes 0.034s
+==> i <unknown> ignored
+  + invalid weight and response refreshes leave the previous cross-products intact 0.002s
+  + ML: a dropped column at index 1 preserves all coefficient axes 0.003s
+mixeff4s.glmm.GlmmSuite:
+mixeff4s.stats.LrtSuite:
+  + Normal+Identity is refused as a GLMM 0.001s
+  + noncanonical joint curvature is explicitly refused 0.000s
+  + every catalog dataset loads with the declared row count 0.068s
+  + nAGQ > 1 is refused in this slice 0.000s
+  + rail keeps the nlme Rail level order 0.000s
+  + ergostool keeps the nlme Subject level order 0.000s
+  + oats Variety includes a spaced level 0.000s
+  + dyestuff2 ML has reduced covariance rank at the boundary against frozen lme4 0.082s
+  + a small Bernoulli RE intercept is labelled fast-PIRLS 0.003s
+  + a perfectly separated Bernoulli design preserves its factorization failure 0.001s
+  + REML: a dropped column at index 1 preserves all coefficient axes 0.009s
+  + ML: a dropped column at index 2 preserves all coefficient axes 0.002s
+  + dyestuff2 REML has reduced covariance rank at the boundary against frozen lme4 0.005s
+  + REML: a dropped column at index 2 preserves all coefficient axes 0.002s
+mixeff4s.design.DesignSuite:
+mixeff4s.stats.InferenceRefusalSuite:
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g) + (1 | nested), REML=true 0.025s
+  + profile intervals are a typed refusal 0.002s
+  + observation-space derivative oracle: y ~ 0 + (1 | g), REML=false 0.001s
+  + sleepstudy design shapes match mixeff-rs 0.004s
+  + legacy bootstrap call requires explicit seed and targets 0.002s
+  + zerocorr sleepstudy has two theta slots 0.002s
+  + GLMM profile intervals stay refused 0.002s
+  + frozen lme4 fit/prediction/residual/modes: penicillin ML AnalyticGradient 0.045s
+mixeff4s.stats.BootstrapSuite:
+mixeff4s.comparison.ScorecardSuite:
+  + observation-space derivative oracle: y ~ 0 + (1 | g), REML=true 0.013s
+  + zero Lambda has zero gradient even at a variance maximum: closed-form witness 0.001s
+  + failed numerical fit does not poison a later cold refit 0.038s
+  + gradient scratch budget is enforced without a dense inverse allocation 0.001s
+  + gradient scratch sizing rejects impossible arrays before allocation 0.000s
+  + embedded scorecard uses the rust class vocabulary 0.004s
+  + dyestuff2 is a frozen lme4 boundary claim 0.002s
+mixeff4s.lmm.SleepstudyFitSuite:
+  + contrast names align mixeff4s dummy labels to lme4 0.001s
+mixeff4s.pathology.CorpusSuite:
+  + oxide nesting sugar matches the Lot + Lot:Wafer fit 0.043s
+  + easy full-rank truth expects an interior fit 0.001s
+  + zero slope variance is a contract boundary 0.000s
+  + unit correlation is reduced-rank truth 0.000s
+  + singletons with a slope are a refusal spec 0.000s
+  + objective at Julia ML theta matches MixedModels.jl 0.003s
+  + a misshapen truth covariance is a malformed spec 0.000s
+  + frozen lme4 fit/prediction/residual/modes: penicillin REML DerivativeFree 0.010s
+  + generate draws a deterministic Gaussian frame for an easy spec 0.004s
+  + generate refuses a misshapen truth covariance 0.000s
+  + q=3 full-rank truth is certified easy 0.000s
+  + q=3 with a zero slope variance is reduced-rank truth 0.000s
+  + sleepstudy nested FE LRT matches MixedModels.jl 0.042s
+  + frozen lme4 fit/prediction/residual/modes: penicillin REML AnalyticGradient 0.006s
+  + original middle-column counterexample has a finite days standard error and z 0.033s
+  + machines worker-machine intercepts match frozen lme4 0.010s
+  + balanced random-intercept covariance agrees with the analytic GLS calculation 0.002s
+  + sleepstudy ML fit matches MixedModels.jl 0.017s
+  + a nonzero scaled alias at theta zero agrees with independent OLS fractions 0.004s
+  + a fitted scaled alias matches its selected reduced model in ML and REML 0.006s
+  + sleepstudy zerocorr is a frozen MixedModels.jl claim 0.028s
+  + full-rank column reordering permutes both covariance axes 0.001s
+GLMM_RESULT name=cbpp joint=true objective=184.05256372951786 beta=Vector(-1.398532142507698, -0.99233273483202, -1.1286720841891913, -1.5803138851987975) theta=Vector(0.6422614491806575) stop=StepBelowTolerance evals=1746 assessment=Some(JointAssessment(Available(Vector(-5.419340953568882e-10, -8.052817671947802e-10, -2.8539086896023435e-9, -1.1090657988625475e-9, 4.699055959160129e-8),4.699055959160129e-8,0.0001),Interior))
+GLMM_DELTA name=cbpp joint=true eta=9.374632936598459e-8 mu=6.665127921801073e-9
+  + a rank-zero fixed design has empty active outputs and records its dropped column 0.001s
+  + layout construction rejects repeated and out-of-range indices, including copy 0.000s
+  + fit and coefficient table construction cannot silently truncate inconsistent shapes 0.000s
+  + cbpp joint-Laplace against frozen R fit 0.669s
+  + pastes preserves the LR statistic but refuses unqualified variance-component calibration 0.026s
+  + station fixed-only formula is unsupported with a rust contract claim 0.009s
+  + fast-PIRLS contraception is documented divergence 0.001s
+mixeff4s.lmm.PredictionSuite:
+  + sleepstudy REML fit matches MixedModels.jl 0.020s
+  + every scorecard row has a claimed frozen reference 0.002s
+  + frozen catalog refuses p-values 0.000s
+mixeff4s.data.ModelFrameSuite:
+  + REML LRT with different fixed effects is refused 0.009s
+  + builds aligned numeric and factor columns 0.000s
+  + frozen lme4 fit/prediction/residual/modes: pastes ML DerivativeFree 0.036s
+  + encodes an explicit factor level order 0.000s
+  + rejects a value outside the declared factor levels 0.000s
+  + rejects length mismatch 0.000s
+  + rejects non-finite numeric input at the frame boundary 0.000s
+  + rejects non-finite numeric columns added after frame construction 0.000s
+  + validates raw factor references and values 0.000s
+  + permits a legitimate empty aligned frame 0.000s
+  + new data reuses training factor levels, transformations and row order 0.008s
+  + materializes I() onto the frame 0.001s
+  + unknown fixed levels and changed predictor types refuse 0.000s
+  + contra Laplace deviance at the Julia theta matches MixedModels.jl 0.263s
+  + sleepstudy VarCorr and Wald SE match MixedModels.jl 0.011s
+  + machines categorical random slope matches frozen lme4 0.039s
+  + mixing ML and REML is refused 0.007s
+  + new grouping levels require explicit zero-effect policy 0.007s
+  + same-named changed predictors cannot certify fixed-effect nesting 0.003s
+  + rank-dropped columns require estimable new rows 0.003s
+  + complete snapshot seal rejects changed public fit fields 0.000s
+  + overflow in a dropped interaction cannot masquerade as an estimable row 0.002s
+  + alias estimability is invariant to the units of a dropped zero column 0.003s
+  + sleepstudy zerocorr ML optimizes two diagonal theta slots 0.012s
+  + independent batches reset starts and separate sessions do not share scratch 0.074s
+  + random intercept is nested in intercept plus slope, without a fabricated p-value 0.016s
+  + generate draws a q=3 frame and an easy fit is interior 0.064s
+  + same-named changed grouping partition cannot certify nesting 0.003s
+  + frozen lme4 fit/prediction/residual/modes: pastes ML AnalyticGradient 0.033s
+  + renamed predictors and relabeled reordered group levels preserve numerical design 0.006s
+  + later response refits leave earlier modes and predictions unchanged 0.024s
+  + frozen lme4 fit/prediction/residual/modes: pastes REML DerivativeFree 0.009s
+  + copied compiled designs cannot substitute another prediction recipe 0.002s
+  + chained derived recipes preserve dependencies and reject contradictory supplied helpers 0.002s
+  + frozen lme4 fit/prediction/residual/modes: pastes REML AnalyticGradient 0.007s
+  + diagonal covariance is nested in full covariance but calibration remains unavailable 0.023s
+  + changed random slope values refuse even when names and partitions match 0.005s
+  + group-name inclusion is not grouping-partition inclusion 0.002s
+  + REML permits the same fixed basis in a different order for a covariance statistic 0.007s
+GLMM_RESULT name=cbpp joint=false objective=184.10859094522775 beta=Vector(-1.36047266216468, -0.9761765042324447, -1.1110759551794052, -1.559679412677804) theta=Vector(0.6418204313116822) stop=ObjectiveStagnation evals=54 assessment=None
+GLMM_DELTA name=cbpp joint=false eta=0.0000055124591100685905 mu=0.0000010554126377848583
+  + cbpp fast-PIRLS against frozen R fit 0.077s
+BOOTSTRAP_WITNESS qualified=39 lower=9.066105347530183 upper=11.746431183838208 level=0.95
+  + explicit tight controls produce 39 independently assessed bootstrap refits and intervals 0.130s
+  + REML refuses the same named fixed effects with changed values or scaling 0.015s
+  + rank-dropped zero columns do not change parameter difference or the LR statistic 0.008s
+  + unbound or modified fits cannot supply comparison evidence 0.000s
+  + different responses and non-increasing parameter counts refuse 0.003s
+  + an actual fitted zero variance permits a statistic but refuses ordinary calibration 0.001s
+  + two smaller random blocks cannot reuse one larger block 0.009s
+  + random-block matching finds an embedding that a greedy assignment would miss 0.027s
+  + equivalent scaled fixed bases are conservatively refused rather than declared nonnested 0.005s
+  + ML and REML originals can request tight controls without changing assessment thresholds 0.069s
+  + actual generated responses reproduce independent lme4 refits and R percentile intervals 0.021s
+  + injected middle failure retains later responses, seeds and cold-fit statistics 0.006s
+  + unqualified replicas remain visible and authoritative fit budget overrides low-level controls 0.001s
+  + percentile convention is R type 7 and confidence level is explicit 0.002s
+  + target validation and unqualified original fit refusals happen before sampling 0.001s
+  + invalid exposed numerical controls are refused by fits and sessions 0.001s
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=0,0 n=4000 expected=2251.4072120416376 observed=2324.144367784971 se=50.34299571158385
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=1,0 n=4000 expected=1296.8801410171814 observed=1323.526511312828 se=41.0814207842117
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=1,1 n=4000 expected=2251.4072120416376 observed=2268.335443215469 se=50.34299571158385
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=2,0 n=4000 expected=0 observed=122.06988334412227 se=35.59787365290622
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=2,1 n=4000 expected=0 observed=129.67421265117028 se=35.59787365290622
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=2,2 n=4000 expected=2251.4072120416376 observed=2224.8666749786707 se=50.34299571158385
+  + an extreme slope isolates complete FE separation 0.160s
+  + rare events isolate conditional separation 0.015s
+  + documented grouped-binomial workflow runs with qualified inner and outer evidence 0.665s
+  + extreme Bernoulli prevalence certifies as two-tier separation 0.005s
+  + an easy spec is not weakly identified 0.000s
+  + near-collinear predictors drop the weak-id score below the threshold 0.000s
+  + a full crossing is a single connected component 0.001s
+  + block-diagonal crossings are a disconnected refusal 0.001s
+  + unit-density empty crossings match a full Cartesian product 0.000s
+  + a sparse connected crossing is not a disconnected refusal 0.000s
+  + a crossed spec generates two grouping factors 0.001s
+  + a connected crossing fits to an interior status 0.004s
+  + a disconnected crossing's engine outcome stays in the expected set 0.010s
+  + near-singular RE and scale mismatch compose without a collision 0.000s
+  + singletons via transform match the inline refusal 0.000s
+  + scale mismatch leaves the weak-id score unchanged 0.000s
+  + generate draws predictors from sqrt(D corr D) 0.001s
+  + pareto group sizes are right-skewed and still easy 0.007s
+  + perfectly collinear predictors are a structural refusal 0.000s
+  + an easy generated LMM fits to an interior status 0.006s
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=0,0 n=4000 expected=954.5270710244562 observed=963.3448570554591 se=21.343874171744538
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=1,0 n=4000 expected=0 observed=-11.907344267587332 se=15.09239816363297
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=1,1 n=4000 expected=954.5270710244562 observed=958.2672427841517 se=21.343874171744538
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=2,0 n=4000 expected=0 observed=2.6796746420138815 se=15.09239816363297
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=2,1 n=4000 expected=0 observed=24.411553432194694 se=15.09239816363297
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=2,2 n=4000 expected=954.5270710244562 observed=987.9784626665497 se=21.343874171744538
+  + random-intercept simulation has analytic within-group covariance and variance 0.525s
+GLMM_RESULT name=culcitalogreg joint=true objective=60.70584123131578 beta=Vector(5.096143477809315, -3.8424041556001636, -4.4312101504356844, -5.599290424926354) theta=Vector(3.4368388332718505) stop=StepBelowTolerance evals=1019 assessment=Some(JointAssessment(Available(Vector(1.429132259178818e-9, -2.6585532522798364e-8, 1.3421260776195178e-8, 1.4935978249433943e-8, 1.7045969102848037e-8),2.6585532522798364e-8,0.0001),Interior))
+GLMM_DELTA name=culcitalogreg joint=true eta=0.000400170492909524 mu=0.000013194409809402785
+  + culcitalogreg joint-Laplace against frozen R fit 0.310s
+GLMM_RESULT name=culcitalogreg joint=false objective=61.12389317059657 beta=Vector(4.11197945564696, -3.141160178710176, -3.707523325731419, -4.778199403587287) theta=Vector(3.320712803120113) stop=ObjectiveTolerance evals=51 assessment=None
+GLMM_DELTA name=culcitalogreg joint=false eta=0.00017692367155142108 mu=0.000007452742624147746
+  + culcitalogreg fast-PIRLS against frozen R fit 0.022s
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=0,0 n=2000 expected=1220.4557316101004 observed=1273.8995267068542 se=38.59419895295076
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=1,0 n=2000 expected=576.5722576009347 observed=649.5521070099979 se=30.731255557713073
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=1,1 n=2000 expected=1275.2486860122522 observed=1396.8779482642315 se=40.32690430935625
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=2,0 n=2000 expected=0 observed=37.77808058862478 se=27.290219794094234
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=2,1 n=2000 expected=0 observed=-26.269138581439467 se=27.896098007354922
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=2,2 n=2000 expected=1220.4557316101004 observed=1241.709173735733 se=38.59419895295076
+  + random-slope covariance includes intercept/slope correlation and is shared only within a group 0.106s
+GLMM_RESULT name=synthetic_poisson_offset joint=true objective=68.33363474264094 beta=Vector(0.3260365161751499, 0.6448436012883756) theta=Vector(0.14306294094497995) stop=StepBelowTolerance evals=684 assessment=Some(JointAssessment(Available(Vector(-6.442254137558241e-9, -4.026408835973901e-9, -3.514818066226629e-8),3.514818066226629e-8,0.0001),Interior))
+GLMM_DELTA name=synthetic_poisson_offset joint=true eta=1.2081004419073338e-8 mu=6.777366667876095e-8
+  + synthetic_poisson_offset joint-Laplace against frozen R fit 0.048s
+GLMM_RESULT name=synthetic_poisson_offset joint=false objective=68.34024108816556 beta=Vector(0.3350952940246258, 0.6448436012728314) theta=Vector(0.12680392533772622) stop=ObjectiveStagnation evals=48 assessment=None
+GLMM_DELTA name=synthetic_poisson_offset joint=false eta=0.015513429456492922 mu=0.09050054970637156
+  + synthetic_poisson_offset fast-PIRLS against frozen R fit 0.008s
+GRADIENT_MAXIMAL objective=760.6570831961285 evaluations=593 stop=StepBelowTolerance projected_gradient=Some(0.5367257607808256)
+  + maximal singular REML meets the Rust gradient regression bound within default budget 0.609s
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=0,0 n=2000 expected=4.152612684655226 observed=4.2303424320293415 se=0.1313171432401706
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=1,0 n=2000 expected=0.7149951819388376 observed=0.7415025167827773 se=0.09422157454361299
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=1,1 n=2000 expected=4.152612684655226 observed=3.962961658505591 se=0.1313171432401706
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=2,0 n=2000 expected=3.1351923251369564 observed=3.2456028569570083 se=0.11634780407114945
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=2,1 n=2000 expected=0 observed=0.11763719514103149 se=0.09285524247116984
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=2,2 n=2000 expected=4.152612684655226 observed=4.2067534517784395 se=0.1313171432401706
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,0 n=2000 expected=0 observed=0.0985530696686671 se=0.09285524247116984
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,1 n=2000 expected=3.1351923251369564 observed=3.1206619168095866 se=0.11634780407114945
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,2 n=2000 expected=0.7149951819388376 observed=0.7679178761760708 se=0.09422157454361299
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,3 n=2000 expected=4.152612684655226 observed=4.144179543726817 se=0.1313171432401706
+  + crossed intercept simulation adds the covariance of each shared grouping factor 0.092s
+  + contra fast-PIRLS fit matches MixedModels.jl 0.522s
+SIM_MOMENT name=zero mode=DrawRandomEffects pair=0,0 n=2000 expected=13.346099306666655 observed=12.935874590122236 se=0.4220407168786066
+SIM_MOMENT name=zero mode=DrawRandomEffects pair=1,0 n=2000 expected=0 observed=0.21817096360997487 se=0.29842785284169454
+SIM_MOMENT name=zero mode=DrawRandomEffects pair=1,1 n=2000 expected=13.346099306666655 observed=13.25836643518367 se=0.4220407168786066
+  + zero fitted random variance removes its covariance without removing residual noise 0.025s
+GLMM_RESULT name=synthetic_poisson_crossed joint=true objective=1293.8553032674106 beta=Vector(1.0927556707785588, 0.3852373420140002) theta=Vector(0.5112426562649359, 0.1943774068128177, 0.4116372818441762, 0.32530894807880373) stop=StepBelowTolerance evals=1834 assessment=Some(JointAssessment(Available(Vector(-1.81370876455981e-7, 5.017379104780654e-7, 2.0312048339595398e-7, -1.1027623258996755e-7, 1.8189894035458565e-7, -3.4143946929058683e-7),5.017379104780654e-7,0.0001),Interior))
+GLMM_DELTA name=synthetic_poisson_crossed joint=true eta=0.000010645622873228788 mu=0.000016586966446574536
+  + synthetic_poisson_crossed joint-Laplace against frozen R fit 3.185s
+GLMM_RESULT name=synthetic_poisson_crossed joint=false objective=1293.859673145249 beta=Vector(1.104757082396092, 0.38272960405264816) theta=Vector(0.5112654058110682, 0.19437838355053455, 0.41162384888177683, 0.3253872735226246) stop=ObjectiveStagnation evals=316 assessment=None
+GLMM_DELTA name=synthetic_poisson_crossed joint=false eta=0.0000032418143353085682 mu=0.000011916261126287964
+  + synthetic_poisson_crossed fast-PIRLS against frozen R fit 0.455s
+[info] Passed: Total 353, Failed 0, Errors 0, Passed 353, Ignored 2
+[success] Total time: 13 s, completed Oct 27, 2026, 3:12:56 p.m.
+[info] running mixeff4s.examples.GlmmWorkflow 
+joint-Laplace: minus_two_loglikelihood_with_response_constants = 184.05256372951789
+Numerical termination: StepBelowTolerance; evaluations=1746
+Conditional evidence: ConditionalMode(ConditionalModeResult(4,1.9519108551691033E-11,1.0E-8,0))
+Outer assessment: Some(JointAssessment(Available(Vector(-1.5919314051578365E-9, 1.8947806286936006E-10, -8.39384908756563E-10, -1.198990052865148E-10, 1.2695030212247124E-8),1.2695030212247124E-8,1.0E-4),Interior))
+Coefficients: ((Intercept),-1.3985321424664283), (period: 2,-0.9923327347956438), (period: 3,-1.1286720841219704), (period: 4,-1.5803138851450342)
+Conditional means (first four): 0.30820764683837326, 0.14174825373261815, 0.12595752860744838, 0.08402874856418553
+[success] Total time: 1 s, completed Oct 27, 2026, 3:12:56 p.m.

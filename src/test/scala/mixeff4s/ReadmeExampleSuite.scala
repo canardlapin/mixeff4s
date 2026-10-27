@@ -21,3 +21,13 @@ class ReadmeExampleSuite extends munit.FunSuite:
         assert(fit.sigma > 0.0, clues(fit.sigma))
       case other =>
         fail(s"expected a certified fit, got $other")
+
+    val options = FitOptions.reml.copy(optimizer = LmmOptimizer.AnalyticGradient)
+    val responses = Vector(frame.numeric("y").get, frame.numeric("y").get.map(_ + 0.25))
+    val fittedResponses = for
+      plan <- Lmm.prepare(formula, frame)
+      fits <- plan.fitResponses(responses, options)
+    yield fits
+    val fits = fittedResponses.getOrElse(fail(s"compiled README example: $fittedResponses"))
+    assertEquals(fits.size, 2)
+    assertEqualsDouble(fits(1).beta.head - fits(0).beta.head, 0.25, 1e-6)

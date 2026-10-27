@@ -23,16 +23,16 @@ class GlmmSuite extends munit.FunSuite:
       case other =>
         fail(s"expected UnsupportedFamilyLink, got $other")
 
-  test("fast=false is refused rather than sold as glmer"):
+  test("noncanonical joint curvature is explicitly refused"):
     Glmm.fit(
       Formula.parse("y ~ 1 + x + (1 | g)").getOrElse(fail("parse")),
       frame,
       Family.Bernoulli,
-      None,
+      Some(Link.Probit),
       GlmmOptions(fast = false)
     ) match
       case Left(err: MixedModelError.Unsupported) =>
-        assert(err.details.contains("fast-PIRLS"), clues(err.details))
+        assert(err.details.contains("joint Laplace"), clues(err.details))
         assert(!err.details.contains("glmer"), clues(err.details))
       case other =>
         fail(s"expected Unsupported, got $other")
@@ -46,19 +46,24 @@ class GlmmSuite extends munit.FunSuite:
       GlmmOptions(nAgq = 7)
     ) match
       case Left(err: MixedModelError.Unsupported) =>
-        assert(err.details.contains("fast-PIRLS"), clues(err.details))
+        assert(err.details.contains("AGQ"), clues(err.details))
       case other =>
         fail(s"expected Unsupported, got $other")
 
   test("a small Bernoulli RE intercept is labelled fast-PIRLS"):
-    Glmm.fit("y ~ 1 + x + (1 | g)", frame, Family.Bernoulli) match
+    Glmm.fit("y ~ 1 + (1 | g)", frame, Family.Bernoulli) match
       case Right(fit) =>
         assertEquals(fit.approximation, Approximation.FastPirls)
         assertEquals(fit.algorithmLabel, "fast-PIRLS")
         assertEquals(fit.family, Family.Bernoulli)
         assertEquals(fit.link, Link.Logit)
         assertEquals(fit.theta.length, 1)
-        assertEquals(fit.beta.length, 2)
+        assertEquals(fit.beta.length, 1)
         assert(fit.deviance.isFinite, clues(fit.deviance))
       case other =>
         fail(s"expected a labelled fast-PIRLS fit, got $other")
+
+  test("a perfectly separated Bernoulli design preserves its factorization failure"):
+    Glmm.fit("y ~ 1 + x + (1 | g)", frame, Family.Bernoulli) match
+      case Left(MixedModelError.PosDefException) => ()
+      case other                                 => fail(s"expected a factorization refusal, got $other")

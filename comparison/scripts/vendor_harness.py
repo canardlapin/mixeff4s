@@ -152,6 +152,27 @@ EXTRACT_KEYS = {
         "Identity",
         "REML",
     ),
+    (
+        "station_season_duration",
+        "effect ~ 1 + duration + (1 | sites) + (1 | season)",
+        "Gaussian",
+        "Identity",
+        "ML",
+    ),
+    (
+        "station_season_duration",
+        "effect ~ 1 + duration + (1 + duration | sites) + (1 + duration | season)",
+        "Gaussian",
+        "Identity",
+        "ML",
+    ),
+    (
+        "station_season_duration",
+        "effect ~ 1 + duration * season * sites",
+        "Gaussian",
+        "Identity",
+        "ML",
+    ),
 }
 
 
@@ -192,7 +213,8 @@ def scala_triple(text: str) -> str:
         raise SystemExit("CSV contains triple quotes")
     # Keep JSON/CSV bytes intact. Scala \\uXXXX in a triple-quoted string
     # would rewrite escapes; write raw Unicode instead.
-    return '"""' + text + '"""'
+    chunks = [text[i:i + 12000] for i in range(0, len(text), 12000)]
+    return 'Vector(' + ', '.join('"""' + chunk + '"""' for chunk in chunks) + ').mkString'
 
 
 def slim_result(record: dict, engine: str, comparable: bool) -> dict:
@@ -486,6 +508,10 @@ def main() -> None:
         },
         "results": pins + extracted,
     }
+    from embed_workflow_references import add_workflow_pins
+    catalog = add_workflow_pins(catalog)
+    from update_glmm_catalog import add_glmm_pins
+    catalog = add_glmm_pins(catalog)
     dest = ROOT / "comparison" / "frozen" / "references.json"
     dest.parent.mkdir(parents=True, exist_ok=True)
     frozen_text = json.dumps(catalog, indent=2, ensure_ascii=False) + "\n"

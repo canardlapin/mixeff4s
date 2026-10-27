@@ -1,7 +1,7 @@
 package mixeff4s.comparison
 
-import mixeff4s.data.ModelFrame
-import mixeff4s.fixtures.{Contra, Pastes, Penicillin, Sleepstudy}
+import mixeff4s.data.{Column, ModelFrame}
+import mixeff4s.fixtures.{Contra, GlmmFrames, Pastes, Penicillin, Sleepstudy}
 
 enum ColumnKind:
   case Numeric, Categorical
@@ -77,6 +77,28 @@ object Datasets:
             ColumnMeta("urban_dist", ColumnKind.Categorical, None)
           ),
           Contra.frame
+        )
+      case glmm @ ("cbpp" | "culcitalogreg" | "synthetic_poisson_offset" | "synthetic_poisson_crossed") =>
+        val frame = glmm match
+          case "cbpp" =>
+            val raw = GlmmFrames.cbpp
+            raw
+              .addNumeric("proportion", raw.numeric("incidence").get.zip(raw.numeric("size").get).map(_ / _))
+              .toOption
+              .get
+          case "culcitalogreg"            => GlmmFrames.culcitalogreg
+          case "synthetic_poisson_offset" => GlmmFrames.synthetic_poisson_offset
+          case _                          => GlmmFrames.synthetic_poisson_crossed
+        val columns = frame.columns.map:
+          case (name, Column.Numeric(_))     => ColumnMeta(name, ColumnKind.Numeric, None)
+          case (name, factor: Column.Factor) => ColumnMeta(name, ColumnKind.Categorical, Some(factor.levels))
+        builtin(
+          glmm,
+          frame.nRows,
+          "comparison/glmm-tranche/frames and provenance.json",
+          if glmm.startsWith("synthetic_") then "Generated synthetic fixture" else "See upstream dataset provenance",
+          columns,
+          frame
         )
       case other =>
         val csv = EmbeddedFrames.csv.getOrElse(other, throw IllegalArgumentException(s"unknown dataset `$other`"))

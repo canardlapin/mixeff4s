@@ -1,0 +1,50 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[warn] -- [E198] Unused Symbol Warning: /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/linalg/MatrixBlock.scala:168:12 
+[warn] 168 |        var compatible = d.colOffsets.sameElements(s.colOffsets) && d.rowIndices.sameElements(s.rowIndices)
+[warn]     |            ^^^^^^^^^^
+[warn]     |         unset local variable, consider using an immutable val instead
+[warn] one warning found
+[info] done compiling
+mixeff4s.lmm.TerminationSuite:
+  + a public LMM refuses an exhausted main optimizer budget 0.119s
+  + an accepted fit retains evidence for its actual theta and objective 0.054s
+  + a zero fixed-effect pivot cannot become a finite REML objective 0.01s
+mixeff4s.lmm.ProfiledGradientSuite:
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g), REML=false 0.181s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g), REML=true 0.021s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g), REML=false 0.12s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g), REML=true 0.032s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g) + (1 | h), REML=false 0.023s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g) + (1 | h), REML=true 0.049s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g) + (1 | nested), REML=false 0.003s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g) + (1 | nested), REML=true 0.003s
+  + observation-space derivative oracle: y ~ 0 + (1 | g), REML=false 0.002s
+  + observation-space derivative oracle: y ~ 0 + (1 | g), REML=true 0.007s
+  + zero Lambda has zero gradient even at a variance maximum: closed-form witness 0.003s
+  + gradient scratch budget is enforced without a dense inverse allocation 0.009s
+mixeff4s.lmm.CoefficientLayoutSuite:
+  + ML: a dropped column at index 0 preserves all coefficient axes 0.184s
+  + REML: a dropped column at index 0 preserves all coefficient axes 0.017s
+  + ML: a dropped column at index 1 preserves all coefficient axes 0.006s
+  + REML: a dropped column at index 1 preserves all coefficient axes 0.11s
+  + ML: a dropped column at index 2 preserves all coefficient axes 0.012s
+  + REML: a dropped column at index 2 preserves all coefficient axes 0.004s
+  + original middle-column counterexample has a finite days standard error and z 0.009s
+  + balanced random-intercept covariance agrees with the analytic GLS calculation 0.016s
+  + a nonzero scaled alias at theta zero agrees with independent OLS fractions 0.05s
+  + a fitted scaled alias matches its selected reduced model in ML and REML 0.037s
+  + full-rank column reordering permutes both covariance axes 0.005s
+  + a rank-zero fixed design has empty active outputs and records its dropped column 0.003s
+  + layout construction rejects repeated and out-of-range indices, including copy 0.003s
+  + fit and coefficient table construction cannot silently truncate inconsistent shapes 0.001s
+[info] Passed: Total 29, Failed 0, Errors 0, Passed 29
+[success] Total time: 5 s, completed Oct 26, 2026, 5:02:41 p.m.

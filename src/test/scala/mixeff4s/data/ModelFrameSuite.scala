@@ -35,6 +35,36 @@ class ModelFrameSuite extends munit.FunSuite:
       case Left(MixedModelError.DimensionMismatch(_)) => ()
       case other                                      => fail(s"expected dimension mismatch, got $other")
 
+  test("rejects non-finite numeric input at the frame boundary"):
+    Vector(Double.NaN, Double.PositiveInfinity, Double.NegativeInfinity).foreach: bad =>
+      ModelFrame.of("y" -> ModelFrame.numeric(Vector(1.0)), "x" -> ModelFrame.numeric(Vector(bad))) match
+        case Left(MixedModelError.InvalidArgument(_)) => ()
+        case other                                    => fail(s"expected invalid argument, got $other")
+
+  test("rejects non-finite numeric columns added after frame construction"):
+    val frame = ModelFrame.of("y" -> ModelFrame.numeric(Vector(1.0))).getOrElse(fail("frame"))
+    frame.addNumeric("x", Vector(Double.NaN)) match
+      case Left(MixedModelError.InvalidArgument(_)) => ()
+      case other                                    => fail(s"expected invalid argument, got $other")
+
+  test("validates raw factor references and values"):
+    val invalid = Vector(
+      Column.Factor(Vector("a", "b"), Vector(0), Vector("a", "b")),
+      Column.Factor(Vector("a", "a"), Vector(0), Vector("a")),
+      Column.Factor(Vector("a"), Vector(1), Vector("a")),
+      Column.Factor(Vector("a", "b"), Vector(0), Vector("b"))
+    )
+    invalid.foreach: factor =>
+      ModelFrame.of("y" -> ModelFrame.numeric(Vector(1.0)), "f" -> factor) match
+        case Left(_: MixedModelError) => ()
+        case other                    => fail(s"expected invalid raw factor, got $other")
+
+  test("permits a legitimate empty aligned frame"):
+    val frame = ModelFrame
+      .of("y" -> ModelFrame.numeric(Vector.empty), "f" -> ModelFrame.factor(Vector.empty))
+      .getOrElse(fail("empty frame"))
+    assertEquals(frame.nRows, 0)
+
   test("materializes I() onto the frame"):
     val frame = ModelFrame
       .of(

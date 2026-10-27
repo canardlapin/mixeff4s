@@ -64,6 +64,11 @@ final case class CoefTable(
     stdErrors: Vector[Double],
     zValues: Vector[Double]
 ):
+  require(
+    names.length == estimates.length && stdErrors.length == estimates.length && zValues.length == estimates.length,
+    "coefficient table columns must have equal lengths"
+  )
+
   def pValueCode: String = CoefTable.PValueUnavailableCode
   def pValueReason: String = CoefTable.PValueUnavailableReason
 
@@ -73,6 +78,11 @@ object CoefTable:
     "Asymptotic Wald p-values are not reported. Request a certified inference method."
 
   def wald(names: Vector[String], estimates: Vector[Double], stdErrors: Vector[Double]): CoefTable =
-    val z = estimates.zip(stdErrors).map: (est, se) =>
-      if se == 0.0 || !se.isFinite then Double.NaN else est / se
-    CoefTable(names, estimates, stdErrors, z)
+    require(
+      names.length == estimates.length && stdErrors.length == estimates.length,
+      "Wald names, estimates and standard errors must have equal lengths"
+    )
+    val z = estimates.indices.map: i =>
+      val se = stdErrors(i)
+      if se == 0.0 || !se.isFinite then Double.NaN else estimates(i) / se
+    CoefTable(names, estimates, stdErrors, z.toVector)

@@ -1,0 +1,51 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 7 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[warn] -- Warning: /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/design/PredictionDesign.scala:82:47 
+[warn] 82 |      if weights.exists(w => !w.isFinite) then return refusal("prediction_alias_unavailable", "Fitted alias coefficients are non-finite.")
+[warn]    |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[warn]    |Non local returns are no longer supported; use `boundary` and `boundary.break` in `scala.util` instead
+[warn] -- Warning: /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/design/PredictionDesign.scala:94:55 
+[warn] 94 |        if !predicted.isFinite || !scale.isFinite then return refusal("prediction_nonfinite_design", s"Alias evaluation overflows at row $row.")
+[warn]    |                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[warn]    |Non local returns are no longer supported; use `boundary` and `boundary.break` in `scala.util` instead
+[warn] -- Warning: /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/design/PredictionDesign.scala:96:10 
+[warn] 96 |          return refusal("prediction_nonestimable", s"Row $row violates the fitted alias relation for `${layout.requestedNames(dropped)}`.")
+[warn]    |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[warn]    |Non local returns are no longer supported; use `boundary` and `boundary.break` in `scala.util` instead
+[warn] three warnings found
+[info] done compiling
+[info] compiling 3 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+mixeff4s.lmm.LmmAssessmentSuite:
+  + a zero-theta scalar variance maximum fails the feasible boundary probe 0.007s
+  + relative covariance rank retains nonzero off-diagonal degeneracy 0.084s
+  + tampered fit evidence is unavailable rather than trusting stored optimizer norms 0.014s
+mixeff4s.stats.BootstrapSuite:
+  + bootstrap validates retained-basis targets before executing replicates 0.106s
+  + legacy bootstrap overload requires explicit reproducibility metadata 0.007s
+mixeff4s.pathology.FitEvidenceSuite:
+  + an arbitrary raw theta does not certify optimization 0.079s
+  + raw reassessment clears previous convergence evidence and stale geometry 0.032s
+  + a mismatched or exhausted optimizer result cannot certify a fit 0.001s
+  + fitted covariance rank recognizes a nonzero off-diagonal reduced-rank Lambda 0.003s
+  + failed fit outcomes clear geometry and retain the stable reason code 0.002s
+  + compiler serializes geometry separately and requires a matching fit 0.015s
+mixeff4s.lmm.PredictionSuite:
+  + new data reuses training factor levels, transformations and row order 0.114s
+  + unknown fixed levels and changed predictor types refuse 0.001s
+  + new grouping levels require explicit zero-effect policy 0.001s
+  + rank-dropped columns require estimable new rows 0.006s
+  + complete snapshot seal rejects changed public fit fields 0.002s
+  + overflow in a dropped interaction cannot masquerade as an estimable row 0.004s
+  + later response refits leave earlier modes and predictions unchanged 0.045s
+  + copied compiled designs cannot substitute another prediction recipe 0.007s
+[info] Passed: Total 19, Failed 0, Errors 0, Passed 19
+[success] Total time: 8 s, completed Oct 26, 2026, 9:29:55 p.m.

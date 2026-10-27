@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-26T21:48:54.253661+00:00",
+  "finished_utc": "2026-10-26T21:49:19.269381+00:00",
+  "duration_seconds": 25.015342,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/scalafmtOnly /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/ProfiledGradient.scala /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/lmm/Pls.scala",
+    "test"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/tmp/mixeff4s-engine-tranche/full-performance-repair.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 43999
+}

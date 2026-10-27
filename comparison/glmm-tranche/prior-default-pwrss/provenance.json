@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "inputs": {
+    "cbpp.csv": "2798bc7704a4bdb8ade4e164d8c3a6397efa7ba5fb25c1ec11f517b4ffb940a7",
+    "culcitalogreg.csv": "0147190ecdea59319cf3143cee5e1ca5c2afcc94d88e00a8c88c321079e44138",
+    "synthetic_poisson_crossed.csv": "26f20ed06edfd65276a81a5bfa3d28365f01fbc6023f43a379a6b33cd02e27fb",
+    "synthetic_poisson_offset.csv": "7d7e742a9e6d7b407fe647f07b3a46342bac53c984ec73cf0a992dcc6b365271"
+  },
+  "upstream_inputs": {
+    "cbpp": "/Users/bbuchsbaum/code/rust/mixeff-rs/datasets/cbpp/data.csv",
+    "culcitalogreg": "/Users/bbuchsbaum/code/rust/mixeff-rs/datasets/culcitalogreg/data.csv"
+  },
+  "upstream_input_sha256": {
+    "cbpp": "2798bc7704a4bdb8ade4e164d8c3a6397efa7ba5fb25c1ec11f517b4ffb940a7",
+    "culcitalogreg": "0147190ecdea59319cf3143cee5e1ca5c2afcc94d88e00a8c88c321079e44138"
+  },
+  "generator_sha256": {
+    "freeze_glmm_references.R": "bdbd888757de797b0a7b2c78de9960ebfeef4b0d15aebf5bb028edeeb8c80932",
+    "embed_glmm_references.py": "fc1a1fd6d857ea0fba366f034461cab0081f3f83b92c9ce52264e328dfa8d5d7"
+  },
+  "factor_levels": {
+    "cbpp": {
+      "herd": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "period": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "culcitalogreg": {
+      "block": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "ttt": [
+        "none",
+        "crabs",
+        "shrimp",
+        "both"
+      ]
+    },
+    "synthetic_poisson_offset": {
+      "group": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5",
+        "g6"
+      ]
+    },
+    "synthetic_poisson_crossed": {
+      "site": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10",
+        "s11",
+        "s12"
+      ],
+      "batch": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    }
+  },
+  "n_agq_0_policy": "documented_fast_divergence only; not lme4 joint-Laplace parity"
+}

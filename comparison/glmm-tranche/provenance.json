@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "inputs": {
+    "cbpp.csv": "2798bc7704a4bdb8ade4e164d8c3a6397efa7ba5fb25c1ec11f517b4ffb940a7",
+    "culcitalogreg.csv": "0147190ecdea59319cf3143cee5e1ca5c2afcc94d88e00a8c88c321079e44138",
+    "synthetic_poisson_crossed.csv": "26f20ed06edfd65276a81a5bfa3d28365f01fbc6023f43a379a6b33cd02e27fb",
+    "synthetic_poisson_offset.csv": "7d7e742a9e6d7b407fe647f07b3a46342bac53c984ec73cf0a992dcc6b365271"
+  },
+  "upstream_inputs": {
+    "cbpp": "/Users/bbuchsbaum/code/rust/mixeff-rs/datasets/cbpp/data.csv",
+    "culcitalogreg": "/Users/bbuchsbaum/code/rust/mixeff-rs/datasets/culcitalogreg/data.csv"
+  },
+  "upstream_input_sha256": {
+    "cbpp": "2798bc7704a4bdb8ade4e164d8c3a6397efa7ba5fb25c1ec11f517b4ffb940a7",
+    "culcitalogreg": "0147190ecdea59319cf3143cee5e1ca5c2afcc94d88e00a8c88c321079e44138"
+  },
+  "generator_sha256": {
+    "freeze_glmm_references.R": "07fcd5f2b8e00a1d760a7f94ccd049449a00ebc0d6dc4526755389e942e744e7",
+    "embed_glmm_references.py": "d9b9068e595663adc2dbb0a8923acbb111e71d29178cdf9d9b042ced5c998b77"
+  },
+  "factor_levels": {
+    "cbpp": {
+      "herd": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "period": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "culcitalogreg": {
+      "block": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "ttt": [
+        "none",
+        "crabs",
+        "shrimp",
+        "both"
+      ]
+    },
+    "synthetic_poisson_offset": {
+      "group": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5",
+        "g6"
+      ]
+    },
+    "synthetic_poisson_crossed": {
+      "site": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10",
+        "s11",
+        "s12"
+      ],
+      "batch": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    }
+  },
+  "n_agq_0_policy": "documented_fast_divergence only; not lme4 joint-Laplace parity",
+  "adverse_prior_default_pwrss": {
+    "reason": "Default tolPwrss=1e-7 gave cbpp -2logLik 184.05313277509163; retained before tightening to 1e-10.",
+    "artifacts_sha256": {
+      "freeze.log": "b5b2381b4c2dfbfdbb3fd8ad416260f3165e853f74e4b92f27a6f14ae6f85d28",
+      "provenance.json": "f117cdcf5c23c0150117457ae3dad751279413362cbfca3c54df378861da2d22",
+      "references.json": "5cff087a3f37cbec705f064b618097b37225b9cee762e56c2826c465185e052e"
+    }
+  }
+}

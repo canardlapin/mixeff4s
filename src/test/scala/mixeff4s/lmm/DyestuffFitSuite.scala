@@ -12,10 +12,10 @@ class DyestuffFitSuite extends munit.FunSuite:
   test("dyestuff REML matches frozen lme4"):
     assertMatches("dyestuff", FitOptions.reml, boundary = false)
 
-  test("dyestuff2 ML is a certified boundary against frozen lme4"):
+  test("dyestuff2 ML has reduced covariance rank at the boundary against frozen lme4"):
     assertMatches("dyestuff2", FitOptions.ml, boundary = true)
 
-  test("dyestuff2 REML is a certified boundary against frozen lme4"):
+  test("dyestuff2 REML has reduced covariance rank at the boundary against frozen lme4"):
     assertMatches("dyestuff2", FitOptions.reml, boundary = true)
 
   private def assertMatches(dataset: String, options: FitOptions, boundary: Boolean): Unit =
@@ -25,7 +25,7 @@ class DyestuffFitSuite extends munit.FunSuite:
     val frame = Datasets.load(dataset).frame
     val design = Lmm.compile(formula, frame).getOrElse(fail(s"$dataset compile"))
     val fit = Lmm.fit(formula, frame, options).fold(err => fail(err.message), identity)
-    val assessed = Pathology.assessFit(Pathology.certify(design), fit.theta, design.parmap)
+    val assessed = Pathology.assessFit(Pathology.certify(design), fit, design.parmap)
     assertEquals(fit.beta.length, 1)
     assertEquals(fit.theta.length, 1)
     ref.objective.foreach: obj =>
@@ -37,6 +37,6 @@ class DyestuffFitSuite extends munit.FunSuite:
     ref.sigma.foreach: sigma =>
       assertEqualsDouble(fit.sigma, sigma, FitCompare.sigmaTol(row, ref))
     if boundary then
-      assertEquals(assessed.fitStatus, FitStatus.ConvergedBoundary)
+      assertEquals(assessed.fitStatus, FitStatus.ConvergedReducedRank)
       assertEqualsDouble(fit.theta(0), 0.0, 1e-8)
     else assertEquals(assessed.fitStatus, FitStatus.ConvergedInterior)

@@ -1,0 +1,11 @@
+{
+  "verdict": "No remaining scientific blocker in bounded canonical joint scope",
+  "reviewer": "joint_contract (lean_expert)",
+  "tests": "Read-only inspection and existing XML receipts; no additional reviewer test execution",
+  "sha256": {
+    "src/main/scala/mixeff4s/glmm/Glmm.scala": "6a328c8a67650a699b859e4ed2503c84b338fbd8dc0c3609c25aaa21ad54778d",
+    "src/main/scala/mixeff4s/glmm/GlmmResponse.scala": "ff0c5c16b5df949f3c4ff5d9aa8a690c713ff01f676f4a1b005657290b5c960b",
+    "src/main/scala/mixeff4s/glmm/JointLaplace.scala": "817f3551e82775cc7e4d4f2ec18196421dee79137179907dc0b8b58b80dd0a57",
+    "src/main/scala/mixeff4s/lmm/Pls.scala": "af7a301c767655b0c6340ad98045cd7bb811163cbb06d8574e1825af590ca3a8"
+  }
+}

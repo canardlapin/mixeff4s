@@ -1,0 +1,562 @@
+{
+  "maximum_seeded_response_difference": 1.1368683772161603e-13,
+  "runs": 3,
+  "samples": 1440,
+  "host": {
+    "platform": "macOS-14.3-arm64-arm-64bit-Mach-O",
+    "machine": "arm64"
+  },
+  "summary": [
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "strategy": "AnalyticGradient",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        2.186666,
+        2.30725,
+        2.334459
+      ],
+      "median_ms": 2.30725,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 21,
+      "attempts": 45,
+      "assessment_ms": 0.210792
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "strategy": "AnalyticGradient",
+      "phase": "refit",
+      "process_medians_ms": [
+        1.827209,
+        1.89225,
+        1.837459
+      ],
+      "median_ms": 1.837459,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 21,
+      "attempts": 45,
+      "assessment_ms": 0.2265
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "strategy": "DerivativeFree",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        1.4405,
+        1.416583,
+        1.54425
+      ],
+      "median_ms": 1.4405,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.29
+    },
+    {
+      "platform": "js",
+      "workload": "pastes",
+      "strategy": "DerivativeFree",
+      "phase": "refit",
+      "process_medians_ms": [
+        1.000292,
+        1.007375,
+        0.971583
+      ],
+      "median_ms": 1.000292,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.267084
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "strategy": "AnalyticGradient",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        1.99775,
+        1.915833,
+        2.035125
+      ],
+      "median_ms": 1.99775,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 45,
+      "assessment_ms": 0.1825
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "strategy": "AnalyticGradient",
+      "phase": "refit",
+      "process_medians_ms": [
+        1.585167,
+        1.518791,
+        1.646583
+      ],
+      "median_ms": 1.585167,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 45,
+      "assessment_ms": 0.167417
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "strategy": "DerivativeFree",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        1.93475,
+        1.862042,
+        1.934208
+      ],
+      "median_ms": 1.934208,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.227959
+    },
+    {
+      "platform": "js",
+      "workload": "penicillin",
+      "strategy": "DerivativeFree",
+      "phase": "refit",
+      "process_medians_ms": [
+        1.337542,
+        1.476959,
+        1.582875
+      ],
+      "median_ms": 1.476959,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.212417
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy_intercept",
+      "strategy": "AnalyticGradient",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        0.974042,
+        0.923791,
+        1.073458
+      ],
+      "median_ms": 0.974042,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 45,
+      "assessment_ms": 0.11525
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy_intercept",
+      "strategy": "AnalyticGradient",
+      "phase": "refit",
+      "process_medians_ms": [
+        0.461083,
+        0.441291,
+        0.464833
+      ],
+      "median_ms": 0.461083,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 45,
+      "assessment_ms": 0.10825
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy_intercept",
+      "strategy": "DerivativeFree",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        1.223459,
+        1.198584,
+        1.269626
+      ],
+      "median_ms": 1.223459,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.151167
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy_intercept",
+      "strategy": "DerivativeFree",
+      "phase": "refit",
+      "process_medians_ms": [
+        0.624792,
+        0.7065,
+        0.652499
+      ],
+      "median_ms": 0.652499,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.164167
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy_slopes",
+      "strategy": "AnalyticGradient",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        1.535125,
+        1.294791,
+        1.543833
+      ],
+      "median_ms": 1.535125,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 3,
+      "attempts": 45,
+      "assessment_ms": 0.121292
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy_slopes",
+      "strategy": "AnalyticGradient",
+      "phase": "refit",
+      "process_medians_ms": [
+        1.068083,
+        1.022833,
+        0.964208
+      ],
+      "median_ms": 1.022833,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 3,
+      "attempts": 45,
+      "assessment_ms": 0.121125
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy_slopes",
+      "strategy": "DerivativeFree",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        2.226417,
+        1.963708,
+        2.395333
+      ],
+      "median_ms": 2.226417,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.170083
+    },
+    {
+      "platform": "js",
+      "workload": "sleepstudy_slopes",
+      "strategy": "DerivativeFree",
+      "phase": "refit",
+      "process_medians_ms": [
+        1.70275,
+        1.536541,
+        1.684416
+      ],
+      "median_ms": 1.684416,
+      "allocated_bytes": null,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.164875
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "strategy": "AnalyticGradient",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        1.71675,
+        1.656333,
+        1.395125
+      ],
+      "median_ms": 1.656333,
+      "allocated_bytes": 595672,
+      "fit_failures": 0,
+      "unqualified": 21,
+      "attempts": 45,
+      "assessment_ms": 0.222
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "strategy": "AnalyticGradient",
+      "phase": "refit",
+      "process_medians_ms": [
+        1.290417,
+        1.246375,
+        0.959708
+      ],
+      "median_ms": 1.246375,
+      "allocated_bytes": 440712,
+      "fit_failures": 0,
+      "unqualified": 21,
+      "attempts": 45,
+      "assessment_ms": 0.199333
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "strategy": "DerivativeFree",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        1.65825,
+        1.826542,
+        1.287333
+      ],
+      "median_ms": 1.65825,
+      "allocated_bytes": 1348224,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.510583
+    },
+    {
+      "platform": "jvm",
+      "workload": "pastes",
+      "strategy": "DerivativeFree",
+      "phase": "refit",
+      "process_medians_ms": [
+        1.036583,
+        1.239167,
+        0.872791
+      ],
+      "median_ms": 1.036583,
+      "allocated_bytes": 1163520,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.439208
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "strategy": "AnalyticGradient",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        2.333541,
+        1.785667,
+        0.95075
+      ],
+      "median_ms": 1.785667,
+      "allocated_bytes": 578720,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 45,
+      "assessment_ms": 0.172125
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "strategy": "AnalyticGradient",
+      "phase": "refit",
+      "process_medians_ms": [
+        1.902541,
+        1.225166,
+        0.605291
+      ],
+      "median_ms": 1.225166,
+      "allocated_bytes": 371128,
+      "fit_failures": 0,
+      "unqualified": 0,
+      "attempts": 45,
+      "assessment_ms": 0.145084
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "strategy": "DerivativeFree",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        2.268958,
+        1.738916,
+        1.017292
+      ],
+      "median_ms": 1.738916,
+      "allocated_bytes": 1074616,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.287167
+    },
+    {
+      "platform": "jvm",
+      "workload": "penicillin",
+      "strategy": "DerivativeFree",
+      "phase": "refit",
+      "process_medians_ms": [
+        2.003084,
+        1.32725,
+        0.744583
+      ],
+      "median_ms": 1.32725,
+      "allocated_bytes": 871712,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.2575
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy_intercept",
+      "strategy": "AnalyticGradient",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        1.28275,
+        1.473666,
+        1.31125
+      ],
+      "median_ms": 1.31125,
+      "allocated_bytes": 390408,
+      "fit_failures": 0,
+      "unqualified": 3,
+      "attempts": 45,
+      "assessment_ms": 0.219958
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy_intercept",
+      "strategy": "AnalyticGradient",
+      "phase": "refit",
+      "process_medians_ms": [
+        0.663625,
+        0.758541,
+        0.596792
+      ],
+      "median_ms": 0.663625,
+      "allocated_bytes": 242208,
+      "fit_failures": 0,
+      "unqualified": 3,
+      "attempts": 45,
+      "assessment_ms": 0.207333
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy_intercept",
+      "strategy": "DerivativeFree",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        1.578959,
+        1.77175,
+        1.720083
+      ],
+      "median_ms": 1.720083,
+      "allocated_bytes": 489808,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.381667
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy_intercept",
+      "strategy": "DerivativeFree",
+      "phase": "refit",
+      "process_medians_ms": [
+        0.755833,
+        0.772833,
+        0.677958
+      ],
+      "median_ms": 0.755833,
+      "allocated_bytes": 338376,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.368125
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy_slopes",
+      "strategy": "AnalyticGradient",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        1.573625,
+        1.439,
+        1.405917
+      ],
+      "median_ms": 1.439,
+      "allocated_bytes": 957792,
+      "fit_failures": 0,
+      "unqualified": 6,
+      "attempts": 45,
+      "assessment_ms": 0.162292
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy_slopes",
+      "strategy": "AnalyticGradient",
+      "phase": "refit",
+      "process_medians_ms": [
+        0.947583,
+        0.999041,
+        0.828458
+      ],
+      "median_ms": 0.947583,
+      "allocated_bytes": 761576,
+      "fit_failures": 0,
+      "unqualified": 6,
+      "attempts": 45,
+      "assessment_ms": 0.153167
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy_slopes",
+      "strategy": "DerivativeFree",
+      "phase": "rebuild",
+      "process_medians_ms": [
+        2.628792,
+        2.228958,
+        2.355084
+      ],
+      "median_ms": 2.355084,
+      "allocated_bytes": 1462856,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.190084
+    },
+    {
+      "platform": "jvm",
+      "workload": "sleepstudy_slopes",
+      "strategy": "DerivativeFree",
+      "phase": "refit",
+      "process_medians_ms": [
+        1.853584,
+        1.638042,
+        1.524125
+      ],
+      "median_ms": 1.638042,
+      "allocated_bytes": 1227560,
+      "fit_failures": 0,
+      "unqualified": 45,
+      "attempts": 45,
+      "assessment_ms": 0.177542
+    }
+  ],
+  "limits": [
+    "Each response independently draws new random effects and residual noise",
+    "Refit starts are cold; rebuild includes response frame construction and design compilation",
+    "Assessment time is measured separately; fit-failure and failed-assessment counts are distinct",
+    "Current-thread JVM allocation only; JS allocation unavailable; no peak-memory claim",
+    "Process medians on this host are not universal performance guarantees"
+  ]
+}

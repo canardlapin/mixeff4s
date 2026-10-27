@@ -6,10 +6,56 @@ object prelude:
   export mixeff4s.error.{FitResult, LinAlgError, MixedModelError}
   export mixeff4s.formula.{FixedTerm, Formula, FormulaError, GroupingFactor, RandomCovariance, RandomTerm}
   export mixeff4s.formula.dsl.dsl.*
-  export mixeff4s.design.{CompiledDesign, FeMat, FeTerm, ReMat}
-  export mixeff4s.lmm.{CoefTable, Criterion, FitOptions, Lmm, LmmFit, VarCorr, VarCorrComponent}
-  export mixeff4s.glmm.{Approximation, Glmm, GlmmFit, GlmmOptions}
-  export mixeff4s.stats.{Bootstrap, Lrt, Profile}
+  export mixeff4s.design.{CompiledDesign, FeMat, FeTerm, FixedEffectLayout, ReMat}
+  export mixeff4s.lmm.{
+    BatchStart,
+    CoefTable,
+    CompiledLmm,
+    Criterion,
+    FitOptions,
+    BoundaryAdequacy,
+    GradientCheck,
+    Lmm,
+    LmmAssessment,
+    LmmAssessmentOptions,
+    LmmFit,
+    LmmOptimizer,
+    LmmRefitSession,
+    ProfiledGradientOptions,
+    Prediction,
+    PredictionMode,
+    NewGroupPolicy,
+    Simulation,
+    SimulationMode,
+    RefitStart,
+    VarCorr,
+    VarCorrComponent
+  }
+  export mixeff4s.glmm.{
+    Approximation,
+    Glmm,
+    GlmmFit,
+    GlmmOptions,
+    GlmmInnerResult,
+    GlmmRandomEffects,
+    ConditionalModeResult,
+    JointEvaluation,
+    JointAssessment,
+    JointGradientCheck,
+    JointBoundaryCheck
+  }
+  export mixeff4s.stats.{
+    Bootstrap,
+    BootstrapOptions,
+    BootstrapTarget,
+    BootstrapResult,
+    BootstrapAttempt,
+    BootstrapInterval,
+    Lrt,
+    LrtStatistic,
+    Profile
+  }
+  export mixeff4s.optimizer.TrustBqOptions
   export mixeff4s.model.{Family, Link}
 
   def numeric(values: Iterable[Double]): Column.Numeric = ModelFrame.numeric(values)

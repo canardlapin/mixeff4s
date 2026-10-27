@@ -3,6 +3,9 @@ package mixeff4s.glmm
 import mixeff4s.error.{FitResult, MixedModelError}
 import mixeff4s.model.{Family, Link}
 
+/** Final fast-PIRLS objective-change criterion, not conditional-score certification. */
+final case class PirlsResult(iterations: Int, objectiveChange: Double, tolerance: Double, halvingLimitHits: Int)
+
 /** Working-response and exponential-family helpers for labelled fast-PIRLS. */
 object Pirls:
   val MaxIter: Int = 10
@@ -89,16 +92,16 @@ object Pirls:
                   s"bernoulli GLMM response must be exactly 0 or 1; index $idx has $value"
                 )
               )
-            case Family.Binomial if !(value >= 0.0 && value <= 1.0) && !isNonnegativeInteger(value) =>
+            case Family.Binomial if !(value >= 0.0 && value <= 1.0) =>
               Left(
                 MixedModelError.InvalidArgument(
-                  s"binomial GLMM response must be a proportion in [0, 1] or a non-negative integer; index $idx has $value"
+                  s"binomial GLMM response must be a proportion in [0, 1] with explicit trials; index $idx has $value"
                 )
               )
-            case Family.Poisson if value < 0.0 =>
+            case Family.Poisson if !isNonnegativeInteger(value) =>
               Left(
                 MixedModelError.InvalidArgument(
-                  s"poisson GLMM response must be non-negative; index $idx has $value"
+                  s"poisson GLMM response must be a non-negative integer; index $idx has $value"
                 )
               )
             case Family.Gamma | Family.InverseGaussian if value <= 0.0 =>

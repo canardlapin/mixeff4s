@@ -1,0 +1,31 @@
+{
+  "starting_files": 371,
+  "changed_existing_files": [
+    "README.md",
+    "comparison/fixtures.toml",
+    "comparison/frozen/references.json",
+    "comparison/parity_scorecard.toml",
+    "comparison/scripts/vendor_harness.py",
+    "src/main/scala/mixeff4s/error/MixedModelError.scala",
+    "src/main/scala/mixeff4s/glmm/Glmm.scala",
+    "src/main/scala/mixeff4s/glmm/Pirls.scala",
+    "src/main/scala/mixeff4s/lmm/Pls.scala",
+    "src/main/scala/mixeff4s/model/Family.scala",
+    "src/main/scala/mixeff4s/prelude.scala",
+    "src/test/scala/mixeff4s/comparison/Datasets.scala",
+    "src/test/scala/mixeff4s/comparison/EmbeddedFrozen.scala",
+    "src/test/scala/mixeff4s/comparison/FixtureCatalog.scala",
+    "src/test/scala/mixeff4s/comparison/Scorecard.scala",
+    "src/test/scala/mixeff4s/comparison/ScorecardSuite.scala",
+    "src/test/scala/mixeff4s/glmm/CoefficientLayoutSuite.scala",
+    "src/test/scala/mixeff4s/glmm/GlmmSuite.scala",
+    "src/test/scala/mixeff4s/glmm/TerminationSuite.scala"
+  ],
+  "unchanged_starting_files": 352,
+  "deleted_files": [],
+  "prior_frozen_records_unchanged": 54,
+  "added_frozen_records": 8,
+  "review_hashes_match": true,
+  "frame_and_generator_provenance_match": true,
+  "catalog_addition_idempotent": true
+}

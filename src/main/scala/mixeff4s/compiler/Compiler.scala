@@ -4,7 +4,8 @@ import mixeff4s.data.ModelFrame
 import mixeff4s.design.{CompiledDesign, Design}
 import mixeff4s.error.FitResult
 import mixeff4s.formula.{Formula, FormulaError}
-import mixeff4s.pathology.Pathology
+import mixeff4s.lmm.LmmFit
+import mixeff4s.pathology.{FitStatus, Pathology, ThetaGeometry}
 
 /** Front door for the unstable compiled-design artifact. */
 object Compiler:
@@ -27,3 +28,14 @@ object Compiler:
 
   def assess(artifact: CompiledArtifact, theta: Vector[Double]): CompiledArtifact =
     artifact.copy(pathology = Pathology.assessFit(artifact.pathology, theta, artifact.parmap))
+
+  def assess(artifact: CompiledArtifact, fit: LmmFit): CompiledArtifact =
+    if artifact.requestedFormula != fit.formula.toString || artifact.n != fit.n || artifact.parmap != fit.parmap then
+      artifact.copy(pathology =
+        artifact.pathology.copy(
+          fitStatus = FitStatus.NotAssessed,
+          thetaGeometry = ThetaGeometry.NotAssessed,
+          notes = artifact.pathology.notes :+ "fit does not match the compiled artifact"
+        )
+      )
+    else artifact.copy(pathology = Pathology.assessFit(artifact.pathology, fit, artifact.parmap))

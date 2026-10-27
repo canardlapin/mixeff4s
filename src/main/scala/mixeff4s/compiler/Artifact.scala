@@ -53,7 +53,7 @@ final case class CompiledArtifact(
 
 object CompiledArtifact:
   val SchemaName = "mixeff4s.compiled_design_artifact"
-  val SchemaVersion = 1
+  val SchemaVersion = 2
   val LibraryVersion = "0.1.0-SNAPSHOT"
 
   def fromDesign(design: CompiledDesign): CompiledArtifact =
@@ -134,6 +134,7 @@ object CompiledArtifact:
       Vector(
         "contract_version" -> Json.str(cert.contractVersion),
         "fit_status" -> Json.str(cert.fitStatus.code),
+        "theta_geometry" -> Json.str(cert.thetaGeometry.code),
         "expected_statuses" -> Json.arr(cert.expectedStatuses.map(s => Json.str(s.code))),
         "stratum" -> Json.str(cert.stratum.code),
         "n" -> Json.num(cert.n),
