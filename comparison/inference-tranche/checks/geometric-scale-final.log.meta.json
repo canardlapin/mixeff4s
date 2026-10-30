@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-30T00:20:31.969055+00:00",
+  "finished_utc": "2026-10-30T00:20:37.853161+00:00",
+  "duration_seconds": 5.883903,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/scalafmtOnly *ObservedInformation.scala",
+    "mixeff4sJVM/Test/scalafmtOnly *ObservedInformationSuite.scala",
+    "test",
+    "mixeff4sJVM/Test/runMain mixeff4s.examples.LikelihoodInference"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/Users/bbuchsbaum/code/scala/mixeff4s/comparison/inference-tranche/checks/geometric-scale-final.log",
+  "exit_code": 1,
+  "child_returncode": 1,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 1167
+}

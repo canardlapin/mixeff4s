@@ -1,0 +1,95 @@
+exit_code=0; reason=exited; duration_seconds=212.252182
+raw_log=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/inference-tranche/study/run.log
+metadata=/Users/bbuchsbaum/code/scala/mixeff4s/comparison/inference-tranche/study/run.log.meta.json
+log_bytes=170416; excerpt_budget_bytes=1500
+--- 168916 BYTES OMITTED; raw log retained at /Users/bbuchsbaum/code/scala/mixeff4s/comparison/inference-tranche/study/run.log ---
+--- end ---
+atform":"js","index":7,"seed":"-8927030180044832292","ns":756375,"allocated_bytes":null,"covered":null,"error":"profile_baseline_unqualified"}
+PROFILE_STUDY {"platform":"js","index":8,"seed":"6980633624476027601","ns":29998542,"allocated_bytes":null,"covered":true,"error":null}
+PROFILE_STUDY {"platform":"js","index":9,"seed":"4896977767476691131","ns":29349500,"allocated_bytes":null,"covered":true,"error":null}
+PROFILE_STUDY {"platform":"js","index":10,"seed":"-7906214212659101420","ns":29673250,"allocated_bytes":null,"covered":false,"error":null}
+PROFILE_STUDY {"platform":"js","index":11,"seed":"-437634458130647505","ns":29560667,"allocated_bytes":null,"covered":true,"error":null}
+PROFILE_STUDY {"platform":"js","index":12,"seed":"-3618471573872001958","ns":29587458,"allocated_bytes":null,"covered":true,"error":null}
+PROFILE_STUDY {"platform":"js","index":13,"seed":"2967066722968820338","ns":689291,"allocated_bytes":null,"covered":null,"error":"profile_baseline_unqualified"}
+PROFILE_STUDY {"platform":"js","index":14,"seed":"-2113723408266755907","ns":575000,"allocated_bytes":null,"covered":null,"error":"profile_baseline_unqualified"}
+PROFILE_STUDY {"platform":"js","index":15,"seed":"-6416627231148814731","ns":30172500,"allocated_bytes":null,"covered":true,"error":null}
+  + Gaussian coefficient profile coverage retains unavailable endpoints 0.367s
+[info] Passed: Total 2, Failed 0, Errors 0, Passed 2
+[success] Total time: 164 s (0:02:44.0), completed Oct 29, 2026, 8:25:32 p.m.
+
+[
+  {
+    "platform": "jvm",
+    "requested": 16,
+    "bootstrap_inner_requested": 39,
+    "calibration_qualified": 16,
+    "calibration_refused": 0,
+    "rejections_at_point_1": 1,
+    "conditional_rejection_rate": 0.0625,
+    "rejection_fraction_bounds_with_refusals": [
+      0.0625,
+      0.0625
+    ],
+    "pair_attempts": 624,
+    "pair_failures": 0,
+    "coefficient_qualified": 16,
+    "coefficient_refused": 0,
+    "coefficient_covered": 15,
+    "coefficient_coverage_bounds_with_refusals": [
+      0.9375,
+      0.9375
+    ],
+    "gaussian_profiles_qualified": 11,
+    "gaussian_profiles_refused": 5,
+    "gaussian_profiles_covered": 9,
+    "gaussian_coverage_bounds_with_refusals": [
+      0.5625,
+      0.875
+    ],
+    "median_workflow_ms": 2199.0409165,
+    "median_workflow_allocated_bytes": 2186661844.0,
+    "median_gaussian_profile_ms": 8.5082295,
+    "calibration_error_codes": {},
+    "coefficient_error_codes": {},
+    "profile_error_codes": {
+      "profile_baseline_unqualified": 5
+    }
+  },
+  {
+    "platform": "js",
+    "requested": 16,
+    "bootstrap_inner_requested": 39,
+    "calibration_qualified": 16,
+    "calibration_refused": 0,
+    "rejections_at_point_1": 1,
+    "conditional_rejection_rate": 0.0625,
+    "rejection_fraction_bounds_with_refusals": [
+      0.0625,
+      0.0625
+    ],
+    "pair_attempts": 624,
+    "pair_failures": 0,
+    "coefficient_qualified": 16,
+    "coefficient_refused": 0,
+    "coefficient_covered": 15,
+    "coefficient_coverage_bounds_with_refusals": [
+      0.9375,
+      0.9375
+    ],
+    "gaussian_profiles_qualified": 11,
+    "gaussian_profiles_refused": 5,
+    "gaussian_profiles_covered": 10,
+    "gaussian_coverage_bounds_with_refusals": [
+      0.625,
+      0.9375
+    ],
+    "median_workflow_ms": 8524.0814795,
+    "median_workflow_allocated_bytes": null,
+    "median_gaussian_profile_ms": 29.630354,
+    "calibration_error_codes": {},
+    "coefficient_error_codes": {},
+    "profile_error_codes": {
+      "profile_baseline_unqualified": 5
+    }
+  }
+]

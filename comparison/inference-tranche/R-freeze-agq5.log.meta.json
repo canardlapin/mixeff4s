@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-30T00:09:03.738487+00:00",
+  "finished_utc": "2026-10-30T00:09:06.492730+00:00",
+  "duration_seconds": 2.753979,
+  "command": [
+    "Rscript",
+    "comparison/scripts/freeze_inference.R"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/Users/bbuchsbaum/code/scala/mixeff4s/comparison/inference-tranche/R-freeze-agq5.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 180.0,
+  "log_bytes": 1482
+}

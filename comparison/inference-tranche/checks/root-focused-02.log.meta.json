@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-30T00:02:08.955695+00:00",
+  "finished_utc": "2026-10-30T00:02:16.235121+00:00",
+  "duration_seconds": 7.279241,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/testOnly mixeff4s.stats.ObservedInformationSuite mixeff4s.stats.LikelihoodInferenceSuite"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/Users/bbuchsbaum/code/scala/mixeff4s/comparison/inference-tranche/checks/root-focused-02.log",
+  "exit_code": 1,
+  "child_returncode": 1,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 3626
+}

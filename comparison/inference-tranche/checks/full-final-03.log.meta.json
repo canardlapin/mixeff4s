@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-30T00:26:51.238711+00:00",
+  "finished_utc": "2026-10-30T00:27:28.096818+00:00",
+  "duration_seconds": 36.857875,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/scalafmtOnly ../src/main/scala/mixeff4s/stats/LikelihoodBootstrap.scala",
+    "mixeff4sJVM/Test/scalafmtOnly ../src/test/scala/mixeff4s/stats/LikelihoodInferenceSuite.scala",
+    "test",
+    "mixeff4sJVM/Test/runMain mixeff4s.examples.LikelihoodInference"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/Users/bbuchsbaum/code/scala/mixeff4s/comparison/inference-tranche/checks/full-final-03.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 900.0,
+  "log_bytes": 167499
+}

@@ -1,0 +1,15 @@
+{
+  "src/main/scala/mixeff4s/glmm/JointLikelihood.scala": "7bfd600373bd5d89fcc58ef0a804b547dc337475b42ae5927ffa1f23c938a5cc",
+  "src/main/scala/mixeff4s/stats/Bootstrap.scala": "af9dae4c9bb7b49c971d7524151304920deb25afee606d1c0efe26aea1e8d9fd",
+  "src/main/scala/mixeff4s/stats/ChiSquare.scala": "e2c57464c9d5978de09a94cc413271eb6d769cf4d30251aa635bd6ad41d74707",
+  "src/main/scala/mixeff4s/stats/GlmmBootstrap.scala": "83873d39e0ac984f4d3514f3f9fc420239fcad765820e9596e94d9509e39a0a1",
+  "src/main/scala/mixeff4s/stats/GlmmInference.scala": "6726dab85ee9abb66b3a00d0708b9ac0ad31fc491c439c5a80c5b0fb8fdbe9e6",
+  "src/main/scala/mixeff4s/stats/GlmmLrt.scala": "a1404077c5db84b471374252cc959e7afdc4aed36ed35eb9aa0c886edc7df999",
+  "src/main/scala/mixeff4s/stats/LikelihoodBootstrap.scala": "c421f3694c20a0405849d1c0261667696881857db8ab214fc74cfa9db0e04bd5",
+  "src/main/scala/mixeff4s/stats/LikelihoodNesting.scala": "ab5cd5c912cd5b14ef1d97f1a54e70da11c6d2d180b412d841b28e83e7cb60c6",
+  "src/main/scala/mixeff4s/stats/LikelihoodQualification.scala": "e808d1d7369e0cd29fc9830b90cebbb72ebc130b0fd9cc123b03e4a59afea9af",
+  "src/main/scala/mixeff4s/stats/LmmProfile.scala": "ddbaaa307817c9654f84e0c9ea5e5032b6185cfb52d09bff825ea3028b4917a8",
+  "src/main/scala/mixeff4s/stats/Lrt.scala": "3d3655a19846eb19a6df69f1f917ab9a1a79f1c5e33cafa5d627873ec3796579",
+  "src/main/scala/mixeff4s/stats/ObservedInformation.scala": "93d502d817d46e2788c80a928bdc26091933e8992183e423c3ebe5a2d82ce7b9",
+  "src/main/scala/mixeff4s/stats/Profile.scala": "50f2ee925055bdc583d0663d644b3f97144acebae70c8f07e0f6ee892db719ba"
+}

@@ -1,0 +1,41 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 3 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+mixeff4s.stats.LmmProfileSuite:
+  + REML profile refuses unless an ML refit is explicit 0.082s
+  + unknown coefficient is a stable refusal after an ML fit 0.007s
+  + qualified ML coefficient profile retains finite likelihood endpoints 0.123s
+  + residual and scalar random-effect targets use the likelihood profiler 0.148s
+  + explicit ML refit preserves a response-only REML snapshot rather than training y 0.045s
+  + budget failures retain optimizer evidence and unresolved brackets never fabricate endpoints 0.008s
+R_CURVATURE nodes=5 covariance=Vector(Vector(0.03270098771859101, -2.3222362763867908E-4), Vector(-2.3222362763867908E-4, 0.0043657222114889364)) reference=Vector(Vector(0.0327009805550252, -2.32223588509669E-4), Vector(-2.3222358850966896E-4, 0.004365722118847771)) LR=82.35843203614735
+R_PROFILE_POINT target=Coefficient(days) value=8.0 objective=1803.2827384186367 reference=1803.282738425664
+R_PROFILE_POINT target=Coefficient(days) value=10.0 objective=1794.4179934094545 reference=1794.4179934106182
+R_PROFILE_POINT target=Coefficient(days) value=12.0 objective=1797.692797013634 reference=1797.6927971140506
+R_PROFILE_POINT target=RandomEffectStdDev(subj) value=20.0 objective=1807.9379144075315 reference=1807.9379144076024
+R_PROFILE_POINT target=RandomEffectStdDev(subj) value=40.0 objective=1794.405897258126 reference=1794.4058972581518
+R_PROFILE_POINT target=ResidualStdDev value=20.0 objective=1877.76255037491 reference=1877.7625503749086
+R_PROFILE_POINT target=ResidualStdDev value=30.0 objective=1794.3644826137152 reference=1794.3644826137183
+mixeff4s.stats.InferenceReferenceSuite:
+==> X mixeff4s.stats.InferenceReferenceSuite.independent R selected-objective curvature and nested likelihood ratio nAgq=1  0.405s munit.ComparisonFailException: src/test/scala/mixeff4s/stats/InferenceReferenceSuite.scala:26 values are not the same expected: 82.37135360489998 but was: 82.37135254690406
+25:      val expected=root.req("likelihood_ratio_small_null").req(s"nAGQ$nodes").req("statistic").asDouble
+26:      assertEqualsDouble(GlmmLrt.statistic(small,large).toOption.get.likelihoodRatio,expected,1e-6)
+27:      val full=root.req("full_objective_by_estimator").req(s"nAGQ$nodes").req("full_normalized_minus2loglik").asDouble
+    at munit.FunSuite.assertEqualsDouble(FunSuite.scala:13)
+    at mixeff4s.stats.InferenceReferenceSuite.$init$$$anonfun$1$$anonfun$1(InferenceReferenceSuite.scala:26)
+  + independent R selected-objective curvature and nested likelihood ratio nAgq=5 0.132s
+  + ML constrained profile objectives match an independent dense Gaussian likelihood 0.007s
+  + ML profile intervals agree with frozen lme4 and variance is the squared SD axis 0.069s
+[error] Failed: Total 10, Failed 1, Errors 0, Passed 9
+[error] Failed tests:
+[error] 	mixeff4s.stats.InferenceReferenceSuite
+[error] (mixeff4sJVM / Test / testOnly) sbt.TestsFailedException: Tests unsuccessful
+[error] Total time: 4 s, completed Oct 29, 2026, 8:13:13 p.m.

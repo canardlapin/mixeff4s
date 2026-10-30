@@ -4,14 +4,17 @@ import mixeff4s.error.{FitResult, MixedModelError}
 import mixeff4s.glmm.GlmmFit
 import mixeff4s.lmm.LmmFit
 
-/** Profile-likelihood intervals. Unavailable until the profiler is ported. */
+/** LMM profiles require an explicit scalar target; generic and GLMM profile requests remain typed refusals. */
 object Profile:
+  def confint(fit: LmmFit, target: LmmProfileTarget, options: LmmProfileOptions): FitResult[LmmProfileResult] =
+    LmmProfile.confint(fit, target, options)
+  def confint(fit: LmmFit, target: LmmProfileTarget): FitResult[LmmProfileResult] = LmmProfile.confint(fit, target)
   def confint(fit: LmmFit, level: Double = 0.95): FitResult[Nothing] =
     val _ = (fit, level)
     Left(
       MixedModelError.InferenceUnavailable(
         "profile_unavailable",
-        "Profile-likelihood intervals are not implemented."
+        "Specify an LMM profile target; generic profile-likelihood intervals are unavailable."
       )
     )
 

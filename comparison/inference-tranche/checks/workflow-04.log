@@ -1,0 +1,87 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 20 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 6 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+mixeff4s.stats.ObservedInformationSuite:
+  + full nuisance-adjusted inverse has correct factor two and differs from fixed-nuisance curvature 0.014s
+  + boundary, indefinite information and failed probes never obtain a fallback covariance 0.005s
+  + step-unstable curvature refuses and scalar chi-square threshold matches independent R 0.001s
+  + equilibrated checks detect unstable middle coordinate hidden by raw matrix scale 0.001s
+BOUNDARY_FIT small=Vector(0.0)/Vector(-0.40546510838643435) large=Vector(0.0)/Vector(-0.433360797580615, 0.6475274847415023) assessment=GlmmAssessment(StepBelowTolerance,true,Right(ConditionalModeResult(0,0.0,1.0E-8,0)),Some(JointAssessment(Available(Vector(-2.579743825966337E-7, 2.5937178331029526E-7, 6.679101716144942E-9),2.5937178331029526E-7,1.0E-4),Unresolved)),Vector(GlmmCovarianceRank(g,1,Some(0),Vector(0.0))),Excluded(mixed_binomial_rows_span_retained_design,2),Vector(finite_joint_mle_not_assessed),Vector(bootstrap_reduced_rank, bootstrap_covariance_boundary, bootstrap_outer_unqualified))
+INFERENCE_COV beta=Vector(-0.33485627033414656, 0.5853220704723535) theta=Vector(0.9443224516237991) covariance=Vector(Vector(0.03270098771859101, -2.3222362763867908E-4), Vector(-2.3222362763867908E-4, 0.0043657222114889364)) rows=Vector(GlmmCoefficientInterval(retained-basis coefficient: x,0.5853220704723535,0.06607361206630781,8.858635878494985,0.45582024854438963,0.7148238924003174,0.95), GlmmCoefficientInterval(retained-basis contrast: twox,1.170644140944707,0.13214722413261562,8.858635878494985,0.9116404970887793,1.4296477848006348,0.95)) stability=7.107651358131889E-7/7.006742217272144E-7
+mixeff4s.stats.LikelihoodInferenceSuite:
+  + selected-estimator observed covariance and linear contrasts retain nuisance uncertainty 0.388s
+  + nested GLMM statistic matches explicit objectives and incompatible estimators refuse 0.251s
+  + null simulation preserves complete failed-pair ledger and later indexed seeds 0.019s
+  + tail calibration includes ties, plus-one correction and Monte Carlo interval at all-zero extremes 0.005s
+mixeff4s.stats.LikelihoodBoundarySuite:
+  + strict scalar boundary likelihood evidence differs from interior coefficient eligibility 0.391s
+  + feasible variance score detects zero-theta saddle even though theta derivative vanishes 0.005s
+==> X mixeff4s.stats.LikelihoodBoundarySuite.random-term addition preserves a scalar boundary null without ordinary chi-square calibration  0.409s munit.FailException: src/test/scala/mixeff4s/stats/LikelihoodBoundarySuite.scala:9 optimizer_budget_exhausted: Optimizer exhausted its budget after 10000 objective evaluations.
+8: class LikelihoodBoundarySuite extends munit.FunSuite:
+9:   private def right[A](x: FitResult[A]): A=x.fold(e=>fail(s"${e.code}: ${e.message}"),identity)
+10:  private val x=Vector.fill(12)(Vector(-1.0,0.0,1.0)).flatten
+    at munit.Assertions.fail(Assertions.scala:274)
+    at munit.Assertions.fail$(Assertions.scala:24)
+    at munit.FunSuite.fail(FunSuite.scala:13)
+    at mixeff4s.stats.LikelihoodBoundarySuite.right$$anonfun$1(LikelihoodBoundarySuite.scala:9)
+    at scala.util.Either.fold(Either.scala:198)
+    at mixeff4s.stats.LikelihoodBoundarySuite.right(LikelihoodBoundarySuite.scala:9)
+    at mixeff4s.stats.LikelihoodBoundarySuite.$init$$$anonfun$6(LikelihoodBoundarySuite.scala:36)
+mixeff4s.stats.InferenceWorkflowSuite:
+==> X mixeff4s.stats.InferenceWorkflowSuite.documented inference workflow keeps coefficient information, null pairs and qualified profile endpoints  4.136s java.lang.NoClassDefFoundError: mixeff4s/lmm/Lmm$
+    at mixeff4s.examples.LikelihoodInference$.run$$anonfun$1$$anonfun$1$$anonfun$1$$anonfun$1(LikelihoodInference.scala:24)
+    at scala.util.Either.flatMap(Either.scala:360)
+    at mixeff4s.examples.LikelihoodInference$.run$$anonfun$1$$anonfun$1$$anonfun$1(LikelihoodInference.scala:23)
+    at scala.util.Either.flatMap(Either.scala:360)
+    at mixeff4s.examples.LikelihoodInference$.run$$anonfun$1$$anonfun$1(LikelihoodInference.scala:22)
+    at scala.util.Either.flatMap(Either.scala:360)
+    at mixeff4s.examples.LikelihoodInference$.run$$anonfun$1(LikelihoodInference.scala:21)
+    at scala.util.Either.flatMap(Either.scala:360)
+    at mixeff4s.examples.LikelihoodInference$.run(LikelihoodInference.scala:20)
+    at mixeff4s.stats.InferenceWorkflowSuite.result$lzyINIT1(InferenceWorkflowSuite.scala:6)
+    at mixeff4s.stats.InferenceWorkflowSuite.result(InferenceWorkflowSuite.scala:6)
+    at mixeff4s.stats.InferenceWorkflowSuite.$init$$$anonfun$1(InferenceWorkflowSuite.scala:8)
+Caused by: java.lang.ClassNotFoundException: mixeff4s.lmm.Lmm$
+    at java.net.URLClassLoader.findClass(URLClassLoader.java:377)
+    at sbt.internal.ManagedClassLoader.findClass(ManagedClassLoader.java:103)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:557)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+    ... 12 more
+[error] Test suite mixeff4s.stats.InferenceWorkflowSuite failed with java.lang.NoClassDefFoundError: mixeff4s/lmm/Lmm$.
+[error] This may be due to the ClassLoaderLayeringStrategy (ScalaLibrary) used by your task.
+[error] To improve performance and reduce memory, sbt attempts to cache the class loaders used to load the project dependencies.
+[error] The project class files are loaded in a separate class loader that is created for each test run.
+[error] The test class loader accesses the project dependency classes using the cached project dependency classloader.
+[error] With this approach, class loading may fail under the following conditions:
+[error] 
+[error]  * Dependencies use reflection to access classes in your project's classpath.
+[error]    Java serialization/deserialization may cause this.
+[error]  * An open package is accessed across layers. If the project's classes access or extend
+[error]    jvm package private classes defined in a project dependency, it may cause an IllegalAccessError
+[error]    because the jvm enforces package private at the classloader level.
+[error] 
+[error] These issues, along with others that were not enumerated above, may be resolved by changing the class loader layering strategy.
+[error] The Flat and ScalaLibrary strategies bundle the full project classpath in the same class loader.
+[error] To use one of these strategies, set the ClassLoaderLayeringStrategy key
+[error] in your configuration, for example:
+[error] 
+[error] set mixeff4sJVM / Test / classLoaderLayeringStrategy := ClassLoaderLayeringStrategy.ScalaLibrary
+[error] set mixeff4sJVM / Test / classLoaderLayeringStrategy := ClassLoaderLayeringStrategy.Flat
+[error] 
+[error] See ClassLoaderLayeringStrategy.scala for the full list of options.
+[error] Failed: Total 12, Failed 2, Errors 0, Passed 10
+[error] Failed tests:
+[error] 	mixeff4s.stats.LikelihoodBoundarySuite
+[error] 	mixeff4s.stats.InferenceWorkflowSuite
+[error] (mixeff4sJVM / Test / testOnly) sbt.TestsFailedException: Tests unsuccessful
+[error] Total time: 11 s, completed Oct 29, 2026, 8:07:15 p.m.

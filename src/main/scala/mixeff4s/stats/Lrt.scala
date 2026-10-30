@@ -27,6 +27,12 @@ final case class LrtStatistic(
 )
 
 object Lrt:
+  def statistic(smaller: mixeff4s.glmm.GlmmFit, larger: mixeff4s.glmm.GlmmFit): FitResult[LrtStatistic] =
+    GlmmLrt.statistic(smaller, larger)
+
+  def compare(smaller: mixeff4s.glmm.GlmmFit, larger: mixeff4s.glmm.GlmmFit): FitResult[Lrt] =
+    GlmmLrt.compare(smaller, larger)
+
   private val LogLikTol = 1.0e-10
   private val BoundaryTolerance = 1.0e-8
 

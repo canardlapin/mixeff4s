@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-30T00:22:00.101276+00:00",
+  "finished_utc": "2026-10-30T00:25:32.350509+00:00",
+  "duration_seconds": 212.252182,
+  "command": [
+    "sbt",
+    "-batch",
+    "mixeff4sJVM/testOnly mixeff4s.stats.InferenceQualificationSuite",
+    "mixeff4sJS/testOnly mixeff4s.stats.InferenceQualificationSuite"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/Users/bbuchsbaum/code/scala/mixeff4s/comparison/inference-tranche/study/run.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 1200.0,
+  "log_bytes": 170416
+}

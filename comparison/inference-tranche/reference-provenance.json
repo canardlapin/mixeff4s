@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "checkpoint": "74239f432790d9f2b90d1864280b66a3bfdc173d",
+  "command": "Rscript comparison/scripts/freeze_inference.R",
+  "frames": {
+    "binomial_workflow": {
+      "path": "comparison/glmm-analysis-tranche/frames/binomial_workflow.csv",
+      "sha256": "9b06b4a92fc6aad65f3c9715d35b0221fb26c2b2ec067432d710fbe2384e0c05",
+      "rows": 90
+    },
+    "sleepstudy": {
+      "path": "comparison/workflow-tranche/frames/sleepstudy.csv",
+      "sha256": "f1c08ea8945a5e3f71c606bb6840f0db58efa5828b4c663dcb6bf49cbc8f4a2f",
+      "rows": 180
+    }
+  },
+  "artifacts": {
+    "references_json_sha256": "1f026fec42d25188fd3d9386116568b588c88f7a08baf59126ad051926c35e6b"
+  },
+  "generator": {
+    "path": "comparison/scripts/freeze_inference.R",
+    "sha256": "33e97c4fa84e8b2f082589ee3e4743b8da5aa8dccd25dd7e3b4d4468c276798e"
+  },
+  "estimator_contract": "R/lme4 fits are independent witnesses. GLMM curvature retains separate lme4 deviance Hessians for nAGQ=1 and selected nAGQ=5 in theta,beta order; their likelihood normalizations are order-specific. LMM trace uses an exact marginal Gaussian ML likelihood, not Scala code."
+}

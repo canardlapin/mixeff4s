@@ -1,0 +1,91 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 6 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+BOUNDARY_FIT small=Vector(0.0)/Vector(-0.40546510838643435) large=Vector(0.0)/Vector(-0.433360797580615, 0.6475274847415023) assessment=GlmmAssessment(StepBelowTolerance,true,Right(ConditionalModeResult(0,0.0,1.0E-8,0)),Some(JointAssessment(Available(Vector(-2.579743825966337E-7, 2.5937178331029526E-7, 6.679101716144942E-9),2.5937178331029526E-7,1.0E-4),Unresolved)),Vector(GlmmCovarianceRank(g,1,Some(0),Vector(0.0))),Excluded(mixed_binomial_rows_span_retained_design,2),Vector(finite_joint_mle_not_assessed),Vector(bootstrap_reduced_rank, bootstrap_covariance_boundary, bootstrap_outer_unqualified))
+mixeff4s.stats.LmmProfileSuite:
+  + REML profile refuses unless an ML refit is explicit 0.081s
+  + unknown coefficient is a stable refusal after an ML fit 0.006s
+  + qualified ML coefficient profile retains finite likelihood endpoints 0.189s
+  + residual and scalar random-effect targets use the likelihood profiler 0.162s
+==> X mixeff4s.stats.LmmProfileSuite.explicit ML refit preserves a response-only REML snapshot rather than training y  0.008s java.util.NoSuchElementException: None.get
+    at scala.None$.get(Option.scala:627)
+    at scala.None$.get(Option.scala:626)
+    at mixeff4s.stats.LmmProfileSuite.$init$$$anonfun$5(LmmProfileSuite.scala:50)
+  + budget failures retain optimizer evidence and unresolved brackets never fabricate endpoints 0.011s
+CROSSED_BOUNDARY_REFUSAL theta=Vector(0.0, 0.0) beta=Vector(-0.43338624255449737, 0.6475526802295799) refusal=Some(likelihood_tangent_gradient)
+BOUNDARY_BOOTSTRAP attempts=7 failures=Vector(2, 4, 5) calibration=Left(At least one simulated model pair failed qualification; all pairs are retained.)
+BOUNDARY_PAIR index=0 seed=-1766870411957360338 statistic=Right(0.13873666183584987)
+BOUNDARY_PAIR index=1 seed=-4974842434628432923 statistic=Right(0.07675402262097464)
+BOUNDARY_PAIR index=2 seed=8391955263547256977 statistic=Left(Central observed curvature requires interior nuisance parameters.)
+BOUNDARY_PAIR index=3 seed=-7529709798749336958 statistic=Right(1.0639473137202913)
+BOUNDARY_PAIR index=4 seed=5721247336107687825 statistic=Left(Central observed curvature requires interior nuisance parameters.)
+BOUNDARY_PAIR index=5 seed=-6466559015426176902 statistic=Left(Central observed curvature requires interior nuisance parameters.)
+BOUNDARY_PAIR index=6 seed=6193656455464058601 statistic=Right(0.5563204686132508)
+mixeff4s.stats.LikelihoodBoundarySuite:
+  + strict scalar boundary likelihood evidence differs from interior coefficient eligibility 0.375s
+  + feasible variance score detects zero-theta saddle even though theta derivative vanishes 0.002s
+  + crossed scalar boundary attempt refuses failed tangent stationarity 0.354s
+  + scalar boundary null comparison retains all seven generated model pairs 0.145s
+NULL_BOOTSTRAP qualified=39 calibration=Right(MonteCarloTail(0,39,0.025,0.0,0.0,0.0,0.08966675531516449,0.95))
+NULL_PAIR index=0 seed=-1296569203024355911 null=None alternative=None statistic=Right(1.570434249767061)
+NULL_PAIR index=1 seed=1932737567322148143 null=None alternative=None statistic=Right(0.1869317957008434)
+NULL_PAIR index=2 seed=-7063172994671038964 null=None alternative=None statistic=Right(1.3443963420244813)
+NULL_PAIR index=3 seed=-9220387120358121524 null=None alternative=None statistic=Right(11.05049995263903)
+NULL_PAIR index=4 seed=-4081923940934198464 null=None alternative=None statistic=Right(1.3574587352558751)
+NULL_PAIR index=5 seed=2199299343331455886 null=None alternative=None statistic=Right(0.003951845105575558)
+NULL_PAIR index=6 seed=-8047180433812521127 null=None alternative=None statistic=Right(3.101872405123231)
+NULL_PAIR index=7 seed=-1277322326987133056 null=None alternative=None statistic=Right(0.1389647385244075)
+NULL_PAIR index=8 seed=-1181251426271797715 null=None alternative=None statistic=Right(0.004051475550113537)
+NULL_PAIR index=9 seed=-7823358889228745162 null=None alternative=None statistic=Right(1.7131514128886352)
+NULL_PAIR index=10 seed=8601838624757811895 null=None alternative=None statistic=Right(1.3210125631828191)
+NULL_PAIR index=11 seed=-4631052244388886592 null=None alternative=None statistic=Right(0.8442039129238879)
+NULL_PAIR index=12 seed=3579929341599998411 null=None alternative=None statistic=Right(0.10721175434309771)
+NULL_PAIR index=13 seed=-3599406177211340824 null=None alternative=None statistic=Right(3.3525833420467848)
+NULL_PAIR index=14 seed=-80646802091266975 null=None alternative=None statistic=Right(0.20201232254794377)
+NULL_PAIR index=15 seed=-512979711044441271 null=None alternative=None statistic=Right(0.06447978847779723)
+NULL_PAIR index=16 seed=5716722829769572362 null=None alternative=None statistic=Right(2.398292371306127)
+NULL_PAIR index=17 seed=3649183575585238935 null=None alternative=None statistic=Right(0.004095375408383006)
+NULL_PAIR index=18 seed=3007244764094322107 null=None alternative=None statistic=Right(0.47902380387512267)
+NULL_PAIR index=19 seed=6436042484244309033 null=None alternative=None statistic=Right(2.3088003252331077)
+NULL_PAIR index=20 seed=-7334880906563718716 null=None alternative=None statistic=Right(0.18832149097517004)
+NULL_PAIR index=21 seed=-5087028293854588571 null=None alternative=None statistic=Right(0.1877068098058885)
+NULL_PAIR index=22 seed=-920009073160639760 null=None alternative=None statistic=Right(1.5738060725447554)
+NULL_PAIR index=23 seed=4183854020844450217 null=None alternative=None statistic=Right(0.10142874650694012)
+NULL_PAIR index=24 seed=-5900828542819214216 null=None alternative=None statistic=Right(1.390590064326318)
+NULL_PAIR index=25 seed=3285622285159324079 null=None alternative=None statistic=Right(0.47466441773792667)
+NULL_PAIR index=26 seed=6702077812900949693 null=None alternative=None statistic=Right(0.685874938039774)
+NULL_PAIR index=27 seed=-5311953171676162959 null=None alternative=None statistic=Right(0.8920697308659555)
+NULL_PAIR index=28 seed=3485519680675755559 null=None alternative=None statistic=Right(1.478246847305627)
+NULL_PAIR index=29 seed=-7313470730240208070 null=None alternative=None statistic=Right(0.015633184745695416)
+NULL_PAIR index=30 seed=-6560017363152544210 null=None alternative=None statistic=Right(0.7106992396965666)
+NULL_PAIR index=31 seed=1254234345409954741 null=None alternative=None statistic=Right(0.8400026844696526)
+NULL_PAIR index=32 seed=2176162912748082578 null=None alternative=None statistic=Right(1.1606884054370994)
+NULL_PAIR index=33 seed=-904714618603397853 null=None alternative=None statistic=Right(0.06131313292246432)
+NULL_PAIR index=34 seed=5720176409681960593 null=None alternative=None statistic=Right(0.15529386776796628)
+NULL_PAIR index=35 seed=1091158327125245485 null=None alternative=None statistic=Right(5.82232668364054)
+NULL_PAIR index=36 seed=-4099375731469579711 null=None alternative=None statistic=Right(0.9851036378146887)
+NULL_PAIR index=37 seed=-6615913860650293616 null=None alternative=None statistic=Right(9.351863703256242)
+NULL_PAIR index=38 seed=-7631665769684833042 null=None alternative=None statistic=Right(0.5810943750774982)
+PROFILE_INTERVAL target=Coefficient(days) lower=LmmProfileEndpoint(Some(8.88655415624628),false,None,Some((8.88655109786836,8.886557214624201)),Some(3.8414477401540807)) upper=LmmProfileEndpoint(Some(12.048017762945644),false,None,Some((12.048014704567723,12.048020821323565)),Some(3.841447740151807))
+PROFILE_INTERVAL target=RandomEffectStdDev(subj) lower=LmmProfileEndpoint(Some(26.007084612590127),false,None,Some((26.00708117821036,26.00708804696989)),Some(3.841452192594943)) upper=LmmProfileEndpoint(Some(52.93594645100822),false,None,Some((52.93594301662846,52.93594988538799)),Some(3.841454907147181))
+PROFILE_INTERVAL target=RandomEffectVariance(subj) lower=LmmProfileEndpoint(Some(676.3683459567931),false,None,Some((676.3683420918192,676.3683498217671)),Some(3.841454135407048)) upper=LmmProfileEndpoint(Some(2802.2142029460783),false,None,Some((2802.2141990811047,2802.2142068110525)),Some(3.8414541851914237))
+PROFILE_INTERVAL target=ResidualStdDev lower=LmmProfileEndpoint(Some(27.813854652054538),false,None,Some((27.81385170563636,27.813857598472712)),Some(3.841460930249923)) upper=LmmProfileEndpoint(Some(34.59105253061114),false,None,Some((34.59104958419296,34.591055477029315)),Some(3.8414575094004704))
+mixeff4s.stats.InferenceWorkflowSuite:
+  + documented inference workflow keeps coefficient information, null pairs and qualified profile endpoints 4.094s
+[error] Failed: Total 11, Failed 1, Errors 0, Passed 10
+[error] Failed tests:
+[error] 	mixeff4s.stats.LmmProfileSuite
+[error] (mixeff4sJVM / Test / testOnly) sbt.TestsFailedException: Tests unsuccessful
+[error] Total time: 8 s, completed Oct 29, 2026, 8:11:25 p.m.

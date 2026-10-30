@@ -1,0 +1,12 @@
+{
+  "starting_checkpoint": "74239f432790d9f2b90d1864280b66a3bfdc173d",
+  "unaffected_tracked_hashes_verified": 525,
+  "prior_untracked_file_names_preserved": 23,
+  "existing_changed_allowlist": [
+    "README.md",
+    "src/main/scala/mixeff4s/prelude.scala",
+    "src/main/scala/mixeff4s/stats/Lrt.scala",
+    "src/main/scala/mixeff4s/stats/Profile.scala"
+  ],
+  "unchanged_parity_catalog_sha256": "0ee13242283243a21ad9e631e44e3ce7088c3639b9e14f500ef9d26c92d9ee28"
+}

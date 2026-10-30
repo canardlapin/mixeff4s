@@ -1,0 +1,44 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 2 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+R_CURVATURE nodes=1 covariance=Vector(Vector(0.03261863190185839, -2.3218924663084693E-4), Vector(-2.3218924663084695E-4, 0.004366399181521772)) reference=Vector(Vector(0.032618604362152734, -2.321891684972643E-4), Vector(-2.321891684972643E-4, 0.004366398363437914)) LR=82.37135360489998
+R_CURVATURE nodes=5 covariance=Vector(Vector(0.03270098771859101, -2.3222362763867908E-4), Vector(-2.3222362763867908E-4, 0.0043657222114889364)) reference=Vector(Vector(0.0327009805550252, -2.32223588509669E-4), Vector(-2.3222358850966896E-4, 0.004365722118847771)) LR=82.35843203614735
+R_PROFILE_POINT target=Coefficient(days) value=8.0 objective=1803.2827384186367 reference=1803.282738425664
+R_PROFILE_POINT target=Coefficient(days) value=10.0 objective=1794.4179934094545 reference=1794.4179934106182
+R_PROFILE_POINT target=Coefficient(days) value=12.0 objective=1797.692797013634 reference=1797.6927971140506
+R_PROFILE_POINT target=RandomEffectStdDev(subj) value=20.0 objective=1807.9379144075315 reference=1807.9379144076024
+R_PROFILE_POINT target=RandomEffectStdDev(subj) value=40.0 objective=1794.405897258126 reference=1794.4058972581518
+R_PROFILE_POINT target=ResidualStdDev value=20.0 objective=1877.76255037491 reference=1877.7625503749086
+R_PROFILE_POINT target=ResidualStdDev value=30.0 objective=1794.3644826137152 reference=1794.3644826137183
+mixeff4s.stats.LikelihoodContractSuite:
+  + rowresponse, trials, offsets and power likelihood remain explicit comparison contracts 0.804s
+  + invalid targets and information budgets refuse without covariance substitution 0.014s
+==> X mixeff4s.stats.LikelihoodContractSuite.Gaussian null bootstrap attempts both models and retains qualification failures  0.014s munit.FailException: src/test/scala/mixeff4s/stats/LikelihoodContractSuite.scala:11 likelihood_fit_unqualified: projected_gradient_failed
+10:class LikelihoodContractSuite extends munit.FunSuite:
+11:  private def right[A](x: FitResult[A]): A=x.fold(e=>fail(s"${e.code}: ${e.message}"),identity)
+12:  private val options=GlmmOptions.jointAgq(5).copy(trials=Some(GlmmAnalysisFrames.trials))
+    at munit.Assertions.fail(Assertions.scala:274)
+    at munit.Assertions.fail$(Assertions.scala:24)
+    at munit.FunSuite.fail(FunSuite.scala:13)
+    at mixeff4s.stats.LikelihoodContractSuite.right$$anonfun$1(LikelihoodContractSuite.scala:11)
+    at scala.util.Either.fold(Either.scala:198)
+    at mixeff4s.stats.LikelihoodContractSuite.right(LikelihoodContractSuite.scala:11)
+    at mixeff4s.stats.LikelihoodContractSuite.$init$$$anonfun$3(LikelihoodContractSuite.scala:34)
+mixeff4s.stats.InferenceReferenceSuite:
+  + independent R selected-objective curvature and nested likelihood ratio nAgq=1 0.505s
+  + independent R selected-objective curvature and nested likelihood ratio nAgq=5 0.233s
+  + ML constrained profile objectives match an independent dense Gaussian likelihood 0.042s
+  + ML profile intervals agree with frozen lme4 and variance is the squared SD axis 0.143s
+[error] Failed: Total 7, Failed 1, Errors 0, Passed 6
+[error] Failed tests:
+[error] 	mixeff4s.stats.LikelihoodContractSuite
+[error] (mixeff4sJVM / Test / testOnly) sbt.TestsFailedException: Tests unsuccessful
+[error] Total time: 4 s, completed Oct 29, 2026, 8:14:15 p.m.

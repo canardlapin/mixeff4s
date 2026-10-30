@@ -259,7 +259,7 @@ The [earlier joint-Laplace report](comparison/GLMM_TRANCHE.md) retains its origi
 - Report VarCorr, Wald SEs, and z-statistics; p-values stay a typed refusal
 - Fit separately labelled fast-PIRLS, canonical joint-Laplace and scalar-AGQ GLMMs (`Glmm.fit`); Normal+Identity is refused as a GLMM
 - Predict with frozen coding, compute residuals, simulate Gaussian or supported GLMM responses, and obtain qualified coefficient/contrast bootstrap intervals
-- Compare nested LMMs with `Lrt.compare`; profile intervals and bootstrap LRT calibration stay typed refusals
+- Compare verified nested LMMs or joint GLMMs; obtain explicit LMM profiles and fitted-null bootstrap LRT calibration with full failure ledgers
 - Emit a versioned compiled-design JSON artifact with a design-time pathology certificate; raw θ assessment reports geometry, while assessment of an `LmmFit` also checks its optimizer evidence
 
 ## Fit and boundaries
@@ -351,8 +351,8 @@ comparisons can still use `Lrt.statistic`; no p-value is implied. For example,
 random intercept → random intercept plus slope has a verified statistic, but
 its reference law is not implemented. Other unsupported or invalid comparisons
 return `lrt_unavailable`. Manually constructed fits without matching design and
-numerical termination evidence are refused. Profile intervals and bootstrap LRT calibration
-remain unavailable; coefficient/contrast bootstrap is described above.
+numerical termination evidence are refused. Method-specific fitted-null bootstrap calibration
+and explicit ML profile targets are described below.
 
 Numerical evidence lives in `comparison/`. Classic sleepstudy, penicillin and
 pastes ML/REML rows now compare against frozen lme4 fits, predictions, residuals,
@@ -374,3 +374,58 @@ line-for-line Rust translation.
 ## License
 
 Apache-2.0. The Rust reference crate is MIT.
+
+## Likelihood inference and model comparison
+
+`GlmmInference.coefficients(fit)` returns observed-information covariance, standard
+errors, z statistics and approximate normal intervals for the selected joint
+Laplace/AGQ objective. It includes covariance-parameter nuisance uncertainty;
+it does not hold theta fixed. `GlmmInferenceOptions.targets` accepts retained
+coefficients or contrasts. Step-halving, scale-aware curvature checks must pass;
+boundary, indefinite or unstable curvature refuses without regularization. No
+coefficient p-values are supplied.
+
+`Profile.confint(fit, LmmProfileTarget.Coefficient("days"), options)` computes
+an LMM likelihood support interval with nominal chi-square calibration. Targets
+also include `ResidualStdDev`, `RandomEffectStdDev(group)` and
+`RandomEffectVariance(group)` for scalar independent random terms. These are
+actual SD/variance profiles, with nuisance parameters re-optimized. Use an ML
+fit, or explicitly set `LmmProfileOptions(refitWithML = true)`; the result retains
+the criterion and actual ML baseline, including response-only refits. Inspect
+both endpoints and the complete evaluation ledger. Failed fits, unqualified
+nuisance boundaries and unresolved roots do not become interval endpoints.
+Tighter fit/profile controls may be needed; they are explicit in the runnable
+example. Vector/correlated RE component profiles and GLMM profiles remain refused.
+
+`Lrt.statistic(nullFit, alternativeFit)` verifies nesting and compatible data and
+likelihoods. GLMM comparisons require identical family/link, trials, offsets,
+weights, approximation and quadrature order. `Lrt.compare` supplies an ordinary
+asymptotic chi-square reference only for qualified interior fixed-effect changes
+with unchanged random structure. Covariance changes or boundaries require an
+explicit calibration.
+
+`LikelihoodBootstrap.compare(nullFit, alternativeFit,
+LikelihoodBootstrapOptions(nsim = 39, seed = 20261029L))` simulates under the fitted
+null, draws new random effects, and cold-refits both models to every identical
+response. It supports ML LMMs and qualified joint GLMMs. All attempts remain in
+the result; any failed or unqualified pair refuses calibration. The estimate is
+`(exceedances + 1) / (nsim + 1)`, including numerical ties under the recorded
+`statisticTolerance` (default `1e-7`; zero requests exact comparison). Wilson bounds
+quantify Monte Carlo uncertainty in that fitted-null, tolerance-adjusted tail probability, not nuisance-estimation
+uncertainty or exact test size. A zero exceedance count does not produce a zero
+p-value.
+
+Boundary LRT qualification is distinct from coefficient bootstrap. Independent
+scalar boundary terms require stable one-sided variance scores, positive tangent
+curvature and feasible-direction checks. Weak/near-boundary evidence and vector
+boundaries refuse. Finite-MLE existence and global optimality remain unassessed.
+
+Run the complete workflow, including all four supported profile target kinds:
+
+```sh
+sbt 'mixeff4sJVM/Test/runMain mixeff4s.examples.LikelihoodInference'
+```
+
+The [inference qualification report](comparison/INFERENCE_TRANCHE.md) records
+independent R curvature, exact Gaussian constrained likelihoods, profile endpoints,
+bounded calibration/coverage observations, refusal rates and allocation limits.

@@ -1,0 +1,1498 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 8 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] compiling 67 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.js/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 9 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+mixeff4s.optimizer.TrustBqSuite:
+  + recovers a shifted quadratic 0.021s
+mixeff4s.compiler.SemanticSuite:
+  + sleepstudy IR is a full Cholesky random slope 0.022s
+  + zerocorr is one diagonal term, not a silent split 0.001s
+  + cs is typed IR and marked parsed_refused 0.001s
+  + nested grouping keeps the written slash 0.003s
+mixeff4s.stats.ObservedInformationSuite:
+  + full nuisance-adjusted inverse has correct factor two and differs from fixed-nuisance curvature 0.021s
+  + boundary, indefinite information and failed probes never obtain a fallback covariance 0.005s
+  + step-unstable curvature refuses and scalar chi-square threshold matches independent R 0.002s
+  + equilibrated checks detect unstable middle coordinate hidden by raw matrix scale 0.001s
+  + extreme admitted confidence levels expand the chi-square bracket 0.001s
+mixeff4s.comparison.DatasetSuite:
+  + catalog names match the fixture manifest 0.022s
+  + every catalog dataset loads with the declared row count 0.055s
+  + rail keeps the nlme Rail level order 0.002s
+  + ergostool keeps the nlme Subject level order 0.001s
+  + oats Variety includes a spaced level 0.003s
+mixeff4s.data.ModelFrameSuite:
+  + builds aligned numeric and factor columns 0.002s
+  + encodes an explicit factor level order 0.001s
+  + rejects a value outside the declared factor levels 0.0s
+  + rejects length mismatch 0.0s
+  + rejects non-finite numeric input at the frame boundary 0.001s
+  + rejects non-finite numeric columns added after frame construction 0.0s
+  + validates raw factor references and values 0.002s
+  + permits a legitimate empty aligned frame 0.002s
+  + materializes I() onto the frame 0.026s
+mixeff4s.model.FamilySuite:
+  + canonical links 0.0s
+  + Normal+Identity is not a supported GLMM pair 0.0s
+  + logit is inverse of logistic 0.001s
+  + probit is centered at zero 0.0s
+mixeff4s.comparison.ScorecardSuite:
+  + embedded scorecard uses the rust class vocabulary 0.03s
+  + dyestuff2 is a frozen lme4 boundary claim 0.006s
+  + contrast names align mixeff4s dummy labels to lme4 0.003s
+  + sleepstudy zerocorr is a frozen MixedModels.jl claim 0.014s
+  + station fixed-only formula is unsupported with a rust contract claim 0.017s
+  + fast-PIRLS contraception is documented divergence 0.009s
+  + every scorecard row has a claimed frozen reference 0.022s
+  + frozen catalog refuses p-values 0.001s
+mixeff4s.compiler.ArtifactSuite:
+  + sleepstudy compiled-design snapshot 0.094s
+  + zerocorr sleepstudy is a diagonal theta map 0.011s
+  + assessing bare sleepstudy ML theta reports geometry without convergence 0.017s
+  + penicillin compiled-design snapshot 0.015s
+  + pastes compiled-design snapshot 0.012s
+mixeff4s.pathology.SeparationSuite:
+  + complete FE separation is a strict sign split 0.025s
+  + quasi-complete FE separation has a tie at zero 0.009s
+  + overlapping classes are not FE-separated 0.004s
+  + conditional scan finds all-zero and all-one groups 0.003s
+  + every singleton group is conditionally separated 0.0s
+  + empty inputs are not conditionally separated 0.0s
+  + a Gaussian spec has an empty separation report 0.007s
+  + Bernoulli generate draws a binary response 0.022s
+  + Bernoulli generate refuses an unsupported link 0.002s
+mixeff4s.ReadmeExampleSuite:
+  + README quick start compiles against the public API 0.185s
+mixeff4s.pathology.PathologySuite:
+  + sleepstudy is an easy design-time certificate 0.019s
+  + no random effects maps to not_identifiable 0.004s
+  + unsupported covariance maps to not_optimized 0.002s
+  + singletons with a random slope are a refusal certificate 0.002s
+  + a single grouping level is a refusal certificate 0.003s
+  + bare interior theta is geometry only 0.017s
+  + a diagonal theta at the lower bound is boundary geometry only 0.01s
+  + an off-diagonal near zero is not a variance boundary 0.017s
+  + assessOutcome maps an engine error on a refusal design 0.006s
+  + refusal designs do not claim a converged fit status 0.003s
+mixeff4s.lmm.DyestuffFitSuite:
+  + dyestuff ML matches frozen lme4 0.166s
+  + dyestuff REML matches frozen lme4 0.053s
+  + dyestuff2 ML has reduced covariance rank at the boundary against frozen lme4 0.046s
+  + dyestuff2 REML has reduced covariance rank at the boundary against frozen lme4 0.026s
+mixeff4s.formula.DslSuite:
+  + typed DSL lowers to the same IR as the string parser 0.005s
+  + string interpolator 0.002s
+mixeff4s.glmm.CoefficientLayoutSuite:
+  + GLMM discloses dropped columns using the same retained coefficient layout 0.061s
+mixeff4s.glmm.JointDenseSuite:
+  + crossed vector terms and reduced-rank covariance match independent dense conditional solve 0.174s
+mixeff4s.glmm.TerminationSuite:
+  + profiled deviance preserves wrong theta dimension as a typed error 0.001s
+  + nonfinite or negative diagonal theta is refused 0.002s
+  + an unfinished PIRLS probe returns a refusal, never a finite penalty 0.003s
+  + a public GLMM refuses unfinished PIRLS 0.002s
+  + a public GLMM refuses an exhausted optimizer budget 0.003s
+  + an accepted GLMM records the final inner and outer termination separately 0.023s
+mixeff4s.glmm.GlmmInputSuite:
+  + binomial counts and ambiguous fractional responses refuse in both estimators 0.421s
+  + invalid trials, cases, offsets, controls and fractional Poisson counts refuse 0.013s
+  + estimated-dispersion families refuse until dispersion is explicitly implemented 0.001s
+  + logit inverse and derivative stay finite at large eta 0.001s
+mixeff4s.pathology.FitEvidenceSuite:
+  + an arbitrary raw theta does not certify optimization 0.011s
+  + raw reassessment clears previous convergence evidence and stale geometry 0.059s
+  + a mismatched or exhausted optimizer result cannot certify a fit 0.001s
+  + fitted covariance rank recognizes a nonzero off-diagonal reduced-rank Lambda 0.015s
+  + failed fit outcomes clear geometry and retain the stable reason code 0.011s
+  + compiler serializes geometry separately and requires a matching fit 0.027s
+mixeff4s.lmm.CoefficientLayoutSuite:
+  + ML: a dropped column at index 0 preserves all coefficient axes 0.088s
+  + REML: a dropped column at index 0 preserves all coefficient axes 0.043s
+  + ML: a dropped column at index 1 preserves all coefficient axes 0.068s
+  + REML: a dropped column at index 1 preserves all coefficient axes 0.032s
+  + ML: a dropped column at index 2 preserves all coefficient axes 0.018s
+  + REML: a dropped column at index 2 preserves all coefficient axes 0.014s
+  + original middle-column counterexample has a finite days standard error and z 0.011s
+  + balanced random-intercept covariance agrees with the analytic GLS calculation 0.053s
+  + a nonzero scaled alias at theta zero agrees with independent OLS fractions 0.005s
+  + a fitted scaled alias matches its selected reduced model in ML and REML 0.053s
+  + full-rank column reordering permutes both covariance axes 0.007s
+  + a rank-zero fixed design has empty active outputs and records its dropped column 0.039s
+  + layout construction rejects repeated and out-of-range indices, including copy 0.004s
+  + fit and coefficient table construction cannot silently truncate inconsistent shapes 0.002s
+mixeff4s.formula.ParserSuite:
+  + fixed effects with explicit intercept 0.002s
+  + implicit intercept 0.004s
+  + empty RHS is rejected 0.002s
+  + no intercept with zero 0.0s
+  + no intercept with minus one 0.002s
+  + colon interaction 0.001s
+  + interaction subtraction is insensitive to variable order 0.001s
+  + star expansion 0.0s
+  + three-way star expansion 0.001s
+  + nesting slash 0.0s
+  + random intercept 0.001s
+  + random intercept and slope 0.0s
+  + random slope syntax has implicit intercept 0.001s
+  + zerocorr 0.001s
+  + covariance wrappers parse as random terms 0.002s
+  + crossed random effects 0.001s
+  + interaction grouping 0.001s
+  + cell grouping with colon 0.001s
+  + nested grouping expands to main and cell 0.005s
+  + crossed star grouping expands to main effects and cell 0.003s
+  + only random term still has implicit intercept 0.001s
+  + whitespace handling 0.001s
+  + dotted and underscored identifiers 0.001s
+  + backtick identifiers 0.001s
+  + unterminated backtick is actionable 0.003s
+  + empty backtick is rejected 0.0s
+  + bare arithmetic is refused 0.001s
+  + stateful transforms are refused 0.002s
+  + stateless subset parses with canonical labels 0.005s
+  + formula display canonicalizes terms 0.0s
+mixeff4s.lmm.TerminationSuite:
+  + a public LMM refuses an exhausted main optimizer budget 0.004s
+  + an accepted fit retains evidence for its actual theta and objective 0.036s
+  + a zero fixed-effect pivot cannot become a finite REML objective 0.008s
+mixeff4s.linalg.SparseBlockSuite:
+  + structural zeros persist and clones isolate mutable values 0.001s
+  + sparse subtraction preflight prevents late partial mutation 0.003s
+  + CSC subtraction updates a dense target without sparse densification 0.0s
+  + CSC rank-k uses structural support for a diagonal target 0.001s
+  + dense copy from sparse clears stale fill 0.0s
+  + sparse off-diagonal scaling visits stored support, not structural gaps 0.001s
+  + sparse vector off-diagonal scaling transforms only occupied rectangles 0.001s
+  + structured matvec avoids dense block traversal semantics 0.0s
+  + sparse right solve preserves diagonal and block-diagonal closures 0.001s
+  + sparse block solve skips entirely absent row-level rectangles 0.001s
+  + dense right divisor promotes sparse target before mutation 0.001s
+COUNT_VECTOR binomial n=100 p=0.5 values=Vector(44.0, 49.0, 48.0, 42.0, 43.0, 50.0, 51.0, 50.0)
+BOOTSTRAP_WITNESS qualified=39 lower=9.066105347530183 upper=11.74643118383828 level=0.95
+COUNT_VECTOR binomial n=10000 p=0.7 values=Vector(6949.0, 7027.0, 7050.0, 6963.0, 7079.0, 7003.0, 7014.0, 7031.0)
+COUNT_VECTOR binomial n=2147483647 p=5.0E-9 values=Vector(11.0, 8.0, 19.0, 16.0, 5.0, 11.0, 9.0, 10.0)
+COUNT_VECTOR binomial n=2147483647 p=0.5 values=Vector(1.073767737E9, 1.073727753E9, 1.073715655E9, 1.073760481E9, 1.073700554E9, 1.073739579E9, 1.073734387E9, 1.073725196E9)
+COUNT_VECTOR poisson lambda=9.9 values=Vector(7.0, 12.0, 14.0, 8.0, 6.0, 8.0, 8.0, 14.0)
+mixeff4s.lmm.SparsePlsSuite:
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | nested) REML=false 0.215s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | nested) REML=true 0.075s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | h) REML=false 0.099s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | h) REML=true 0.101s
+  + blocked factor equals independent dense factor across refreshes: (1 | subject) + (1 | item) + (1 | site) REML=false 0.108s
+  + blocked factor equals independent dense factor across refreshes: (1 | subject) + (1 | item) + (1 | site) REML=true 0.101s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | partial) + (1 | h) REML=false 0.069s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | partial) + (1 | h) REML=true 0.095s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | nested) REML=false 0.109s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | nested) REML=true 0.073s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | h) REML=false 0.058s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | h) REML=true 0.053s
+  + invalid weight and response refreshes leave the previous cross-products intact 0.002s
+COUNT_VECTOR poisson lambda=10.0 values=Vector(10.0, 7.0, 11.0, 16.0, 12.0, 11.0, 8.0, 9.0)
+mixeff4s.design.DesignSuite:
+  + sleepstudy design shapes match mixeff-rs 0.012s
+  + zerocorr sleepstudy has two theta slots 0.002s
+COUNT_VECTOR poisson lambda=10.1 values=Vector(10.0, 7.0, 11.0, 16.0, 12.0, 11.0, 8.0, 9.0)
+mixeff4s.lmm.RefitSuite:
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=false DerivativeFree 0.636s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=false AnalyticGradient 0.135s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=true DerivativeFree 0.132s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=true AnalyticGradient 0.147s
+  + previous start requires success and explicit warm refits preserve options and objective 0.037s
+  + failed numerical fit does not poison a later cold refit 0.023s
+  + independent batches reset starts and separate sessions do not share scratch 0.115s
+COUNT_VECTOR poisson lambda=1000.0 values=Vector(1001.0, 972.0, 1026.0, 1056.0, 1021.0, 1006.0, 978.0, 992.0)
+COUNT_VECTOR poisson lambda=1000000.0 values=Vector(1000047.0, 999111.0, 1000814.0, 1001780.0, 1000660.0, 1000191.0, 999310.0, 999743.0)
+mixeff4s.glmm.CountSamplerCalibrationSuite:
+  + independent frozen binomial calibration 0.167s
+  + independent frozen Poisson calibration 0.155s
+mixeff4s.lmm.StationFitSuite:
+  + station intercepts match frozen lme4 0.014s
+  + station duration slopes have reduced covariance rank at the boundary against frozen lme4 0.036s
+  + station fixed-only formula is refused 0.007s
+mixeff4s.comparison.HarnessGateSuite:
+  + scorecard, fixtures, and frozen files match the embedded catalogs 0.019s
+  + scorecard datasets exist and vendored directories match the catalog 0.016s
+  + every scorecard row names a loadable fixture and a frozen claim 0.031s
+mixeff4s.glmm.GlmmPredictionSuite:
+  + fitted link and response predictions preserve the fitted conditional snapshot 1.038s
+  + population prediction removes modes and frozen encoding refuses unknown groups unless zero-effect is explicit 0.037s
+  + raw and Pearson residuals are finite 0.003s
+  + new-data factor level order is aligned to training and incompatible columns refuse 0.005s
+  + offset fits require explicit compatible offsets for new data and b-zero differs from marginal mean 0.357s
+mixeff4s.lmm.PredictionSuite:
+  + new data reuses training factor levels, transformations and row order 0.02s
+  + unknown fixed levels and changed predictor types refuse 0.0s
+  + new grouping levels require explicit zero-effect policy 0.001s
+  + rank-dropped columns require estimable new rows 0.008s
+  + complete snapshot seal rejects changed public fit fields 0.002s
+  + overflow in a dropped interaction cannot masquerade as an estimable row 0.004s
+  + alias estimability is invariant to the units of a dropped zero column 0.004s
+  + later response refits leave earlier modes and predictions unchanged 0.02s
+  + copied compiled designs cannot substitute another prediction recipe 0.007s
+  + chained derived recipes preserve dependencies and reject contradictory supplied helpers 0.004s
+mixeff4s.stats.BootstrapSuite:
+  + explicit tight controls produce 39 independently assessed bootstrap refits and intervals 0.609s
+  + ML and REML originals can request tight controls without changing assessment thresholds 0.416s
+  + actual generated responses reproduce independent lme4 refits and R percentile intervals 0.177s
+  + injected middle failure retains later responses, seeds and cold-fit statistics 0.035s
+  + unqualified replicas remain visible and authoritative fit budget overrides low-level controls 0.003s
+  + percentile convention is R type 7 and confidence level is explicit 0.02s
+  + target validation and unqualified original fit refusals happen before sampling 0.014s
+  + invalid exposed numerical controls are refused by fits and sessions 0.005s
+mixeff4s.lmm.WorkflowParitySuite:
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy ML DerivativeFree 0.044s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy ML AnalyticGradient 0.013s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy REML DerivativeFree 0.011s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy REML AnalyticGradient 0.012s
+  + frozen lme4 fit/prediction/residual/modes: penicillin ML DerivativeFree 0.027s
+  + frozen lme4 fit/prediction/residual/modes: penicillin ML AnalyticGradient 0.031s
+  + frozen lme4 fit/prediction/residual/modes: penicillin REML DerivativeFree 0.016s
+  + frozen lme4 fit/prediction/residual/modes: penicillin REML AnalyticGradient 0.02s
+  + frozen lme4 fit/prediction/residual/modes: pastes ML DerivativeFree 0.023s
+  + frozen lme4 fit/prediction/residual/modes: pastes ML AnalyticGradient 0.042s
+  + frozen lme4 fit/prediction/residual/modes: pastes REML DerivativeFree 0.021s
+  + frozen lme4 fit/prediction/residual/modes: pastes REML AnalyticGradient 0.031s
+mixeff4s.glmm.GlmmSimulationSuite:
+  + GLMM simulations are seeded, integral for Poisson, and condition modes without residual sigma 0.011s
+  + power-likelihood fits refuse response simulation 0.016s
+mixeff4s.glmm.PirlsSuite:
+  + Bernoulli logit working observation at eta=0 0.001s
+  + working observation subtracts a supplied offset 0.0s
+  + bounded Bernoulli mean stays off the 0/1 boundary 0.0s
+mixeff4s.ArchitectureSuite:
+  + layer imports stay acyclic 0.013s
+INFERENCE_COV beta=Vector(-0.33485627033414656, 0.5853220704723535) theta=Vector(0.9443224516237991) covariance=Vector(Vector(0.03270098771859101, -2.3222362763867908E-4), Vector(-2.3222362763867908E-4, 0.0043657222114889364)) rows=Vector(GlmmCoefficientInterval(retained-basis coefficient: x,0.5853220704723535,0.06607361206630781,8.858635878494985,0.45582024854438963,0.7148238924003174,0.95), GlmmCoefficientInterval(retained-basis contrast: twox,1.170644140944707,0.13214722413261562,8.858635878494985,0.9116404970887793,1.4296477848006348,0.95)) stability=7.107651358131889E-7/7.006742217272144E-7
+R_CURVATURE nodes=1 covariance=Vector(Vector(0.03261863190185839, -2.3218924663084693E-4), Vector(-2.3218924663084695E-4, 0.004366399181521772)) reference=Vector(Vector(0.032618604362152734, -2.321891684972643E-4), Vector(-2.321891684972643E-4, 0.004366398363437914)) LR=82.37135360489998
+mixeff4s.lmm.SimpleLmmFitSuite:
+  + rail REML matches frozen lme4 0.018s
+  + ergostool REML matches frozen lme4 0.02s
+  + cake REML matches frozen lme4 after aligning contrast names 0.032s
+mixeff4s.glmm.GlmmWorkflowSuite:
+  + documented grouped-binomial workflow runs with qualified inner and outer evidence 1.761s
+mixeff4s.lmm.CoreLmmFitSuite:
+  + oats REML matches frozen lme4 0.024s
+  + orthodont REML matches frozen lme4 0.032s
+  + oxide nested intercepts match MixedModels.jl 0.027s
+  + oxide nesting sugar matches the Lot + Lot:Wafer fit 0.04s
+  + machines worker-machine intercepts match frozen lme4 0.028s
+  + machines categorical random slope matches frozen lme4 0.026s
+mixeff4s.glmm.CountSamplerSuite:
+  + Bernoulli and binomial boundaries are exact and deterministic 0.002s
+  + binomial samples stay integral and bounded across inversion and BTPE regimes 0.001s
+  + count moments and tail bins remain plausible without cross-row stream coupling 0.022s
+  + invalid and unsupported sampler inputs refuse with stable codes 0.0s
+  + stable Poisson PMF agrees with independent frozen density values 0.0s
+mixeff4s.glmm.GlmmSuite:
+  + Normal+Identity is refused as a GLMM 0.0s
+  + noncanonical joint curvature is explicitly refused 0.001s
+  + nAGQ > 1 is refused in this slice 0.0s
+  + a small Bernoulli RE intercept is labelled fast-PIRLS 0.002s
+  + a perfectly separated Bernoulli design preserves its factorization failure 0.001s
+mixeff4s.lmm.CrossedFitSuite:
+  + penicillin crossed intercepts match MixedModels.jl 0.012s
+  + penicillin REML matches mixeff-rs 0.006s
+  + pastes nested intercepts match MixedModels.jl 0.014s
+GLMM_RESULT name=cbpp joint=true objective=184.05256372951789 beta=Vector(-1.3985321424664283, -0.9923327347956438, -1.1286720841219704, -1.5803138851450342) theta=Vector(0.6422614486515388) stop=StepBelowTolerance evals=1746 assessment=Some(JointAssessment(Available(Vector(-1.5919314051578365E-9, 1.8947806286936006E-10, -8.39384908756563E-10, -1.198990052865148E-10, 1.2695030212247124E-8),1.2695030212247124E-8,1.0E-4),Interior))
+GLMM_DELTA name=cbpp joint=true eta=9.328653538531739E-8 mu=6.709983027541888E-9
+GLMM_RESULT name=cbpp joint=false objective=184.10859094522772 beta=Vector(-1.3604726621646581, -0.9761765042324674, -1.1110759551794278, -1.559679412677831) theta=Vector(0.6418204313115554) stop=ObjectiveStagnation evals=54 assessment=None
+GLMM_DELTA name=cbpp joint=false eta=5.512458978618184E-6 mu=1.0554126128603514E-6
+mixeff4s.lmm.ProfiledGradientSuite:
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g), REML=false 0.018s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g), REML=true 0.016s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g), REML=false 0.009s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g), REML=true 0.017s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g) + (1 | h), REML=false 0.01s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g) + (1 | h), REML=true 0.011s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g) + (1 | nested), REML=false 0.01s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g) + (1 | nested), REML=true 0.006s
+  + observation-space derivative oracle: y ~ 0 + (1 | g), REML=false 0.003s
+  + observation-space derivative oracle: y ~ 0 + (1 | g), REML=true 0.006s
+  + zero Lambda has zero gradient even at a variance maximum: closed-form witness 0.002s
+  + gradient scratch budget is enforced without a dense inverse allocation 0.002s
+  + gradient scratch sizing rejects impossible arrays before allocation 0.0s
+BOUNDARY_FIT small=Vector(0.0)/Vector(-0.40546510838643435) large=Vector(0.0)/Vector(-0.433360797580615, 0.6475274847415023) assessment=GlmmAssessment(StepBelowTolerance,true,Right(ConditionalModeResult(0,0.0,1.0E-8,0)),Some(JointAssessment(Available(Vector(-2.579743825966337E-7, 2.5937178331029526E-7, 6.679101716144942E-9),2.5937178331029526E-7,1.0E-4),Unresolved)),Vector(GlmmCovarianceRank(g,1,Some(0),Vector(0.0))),Excluded(mixed_binomial_rows_span_retained_design,2),Vector(finite_joint_mle_not_assessed),Vector(bootstrap_reduced_rank, bootstrap_covariance_boundary, bootstrap_outer_unqualified))
+mixeff4s.glmm.ContraFitSuite:
+  + contra Laplace deviance at the Julia theta matches MixedModels.jl 0.121s
+  + contra fast-PIRLS fit matches MixedModels.jl 0.826s
+mixeff4s.glmm.GlmmAssessmentSuite:
+  + mixed grouped-binomial rows and positive Poisson counts provide explicit sufficient witnesses 0.112s
+  + pure groups are retained risk flags while their Gaussian-penalized modes are finite 0.105s
+  + separation and unavailable high-dimensional evidence are not mistaken for an overlap certificate 0.013s
+  + strict one-dimensional outcome hull overlap includes an interior singleton class 0.0s
+  + numerical boundary fits and fast fits remain ineligible rather than gaining a certificate 0.033s
+  + touching outcome hulls refuse and near-dependent mixed-row witnesses do not pass rank 0.004s
+AGQ_FIT name=cbpp nodes=5 objective=183.9680757051539 reference=183.96807570514318 beta=Vector(-1.3991938126594121, -0.9914381571421232, -1.1278532403644057, -1.5795089075323778) theta=Vector(0.6473646119789279) assessment=Some(JointAssessment(Available(Vector(3.3854863628438904E-11, -4.263256414560601E-9, -1.5119897738408439E-9, -2.48917229006423E-9, 4.528525702577705E-8),4.528525702577705E-8,1.0E-4),Interior))
+mixeff4s.optimizer.GradientTrustBqSuite:
+  + gradient oracle solves bounded quadratic and records first-order evidence 0.001s
+  + multidimensional box-boundary quadratic respects the active bound 0.001s
+  + zero derivative at a bounded maximum is probed before first-order stop 0.004s
+  + budget includes initial gradient oracle call and seed probes 0.0s
+  + shifted Newton direction minimizes the original quadratic along its feasible ray 0.004s
+  + disabled gradient tolerance cannot report a gradient stop 0.0s
+  + first-order stop validates a scalar feasible escape at a zero-gradient maximum 0.005s
+  + first-order stop validates a feasible mixed negative-curvature escape 0.006s
+  + returned projected-gradient evidence belongs to returned best point 0.001s
+  + negative curvature hidden from all axial and pair directions is escaped 0.011s
+  + Cauchy fallback projects outward components onto the feasible tangent cone 0.001s
+  + invalid trust-region constants are refused before oracle evaluation 0.001s
+  + invalid gradient values and dimensions are refused 0.001s
+  + a fresh escape probe remains the returned best point when the next probe exhausts budget 0.0s
+  + projected Cauchy ray uses its own directional derivative after blocking a coordinate 0.001s
+GLMM_RESULT name=culcitalogreg joint=true objective=60.70584123131575 beta=Vector(5.096143470602149, -3.8424041252860315, -4.431210125918024, -5.599290393452696) theta=Vector(3.4368388050854493) stop=RadiusBelowTolerance evals=1020 assessment=Some(JointAssessment(Available(Vector(3.338360010471305E-8, 4.903499023588372E-9, 1.592805947206448E-8, 2.4349747741760118E-8, -1.9871458383331705E-8),3.338360010471305E-8,1.0E-4),Interior))
+GLMM_DELTA name=culcitalogreg joint=true eta=4.001340099328843E-4 mu=1.319314920111836E-5
+GLMM_RESULT name=culcitalogreg joint=false objective=61.12389317059647 beta=Vector(4.111979455646433, -3.1411601787098498, -3.7075233257309543, -4.7781994035865765) theta=Vector(3.3207128031185724) stop=ObjectiveTolerance evals=51 assessment=None
+GLMM_DELTA name=culcitalogreg joint=false eta=1.769236702422461E-4 mu=7.4527425627524124E-6
+mixeff4s.stats.LikelihoodInferenceSuite:
+  + selected-estimator observed covariance and linear contrasts retain nuisance uncertainty 1.191s
+  + nested GLMM statistic matches explicit objectives and incompatible estimators refuse 0.446s
+  + null simulation preserves complete failed-pair ledger and later indexed seeds 0.056s
+  + tail calibration includes ties, plus-one correction and Monte Carlo interval at all-zero extremes 0.001s
+mixeff4s.lmm.LmmAssessmentSuite:
+  + a zero-theta scalar variance maximum fails the feasible boundary probe 0.006s
+  + relative covariance rank retains nonzero off-diagonal degeneracy 0.002s
+  + tampered fit evidence is unavailable rather than trusting stored optimizer norms 0.003s
+  + weak full-rank covariance uses its own relative scale 0.001s
+  + gradient scratch refusal preserves independent covariance rank evidence 0.017s
+GLMM_RESULT name=synthetic_poisson_offset joint=true objective=68.33363474264094 beta=Vector(0.3260365161751499, 0.6448436012883756) theta=Vector(0.14306294094497995) stop=StepBelowTolerance evals=684 assessment=Some(JointAssessment(Available(Vector(-6.442254137558241E-9, -4.026408835973901E-9, -3.514818066226629E-8),3.514818066226629E-8,1.0E-4),Interior))
+GLMM_DELTA name=synthetic_poisson_offset joint=true eta=1.2081004419073338E-8 mu=6.777366667876095E-8
+GLMM_RESULT name=synthetic_poisson_offset joint=false objective=68.34024108816556 beta=Vector(0.3350952940246258, 0.6448436012728314) theta=Vector(0.12680392533772622) stop=ObjectiveStagnation evals=48 assessment=None
+GLMM_DELTA name=synthetic_poisson_offset joint=false eta=0.015513429456492922 mu=0.09050054970637156
+mixeff4s.design.UpstreamDesignSuite:
+  + no-intercept main effects full-code only the first categorical variable 0.001s
+  + no-intercept factor interaction full-codes both factors 0.001s
+  + interaction contrasts follow marginality and formula variable order 0.0s
+  + numeric by factor interaction uses full factor indicators when uncovered 0.001s
+  + random-slope bases use the same no-intercept contrast assignment 0.001s
+  + random no-intercept interaction full-codes both factor bases 0.006s
+  + grouping drops unused declared levels in their declared order 0.002s
+  + combined grouping retains distinct tuples with underscore-containing levels 0.001s
+  + expanded fixed columns agree with independent R model.matrix numeric witnesses 0.013s
+R_CURVATURE nodes=5 covariance=Vector(Vector(0.03270098771859101, -2.3222362763867908E-4), Vector(-2.3222362763867908E-4, 0.0043657222114889364)) reference=Vector(Vector(0.0327009805550252, -2.32223588509669E-4), Vector(-2.3222358850966896E-4, 0.004365722118847771)) LR=82.35843203614735
+R_PROFILE_POINT target=Coefficient(days) value=8.0 objective=1803.2827384186367 reference=1803.282738425664
+R_PROFILE_POINT target=Coefficient(days) value=10.0 objective=1794.4179934094545 reference=1794.4179934106182
+R_PROFILE_POINT target=Coefficient(days) value=12.0 objective=1797.692797013634 reference=1797.6927971140506
+mixeff4s.lmm.WorkflowExampleSuite:
+  + documented public workflow fits, assesses, predicts, simulates and produces qualified intervals 0.087s
+R_PROFILE_POINT target=RandomEffectStdDev(subj) value=20.0 objective=1807.9379144075315 reference=1807.9379144076024
+R_PROFILE_POINT target=RandomEffectStdDev(subj) value=40.0 objective=1794.405897258126 reference=1794.4058972581518
+R_PROFILE_POINT target=ResidualStdDev value=20.0 objective=1877.76255037491 reference=1877.7625503749086
+R_PROFILE_POINT target=ResidualStdDev value=30.0 objective=1794.3644826137152 reference=1794.3644826137183
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=0,0 n=4000 expected=2251.4072120416376 observed=2324.144367784971 se=50.34299571158385
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=1,0 n=4000 expected=1296.8801410171814 observed=1323.526511312828 se=41.0814207842117
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=1,1 n=4000 expected=2251.4072120416376 observed=2268.335443215469 se=50.34299571158385
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=2,0 n=4000 expected=0.0 observed=122.06988334412227 se=35.59787365290622
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=2,1 n=4000 expected=0.0 observed=129.6742126511703 se=35.59787365290622
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=2,2 n=4000 expected=2251.4072120416376 observed=2224.866674978671 se=50.34299571158385
+AGQ_FIT name=cbpp nodes=9 objective=183.96674359266913 reference=183.96674359266925 beta=Vector(-1.3992301926125008, -0.9914038763403755, -1.1278196773785096, -1.5794710161539063) theta=Vector(0.6475177121787289) assessment=Some(JointAssessment(Available(Vector(4.062478008330834E-10, 4.452734477429961E-9, -1.1760270428766268E-9, -3.898797116422778E-10, 1.0563402004966823E-8),1.0563402004966823E-8,1.0E-4),Interior))
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=0,0 n=4000 expected=954.5270710244562 observed=963.3448570554591 se=21.343874171744538
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=1,0 n=4000 expected=0.0 observed=-11.907344267587332 se=15.09239816363297
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=1,1 n=4000 expected=954.5270710244562 observed=958.2672427841516 se=21.343874171744538
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=2,0 n=4000 expected=0.0 observed=2.6796746420138806 se=15.09239816363297
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=2,1 n=4000 expected=0.0 observed=24.411553432194694 se=15.09239816363297
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=2,2 n=4000 expected=954.5270710244562 observed=987.9784626665498 se=21.343874171744538
+LMM_NULL_ORIGINAL small=LmmAssessment(GradientBelowTolerance,true,Pass(8.346834334815867E-10,1.910541058073062E-6),NotApplicable,Vector(RandomEffectCovarianceRank(0,Vector(0.6107803177752134),Some(1),6.107803177752133E-13,None)),Vector(),None,true) large=LmmAssessment(GradientBelowTolerance,true,Pass(1.564637308604233E-11,1.79407864300524E-6),NotApplicable,Vector(RandomEffectCovarianceRank(0,Vector(1.358650835782112),Some(1),1.358650835782112E-12,None)),Vector(),None,true)
+mixeff4s.stats.LmmProfileSuite:
+  + REML profile refuses unless an ML refit is explicit 0.005s
+  + unknown coefficient is a stable refusal after an ML fit 0.004s
+  + qualified ML coefficient profile retains finite likelihood endpoints 0.112s
+  + residual and scalar random-effect targets use the likelihood profiler 0.288s
+  + explicit ML refit preserves a response-only REML snapshot rather than training y 0.089s
+  + budget failures retain optimizer evidence and unresolved brackets never fabricate endpoints 0.012s
+LMM_NULL_PAIR index=0 statistic=Right(5.83739177994039)
+LMM_NULL_PAIR index=1 statistic=Right(1.4641808439143915)
+LMM_NULL_PAIR index=2 statistic=Right(0.5621478832224511)
+LMM_NULL_PAIR index=3 statistic=Right(0.0528232807259883)
+LMM_NULL_PAIR index=4 statistic=Right(0.2286315773046681)
+LMM_NULL_PAIR index=5 statistic=Right(0.02578377727422776)
+LMM_NULL_PAIR index=6 statistic=Right(1.5403945158752776)
+LMM_NULL_BOOTSTRAP qualified=7 calibration=Right(MonteCarloTail(0,7,0.125,0.0,0.0,0.0,0.354330159295932,0.95))
+mixeff4s.stats.LikelihoodContractSuite:
+  + rowresponse, trials, offsets and power likelihood remain explicit comparison contracts 2.297s
+  + invalid targets and information budgets refuse without covariance substitution 0.019s
+  + Gaussian null bootstrap attempts both models and retains qualification failures 0.103s
+mixeff4s.lmm.LmmSuite:
+  + refuses a formula with no random effects 0.0s
+  + parses then refuses structured covariance 0.001s
+  + single-term random intercept fits 0.001s
+  + tiny zerocorr design retains its map but refuses an exhausted fit 0.008s
+  + parses then refuses compound symmetry 0.001s
+GRADIENT_FIT formula=reaction ~ 1 + days + (1 + days | subj) reml=false objective=1751.9393444632335 gradient_evals=12 interpolation_evals=206
+mixeff4s.glmm.JointLaplaceSuite:
+  + fixed beta modes and final-mean determinant agree with independent scalar oracle 0.017s
+  + cold A B A probes are independent of previous modes and weights 0.0s
+  + binomial trials and case weights affect constants, score and curvature consistently 0.001s
+  + Poisson constants, zero counts, offsets and power weights agree with scalar oracle 0.001s
+  + joint API refuses wrong dimensions and invalid theta 0.001s
+  + conditional and outer exhaustion are typed failures 0.001s
+  + joint fit is separately labelled and records conditional and outer evidence 0.011s
+  + near-integer accepted input is canonicalized once even under large case weights 0.002s
+  + zero theta at extreme finite logit eta retains finite likelihood and identity Hessian 0.003s
+  + stable logistic score retains small residuals under large case weights 0.0s
+  + grouped and expanded binomial have equivalent modes and assessment despite response constants 0.003s
+  + a zero-theta saddle is not accepted on projected gradient alone 0.004s
+  + degenerate response constants are exactly zero rather than amplified under large case weights 0.002s
+GRADIENT_FIT formula=strength ~ 1 + (1 | batch / cask) reml=false objective=247.99446586249402 gradient_evals=20 interpolation_evals=192
+CROSSED_BOUNDARY_REFUSAL theta=Vector(0.0, 0.0) beta=Vector(-0.43338624255449737, 0.6475526802295799) refusal=Some(likelihood_tangent_gradient)
+GRADIENT_FIT formula=diameter ~ 1 + (1 | plate) + (1 | sample) reml=false objective=332.18834866849267 gradient_evals=20 interpolation_evals=112
+GRADIENT_FIT formula=reaction ~ 1 + days + (1 + days | subj) reml=true objective=1743.6282719585156 gradient_evals=20 interpolation_evals=186
+GRADIENT_FIT formula=strength ~ 1 + (1 | batch / cask) reml=true objective=246.99074585363604 gradient_evals=17 interpolation_evals=163
+mixeff4s.stats.InferenceReferenceSuite:
+  + independent R selected-objective curvature and nested likelihood ratio nAgq=1 1.851s
+  + independent R selected-objective curvature and nested likelihood ratio nAgq=5 0.494s
+  + ML constrained profile objectives match an independent dense Gaussian likelihood 0.061s
+  + ML profile intervals agree with frozen lme4 and variance is the squared SD axis 0.414s
+mixeff4s.lmm.SleepstudyFitSuite:
+  + objective at Julia ML theta matches MixedModels.jl 0.006s
+  + sleepstudy ML fit matches MixedModels.jl 0.005s
+  + sleepstudy REML fit matches MixedModels.jl 0.004s
+  + sleepstudy VarCorr and Wald SE match MixedModels.jl 0.006s
+  + sleepstudy zerocorr ML optimizes two diagonal theta slots 0.022s
+GRADIENT_FIT formula=diameter ~ 1 + (1 | plate) + (1 | sample) reml=true objective=330.86058899113993 gradient_evals=20 interpolation_evals=141
+mixeff4s.stats.InferenceRefusalSuite:
+  + profile intervals are a typed refusal 0.002s
+  + legacy bootstrap call requires explicit seed and targets 0.001s
+  + GLMM profile intervals stay refused 0.001s
+mixeff4s.pathology.CorpusSuite:
+  + easy full-rank truth expects an interior fit 0.005s
+  + zero slope variance is a contract boundary 0.003s
+  + unit correlation is reduced-rank truth 0.001s
+  + singletons with a slope are a refusal spec 0.0s
+  + a misshapen truth covariance is a malformed spec 0.001s
+  + generate draws a deterministic Gaussian frame for an easy spec 0.015s
+  + generate refuses a misshapen truth covariance 0.001s
+  + q=3 full-rank truth is certified easy 0.002s
+  + q=3 with a zero slope variance is reduced-rank truth 0.001s
+  + generate draws a q=3 frame and an easy fit is interior 0.081s
+  + an extreme slope isolates complete FE separation 0.162s
+  + rare events isolate conditional separation 0.045s
+  + extreme Bernoulli prevalence certifies as two-tier separation 0.006s
+  + an easy spec is not weakly identified 0.001s
+  + near-collinear predictors drop the weak-id score below the threshold 0.003s
+  + a full crossing is a single connected component 0.037s
+  + block-diagonal crossings are a disconnected refusal 0.01s
+  + unit-density empty crossings match a full Cartesian product 0.001s
+  + a sparse connected crossing is not a disconnected refusal 0.001s
+  + a crossed spec generates two grouping factors 0.01s
+  + a connected crossing fits to an interior status 0.005s
+  + a disconnected crossing's engine outcome stays in the expected set 0.013s
+  + near-singular RE and scale mismatch compose without a collision 0.001s
+  + singletons via transform match the inline refusal 0.002s
+  + scale mismatch leaves the weak-id score unchanged 0.002s
+  + generate draws predictors from sqrt(D corr D) 0.008s
+  + pareto group sizes are right-skewed and still easy 0.012s
+  + perfectly collinear predictors are a structural refusal 0.001s
+  + an easy generated LMM fits to an interior status 0.007s
+GRADIENT_PW2 objective=439.73151877064697 evaluations=31
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=0,0 n=2000 expected=1220.4557316101004 observed=1273.8995267068542 se=38.59419895295076
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=1,0 n=2000 expected=576.5722576009347 observed=649.5521070099979 se=30.731255557713073
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=1,1 n=2000 expected=1275.2486860122522 observed=1396.8779482642315 se=40.32690430935625
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=2,0 n=2000 expected=0.0 observed=37.77808058862478 se=27.290219794094234
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=2,1 n=2000 expected=0.0 observed=-26.26913858143945 se=27.896098007354922
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=2,2 n=2000 expected=1220.4557316101004 observed=1241.709173735733 se=38.59419895295076
+AGQ_FIT name=cbpp nodes=15 objective=183.96673807269235 reference=183.9667380726923 beta=Vector(-1.3992304482629845, -0.9914036584226761, -1.1278194611346841, -1.5794707475105851) theta=Vector(0.6475184788065084) assessment=Some(JointAssessment(Available(Vector(5.484344309213306E-9, 2.9316993277461734E-7, 3.687685505797262E-8, -1.8504294076774546E-8, -2.9037513134729426E-8),2.9316993277461734E-7,1.0E-4),Interior))
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=0,0 n=2000 expected=4.152612684655226 observed=4.2303424320293415 se=0.1313171432401706
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=1,0 n=2000 expected=0.7149951819388376 observed=0.7415025167827773 se=0.09422157454361299
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=1,1 n=2000 expected=4.152612684655226 observed=3.962961658505591 se=0.1313171432401706
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=2,0 n=2000 expected=3.1351923251369564 observed=3.2456028569570083 se=0.11634780407114945
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=2,1 n=2000 expected=0.0 observed=0.11763719514103159 se=0.09285524247116984
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=2,2 n=2000 expected=4.152612684655226 observed=4.2067534517784395 se=0.1313171432401706
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,0 n=2000 expected=0.0 observed=0.0985530696686671 se=0.09285524247116984
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,1 n=2000 expected=3.1351923251369564 observed=3.120661916809587 se=0.11634780407114945
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,2 n=2000 expected=0.7149951819388376 observed=0.7679178761760708 se=0.09422157454361299
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,3 n=2000 expected=4.152612684655226 observed=4.144179543726817 se=0.1313171432401706
+mixeff4s.stats.LrtSuite:
+  + sleepstudy nested FE LRT matches MixedModels.jl 0.009s
+  + pastes preserves the LR statistic but refuses unqualified variance-component calibration 0.034s
+  + REML LRT with different fixed effects is refused 0.012s
+  + mixing ML and REML is refused 0.005s
+  + same-named changed predictors cannot certify fixed-effect nesting 0.018s
+  + random intercept is nested in intercept plus slope, without a fabricated p-value 0.004s
+  + same-named changed grouping partition cannot certify nesting 0.002s
+  + renamed predictors and relabeled reordered group levels preserve numerical design 0.002s
+  + diagonal covariance is nested in full covariance but calibration remains unavailable 0.003s
+  + changed random slope values refuse even when names and partitions match 0.001s
+  + group-name inclusion is not grouping-partition inclusion 0.002s
+  + REML permits the same fixed basis in a different order for a covariance statistic 0.012s
+  + REML refuses the same named fixed effects with changed values or scaling 0.007s
+  + rank-dropped zero columns do not change parameter difference or the LR statistic 0.024s
+  + unbound or modified fits cannot supply comparison evidence 0.0s
+  + different responses and non-increasing parameter counts refuse 0.004s
+  + an actual fitted zero variance permits a statistic but refuses ordinary calibration 0.004s
+  + two smaller random blocks cannot reuse one larger block 0.009s
+  + random-block matching finds an embedding that a greedy assignment would miss 0.062s
+  + equivalent scaled fixed bases are conservatively refused rather than declared nonnested 0.004s
+SIM_MOMENT name=zero mode=DrawRandomEffects pair=0,0 n=2000 expected=13.346099306666655 observed=12.935874590122236 se=0.4220407168786066
+SIM_MOMENT name=zero mode=DrawRandomEffects pair=1,0 n=2000 expected=0.0 observed=0.21817096360997487 se=0.29842785284169454
+SIM_MOMENT name=zero mode=DrawRandomEffects pair=1,1 n=2000 expected=13.346099306666655 observed=13.25836643518367 se=0.4220407168786066
+mixeff4s.lmm.SimulationSuite:
+  + seeded response simulation is deterministic and index streams differ 0.016s
+  + a copied fit without its sealed snapshot is refused 0.001s
+  + uniform conversion stays strictly open at long extremes 0.0s
+  + random-intercept simulation has analytic within-group covariance and variance 0.532s
+  + random-slope covariance includes intercept/slope correlation and is shared only within a group 0.23s
+  + crossed intercept simulation adds the covariance of each shared grouping factor 0.118s
+  + zero fitted random variance removes its covariance without removing residual noise 0.066s
+BOUNDARY_BOOTSTRAP attempts=7 failures=Vector(2, 4, 5) calibration=Left(At least one simulated model pair failed qualification; all pairs are retained.)
+BOUNDARY_PAIR index=0 seed=-1766870411957360338 statistic=Right(0.13873666183584987)
+BOUNDARY_PAIR index=1 seed=-4974842434628432923 statistic=Right(0.07675402262097464)
+BOUNDARY_PAIR index=2 seed=8391955263547256977 statistic=Left(Central observed curvature requires interior nuisance parameters.)
+BOUNDARY_PAIR index=3 seed=-7529709798749336958 statistic=Right(1.0639473137202913)
+BOUNDARY_PAIR index=4 seed=5721247336107687825 statistic=Left(Central observed curvature requires interior nuisance parameters.)
+BOUNDARY_PAIR index=5 seed=-6466559015426176902 statistic=Left(Central observed curvature requires interior nuisance parameters.)
+BOUNDARY_PAIR index=6 seed=6193656455464058601 statistic=Right(0.5563204686132508)
+mixeff4s.stats.LikelihoodBoundarySuite:
+  + strict scalar boundary likelihood evidence differs from interior coefficient eligibility 0.277s
+  + feasible variance score detects zero-theta saddle even though theta derivative vanishes 0.007s
+  + crossed scalar boundary attempt refuses failed tangent stationarity 0.626s
+  + scalar boundary null comparison retains all seven generated model pairs 0.303s
+AGQ_FIT name=culcitalogreg nodes=5 objective=60.43306156846059 reference=60.43306109714778 beta=Vector(4.962737724053782, -3.721525787172091, -4.328515407585562, -5.516217535210861) theta=Vector(3.436529803732547) assessment=Some(JointAssessment(Available(Vector(-1.7419692716207027E-10, 3.786734724366157E-10, -1.3679492636876949E-11, -1.0648274676364142E-9, 6.065009793598087E-9),6.065009793598087E-9,1.0E-4),Interior))
+GRADIENT_MAXIMAL objective=760.6570831961285 evaluations=593 stop=StepBelowTolerance projected_gradient=Some(0.5367257607808256)
+mixeff4s.lmm.GradientFitSuite:
+  + gradient strategy preserves classic nested/crossed/slope fits: REML=false 0.048s
+  + gradient strategy preserves classic nested/crossed/slope fits: REML=true 0.028s
+  + pw2_nested default-budget REML matches frozen lme4 adoption reference 0.031s
+  + maximal singular REML meets the Rust gradient regression bound within default budget 0.334s
+AGQ_FIT name=culcitalogreg nodes=9 objective=60.30412756383517 reference=60.3041273655668 beta=Vector(5.013908390707555, -3.7512417066801804, -4.362376251654301, -5.546002013224875) theta=Vector(3.505300238363102) assessment=Some(JointAssessment(Available(Vector(-8.779203577376578E-9, 2.4371440840951567E-8, -3.408258684734451E-8, -2.6571675063448892E-8, 3.848021191705787E-9),3.408258684734451E-8,1.0E-4),Interior))
+GLMM_RESULT name=synthetic_poisson_crossed joint=true objective=1293.8553032674104 beta=Vector(1.092755651068556, 0.38523733976061364) theta=Vector(0.5112426600615428, 0.19437739914680058, 0.4116372801165234, 0.3253089559624675) stop=RadiusBelowTolerance evals=1837 assessment=Some(JointAssessment(Available(Vector(-1.0816362789094515E-6, 5.301596199084694E-7, 1.004612689333347E-6, -9.905913126810144E-7, -2.6678511252005893E-7, 9.470113582210615E-7),1.0816362789094515E-6,1.0E-4),Interior))
+GLMM_DELTA name=synthetic_poisson_crossed joint=true eta=1.0653436050889198E-5 mu=1.6594900392519207E-5
+AGQ_FIT name=culcitalogreg nodes=15 objective=60.30422318757297 reference=60.30422328859943 beta=Vector(5.015367722661281, -3.7521114276009606, -4.364071931982268, -5.548960767721152) theta=Vector(3.5092799019260568) assessment=Some(JointAssessment(Available(Vector(3.0813901108295465E-9, 1.0049310964922846E-8, 8.053987470894212E-9, 6.10797046771623E-9, -1.8593987861960745E-9),1.0049310964922846E-8,1.0E-4),Interior))
+AGQ_FIT name=synthetic_poisson_offset nodes=5 objective=68.33667424479893 reference=68.33667424479891 beta=Vector(0.3262641875319485, 0.6448436013087431) theta=Vector(0.14134915072687917) assessment=Some(JointAssessment(Available(Vector(-2.4490039625864785E-8, -1.4400332778071364E-8, -1.3988217991330507E-7),1.3988217991330507E-7,1.0E-4),Interior))
+AGQ_FIT name=synthetic_poisson_offset nodes=9 objective=68.3366750090179 reference=68.33667500901788 beta=Vector(0.32626434827168604, 0.6448436014173032) theta=Vector(0.14134788873792642) assessment=Some(JointAssessment(Available(Vector(-9.634959496906959E-8, -5.764870062800279E-8, -5.590076549803295E-7),5.590076549803295E-7,1.0E-4),Interior))
+AGQ_FIT name=synthetic_poisson_offset nodes=15 objective=68.33667500900863 reference=68.3366750090086 beta=Vector(0.32626434713301067, 0.644843601290508) theta=Vector(0.14134790420369228) assessment=Some(JointAssessment(Available(Vector(-6.418569379699572E-9, -3.552713678800501E-9, -3.476922453652757E-8),3.476922453652757E-8,1.0E-4),Interior))
+AGQ_INTEGRAL name=cbpp nodes=31 objective=183.96673807462122 independent=183.9667380746211 error=1.1368683772161603E-13
+AGQ_INTEGRAL name=culcitalogreg nodes=31 objective=60.30439158454732 independent=60.3043947649449 error=3.180397584401362E-6
+AGQ_INTEGRAL name=synthetic_poisson_offset nodes=31 objective=68.33667500900863 independent=68.33667500900862 error=1.4210854715202004E-14
+mixeff4s.glmm.AdaptiveQuadratureSuite:
+  + every admitted normal quadrature order has independent Gaussian polynomial moments 0.059s
+  + one node is exactly Laplace; zero covariance is exactly the GLM density 0.016s
+  + AGQ refuses fast mode, vector and multiple terms, and out-of-domain orders 0.006s
+  + cbpp AGQ5 full-density fit against normalized frozen lme4 0.952s
+  + cbpp AGQ9 full-density fit against normalized frozen lme4 0.325s
+  + cbpp AGQ15 full-density fit against normalized frozen lme4 0.349s
+  + culcitalogreg AGQ5 full-density fit against normalized frozen lme4 0.209s
+  + culcitalogreg AGQ9 full-density fit against normalized frozen lme4 0.226s
+  + culcitalogreg AGQ15 full-density fit against normalized frozen lme4 0.242s
+  + synthetic_poisson_offset AGQ5 full-density fit against normalized frozen lme4 0.015s
+  + synthetic_poisson_offset AGQ9 full-density fit against normalized frozen lme4 0.016s
+  + synthetic_poisson_offset AGQ15 full-density fit against normalized frozen lme4 0.02s
+  + AGQ at independently integrated fixed parameters preserves full response constants 0.004s
+  + maximum-order quadrature agrees with independent full-density integrals at frozen parameters 0.014s
+GLMM_RESULT name=synthetic_poisson_crossed joint=false objective=1293.8596731452483 beta=Vector(1.1047570823960495, 0.38272960405257905) theta=Vector(0.5112654058113139, 0.19437838355126133, 0.41162384888201914, 0.3253872735245155) stop=ObjectiveStagnation evals=316 assessment=None
+GLMM_DELTA name=synthetic_poisson_crossed joint=false eta=3.2418151015845E-6 mu=1.1916264785583053E-5
+mixeff4s.glmm.GlmmParitySuite:
+  + cbpp joint-Laplace against frozen R fit 0.481s
+  + cbpp fast-PIRLS against frozen R fit 0.021s
+  + culcitalogreg joint-Laplace against frozen R fit 0.229s
+  + culcitalogreg fast-PIRLS against frozen R fit 0.016s
+  + synthetic_poisson_offset joint-Laplace against frozen R fit 0.029s
+  + synthetic_poisson_offset fast-PIRLS against frozen R fit 0.009s
+  + synthetic_poisson_crossed joint-Laplace against frozen R fit 1.246s
+  + synthetic_poisson_crossed fast-PIRLS against frozen R fit 0.232s
+mixeff4s.stats.GlmmBootstrapSuite:
+  + injected middle failure retains later seeds, responses and independent cold-fit statistics 3.085s
+  + every budget failure is recorded without replacement responses 0.007s
+  + foreign designs and estimator/options mismatches cannot count as successful replicates 0.227s
+  + invalid targets, levels and missing seeds remain precise refusals 0.071s
+  + rare constant responses fail visibly and are never silently replaced 0.126s
+  + unqualified boundary originals refuse before any bootstrap attempts 0.011s
+  + conditional-mode experiments remain explicitly labelled in the result 0.161s
+mixeff4s.glmm.GlmmRefitSuite:
+  + true/1: A B invalid A cold refits equal independent fresh fits 0.977s
+  + false/1: A B invalid A cold refits equal independent fresh fits 0.914s
+  + false/5: A B invalid A cold refits equal independent fresh fits 0.436s
+  + separate sessions cannot contaminate each other and controls remain authoritative 0.098s
+  + binomial refits preserve trials and replace cached response constants 1.304s
+  + large-trial simulated proportions roundtrip through response preparation and refit validation 0.001s
+  + reusable and direct front doors share the same explicit fast-PIRLS default 0.001s
+mixeff4s.glmm.GlmmSimulationMomentSuite:
+  + drawn correlated and crossed effects reproduce multivariate Poisson-lognormal moments 4.004s
+  + grouped binomial simulation agrees with independently integrated logistic-normal moments 0.214s
+  + conditional modes produce independent Poisson observations with fitted means and no RE resampling 0.085s
+  + Bernoulli mixtures reproduce independently integrated probability and within-group covariance 0.107s
+GLMM_BOOT_RESPONSE {"index":0,"seed":"7671909092089349006","y":[0.25,0.35,0.6,0.6,0.75,0.8,0.45,0.6,0.85,0.25,0.45,0.3,0.45,0.7,0.8,0.25,0.35,0.25,0.35,0.4,0.55,0.2,0.4,0.6,0.25,0.3,0.55,0.15,0.25,0.45,0.35,0.5,0.7,0.35,0.45,0.35,0.25,0.3,0.6,0.4,0.35,0.7,0.45,0.85,0.9,0.1,0.05,0.1,0.45,0.3,0.5,0.1,0.0,0.25,0.15,0.1,0.55,0.25,0.5,0.7,0.1,0.3,0.25,0.3,0.6,0.55,0.3,0.05,0.05,0.25,0.75,0.6,0.3,0.5,0.6,0.25,0.45,0.65,0.15,0.55,0.6,0.1,0.15,0.1,0.3,0.45,0.7,0.3,0.4,0.35]}
+GLMM_BOOT_FIT {"index":0,"beta":[-0.478858328311262,0.567236301249255],"theta":[0.7690964278996242],"objective":451.05668734117216}
+GLMM_BOOT_RESPONSE {"index":1,"seed":"7159423796239308355","y":[0.25,0.4,0.55,0.1,0.25,0.3,0.8,0.75,0.85,0.6,0.5,0.65,0.35,0.45,0.8,0.05,0.1,0.3,0.7,0.85,0.9,0.2,0.3,0.45,0.5,0.2,0.55,0.5,0.2,0.6,0.6,0.85,0.75,0.1,0.1,0.2,0.15,0.3,0.25,0.0,0.1,0.0,0.25,0.7,0.7,0.4,0.7,0.55,0.1,0.1,0.2,0.45,0.65,0.7,0.45,0.75,0.6,0.2,0.25,0.6,0.25,0.4,0.4,0.05,0.0,0.2,0.0,0.05,0.15,0.35,0.45,0.55,0.55,0.85,0.85,0.45,0.5,0.75,0.05,0.25,0.35,0.2,0.3,0.4,0.05,0.25,0.55,0.4,0.45,0.5]}
+GLMM_BOOT_FIT {"index":1,"beta":[-0.5250924138483459,0.5353014862595777],"theta":[1.1313837204456634],"objective":444.32730223041443}
+GLMM_BOOT_RESPONSE {"index":2,"seed":"-2249291010902640172","y":[0.3,0.6,0.8,0.4,0.55,0.7,0.15,0.25,0.3,0.3,0.45,0.7,0.1,0.3,0.5,0.3,0.5,0.45,0.35,0.45,0.55,0.95,0.95,1.0,0.45,0.8,0.95,0.45,0.55,0.65,0.35,0.5,0.55,0.25,0.35,0.4,0.8,0.8,0.75,0.45,0.4,0.8,0.0,0.0,0.0,0.25,0.4,0.6,0.6,0.6,0.7,0.1,0.25,0.35,0.05,0.2,0.25,0.35,0.55,0.35,0.05,0.15,0.1,0.2,0.35,0.4,0.25,0.4,0.4,0.25,0.5,0.6,0.4,0.45,0.65,0.5,0.9,0.85,0.25,0.4,0.6,0.1,0.0,0.2,0.35,0.5,0.7,0.2,0.4,0.6]}
+GLMM_BOOT_FIT {"index":2,"beta":[-0.327383927475617,0.5840794310246914],"theta":[1.1717379027687604],"objective":431.4390341089679}
+GLMM_BOOT_RESPONSE {"index":3,"seed":"-7687153211708749473","y":[0.2,0.25,0.4,0.35,0.5,0.45,0.1,0.2,0.3,0.2,0.2,0.3,0.2,0.35,0.55,0.6,0.75,0.65,0.25,0.5,0.5,0.45,0.75,0.75,0.55,0.8,0.95,0.45,0.45,0.55,0.65,0.55,0.85,0.25,0.25,0.3,0.3,0.4,0.8,0.2,0.4,0.75,0.4,0.6,0.65,0.6,0.6,0.75,0.45,0.65,0.7,0.4,0.45,0.8,0.4,0.35,0.45,0.55,0.7,0.8,0.2,0.25,0.45,0.35,0.6,0.65,0.2,0.3,0.55,0.5,0.65,0.8,0.9,0.7,0.95,0.25,0.4,0.55,0.3,0.45,0.9,0.15,0.1,0.25,0.5,0.85,0.65,0.65,0.9,0.9]}
+GLMM_BOOT_FIT {"index":3,"beta":[0.01781230117923739,0.5718250872987594],"theta":[0.800089599658608],"objective":438.2425053572069}
+GLMM_BOOT_RESPONSE {"index":4,"seed":"-520484740000317658","y":[0.2,0.15,0.25,0.35,0.65,0.65,0.35,0.65,0.7,0.45,0.85,0.75,0.0,0.1,0.4,0.1,0.25,0.2,0.65,0.6,0.75,0.45,0.45,0.95,0.3,0.5,0.45,0.2,0.3,0.3,0.2,0.55,0.65,0.15,0.25,0.35,0.7,0.5,0.65,0.1,0.2,0.35,0.35,0.55,0.8,0.4,0.55,0.65,0.4,0.55,0.75,0.2,0.4,0.45,0.4,0.25,0.5,0.3,0.3,0.65,0.6,0.75,0.85,0.9,0.9,0.95,0.1,0.2,0.3,0.7,0.85,0.8,0.4,0.7,0.7,0.3,0.1,0.5,0.5,0.65,0.65,0.0,0.1,0.15,0.3,0.5,0.45,0.25,0.45,0.65]}
+GLMM_BOOT_FIT {"index":4,"beta":[-0.20368444813487788,0.5633985332525323],"theta":[0.9665919748664243],"objective":444.5449727708432}
+GLMM_BOOT_RESPONSE {"index":5,"seed":"-4157317065267611256","y":[0.85,0.85,1.0,0.35,0.6,0.7,0.15,0.2,0.2,0.15,0.3,0.5,0.25,0.55,0.65,0.2,0.35,0.55,0.3,0.65,0.6,0.75,0.7,0.7,0.3,0.5,0.75,0.1,0.4,0.5,0.25,0.45,0.7,0.35,0.45,0.7,0.2,0.2,0.15,0.25,0.25,0.25,0.2,0.5,0.45,0.2,0.15,0.4,0.35,0.55,0.85,0.2,0.2,0.25,0.25,0.45,0.5,0.35,0.45,0.4,0.25,0.45,0.35,0.15,0.3,0.5,0.05,0.1,0.4,0.4,0.3,0.55,0.2,0.15,0.35,0.45,0.55,0.7,0.1,0.3,0.45,0.5,0.6,0.7,0.15,0.35,0.35,0.25,0.15,0.35]}
+GLMM_BOOT_FIT {"index":5,"beta":[-0.45538502302158623,0.5570027093402727],"theta":[0.7486796381343899],"objective":427.83719728176305}
+GLMM_BOOT_RESPONSE {"index":6,"seed":"-1100934587152754907","y":[0.15,0.35,0.5,0.85,0.7,0.9,0.3,0.25,0.6,0.1,0.3,0.5,0.0,0.05,0.2,0.65,0.65,0.75,0.05,0.35,0.35,0.55,0.7,0.8,0.25,0.35,0.7,0.35,0.25,0.6,0.1,0.1,0.4,0.1,0.4,0.4,0.1,0.3,0.6,0.1,0.05,0.2,0.9,0.85,0.8,0.25,0.45,0.75,0.15,0.25,0.4,0.3,0.2,0.5,0.15,0.15,0.5,0.2,0.35,0.55,0.1,0.15,0.2,0.35,0.8,0.75,0.5,0.75,0.9,0.05,0.2,0.45,0.15,0.2,0.55,0.3,0.5,0.55,0.2,0.3,0.3,0.05,0.0,0.1,0.45,0.65,0.75,0.05,0.2,0.1]}
+GLMM_BOOT_FIT {"index":6,"beta":[-0.6198857655250408,0.7100014573957069],"theta":[1.090481252620929],"objective":432.446550818237}
+GLMM_BOOT_RESPONSE {"index":7,"seed":"7969557305820953073","y":[0.35,0.5,0.65,0.15,0.25,0.35,0.05,0.2,0.6,0.0,0.15,0.05,0.3,0.3,0.65,0.35,0.35,0.55,0.15,0.3,0.35,0.2,0.35,0.45,0.9,0.9,0.95,0.1,0.25,0.55,0.3,0.75,0.75,0.25,0.65,0.65,0.3,0.6,0.8,0.3,0.4,0.85,0.5,0.4,0.6,0.2,0.5,0.5,0.15,0.4,0.3,0.35,0.45,0.8,0.05,0.4,0.25,0.1,0.0,0.55,0.25,0.35,0.35,0.25,0.45,0.55,0.05,0.2,0.45,0.0,0.1,0.4,0.65,0.9,0.85,0.4,0.4,0.65,0.55,0.7,0.85,0.6,0.6,0.85,0.65,0.55,0.65,0.75,0.65,0.65]}
+GLMM_BOOT_FIT {"index":7,"beta":[-0.2869530366155621,0.6791730943414758],"theta":[0.9516943084294969],"objective":460.4098087621478}
+GLMM_BOOT_RESPONSE {"index":8,"seed":"-1780550020906685641","y":[0.65,0.7,0.8,0.8,0.9,0.95,0.9,0.7,0.85,0.45,0.65,0.9,0.2,0.05,0.35,0.25,0.7,0.4,0.1,0.25,0.25,0.3,0.15,0.4,0.15,0.45,0.45,0.65,0.6,0.9,0.2,0.15,0.25,0.4,0.7,0.75,0.35,0.4,0.5,0.2,0.4,0.65,0.5,0.8,0.75,0.3,0.55,0.65,0.2,0.1,0.45,0.5,0.5,0.55,0.15,0.3,0.45,0.25,0.5,0.6,0.55,0.55,0.85,0.5,0.75,0.9,0.3,0.55,0.6,0.05,0.15,0.2,0.25,0.4,0.5,0.0,0.0,0.0,0.45,0.5,0.5,0.5,0.6,0.6,0.5,0.6,0.45,0.45,0.7,0.85]}
+GLMM_BOOT_FIT {"index":8,"beta":[-0.16057216808413383,0.5157724410253732],"theta":[1.08319128945952],"objective":449.9648444161206}
+GLMM_BOOT_RESPONSE {"index":9,"seed":"763331269162978962","y":[0.15,0.45,0.6,0.4,0.55,0.85,0.15,0.2,0.15,0.45,0.45,0.7,0.2,0.05,0.3,0.15,0.15,0.4,0.2,0.35,0.5,0.5,0.55,0.65,0.2,0.3,0.65,0.15,0.25,0.35,0.35,0.5,0.65,0.45,0.6,0.85,0.05,0.05,0.2,0.45,0.65,0.75,0.1,0.2,0.3,0.35,0.25,0.35,0.15,0.2,0.45,0.3,0.65,0.75,0.15,0.35,0.25,0.25,0.45,0.55,0.2,0.5,0.9,0.1,0.35,0.35,0.3,0.4,0.45,0.35,0.8,0.7,0.4,0.55,0.85,0.7,0.55,0.85,0.25,0.2,0.35,0.55,0.9,0.7,0.5,0.4,0.75,0.1,0.4,0.55]}
+GLMM_BOOT_FIT {"index":9,"beta":[-0.40374178281905365,0.6473388073137267],"theta":[0.782543001172978],"objective":439.94593716787983}
+GLMM_BOOT_RESPONSE {"index":10,"seed":"1140995503871405255","y":[0.3,0.6,0.8,0.45,0.8,0.55,0.05,0.2,0.45,0.55,0.75,0.65,0.45,0.4,0.7,0.9,0.8,0.95,0.1,0.25,0.6,0.05,0.55,0.4,0.8,0.7,0.85,0.0,0.05,0.25,0.25,0.55,0.7,0.1,0.35,0.7,0.2,0.45,0.85,0.95,0.95,0.75,0.3,0.4,0.2,0.3,0.3,0.65,0.65,0.75,0.9,0.25,0.25,0.3,0.45,0.45,0.65,0.5,0.9,0.9,0.5,0.5,0.55,0.15,0.45,0.45,0.05,0.1,0.05,0.35,0.65,0.7,0.1,0.25,0.45,0.3,0.2,0.45,0.45,0.45,0.7,0.25,0.35,0.55,0.25,0.55,0.65,0.3,0.45,0.35]}
+GLMM_BOOT_FIT {"index":10,"beta":[-0.13827623800914596,0.6074371097286275],"theta":[1.0057859067111923],"objective":477.56465140880914}
+GLMM_BOOT_RESPONSE {"index":11,"seed":"-714080475460422687","y":[0.15,0.3,0.35,0.2,0.45,0.6,0.7,0.65,0.85,0.15,0.45,0.6,0.5,0.65,0.7,0.1,0.3,0.4,0.25,0.35,0.85,0.15,0.2,0.25,0.05,0.05,0.0,0.55,0.85,0.85,0.35,0.4,0.5,0.25,0.4,0.5,0.6,0.7,0.9,0.35,0.3,0.35,0.5,0.35,0.7,0.15,0.45,0.45,0.3,0.75,0.9,0.25,0.5,0.5,0.05,0.3,0.55,0.1,0.45,0.35,0.45,0.6,0.65,0.5,0.55,1.0,0.3,0.35,0.4,0.1,0.2,0.25,0.4,0.45,0.75,0.4,0.4,0.65,0.4,0.65,0.7,0.45,0.6,0.65,0.05,0.2,0.35,0.25,0.55,0.7]}
+GLMM_BOOT_FIT {"index":11,"beta":[-0.300763824067304,0.6560618432631941],"theta":[0.8438680589451802],"objective":442.54499414427966}
+GLMM_BOOT_RESPONSE {"index":12,"seed":"-1983077304808040061","y":[0.05,0.05,0.0,0.3,0.4,0.7,0.2,0.15,0.45,0.8,0.95,0.9,0.25,0.45,0.45,0.6,0.45,0.65,0.25,0.45,0.7,0.35,0.35,0.55,0.35,0.55,0.6,0.3,0.25,0.55,0.3,0.5,0.7,0.25,0.5,0.5,0.05,0.05,0.35,0.6,0.3,0.7,0.6,0.75,0.6,0.6,0.7,0.8,0.45,0.45,0.55,0.2,0.55,0.9,0.55,0.45,0.6,0.3,0.3,0.1,0.35,0.65,0.7,0.5,0.7,0.8,0.35,0.6,0.4,0.05,0.15,0.2,0.3,0.55,0.5,0.1,0.2,0.3,0.05,0.15,0.55,0.5,0.6,0.75,0.1,0.15,0.25,0.7,0.75,0.95]}
+GLMM_BOOT_FIT {"index":12,"beta":[-0.2778910247538639,0.5187328627834565],"theta":[0.9738843146517343],"objective":459.37604173187617}
+GLMM_BOOT_RESPONSE {"index":13,"seed":"8677473043790307244","y":[0.2,0.1,0.4,0.1,0.25,0.35,0.5,0.7,0.65,0.05,0.45,0.45,0.55,0.5,0.65,0.05,0.25,0.3,0.7,0.65,0.85,0.35,0.35,0.8,0.75,0.85,0.85,0.3,0.45,0.7,0.15,0.1,0.4,0.35,0.7,0.55,0.05,0.0,0.4,0.3,0.35,0.3,0.1,0.2,0.25,0.35,0.25,0.5,0.2,0.25,0.4,0.05,0.1,0.5,0.45,0.55,0.7,0.15,0.4,0.4,0.75,0.8,0.95,0.25,0.4,0.45,0.4,0.4,0.4,0.1,0.4,0.3,0.05,0.3,0.4,0.6,0.7,0.65,0.3,0.3,0.25,0.1,0.1,0.35,0.25,0.15,0.2,0.05,0.05,0.2]}
+GLMM_BOOT_FIT {"index":13,"beta":[-0.5751529637310216,0.5150382735632112],"theta":[0.9230173158897332],"objective":447.09415614410455}
+GLMM_BOOT_RESPONSE {"index":14,"seed":"-2270437618814336371","y":[0.2,0.25,0.6,0.7,0.7,0.85,0.6,0.6,0.75,0.1,0.15,0.15,0.5,0.9,0.85,0.2,0.5,0.65,0.1,0.1,0.15,0.45,0.45,0.65,0.0,0.25,0.35,0.25,0.35,0.6,0.2,0.35,0.8,0.25,0.2,0.35,0.5,0.8,0.95,0.1,0.25,0.35,0.3,0.25,0.5,0.1,0.15,0.3,0.2,0.05,0.55,0.35,0.8,0.9,0.35,0.15,0.25,0.35,0.4,0.65,0.2,0.25,0.25,0.3,0.3,0.5,0.35,0.45,0.55,0.45,0.55,0.8,0.35,0.3,0.35,0.5,0.45,0.7,0.1,0.05,0.2,0.1,0.25,0.4,0.25,0.2,0.4,0.1,0.05,0.25]}
+GLMM_BOOT_FIT {"index":14,"beta":[-0.570538834308209,0.6058835268954728],"theta":[0.9153546708032],"objective":442.81902600052564}
+GLMM_BOOT_RESPONSE {"index":15,"seed":"-7211833070974514982","y":[0.4,0.4,0.55,0.45,0.3,0.5,0.55,0.65,0.55,0.15,0.35,0.7,0.55,0.3,0.75,0.6,0.75,0.95,0.1,0.35,0.25,0.1,0.25,0.45,0.1,0.1,0.5,0.55,0.5,0.85,0.05,0.05,0.25,0.1,0.15,0.1,0.55,0.6,0.75,0.1,0.25,0.35,0.25,0.35,0.45,0.45,0.7,0.45,0.0,0.1,0.05,0.55,0.7,0.8,0.5,0.65,0.8,0.1,0.1,0.15,0.45,0.5,0.75,0.2,0.3,0.4,0.8,1.0,1.0,0.45,0.65,0.7,0.15,0.2,0.4,0.4,0.55,0.85,0.1,0.3,0.2,0.2,0.2,0.15,0.4,0.4,0.45,0.3,0.3,0.4]}
+GLMM_BOOT_FIT {"index":15,"beta":[-0.4438132482062829,0.5051810348985422],"theta":[1.0956891752713616],"objective":445.9290322474354}
+GLMM_BOOT_RESPONSE {"index":16,"seed":"5732183820345318735","y":[0.55,0.6,0.65,0.0,0.2,0.2,0.1,0.15,0.25,0.3,0.4,0.45,0.25,0.5,0.6,0.15,0.6,0.6,0.95,0.85,0.85,0.1,0.15,0.2,0.2,0.25,0.5,0.5,0.5,0.8,0.4,0.7,0.95,0.35,0.4,0.65,0.4,0.25,0.7,0.35,0.5,0.65,0.1,0.3,0.2,0.4,0.3,0.6,0.65,0.65,0.7,0.2,0.25,0.5,0.0,0.05,0.1,0.2,0.25,0.5,0.15,0.2,0.4,0.1,0.15,0.25,0.15,0.15,0.25,0.15,0.15,0.2,0.5,0.75,0.75,0.4,0.45,0.65,0.45,0.2,0.45,0.45,0.7,0.75,0.3,0.5,0.55,0.4,0.7,0.7]}
+GLMM_BOOT_FIT {"index":16,"beta":[-0.470856469287514,0.5370268839704012],"theta":[0.9807007680030584],"objective":433.7564453089581}
+GLMM_BOOT_RESPONSE {"index":17,"seed":"-1580576034234919429","y":[0.1,0.65,0.45,0.3,0.45,0.55,0.05,0.25,0.3,0.0,0.1,0.05,0.2,0.7,0.7,0.25,0.65,0.65,0.05,0.15,0.25,0.7,0.7,0.8,0.05,0.4,0.45,0.05,0.35,0.4,0.45,0.55,0.85,0.15,0.25,0.4,0.15,0.45,0.4,0.75,0.8,0.9,0.4,0.5,0.8,0.25,0.4,0.5,0.45,0.45,0.55,0.3,0.55,0.65,0.25,0.5,0.45,0.25,0.35,0.3,0.1,0.1,0.35,0.15,0.25,0.6,0.45,0.25,0.45,0.55,0.45,0.85,0.35,0.6,0.55,0.2,0.45,0.4,0.15,0.25,0.45,0.1,0.05,0.4,0.05,0.3,0.45,0.35,0.6,0.45]}
+GLMM_BOOT_FIT {"index":17,"beta":[-0.5137527511931289,0.6303074997192822],"theta":[0.811003807263158],"objective":445.2203859294109}
+GLMM_BOOT_RESPONSE {"index":18,"seed":"5179313653002382152","y":[0.1,0.15,0.55,0.6,0.45,0.75,0.65,0.55,0.9,0.2,0.35,0.3,0.5,0.7,0.85,0.2,0.55,0.6,0.05,0.15,0.1,0.45,0.3,0.5,0.25,0.15,0.4,0.8,0.85,0.8,0.2,0.3,0.65,0.3,0.4,0.35,0.05,0.3,0.4,0.35,0.3,0.75,0.35,0.6,0.8,0.1,0.3,0.5,0.35,0.5,0.35,0.25,0.5,0.55,0.0,0.1,0.1,0.15,0.55,0.55,0.7,0.8,1.0,0.1,0.25,0.3,0.45,0.6,0.7,0.35,0.35,0.45,0.5,0.6,0.6,0.05,0.1,0.5,0.2,0.55,0.7,0.35,0.25,0.7,0.25,0.3,0.55,0.15,0.25,0.15]}
+GLMM_BOOT_FIT {"index":18,"beta":[-0.4064964734815486,0.6058882252902852],"theta":[0.9011031351410997],"objective":453.9363301041186}
+GLMM_BOOT_RESPONSE {"index":19,"seed":"2419182098151237618","y":[0.85,0.75,0.85,0.7,0.6,0.9,0.6,0.55,0.75,0.05,0.1,0.65,0.05,0.1,0.2,0.55,0.75,0.6,0.3,0.85,0.9,0.65,0.45,0.55,0.15,0.0,0.15,0.35,0.55,0.7,0.55,0.65,0.75,0.6,0.6,0.75,0.5,0.45,0.8,0.1,0.15,0.1,0.35,0.4,0.65,0.6,0.7,0.95,0.3,0.4,0.5,0.1,0.2,0.2,0.15,0.5,0.25,0.55,0.65,0.65,0.4,0.5,0.8,0.35,0.3,0.5,0.35,0.4,0.55,0.4,0.65,0.75,0.25,0.45,0.65,0.2,0.2,0.2,0.35,0.7,0.8,0.25,0.25,0.45,0.6,0.55,0.9,0.25,0.15,0.4]}
+GLMM_BOOT_FIT {"index":19,"beta":[-0.14452480176048446,0.5192374293092857],"theta":[0.9570209811255751],"objective":464.0170160042406}
+GLMM_BOOT_RESPONSE {"index":20,"seed":"-7527625467060160797","y":[0.5,0.55,0.7,0.05,0.15,0.35,0.25,0.35,0.6,0.35,0.5,0.7,0.7,0.55,0.95,0.25,0.5,0.65,0.5,0.75,0.85,0.25,0.2,0.25,0.6,0.45,0.65,0.4,0.65,0.65,0.25,0.5,0.75,0.1,0.15,0.15,0.2,0.35,0.35,0.3,0.5,0.55,0.35,0.35,0.45,0.25,0.15,0.4,0.15,0.05,0.3,0.4,0.35,0.7,0.1,0.45,0.45,0.25,0.5,0.4,0.25,0.4,0.65,0.5,0.85,0.8,0.2,0.35,0.4,0.65,0.9,0.9,0.1,0.2,0.3,0.3,0.5,0.4,0.2,0.25,0.55,0.8,0.85,0.8,0.5,0.75,0.85,0.2,0.05,0.25]}
+GLMM_BOOT_FIT {"index":20,"beta":[-0.2780576527763389,0.5546028007362301],"theta":[0.8908552686741098],"objective":438.5168907168026}
+GLMM_BOOT_RESPONSE {"index":21,"seed":"-5250651968881590020","y":[0.4,0.35,0.55,0.15,0.2,0.6,0.8,0.75,0.85,0.1,0.1,0.4,0.05,0.15,0.3,0.1,0.15,0.5,0.65,0.75,0.95,0.3,0.35,0.6,0.25,0.45,0.85,0.7,0.9,0.9,0.3,0.7,0.85,0.55,0.65,0.5,0.7,0.7,0.9,0.5,0.65,0.85,0.35,0.25,0.8,0.35,0.45,0.45,0.1,0.2,0.15,0.5,0.7,0.8,0.5,0.55,0.65,0.25,0.2,0.45,0.25,0.4,0.55,0.1,0.15,0.25,0.4,0.65,0.75,0.2,0.35,0.45,0.25,0.1,0.4,0.65,0.75,0.6,0.6,0.7,0.55,0.15,0.2,0.25,0.35,0.4,0.6,0.3,0.5,0.65]}
+GLMM_BOOT_FIT {"index":21,"beta":[-0.15365013325433616,0.5770784750437445],"theta":[0.9267257994924132],"objective":448.4901541751297}
+GLMM_BOOT_RESPONSE {"index":22,"seed":"6554588598005757623","y":[0.25,0.5,0.6,0.45,0.2,0.35,0.35,0.55,0.85,0.5,0.55,0.8,0.25,0.35,0.45,0.15,0.25,0.4,0.55,0.75,0.75,0.15,0.15,0.15,0.25,0.5,0.5,0.65,0.75,0.95,0.15,0.55,0.5,0.1,0.35,0.35,0.05,0.25,0.5,0.3,0.6,0.7,0.55,0.6,0.7,0.65,0.75,0.8,0.2,0.4,0.45,0.2,0.3,0.75,0.45,0.55,0.7,0.55,0.55,0.7,0.05,0.1,0.25,0.2,0.15,0.6,0.35,0.5,0.9,0.65,0.9,0.9,0.35,0.45,0.55,0.2,0.3,0.45,0.25,0.35,0.35,0.3,0.5,0.6,0.45,0.5,0.8,0.05,0.1,0.15]}
+GLMM_BOOT_FIT {"index":22,"beta":[-0.2517223040138565,0.631090763448794],"theta":[0.8561005793529651],"objective":433.78738760823234}
+GLMM_BOOT_RESPONSE {"index":23,"seed":"-7039079611495118589","y":[0.2,0.6,0.35,0.55,0.7,0.6,0.25,0.65,0.55,0.35,0.7,0.75,0.5,0.5,0.7,0.4,0.8,0.4,0.1,0.05,0.3,0.5,0.6,0.95,0.45,0.35,0.45,0.2,0.45,0.5,0.3,0.75,0.65,0.8,0.8,0.95,0.6,0.4,0.6,0.35,0.35,0.55,0.1,0.25,0.3,0.05,0.3,0.4,0.45,0.4,0.9,0.3,0.05,0.65,0.2,0.2,0.3,0.25,0.45,0.55,0.25,0.25,0.6,0.35,0.5,0.85,0.2,0.45,0.7,0.55,0.7,0.75,0.1,0.2,0.3,0.65,0.85,0.85,0.4,0.4,0.65,0.65,0.55,0.85,0.4,0.4,0.5,0.2,0.05,0.35]}
+GLMM_BOOT_FIT {"index":23,"beta":[-0.14922934244500746,0.5528178221489793],"theta":[0.7762656662801721],"objective":474.6832482678526}
+GLMM_BOOT_RESPONSE {"index":24,"seed":"-7113280578443679513","y":[0.35,0.4,0.4,0.0,0.05,0.1,0.5,0.7,0.85,0.05,0.1,0.1,0.3,0.35,0.45,0.15,0.2,0.4,0.1,0.25,0.25,0.5,0.6,0.8,0.2,0.35,0.6,0.1,0.35,0.45,0.25,0.45,0.7,0.45,0.6,0.5,0.8,0.9,0.95,0.1,0.3,0.35,0.0,0.3,0.25,0.65,0.7,0.85,0.5,0.7,0.8,0.15,0.05,0.2,0.15,0.4,0.35,0.05,0.25,0.45,0.25,0.3,0.65,0.5,0.7,0.8,0.6,0.55,0.85,0.4,0.75,0.85,0.55,0.65,0.85,0.05,0.1,0.35,0.6,0.75,0.8,0.85,0.65,0.9,0.35,0.4,0.65,0.2,0.45,0.6]}
+GLMM_BOOT_FIT {"index":24,"beta":[-0.3009817809006504,0.6502342249443324],"theta":[1.1523487798517602],"objective":427.3141735783184}
+GLMM_BOOT_RESPONSE {"index":25,"seed":"-8741581885997507417","y":[0.4,0.5,0.6,0.2,0.3,0.5,0.15,0.3,0.45,0.6,0.5,0.95,0.65,0.9,0.9,0.3,0.45,0.45,0.5,0.45,0.65,0.1,0.15,0.6,0.4,0.3,0.55,0.35,0.65,0.85,0.35,0.15,0.55,0.35,0.25,0.5,0.75,0.75,0.8,0.15,0.2,0.5,0.2,0.3,0.4,0.65,0.5,0.75,0.4,0.55,0.6,0.1,0.4,0.4,0.9,0.95,0.95,0.1,0.1,0.35,0.7,0.75,0.9,0.3,0.3,0.6,0.65,0.6,0.75,0.35,0.3,0.25,0.3,0.35,0.5,0.45,0.35,0.5,0.25,0.35,0.4,0.4,0.55,0.7,0.35,0.5,0.55,0.45,0.7,0.8]}
+GLMM_BOOT_FIT {"index":25,"beta":[-0.05778889957938873,0.503786377060046],"theta":[0.8390935533187782],"objective":441.85230498756385}
+GLMM_BOOT_RESPONSE {"index":26,"seed":"2706522658282097813","y":[0.35,0.45,0.6,0.3,0.65,0.75,0.4,0.35,0.4,0.3,0.45,0.65,0.2,0.3,0.6,0.8,0.8,0.8,0.55,0.65,0.6,0.3,0.45,0.6,0.2,0.1,0.3,0.4,0.65,0.5,0.25,0.3,0.65,0.15,0.15,0.6,0.25,0.45,0.45,0.5,0.5,0.8,0.1,0.5,0.45,0.35,0.55,0.65,0.55,0.75,0.85,0.15,0.4,0.55,0.3,0.45,0.65,0.25,0.4,0.75,0.6,0.5,0.7,0.35,0.45,0.65,0.05,0.2,0.2,0.05,0.1,0.45,0.85,0.95,1.0,0.15,0.3,0.35,0.05,0.15,0.3,0.35,0.6,0.65,0.25,0.35,0.5,0.35,0.6,0.75]}
+GLMM_BOOT_FIT {"index":26,"beta":[-0.20194693134477468,0.631363657510459],"theta":[0.8235903127071975],"objective":431.06032019002635}
+GLMM_BOOT_RESPONSE {"index":27,"seed":"4425776167835404326","y":[0.05,0.2,0.25,0.1,0.3,0.45,0.2,0.3,0.5,0.35,0.5,0.65,0.4,0.4,0.6,0.2,0.15,0.4,0.0,0.15,0.35,0.5,0.6,0.7,0.6,0.8,0.95,0.15,0.15,0.35,0.3,0.7,0.8,0.25,0.4,0.65,0.05,0.3,0.5,0.4,0.55,0.55,0.45,0.4,0.6,0.05,0.35,0.4,0.7,0.85,1.0,0.45,0.55,0.5,0.4,0.65,0.8,0.25,0.35,0.55,0.75,0.7,0.85,0.25,0.4,0.5,0.15,0.4,0.15,0.7,0.8,0.85,0.05,0.1,0.35,0.35,0.6,0.65,0.8,0.95,0.8,0.1,0.35,0.3,0.1,0.15,0.3,0.3,0.4,0.5]}
+GLMM_BOOT_FIT {"index":27,"beta":[-0.27629717030316764,0.6219412193017896],"theta":[0.9876397655935681],"objective":432.9352637524643}
+GLMM_BOOT_RESPONSE {"index":28,"seed":"-1943355308328493994","y":[0.1,0.2,0.5,0.1,0.1,0.35,0.25,0.7,0.85,0.35,0.35,0.6,0.35,0.35,0.45,0.45,0.5,0.75,0.4,0.25,0.5,0.25,0.4,0.45,0.2,0.15,0.45,0.1,0.3,0.5,0.65,0.75,0.8,0.15,0.1,0.5,0.45,0.7,0.75,0.8,0.85,0.75,0.45,0.55,0.75,0.35,0.65,0.8,0.4,0.45,0.6,0.4,0.3,0.6,0.2,0.2,0.6,0.05,0.05,0.2,0.15,0.1,0.4,0.4,0.5,0.75,0.6,0.75,0.9,0.05,0.3,0.2,0.0,0.1,0.2,0.2,0.25,0.45,0.3,0.2,0.35,0.2,0.5,0.35,0.5,0.65,0.7,0.15,0.4,0.25]}
+GLMM_BOOT_FIT {"index":28,"beta":[-0.4373116091042922,0.6013983539733389],"theta":[0.8832409780471175],"objective":437.9957926060929}
+GLMM_BOOT_RESPONSE {"index":29,"seed":"6094730459724335138","y":[0.2,0.25,0.55,0.45,0.3,0.4,0.05,0.0,0.2,0.25,0.1,0.35,0.3,0.3,0.4,0.15,0.45,0.5,0.2,0.5,0.7,0.25,0.5,0.75,0.45,0.55,0.8,0.25,0.35,0.85,0.8,0.8,0.75,0.3,0.45,0.5,0.25,0.1,0.35,0.05,0.35,0.55,0.15,0.5,0.25,0.3,0.55,0.65,0.05,0.1,0.25,0.3,0.3,0.3,0.5,0.85,0.85,0.2,0.45,0.8,0.35,0.45,0.65,0.5,0.55,0.55,0.6,0.9,0.9,0.2,0.45,0.7,0.45,0.4,0.75,0.0,0.1,0.25,0.65,0.75,0.95,0.25,0.6,0.45,0.0,0.05,0.3,0.15,0.1,0.4]}
+GLMM_BOOT_FIT {"index":29,"beta":[-0.4278275457190469,0.6720656281368103],"theta":[0.9466327973988701],"objective":459.8137945884898}
+GLMM_BOOT_RESPONSE {"index":30,"seed":"-7533557092730529791","y":[0.4,0.3,0.5,0.3,0.6,0.75,0.25,0.55,0.45,0.2,0.2,0.45,0.3,0.45,0.55,0.05,0.2,0.15,0.55,0.7,0.9,0.3,0.45,0.8,0.45,0.55,0.8,0.1,0.15,0.4,0.2,0.25,0.3,0.1,0.2,0.25,0.0,0.2,0.4,0.6,0.6,0.75,0.25,0.45,0.65,0.05,0.45,0.6,0.15,0.25,0.3,0.25,0.4,0.2,0.3,0.55,0.75,0.3,0.4,0.65,0.3,0.65,0.5,0.4,0.7,0.9,0.05,0.1,0.4,0.25,0.3,0.55,0.4,0.7,0.85,0.3,0.45,0.8,0.25,0.35,0.5,0.15,0.3,0.5,0.65,0.9,0.95,0.65,0.45,0.75]}
+GLMM_BOOT_FIT {"index":30,"beta":[-0.3447814854717426,0.7079352998775034],"theta":[0.8150417403440752],"objective":435.1431680862735}
+GLMM_BOOT_RESPONSE {"index":31,"seed":"8201266955966403053","y":[0.25,0.35,0.6,0.3,0.7,0.8,0.6,0.8,0.7,0.1,0.3,0.2,0.15,0.35,0.4,0.5,0.55,0.75,0.0,0.2,0.5,0.4,0.6,0.6,0.2,0.35,0.4,0.4,0.65,0.8,0.2,0.1,0.3,0.5,0.65,0.8,0.45,0.6,0.75,0.3,0.5,0.6,0.4,0.8,0.8,0.15,0.2,0.25,0.65,0.65,0.7,0.15,0.1,0.15,0.05,0.15,0.25,0.45,0.55,0.6,0.15,0.15,0.25,0.2,0.2,0.5,0.25,0.35,0.65,0.3,0.5,0.55,0.55,0.75,0.85,0.05,0.0,0.05,0.15,0.3,0.45,0.25,0.15,0.3,0.45,0.55,0.8,0.2,0.3,0.35]}
+GLMM_BOOT_FIT {"index":31,"beta":[-0.4692810615287818,0.5810917063561425],"theta":[0.9543531522815795],"objective":423.92271340174153}
+GLMM_BOOT_RESPONSE {"index":32,"seed":"-971862202033821497","y":[0.15,0.4,0.3,0.2,0.4,0.6,0.45,0.6,0.85,0.1,0.1,0.4,0.6,0.9,0.85,0.45,0.65,0.6,0.55,0.55,0.7,0.5,0.6,0.6,0.2,0.3,0.5,0.25,0.6,0.6,0.3,0.55,0.8,0.3,0.25,0.45,0.1,0.3,0.4,0.3,0.55,0.55,0.35,0.3,0.5,0.15,0.35,0.55,0.45,0.55,0.85,0.25,0.35,0.6,0.55,0.6,0.5,0.2,0.25,0.5,0.65,0.9,0.95,0.2,0.25,0.45,0.5,0.55,0.65,0.5,0.5,0.55,0.3,0.3,0.45,0.45,0.55,0.7,0.25,0.45,0.3,0.15,0.4,0.65,0.15,0.2,0.15,0.4,0.6,0.85]}
+GLMM_BOOT_FIT {"index":32,"beta":[-0.19014859299898587,0.5641909330772881],"theta":[0.679473062152174],"objective":428.5872823182931}
+GLMM_BOOT_RESPONSE {"index":33,"seed":"6496655473403777907","y":[0.6,0.75,0.65,0.1,0.4,0.35,0.2,0.3,0.55,0.3,0.6,0.6,0.1,0.25,0.35,0.25,0.65,0.65,0.3,0.35,0.55,0.95,0.95,0.9,0.35,0.65,0.75,0.2,0.1,0.45,0.45,0.65,0.75,0.45,0.75,0.9,0.45,0.5,0.7,0.6,0.65,0.75,0.45,0.65,0.75,0.35,0.4,0.6,0.5,0.65,0.8,0.75,0.65,0.7,0.15,0.65,0.6,0.05,0.3,0.5,0.1,0.25,0.15,0.2,0.2,0.45,0.45,0.35,0.85,0.25,0.3,0.5,0.3,0.75,0.75,0.4,0.6,0.75,0.4,0.55,0.8,0.1,0.15,0.3,0.35,0.3,0.65,0.45,0.65,0.9]}
+GLMM_BOOT_FIT {"index":33,"beta":[-0.02704535914797146,0.6598662030476677],"theta":[0.8340907609990946],"objective":439.9119398815442}
+GLMM_BOOT_RESPONSE {"index":34,"seed":"1616075385270984241","y":[0.15,0.2,0.4,0.2,0.15,0.3,0.2,0.45,0.45,0.4,0.4,0.55,0.1,0.3,0.4,0.35,0.5,0.5,0.35,0.45,0.5,0.5,0.7,0.6,0.55,0.6,0.85,0.5,0.6,0.8,0.4,0.55,0.5,0.2,0.4,0.65,0.2,0.25,0.65,0.3,0.3,0.35,0.35,0.45,0.6,0.1,0.3,0.65,0.2,0.5,0.55,0.55,0.65,0.8,0.0,0.15,0.05,0.5,0.65,0.7,0.75,0.85,0.95,0.45,0.7,0.75,0.1,0.35,0.45,0.2,0.5,0.4,0.45,0.7,0.85,0.2,0.1,0.2,0.7,0.75,0.8,0.25,0.45,0.35,0.15,0.4,0.65,0.3,0.35,0.45]}
+GLMM_BOOT_FIT {"index":34,"beta":[-0.26084124409640824,0.5527990714345312],"theta":[0.8113393020328519],"objective":429.04757815240055}
+GLMM_BOOT_RESPONSE {"index":35,"seed":"2545533801159381173","y":[0.25,0.45,0.45,0.75,0.9,0.85,0.25,0.1,0.1,0.35,0.35,0.5,0.1,0.15,0.3,0.25,0.55,0.4,0.5,0.5,0.8,0.25,0.4,0.75,0.05,0.2,0.35,0.2,0.25,0.35,0.35,0.35,0.45,0.4,0.45,0.55,0.0,0.3,0.25,0.15,0.25,0.5,0.65,0.7,0.9,0.0,0.0,0.5,0.45,0.65,0.45,0.1,0.25,0.55,0.45,0.45,0.7,0.45,0.6,0.85,0.6,0.55,0.85,0.1,0.2,0.05,0.65,0.65,0.8,0.0,0.05,0.2,0.5,0.5,0.5,0.4,0.4,0.7,0.15,0.15,0.45,0.35,0.5,0.65,0.35,0.5,0.8,0.3,0.5,0.6]}
+GLMM_BOOT_FIT {"index":35,"beta":[-0.42485335423511333,0.5612245013839334],"theta":[0.9253545899027591],"objective":452.02624930470233}
+GLMM_BOOT_RESPONSE {"index":36,"seed":"3132557489089459488","y":[0.25,0.5,0.7,0.6,0.4,0.7,0.3,0.45,0.75,0.15,0.4,0.5,0.4,0.6,0.7,0.15,0.25,0.35,0.6,0.65,0.6,0.4,0.75,0.85,0.7,0.8,0.85,0.75,0.85,0.85,0.1,0.1,0.35,0.25,0.2,0.6,0.3,0.3,0.35,0.2,0.2,0.6,0.75,0.8,0.9,0.25,0.65,0.75,0.3,0.15,0.45,0.2,0.25,0.2,0.75,0.75,0.9,0.35,0.4,0.6,0.15,0.3,0.5,0.15,0.1,0.1,0.05,0.4,0.5,0.3,0.4,0.3,0.35,0.4,0.8,0.1,0.35,0.35,0.25,0.55,0.55,0.45,0.85,0.9,0.2,0.45,0.55,0.15,0.05,0.2]}
+GLMM_BOOT_FIT {"index":36,"beta":[-0.2379279685292414,0.6083513802309134],"theta":[0.9413796802795948],"objective":447.2181467665742}
+GLMM_BOOT_RESPONSE {"index":37,"seed":"4469127705501440847","y":[0.25,0.1,0.7,0.8,0.9,1.0,0.25,0.4,0.7,0.35,0.5,0.6,0.6,0.65,0.8,0.25,0.4,0.5,0.05,0.2,0.25,0.5,0.8,0.95,0.9,0.95,0.85,0.2,0.3,0.4,0.5,0.6,0.85,0.35,0.2,0.3,0.65,0.7,0.8,0.5,0.65,0.85,0.5,0.6,0.8,0.25,0.55,0.8,0.3,0.3,0.45,0.65,0.6,0.8,0.25,0.5,0.75,0.25,0.35,0.75,0.0,0.35,0.25,0.0,0.25,0.4,0.4,0.5,0.75,0.15,0.25,0.45,0.35,0.25,0.35,0.15,0.25,0.55,0.0,0.15,0.2,0.15,0.5,0.55,0.25,0.2,0.45,0.15,0.45,0.65]}
+GLMM_BOOT_FIT {"index":37,"beta":[-0.15736396252261156,0.7126609684565012],"theta":[0.9998627177149039],"objective":446.9173919079224}
+GLMM_BOOT_RESPONSE {"index":38,"seed":"-6711534300252315491","y":[0.1,0.3,0.55,0.3,0.45,0.8,0.15,0.2,0.25,0.7,0.9,0.8,0.55,0.75,0.85,0.4,0.7,0.7,0.05,0.5,0.3,0.1,0.2,0.2,0.0,0.25,0.45,0.15,0.05,0.15,0.55,0.55,0.85,0.2,0.35,0.35,0.6,0.4,0.5,0.1,0.25,0.4,0.35,0.65,0.85,0.1,0.2,0.2,0.2,0.45,0.65,0.4,0.6,0.5,0.25,0.4,0.5,0.35,0.45,0.55,0.4,0.6,0.7,0.55,0.7,0.85,0.35,0.3,0.55,0.65,0.85,1.0,0.15,0.25,0.35,0.65,0.2,0.7,0.05,0.05,0.2,0.75,0.75,1.0,0.1,0.2,0.2,0.0,0.1,0.1]}
+GLMM_BOOT_FIT {"index":38,"beta":[-0.4132586914483559,0.5974395196874105],"theta":[1.1119572745982436],"objective":454.43641839870725}
+GLMM_BOOT_INTERVAL qualified=39 lower=0.5051113020066174 upper=0.7101344329487466
+mixeff4s.glmm.GlmmAnalysisSuite:
+  + documented compile fit assess predict simulate bootstrap workflow retains 39 qualified AGQ attempts 4.941s
+  + independent lme4 refits of the actual39 responses reproduce coefficients and percentile intervals 0.008s
+[info] done compiling
+[info] compiling 98 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.js/target/scala-3.7.4/test-classes ...
+NULL_BOOTSTRAP qualified=39 calibration=Right(MonteCarloTail(0,39,0.025,0.0,0.0,0.0,0.08966675531516449,0.95))
+NULL_PAIR index=0 seed=-1296569203024355911 null=None alternative=None statistic=Right(1.570434249767061)
+NULL_PAIR index=1 seed=1932737567322148143 null=None alternative=None statistic=Right(0.1869317957008434)
+NULL_PAIR index=2 seed=-7063172994671038964 null=None alternative=None statistic=Right(1.3443963420244813)
+NULL_PAIR index=3 seed=-9220387120358121524 null=None alternative=None statistic=Right(11.05049995263903)
+NULL_PAIR index=4 seed=-4081923940934198464 null=None alternative=None statistic=Right(1.3574587352558751)
+NULL_PAIR index=5 seed=2199299343331455886 null=None alternative=None statistic=Right(0.003951845105575558)
+NULL_PAIR index=6 seed=-8047180433812521127 null=None alternative=None statistic=Right(3.101872405123231)
+NULL_PAIR index=7 seed=-1277322326987133056 null=None alternative=None statistic=Right(0.1389647385244075)
+NULL_PAIR index=8 seed=-1181251426271797715 null=None alternative=None statistic=Right(0.004051475550113537)
+NULL_PAIR index=9 seed=-7823358889228745162 null=None alternative=None statistic=Right(1.7131514128886352)
+NULL_PAIR index=10 seed=8601838624757811895 null=None alternative=None statistic=Right(1.3210125631828191)
+NULL_PAIR index=11 seed=-4631052244388886592 null=None alternative=None statistic=Right(0.8442039129238879)
+NULL_PAIR index=12 seed=3579929341599998411 null=None alternative=None statistic=Right(0.10721175434309771)
+NULL_PAIR index=13 seed=-3599406177211340824 null=None alternative=None statistic=Right(3.3525833420467848)
+NULL_PAIR index=14 seed=-80646802091266975 null=None alternative=None statistic=Right(0.20201232254794377)
+NULL_PAIR index=15 seed=-512979711044441271 null=None alternative=None statistic=Right(0.06447978847779723)
+NULL_PAIR index=16 seed=5716722829769572362 null=None alternative=None statistic=Right(2.398292371306127)
+NULL_PAIR index=17 seed=3649183575585238935 null=None alternative=None statistic=Right(0.004095375408383006)
+NULL_PAIR index=18 seed=3007244764094322107 null=None alternative=None statistic=Right(0.47902380387512267)
+NULL_PAIR index=19 seed=6436042484244309033 null=None alternative=None statistic=Right(2.3088003252331077)
+NULL_PAIR index=20 seed=-7334880906563718716 null=None alternative=None statistic=Right(0.18832149097517004)
+NULL_PAIR index=21 seed=-5087028293854588571 null=None alternative=None statistic=Right(0.1877068098058885)
+NULL_PAIR index=22 seed=-920009073160639760 null=None alternative=None statistic=Right(1.5738060725447554)
+NULL_PAIR index=23 seed=4183854020844450217 null=None alternative=None statistic=Right(0.10142874650694012)
+NULL_PAIR index=24 seed=-5900828542819214216 null=None alternative=None statistic=Right(1.390590064326318)
+NULL_PAIR index=25 seed=3285622285159324079 null=None alternative=None statistic=Right(0.47466441773792667)
+NULL_PAIR index=26 seed=6702077812900949693 null=None alternative=None statistic=Right(0.685874938039774)
+NULL_PAIR index=27 seed=-5311953171676162959 null=None alternative=None statistic=Right(0.8920697308659555)
+NULL_PAIR index=28 seed=3485519680675755559 null=None alternative=None statistic=Right(1.478246847305627)
+NULL_PAIR index=29 seed=-7313470730240208070 null=None alternative=None statistic=Right(0.015633184745695416)
+NULL_PAIR index=30 seed=-6560017363152544210 null=None alternative=None statistic=Right(0.7106992396965666)
+NULL_PAIR index=31 seed=1254234345409954741 null=None alternative=None statistic=Right(0.8400026844696526)
+NULL_PAIR index=32 seed=2176162912748082578 null=None alternative=None statistic=Right(1.1606884054370994)
+NULL_PAIR index=33 seed=-904714618603397853 null=None alternative=None statistic=Right(0.06131313292246432)
+NULL_PAIR index=34 seed=5720176409681960593 null=None alternative=None statistic=Right(0.15529386776796628)
+NULL_PAIR index=35 seed=1091158327125245485 null=None alternative=None statistic=Right(5.82232668364054)
+NULL_PAIR index=36 seed=-4099375731469579711 null=None alternative=None statistic=Right(0.9851036378146887)
+NULL_PAIR index=37 seed=-6615913860650293616 null=None alternative=None statistic=Right(9.351863703256242)
+NULL_PAIR index=38 seed=-7631665769684833042 null=None alternative=None statistic=Right(0.5810943750774982)
+PROFILE_INTERVAL target=Coefficient(days) lower=LmmProfileEndpoint(Some(8.88655415624628),false,None,Some((8.88655109786836,8.886557214624201)),Some(3.8414477401540807)) upper=LmmProfileEndpoint(Some(12.048017762945644),false,None,Some((12.048014704567723,12.048020821323565)),Some(3.841447740151807))
+PROFILE_INTERVAL target=RandomEffectStdDev(subj) lower=LmmProfileEndpoint(Some(26.007084612590127),false,None,Some((26.00708117821036,26.00708804696989)),Some(3.841452192594943)) upper=LmmProfileEndpoint(Some(52.93594645100822),false,None,Some((52.93594301662846,52.93594988538799)),Some(3.841454907147181))
+PROFILE_INTERVAL target=RandomEffectVariance(subj) lower=LmmProfileEndpoint(Some(676.3683459567931),false,None,Some((676.3683420918192,676.3683498217671)),Some(3.841454135407048)) upper=LmmProfileEndpoint(Some(2802.2142029460783),false,None,Some((2802.2141990811047,2802.2142068110525)),Some(3.8414541851914237))
+PROFILE_INTERVAL target=ResidualStdDev lower=LmmProfileEndpoint(Some(27.813854652054538),false,None,Some((27.81385170563636,27.813857598472712)),Some(3.841460930249923)) upper=LmmProfileEndpoint(Some(34.59105253061114),false,None,Some((34.59104958419296,34.591055477029315)),Some(3.8414575094004704))
+mixeff4s.stats.InferenceWorkflowSuite:
+  + documented inference workflow keeps coefficient information, null pairs and qualified profile endpoints 4.387s
+[info] Passed: Total 438, Failed 0, Errors 0, Passed 438
+[info] done compiling
+[warn] multiple main classes detected: run 'show discoveredMainClasses' to see the list
+[info] Fast optimizing /Users/bbuchsbaum/code/scala/mixeff4s/.js/target/scala-3.7.4/mixeff4s-test-fastopt
+mixeff4s.lmm.StationFitSuite:
+mixeff4s.optimizer.GradientTrustBqSuite:
+  + gradient oracle solves bounded quadratic and records first-order evidence 0.004s
+  + multidimensional box-boundary quadratic respects the active bound 0.001s
+  + zero derivative at a bounded maximum is probed before first-order stop 0.001s
+  + budget includes initial gradient oracle call and seed probes 0.000s
+  + shifted Newton direction minimizes the original quadratic along its feasible ray 0.000s
+  + disabled gradient tolerance cannot report a gradient stop 0.000s
+  + first-order stop validates a scalar feasible escape at a zero-gradient maximum 0.001s
+  + first-order stop validates a feasible mixed negative-curvature escape 0.000s
+  + returned projected-gradient evidence belongs to returned best point 0.000s
+  + negative curvature hidden from all axial and pair directions is escaped 0.001s
+  + Cauchy fallback projects outward components onto the feasible tangent cone 0.001s
+  + invalid trust-region constants are refused before oracle evaluation 0.000s
+  + invalid gradient values and dimensions are refused 0.000s
+  + a fresh escape probe remains the returned best point when the next probe exhausts budget 0.000s
+  + projected Cauchy ray uses its own directional derivative after blocking a coordinate 0.000s
+  + station intercepts match frozen lme4 0.041s
+  + station duration slopes have reduced covariance rank at the boundary against frozen lme4 0.042s
+  + station fixed-only formula is refused 0.004s
+mixeff4s.stats.InferenceWorkflowSuite:
+mixeff4s.lmm.SleepstudyFitSuite:
+  + objective at Julia ML theta matches MixedModels.jl 0.016s
+mixeff4s.glmm.TerminationSuite:
+mixeff4s.stats.LmmProfileSuite:
+  + profiled deviance preserves wrong theta dimension as a typed error 0.033s
+  + nonfinite or negative diagonal theta is refused 0.002s
+  + an unfinished PIRLS probe returns a refusal, never a finite penalty 0.002s
+  + a public GLMM refuses unfinished PIRLS 0.001s
+  + a public GLMM refuses an exhausted optimizer budget 0.001s
+  + sleepstudy ML fit matches MixedModels.jl 0.054s
+  + an accepted GLMM records the final inner and outer termination separately 0.008s
+mixeff4s.glmm.CountSamplerCalibrationSuite:
+COUNT_VECTOR binomial n=100 p=0.5 values=Vector(44, 49, 48, 42, 43, 50, 51, 50)
+  + REML profile refuses unless an ML refit is explicit 0.024s
+  + unknown coefficient is a stable refusal after an ML fit 0.005s
+COUNT_VECTOR binomial n=10000 p=0.7 values=Vector(6949, 7027, 7050, 6963, 7079, 7003, 7014, 7031)
+  + sleepstudy REML fit matches MixedModels.jl 0.036s
+COUNT_VECTOR binomial n=2147483647 p=5e-9 values=Vector(11, 8, 19, 16, 5, 11, 9, 10)
+  + sleepstudy VarCorr and Wald SE match MixedModels.jl 0.011s
+COUNT_VECTOR binomial n=2147483647 p=0.5 values=Vector(1073767737, 1073727753, 1073715655, 1073760481, 1073700554, 1073739579, 1073734387, 1073725196)
+  + independent frozen binomial calibration 0.042s
+COUNT_VECTOR poisson lambda=9.9 values=Vector(7, 12, 14, 8, 6, 8, 8, 14)
+COUNT_VECTOR poisson lambda=10 values=Vector(10, 7, 11, 16, 12, 11, 8, 9)
+mixeff4s.model.FamilySuite:
+  + canonical links 0.001s
+  + Normal+Identity is not a supported GLMM pair 0.000s
+mixeff4s.pathology.FitEvidenceSuite:
+  + logit is inverse of logistic 0.000s
+  + probit is centered at zero 0.000s
+COUNT_VECTOR poisson lambda=10.1 values=Vector(10, 7, 11, 16, 12, 11, 8, 9)
+COUNT_VECTOR poisson lambda=1000 values=Vector(1001, 972, 1026, 1056, 1021, 1006, 978, 992)
+  + an arbitrary raw theta does not certify optimization 0.012s
+COUNT_VECTOR poisson lambda=1000000 values=Vector(1000047, 999111, 1000814, 1001780, 1000660, 1000191, 999310, 999743)
+mixeff4s.lmm.RefitSuite:
+  + independent frozen Poisson calibration 0.035s
+==> i <unknown> ignored
+  + sleepstudy zerocorr ML optimizes two diagonal theta slots 0.072s
+mixeff4s.formula.ParserSuite:
+  + fixed effects with explicit intercept 0.000s
+  + raw reassessment clears previous convergence evidence and stale geometry 0.037s
+  + implicit intercept 0.002s
+  + empty RHS is rejected 0.000s
+  + a mismatched or exhausted optimizer result cannot certify a fit 0.001s
+  + fitted covariance rank recognizes a nonzero off-diagonal reduced-rank Lambda 0.005s
+  + failed fit outcomes clear geometry and retain the stable reason code 0.002s
+  + no intercept with zero 0.009s
+  + no intercept with minus one 0.000s
+  + colon interaction 0.000s
+  + interaction subtraction is insensitive to variable order 0.000s
+  + star expansion 0.000s
+  + three-way star expansion 0.000s
+  + nesting slash 0.000s
+  + compiler serializes geometry separately and requires a matching fit 0.004s
+  + random intercept 0.003s
+  + random intercept and slope 0.000s
+  + random slope syntax has implicit intercept 0.000s
+mixeff4s.stats.GlmmBootstrapSuite:
+  + zerocorr 0.000s
+  + covariance wrappers parse as random terms 0.004s
+  + crossed random effects 0.001s
+  + interaction grouping 0.000s
+  + cell grouping with colon 0.000s
+  + nested grouping expands to main and cell 0.001s
+  + crossed star grouping expands to main effects and cell 0.002s
+  + only random term still has implicit intercept 0.000s
+  + whitespace handling 0.000s
+  + dotted and underscored identifiers 0.000s
+  + backtick identifiers 0.000s
+  + unterminated backtick is actionable 0.000s
+  + empty backtick is rejected 0.000s
+  + bare arithmetic is refused 0.000s
+  + stateful transforms are refused 0.000s
+  + stateless subset parses with canonical labels 0.001s
+mixeff4s.design.UpstreamDesignSuite:
+  + formula display canonicalizes terms 0.000s
+  + no-intercept main effects full-code only the first categorical variable 0.005s
+mixeff4s.data.ModelFrameSuite:
+  + builds aligned numeric and factor columns 0.000s
+  + encodes an explicit factor level order 0.000s
+  + rejects a value outside the declared factor levels 0.000s
+  + rejects length mismatch 0.000s
+  + no-intercept factor interaction full-codes both factors 0.001s
+mixeff4s.lmm.CoefficientLayoutSuite:
+  + rejects non-finite numeric input at the frame boundary 0.010s
+  + rejects non-finite numeric columns added after frame construction 0.000s
+  + validates raw factor references and values 0.000s
+  + permits a legitimate empty aligned frame 0.000s
+  + materializes I() onto the frame 0.001s
+  + ML: a dropped column at index 0 preserves all coefficient axes 0.013s
+mixeff4s.lmm.SimpleLmmFitSuite:
+  + REML: a dropped column at index 0 preserves all coefficient axes 0.005s
+mixeff4s.glmm.AdaptiveQuadratureSuite:
+mixeff4s.glmm.GlmmSimulationSuite:
+  + rail REML matches frozen lme4 0.013s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=false DerivativeFree 0.109s
+  + ergostool REML matches frozen lme4 0.005s
+  + interaction contrasts follow marginality and formula variable order 0.046s
+  + numeric by factor interaction uses full factor indicators when uncovered 0.004s
+  + random-slope bases use the same no-intercept contrast assignment 0.001s
+  + random no-intercept interaction full-codes both factor bases 0.001s
+  + grouping drops unused declared levels in their declared order 0.002s
+  + combined grouping retains distinct tuples with underscore-containing levels 0.001s
+  + expanded fixed columns agree with independent R model.matrix numeric witnesses 0.002s
+  + ML: a dropped column at index 1 preserves all coefficient axes 0.038s
+  + REML: a dropped column at index 1 preserves all coefficient axes 0.002s
+  + ML: a dropped column at index 2 preserves all coefficient axes 0.002s
+  + REML: a dropped column at index 2 preserves all coefficient axes 0.002s
+  + every admitted normal quadrature order has independent Gaussian polynomial moments 0.044s
+  + original middle-column counterexample has a finite days standard error and z 0.005s
+  + balanced random-intercept covariance agrees with the analytic GLS calculation 0.005s
+  + a nonzero scaled alias at theta zero agrees with independent OLS fractions 0.001s
+  + cake REML matches frozen lme4 after aligning contrast names 0.042s
+mixeff4s.stats.LikelihoodBoundarySuite:
+mixeff4s.ReadmeExampleSuite:
+mixeff4s.lmm.CrossedFitSuite:
+  + one node is exactly Laplace; zero covariance is exactly the GLM density 0.033s
+  + AGQ refuses fast mode, vector and multiple terms, and out-of-domain orders 0.001s
+  + a fitted scaled alias matches its selected reduced model in ML and REML 0.030s
+  + full-rank column reordering permutes both covariance axes 0.002s
+  + a rank-zero fixed design has empty active outputs and records its dropped column 0.001s
+  + layout construction rejects repeated and out-of-range indices, including copy 0.000s
+  + fit and coefficient table construction cannot silently truncate inconsistent shapes 0.000s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=false AnalyticGradient 0.074s
+  + penicillin crossed intercepts match MixedModels.jl 0.021s
+  + README quick start compiles against the public API 0.048s
+mixeff4s.lmm.CoreLmmFitSuite:
+  + penicillin REML matches mixeff-rs 0.034s
+mixeff4s.lmm.GradientFitSuite:
+  + GLMM simulations are seeded, integral for Poisson, and condition modes without residual sigma 0.129s
+  + pastes nested intercepts match MixedModels.jl 0.012s
+mixeff4s.formula.DslSuite:
+mixeff4s.stats.LrtSuite:
+==> i <unknown> ignored
+  + typed DSL lowers to the same IR as the string parser 0.003s
+  + string interpolator 0.000s
+==> i <unknown> ignored
+mixeff4s.lmm.DyestuffFitSuite:
+GRADIENT_FIT formula=reaction ~ 1 + days + (1 + days | subj) reml=false objective=1751.9393444632335 gradient_evals=12 interpolation_evals=206
+  + sleepstudy nested FE LRT matches MixedModels.jl 0.023s
+  + power-likelihood fits refuse response simulation 0.037s
+mixeff4s.lmm.ProfiledGradientSuite:
+  + qualified ML coefficient profile retains finite likelihood endpoints 0.346s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=true DerivativeFree 0.095s
+GRADIENT_FIT formula=strength ~ 1 + (1 | batch / cask) reml=false objective=247.99446586249402 gradient_evals=20 interpolation_evals=192
+mixeff4s.glmm.GlmmWorkflowSuite:
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g), REML=false 0.012s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g), REML=true 0.004s
+mixeff4s.lmm.WorkflowParitySuite:
+  + pastes preserves the LR statistic but refuses unqualified variance-component calibration 0.033s
+  + dyestuff ML matches frozen lme4 0.051s
+mixeff4s.comparison.ScorecardSuite:
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g), REML=false 0.033s
+  + embedded scorecard uses the rust class vocabulary 0.037s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g), REML=true 0.026s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g) + (1 | h), REML=false 0.004s
+  + dyestuff2 is a frozen lme4 boundary claim 0.012s
+  + compiled fit and cold A-B-A refits equal rebuilds: REML=true AnalyticGradient 0.083s
+  + contrast names align mixeff4s dummy labels to lme4 0.001s
+  + previous start requires success and explicit warm refits preserve options and objective 0.007s
+  + REML LRT with different fixed effects is refused 0.072s
+  + failed numerical fit does not poison a later cold refit 0.005s
+  + dyestuff REML matches frozen lme4 0.071s
+  + mixing ML and REML is refused 0.003s
+  + observation-space derivative oracle: y ~ 1 + x + (1 + x | g) + (1 | h), REML=true 0.025s
+  + same-named changed predictors cannot certify fixed-effect nesting 0.003s
+  + oats REML matches frozen lme4 0.165s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy ML DerivativeFree 0.077s
+  + sleepstudy zerocorr is a frozen MixedModels.jl claim 0.029s
+  + dyestuff2 ML has reduced covariance rank at the boundary against frozen lme4 0.019s
+  + station fixed-only formula is unsupported with a rust contract claim 0.003s
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g) + (1 | nested), REML=false 0.019s
+  + random intercept is nested in intercept plus slope, without a fabricated p-value 0.017s
+  + dyestuff2 REML has reduced covariance rank at the boundary against frozen lme4 0.006s
+  + same-named changed grouping partition cannot certify nesting 0.002s
+  + fast-PIRLS contraception is documented divergence 0.008s
+GRADIENT_FIT formula=diameter ~ 1 + (1 | plate) + (1 | sample) reml=false objective=332.18834866849267 gradient_evals=20 interpolation_evals=112
+  + gradient strategy preserves classic nested/crossed/slope fits: REML=false 0.182s
+mixeff4s.linalg.SparseBlockSuite:
+  + observation-space derivative oracle: y ~ 1 + x + (1 | g) + (1 | nested), REML=true 0.012s
+  + structural zeros persist and clones isolate mutable values 0.001s
+  + sparse subtraction preflight prevents late partial mutation 0.000s
+  + CSC subtraction updates a dense target without sparse densification 0.000s
+  + CSC rank-k uses structural support for a diagonal target 0.001s
+  + dense copy from sparse clears stale fill 0.000s
+  + sparse off-diagonal scaling visits stored support, not structural gaps 0.000s
+  + renamed predictors and relabeled reordered group levels preserve numerical design 0.012s
+  + sparse vector off-diagonal scaling transforms only occupied rectangles 0.000s
+  + structured matvec avoids dense block traversal semantics 0.000s
+  + sparse right solve preserves diagonal and block-diagonal closures 0.000s
+  + independent batches reset starts and separate sessions do not share scratch 0.040s
+  + sparse block solve skips entirely absent row-level rectangles 0.000s
+  + dense right divisor promotes sparse target before mutation 0.000s
+  + diagonal covariance is nested in full covariance but calibration remains unavailable 0.004s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy ML AnalyticGradient 0.031s
+  + observation-space derivative oracle: y ~ 0 + (1 | g), REML=false 0.009s
+  + every scorecard row has a claimed frozen reference 0.005s
+  + frozen catalog refuses p-values 0.000s
+mixeff4s.compiler.ArtifactSuite:
+  + changed random slope values refuse even when names and partitions match 0.006s
+  + group-name inclusion is not grouping-partition inclusion 0.002s
+  + observation-space derivative oracle: y ~ 0 + (1 | g), REML=true 0.007s
+mixeff4s.glmm.GlmmAnalysisSuite:
+  + zero Lambda has zero gradient even at a variance maximum: closed-form witness 0.001s
+mixeff4s.glmm.GlmmRefitSuite:
+  + gradient scratch budget is enforced without a dense inverse allocation 0.001s
+  + gradient scratch sizing rejects impossible arrays before allocation 0.000s
+  + sleepstudy compiled-design snapshot 0.004s
+  + zerocorr sleepstudy is a diagonal theta map 0.002s
+  + assessing bare sleepstudy ML theta reports geometry without convergence 0.001s
+  + penicillin compiled-design snapshot 0.002s
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy REML DerivativeFree 0.025s
+mixeff4s.glmm.GlmmPredictionSuite:
+  + frozen lme4 fit/prediction/residual/modes: sleepstudy REML AnalyticGradient 0.012s
+GRADIENT_FIT formula=reaction ~ 1 + days + (1 + days | subj) reml=true objective=1743.6282719585156 gradient_evals=20 interpolation_evals=186
+  + pastes compiled-design snapshot 0.038s
+  + REML permits the same fixed basis in a different order for a covariance statistic 0.047s
+  + frozen lme4 fit/prediction/residual/modes: penicillin ML DerivativeFree 0.019s
+mixeff4s.lmm.PredictionSuite:
+  + new data reuses training factor levels, transformations and row order 0.010s
+  + unknown fixed levels and changed predictor types refuse 0.001s
+  + frozen lme4 fit/prediction/residual/modes: penicillin ML AnalyticGradient 0.014s
+  + new grouping levels require explicit zero-effect policy 0.002s
+GRADIENT_FIT formula=strength ~ 1 + (1 | batch / cask) reml=true objective=246.99074585363604 gradient_evals=17 interpolation_evals=163
+GRADIENT_FIT formula=diameter ~ 1 + (1 | plate) + (1 | sample) reml=true objective=330.86058899113993 gradient_evals=20 interpolation_evals=141
+  + gradient strategy preserves classic nested/crossed/slope fits: REML=true 0.102s
+  + REML refuses the same named fixed effects with changed values or scaling 0.049s
+  + rank-dropped columns require estimable new rows 0.033s
+  + complete snapshot seal rejects changed public fit fields 0.001s
+  + rank-dropped zero columns do not change parameter difference or the LR statistic 0.006s
+  + unbound or modified fits cannot supply comparison evidence 0.000s
+  + overflow in a dropped interaction cannot masquerade as an estimable row 0.002s
+  + different responses and non-increasing parameter counts refuse 0.002s
+  + alias estimability is invariant to the units of a dropped zero column 0.002s
+  + an actual fitted zero variance permits a statistic but refuses ordinary calibration 0.001s
+  + later response refits leave earlier modes and predictions unchanged 0.018s
+  + copied compiled designs cannot substitute another prediction recipe 0.002s
+GRADIENT_PW2 objective=439.73151877064697 evaluations=31
+  + pw2_nested default-budget REML matches frozen lme4 adoption reference 0.053s
+  + two smaller random blocks cannot reuse one larger block 0.043s
+  + true/1: A B invalid A cold refits equal independent fresh fits 0.166s
+  + chained derived recipes preserve dependencies and reject contradictory supplied helpers 0.060s
+  + frozen lme4 fit/prediction/residual/modes: penicillin REML DerivativeFree 0.123s
+mixeff4s.glmm.GlmmInputSuite:
+  + residual and scalar random-effect targets use the likelihood profiler 0.355s
+  + binomial counts and ambiguous fractional responses refuse in both estimators 0.026s
+  + orthodont REML matches frozen lme4 0.259s
+  + invalid trials, cases, offsets, controls and fractional Poisson counts refuse 0.003s
+  + estimated-dispersion families refuse until dispersion is explicitly implemented 0.001s
+  + fitted link and response predictions preserve the fitted conditional snapshot 0.201s
+  + logit inverse and derivative stay finite at large eta 0.000s
+  + population prediction removes modes and frozen encoding refuses unknown groups unless zero-effect is explicit 0.003s
+  + raw and Pearson residuals are finite 0.000s
+  + new-data factor level order is aligned to training and incompatible columns refuse 0.001s
+  + frozen lme4 fit/prediction/residual/modes: penicillin REML AnalyticGradient 0.040s
+mixeff4s.glmm.JointDenseSuite:
+  + random-block matching finds an embedding that a greedy assignment would miss 0.087s
+BOUNDARY_FIT small=Vector(0)/Vector(-0.40546510838643435) large=Vector(0)/Vector(-0.4333608003035095, 0.6475274888302512) assessment=GlmmAssessment(StepBelowTolerance,true,Right(ConditionalModeResult(0,0,1e-8,0)),Some(JointAssessment(Available(Vector(-0.000001023560495620283, 0.0000010389792729862772, 6.750155989720952e-9),0.0000010389792729862772,0.0001),Unresolved)),Vector(GlmmCovarianceRank(g,1,Some(0),Vector(0))),Excluded(mixed_binomial_rows_span_retained_design,2),Vector(finite_joint_mle_not_assessed),Vector(bootstrap_reduced_rank, bootstrap_covariance_boundary, bootstrap_outer_unqualified))
+  + oxide nested intercepts match MixedModels.jl 0.023s
+  + crossed vector terms and reduced-rank covariance match independent dense conditional solve 0.015s
+mixeff4s.glmm.GlmmAssessmentSuite:
+  + equivalent scaled fixed bases are conservatively refused rather than declared nonnested 0.018s
+mixeff4s.lmm.SimulationSuite:
+  + seeded response simulation is deterministic and index streams differ 0.008s
+  + a copied fit without its sealed snapshot is refused 0.000s
+  + uniform conversion stays strictly open at long extremes 0.000s
+  + oxide nesting sugar matches the Lot + Lot:Wafer fit 0.039s
+  + frozen lme4 fit/prediction/residual/modes: pastes ML DerivativeFree 0.052s
+  + machines worker-machine intercepts match frozen lme4 0.009s
+  + frozen lme4 fit/prediction/residual/modes: pastes ML AnalyticGradient 0.010s
+  + frozen lme4 fit/prediction/residual/modes: pastes REML DerivativeFree 0.007s
+  + frozen lme4 fit/prediction/residual/modes: pastes REML AnalyticGradient 0.005s
+mixeff4s.pathology.PathologySuite:
+  + sleepstudy is an easy design-time certificate 0.001s
+  + no random effects maps to not_identifiable 0.000s
+  + unsupported covariance maps to not_optimized 0.000s
+  + singletons with a random slope are a refusal certificate 0.001s
+  + a single grouping level is a refusal certificate 0.000s
+  + bare interior theta is geometry only 0.001s
+  + a diagonal theta at the lower bound is boundary geometry only 0.001s
+  + an off-diagonal near zero is not a variance boundary 0.001s
+  + assessOutcome maps an engine error on a refusal design 0.000s
+  + refusal designs do not claim a converged fit status 0.000s
+mixeff4s.lmm.TerminationSuite:
+  + strict scalar boundary likelihood evidence differs from interior coefficient eligibility 0.587s
+  + a public LMM refuses an exhausted main optimizer budget 0.001s
+  + feasible variance score detects zero-theta saddle even though theta derivative vanishes 0.002s
+  + an accepted fit retains evidence for its actual theta and objective 0.021s
+  + a zero fixed-effect pivot cannot become a finite REML objective 0.001s
+  + explicit ML refit preserves a response-only REML snapshot rather than training y 0.137s
+mixeff4s.design.DesignSuite:
+  + sleepstudy design shapes match mixeff-rs 0.002s
+  + zerocorr sleepstudy has two theta slots 0.001s
+mixeff4s.lmm.LmmSuite:
+  + refuses a formula with no random effects 0.000s
+  + parses then refuses structured covariance 0.000s
+  + single-term random intercept fits 0.001s
+  + budget failures retain optimizer evidence and unresolved brackets never fabricate endpoints 0.011s
+mixeff4s.stats.ObservedInformationSuite:
+  + full nuisance-adjusted inverse has correct factor two and differs from fixed-nuisance curvature 0.001s
+  + boundary, indefinite information and failed probes never obtain a fallback covariance 0.000s
+  + step-unstable curvature refuses and scalar chi-square threshold matches independent R 0.000s
+  + equilibrated checks detect unstable middle coordinate hidden by raw matrix scale 0.003s
+  + extreme admitted confidence levels expand the chi-square bracket 0.000s
+mixeff4s.glmm.GlmmSimulationMomentSuite:
+  + tiny zerocorr design retains its map but refuses an exhausted fit 0.036s
+  + parses then refuses compound symmetry 0.000s
+  + machines categorical random slope matches frozen lme4 0.106s
+mixeff4s.stats.InferenceReferenceSuite:
+mixeff4s.glmm.CoefficientLayoutSuite:
+  + GLMM discloses dropped columns using the same retained coefficient layout 0.012s
+mixeff4s.glmm.GlmmSuite:
+  + Normal+Identity is refused as a GLMM 0.001s
+  + noncanonical joint curvature is explicitly refused 0.000s
+  + nAGQ > 1 is refused in this slice 0.000s
+  + a small Bernoulli RE intercept is labelled fast-PIRLS 0.004s
+  + a perfectly separated Bernoulli design preserves its factorization failure 0.001s
+mixeff4s.glmm.ContraFitSuite:
+  + mixed grouped-binomial rows and positive Poisson counts provide explicit sufficient witnesses 0.184s
+  + offset fits require explicit compatible offsets for new data and b-zero differs from marginal mean 0.222s
+mixeff4s.stats.LikelihoodContractSuite:
+  + contra Laplace deviance at the Julia theta matches MixedModels.jl 0.132s
+  + pure groups are retained risk flags while their Gaussian-penalized modes are finite 0.132s
+  + separation and unavailable high-dimensional evidence are not mistaken for an overlap certificate 0.001s
+  + strict one-dimensional outcome hull overlap includes an interior singleton class 0.000s
+  + numerical boundary fits and fast fits remain ineligible rather than gaining a certificate 0.013s
+  + touching outcome hulls refuse and near-dependent mixed-row witnesses do not pass rank 0.001s
+mixeff4s.pathology.CorpusSuite:
+  + easy full-rank truth expects an interior fit 0.002s
+  + zero slope variance is a contract boundary 0.000s
+  + unit correlation is reduced-rank truth 0.000s
+  + singletons with a slope are a refusal spec 0.000s
+  + a misshapen truth covariance is a malformed spec 0.000s
+  + generate draws a deterministic Gaussian frame for an easy spec 0.004s
+  + generate refuses a misshapen truth covariance 0.000s
+  + q=3 full-rank truth is certified easy 0.000s
+  + q=3 with a zero slope variance is reduced-rank truth 0.000s
+  + generate draws a q=3 frame and an easy fit is interior 0.079s
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=0,0 n=4000 expected=2251.4072120416376 observed=2324.144367784971 se=50.34299571158385
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=1,0 n=4000 expected=1296.8801410171814 observed=1323.526511312828 se=41.0814207842117
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=1,1 n=4000 expected=2251.4072120416376 observed=2268.335443215469 se=50.34299571158385
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=2,0 n=4000 expected=0 observed=122.06988334412227 se=35.59787365290622
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=2,1 n=4000 expected=0 observed=129.67421265117028 se=35.59787365290622
+SIM_MOMENT name=intercept mode=DrawRandomEffects pair=2,2 n=4000 expected=2251.4072120416376 observed=2224.8666749786707 se=50.34299571158385
+  + false/1: A B invalid A cold refits equal independent fresh fits 0.575s
+  + an extreme slope isolates complete FE separation 0.073s
+  + rare events isolate conditional separation 0.063s
+  + extreme Bernoulli prevalence certifies as two-tier separation 0.010s
+  + an easy spec is not weakly identified 0.001s
+  + near-collinear predictors drop the weak-id score below the threshold 0.001s
+  + a full crossing is a single connected component 0.004s
+  + block-diagonal crossings are a disconnected refusal 0.001s
+  + unit-density empty crossings match a full Cartesian product 0.000s
+  + a sparse connected crossing is not a disconnected refusal 0.000s
+  + a crossed spec generates two grouping factors 0.001s
+  + a connected crossing fits to an interior status 0.013s
+  + a disconnected crossing's engine outcome stays in the expected set 0.024s
+  + near-singular RE and scale mismatch compose without a collision 0.000s
+  + singletons via transform match the inline refusal 0.000s
+  + scale mismatch leaves the weak-id score unchanged 0.000s
+  + generate draws predictors from sqrt(D corr D) 0.001s
+  + documented grouped-binomial workflow runs with qualified inner and outer evidence 1.051s
+mixeff4s.glmm.PirlsSuite:
+  + Bernoulli logit working observation at eta=0 0.000s
+  + working observation subtracts a supplied offset 0.000s
+  + bounded Bernoulli mean stays off the 0/1 boundary 0.000s
+mixeff4s.lmm.SparsePlsSuite:
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | nested) REML=false 0.019s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | nested) REML=true 0.006s
+  + pareto group sizes are right-skewed and still easy 0.088s
+  + perfectly collinear predictors are a structural refusal 0.001s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | h) REML=false 0.016s
+  + an easy generated LMM fits to an interior status 0.010s
+mixeff4s.pathology.SeparationSuite:
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | h) REML=true 0.010s
+  + complete FE separation is a strict sign split 0.001s
+  + quasi-complete FE separation has a tie at zero 0.002s
+  + overlapping classes are not FE-separated 0.001s
+  + conditional scan finds all-zero and all-one groups 0.000s
+  + every singleton group is conditionally separated 0.000s
+  + empty inputs are not conditionally separated 0.000s
+  + a Gaussian spec has an empty separation report 0.000s
+AGQ_FIT name=cbpp nodes=5 objective=183.96807570515392 reference=183.96807570514318 beta=Vector(-1.3991938126483379, -0.9914381571666491, -1.127853240524957, -1.5795089076044047) theta=Vector(0.6473646119809854) assessment=Some(JointAssessment(Available(Vector(-1.286484817890864e-9, -4.310625930277941e-9, -3.4019769906576226e-9, -3.5388232555925927e-9, 4.585369121438513e-8),4.585369121438513e-8,0.0001),Interior))
+  + Bernoulli generate draws a binary response 0.001s
+  + Bernoulli generate refuses an unsupported link 0.001s
+  + cbpp AGQ5 full-density fit against normalized frozen lme4 1.240s
+mixeff4s.compiler.SemanticSuite:
+  + sleepstudy IR is a full Cholesky random slope 0.002s
+  + zerocorr is one diagonal term, not a silent split 0.000s
+  + cs is typed IR and marked parsed_refused 0.000s
+  + nested grouping keeps the written slash 0.000s
+mixeff4s.comparison.DatasetSuite:
+  + catalog names match the fixture manifest 0.001s
+  + blocked factor equals independent dense factor across refreshes: (1 | subject) + (1 | item) + (1 | site) REML=false 0.020s
+R_CURVATURE nodes=1 covariance=Vector(Vector(0.03261863092758273, -0.00023218922373097078), Vector(-0.00023218922373097084, 0.0043663991651919365)) reference=Vector(Vector(0.032618604362152734, -0.0002321891684972643), Vector(-0.0002321891684972643, 0.004366398363437914)) LR=82.37135360489998
+  + independent R selected-objective curvature and nested likelihood ratio nAgq=1 0.609s
+  + blocked factor equals independent dense factor across refreshes: (1 | subject) + (1 | item) + (1 | site) REML=true 0.011s
+  + every catalog dataset loads with the declared row count 0.014s
+  + rail keeps the nlme Rail level order 0.000s
+  + ergostool keeps the nlme Subject level order 0.000s
+  + oats Variety includes a spaced level 0.000s
+mixeff4s.lmm.LmmAssessmentSuite:
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | partial) + (1 | h) REML=false 0.007s
+  + a zero-theta scalar variance maximum fails the feasible boundary probe 0.001s
+  + relative covariance rank retains nonzero off-diagonal degeneracy 0.001s
+  + tampered fit evidence is unavailable rather than trusting stored optimizer norms 0.002s
+  + weak full-rank covariance uses its own relative scale 0.001s
+  + gradient scratch refusal preserves independent covariance rank evidence 0.002s
+  + blocked factor equals independent dense factor across refreshes: (1 | g) + (1 | partial) + (1 | h) REML=true 0.008s
+mixeff4s.glmm.GlmmParitySuite:
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | nested) REML=false 0.017s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | nested) REML=true 0.008s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | h) REML=false 0.006s
+  + blocked factor equals independent dense factor across refreshes: (1+x | g) + (1+x | h) REML=true 0.008s
+  + invalid weight and response refreshes leave the previous cross-products intact 0.016s
+==> i <unknown> ignored
+mixeff4s.optimizer.TrustBqSuite:
+  + recovers a shifted quadratic 0.000s
+mixeff4s.lmm.WorkflowExampleSuite:
+  + documented public workflow fits, assesses, predicts, simulates and produces qualified intervals 0.071s
+mixeff4s.stats.InferenceRefusalSuite:
+  + profile intervals are a typed refusal 0.005s
+  + legacy bootstrap call requires explicit seed and targets 0.005s
+  + GLMM profile intervals stay refused 0.003s
+mixeff4s.glmm.CountSamplerSuite:
+  + Bernoulli and binomial boundaries are exact and deterministic 0.000s
+  + binomial samples stay integral and bounded across inversion and BTPE regimes 0.000s
+  + count moments and tail bins remain plausible without cross-row stream coupling 0.014s
+  + invalid and unsupported sampler inputs refuse with stable codes 0.000s
+  + stable Poisson PMF agrees with independent frozen density values 0.000s
+mixeff4s.glmm.JointLaplaceSuite:
+  + fixed beta modes and final-mean determinant agree with independent scalar oracle 0.003s
+  + cold A B A probes are independent of previous modes and weights 0.001s
+  + binomial trials and case weights affect constants, score and curvature consistently 0.001s
+  + Poisson constants, zero counts, offsets and power weights agree with scalar oracle 0.002s
+  + joint API refuses wrong dimensions and invalid theta 0.001s
+  + conditional and outer exhaustion are typed failures 0.001s
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=0,0 n=4000 expected=954.5270710244562 observed=963.3448570554591 se=21.343874171744538
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=1,0 n=4000 expected=0 observed=-11.907344267587332 se=15.09239816363297
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=1,1 n=4000 expected=954.5270710244562 observed=958.2672427841517 se=21.343874171744538
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=2,0 n=4000 expected=0 observed=2.6796746420138815 se=15.09239816363297
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=2,1 n=4000 expected=0 observed=24.411553432194694 se=15.09239816363297
+SIM_MOMENT name=intercept mode=ConditionOnModes pair=2,2 n=4000 expected=954.5270710244562 observed=987.9784626665497 se=21.343874171744538
+  + random-intercept simulation has analytic within-group covariance and variance 1.083s
+  + joint fit is separately labelled and records conditional and outer evidence 0.156s
+  + near-integer accepted input is canonicalized once even under large case weights 0.002s
+  + zero theta at extreme finite logit eta retains finite likelihood and identity Hessian 0.002s
+  + stable logistic score retains small residuals under large case weights 0.000s
+  + grouped and expanded binomial have equivalent modes and assessment despite response constants 0.007s
+  + a zero-theta saddle is not accepted on projected gradient alone 0.001s
+  + degenerate response constants are exactly zero rather than amplified under large case weights 0.001s
+mixeff4s.stats.BootstrapSuite:
+GRADIENT_MAXIMAL objective=760.6570831961285 evaluations=593 stop=StepBelowTolerance projected_gradient=Some(0.5367257607808256)
+  + maximal singular REML meets the Rust gradient regression bound within default budget 1.292s
+mixeff4s.stats.LikelihoodInferenceSuite:
+BOOTSTRAP_WITNESS qualified=39 lower=9.066105347530183 upper=11.746431183838208 level=0.95
+  + explicit tight controls produce 39 independently assessed bootstrap refits and intervals 0.047s
+  + ML and REML originals can request tight controls without changing assessment thresholds 0.106s
+  + false/5: A B invalid A cold refits equal independent fresh fits 0.822s
+  + actual generated responses reproduce independent lme4 refits and R percentile intervals 0.030s
+  + injected middle failure retains later responses, seeds and cold-fit statistics 0.007s
+  + unqualified replicas remain visible and authoritative fit budget overrides low-level controls 0.001s
+  + percentile convention is R type 7 and confidence level is explicit 0.010s
+  + target validation and unqualified original fit refusals happen before sampling 0.003s
+  + invalid exposed numerical controls are refused by fits and sessions 0.001s
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=0,0 n=2000 expected=1220.4557316101004 observed=1273.8995267068542 se=38.59419895295076
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=1,0 n=2000 expected=576.5722576009347 observed=649.5521070099979 se=30.731255557713073
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=1,1 n=2000 expected=1275.2486860122522 observed=1396.8779482642315 se=40.32690430935625
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=2,0 n=2000 expected=0 observed=37.77808058862478 se=27.290219794094234
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=2,1 n=2000 expected=0 observed=-26.269138581439467 se=27.896098007354922
+SIM_MOMENT name=slope mode=DrawRandomEffects pair=2,2 n=2000 expected=1220.4557316101004 observed=1241.709173735733 se=38.59419895295076
+  + random-slope covariance includes intercept/slope correlation and is shared only within a group 0.295s
+  + contra fast-PIRLS fit matches MixedModels.jl 1.186s
+GLMM_RESULT name=cbpp joint=true objective=184.05256372951786 beta=Vector(-1.398532142507698, -0.99233273483202, -1.1286720841891913, -1.5803138851987975) theta=Vector(0.6422614491806575) stop=StepBelowTolerance evals=1746 assessment=Some(JointAssessment(Available(Vector(-5.419340953568882e-10, -8.052817671947802e-10, -2.8539086896023435e-9, -1.1090657988625475e-9, 4.699055959160129e-8),4.699055959160129e-8,0.0001),Interior))
+GLMM_DELTA name=cbpp joint=true eta=9.374632936598459e-8 mu=6.665127921801073e-9
+  + cbpp joint-Laplace against frozen R fit 0.742s
+  + separate sessions cannot contaminate each other and controls remain authoritative 0.237s
+GLMM_RESULT name=cbpp joint=false objective=184.10859094522775 beta=Vector(-1.36047266216468, -0.9761765042324447, -1.1110759551794052, -1.559679412677804) theta=Vector(0.6418204313116822) stop=ObjectiveStagnation evals=54 assessment=None
+GLMM_DELTA name=cbpp joint=false eta=0.0000055124591100685905 mu=0.0000010554126377848583
+  + cbpp fast-PIRLS against frozen R fit 0.068s
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=0,0 n=2000 expected=4.152612684655226 observed=4.2303424320293415 se=0.1313171432401706
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=1,0 n=2000 expected=0.7149951819388376 observed=0.7415025167827773 se=0.09422157454361299
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=1,1 n=2000 expected=4.152612684655226 observed=3.962961658505591 se=0.1313171432401706
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=2,0 n=2000 expected=3.1351923251369564 observed=3.2456028569570083 se=0.11634780407114945
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=2,1 n=2000 expected=0 observed=0.11763719514103149 se=0.09285524247116984
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=2,2 n=2000 expected=4.152612684655226 observed=4.2067534517784395 se=0.1313171432401706
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,0 n=2000 expected=0 observed=0.0985530696686671 se=0.09285524247116984
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,1 n=2000 expected=3.1351923251369564 observed=3.1206619168095866 se=0.11634780407114945
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,2 n=2000 expected=0.7149951819388376 observed=0.7679178761760708 se=0.09422157454361299
+SIM_MOMENT name=crossed mode=DrawRandomEffects pair=3,3 n=2000 expected=4.152612684655226 observed=4.144179543726817 se=0.1313171432401706
+  + crossed intercept simulation adds the covariance of each shared grouping factor 0.218s
+R_CURVATURE nodes=5 covariance=Vector(Vector(0.03270098721726779, -0.00023222361239078363), Vector(-0.0002322236123907837, 0.004365722202418567)) reference=Vector(Vector(0.0327009805550252, -0.000232223588509669), Vector(-0.00023222358850966896, 0.004365722118847771)) LR=82.35843203614735
+  + independent R selected-objective curvature and nested likelihood ratio nAgq=5 0.867s
+R_PROFILE_POINT target=Coefficient(days) value=8 objective=1803.2827384186367 reference=1803.282738425664
+R_PROFILE_POINT target=Coefficient(days) value=10 objective=1794.4179934094545 reference=1794.4179934106182
+R_PROFILE_POINT target=Coefficient(days) value=12 objective=1797.692797013634 reference=1797.6927971140506
+R_PROFILE_POINT target=RandomEffectStdDev(subj) value=20 objective=1807.9379144075315 reference=1807.9379144076024
+R_PROFILE_POINT target=RandomEffectStdDev(subj) value=40 objective=1794.405897258126 reference=1794.4058972581518
+R_PROFILE_POINT target=ResidualStdDev value=20 objective=1877.76255037491 reference=1877.7625503749086
+R_PROFILE_POINT target=ResidualStdDev value=30 objective=1794.3644826137152 reference=1794.3644826137183
+  + ML constrained profile objectives match an independent dense Gaussian likelihood 0.020s
+SIM_MOMENT name=zero mode=DrawRandomEffects pair=0,0 n=2000 expected=13.346099306666655 observed=12.935874590122236 se=0.4220407168786066
+SIM_MOMENT name=zero mode=DrawRandomEffects pair=1,0 n=2000 expected=0 observed=0.21817096360997487 se=0.29842785284169454
+SIM_MOMENT name=zero mode=DrawRandomEffects pair=1,1 n=2000 expected=13.346099306666655 observed=13.25836643518367 se=0.4220407168786066
+  + zero fitted random variance removes its covariance without removing residual noise 0.064s
+INFERENCE_COV beta=Vector(-0.3348562666172713, 0.5853220707545509) theta=Vector(0.9443224373599597) covariance=Vector(Vector(0.03270098721726779, -0.00023222361239078363), Vector(-0.0002322236123907837, 0.004365722202418567)) rows=Vector(GlmmCoefficientInterval(retained-basis coefficient: x,0.5853220707545509,0.06607361199766944,8.858635891968438,0.45582024896111567,0.7148238925479862,0.95), GlmmCoefficientInterval(retained-basis contrast: twox,1.1706441415091018,0.13214722399533887,8.858635891968438,0.9116404979222313,1.4296477850959723,0.95)) stability=7.081855098809358e-7/6.977284445234384e-7
+  + selected-estimator observed covariance and linear contrasts retain nuisance uncertainty 0.504s
+AGQ_FIT name=cbpp nodes=9 objective=183.9667435926691 reference=183.96674359266925 beta=Vector(-1.3992301926838673, -0.991403876554339, -1.1278196773525857, -1.5794710162288408) theta=Vector(0.6475177127466716) assessment=Some(JointAssessment(Available(Vector(-1.8619690870566637e-9, -1.2789769243681803e-9, -1.2600289745396352e-9, -1.7394633287830213e-9, 4.6801081528731934e-8),4.6801081528731934e-8,0.0001),Interior))
+  + cbpp AGQ9 full-density fit against normalized frozen lme4 1.035s
+CROSSED_BOUNDARY_REFUSAL theta=Vector(0, 0) beta=Vector(-0.4333862425545029, 0.6475526802295899) refusal=Some(likelihood_tangent_gradient)
+  + crossed scalar boundary attempt refuses failed tangent stationarity 1.770s
+  + ML profile intervals agree with frozen lme4 and variance is the squared SD axis 0.265s
+  + rowresponse, trials, offsets and power likelihood remain explicit comparison contracts 1.801s
+  + invalid targets and information budgets refuse without covariance substitution 0.032s
+LMM_NULL_ORIGINAL small=LmmAssessment(GradientBelowTolerance,true,Pass(8.346834334815867e-10,0.000001910541058073062),NotApplicable,Vector(RandomEffectCovarianceRank(0,Vector(0.6107803177752134),Some(1),6.107803177752133e-13,None)),Vector(),None,true) large=LmmAssessment(GradientBelowTolerance,true,Pass(1.564637308604233e-11,0.00000179407864300524),NotApplicable,Vector(RandomEffectCovarianceRank(0,Vector(1.358650835782112),Some(1),1.358650835782112e-12,None)),Vector(),None,true)
+LMM_NULL_PAIR index=0 statistic=Right(5.83739177994039)
+LMM_NULL_PAIR index=1 statistic=Right(1.4641808439143915)
+LMM_NULL_PAIR index=2 statistic=Right(0.5621478832224511)
+LMM_NULL_PAIR index=3 statistic=Right(0.0528232807259883)
+LMM_NULL_PAIR index=4 statistic=Right(0.2286315773046681)
+LMM_NULL_PAIR index=5 statistic=Right(0.02578377727422776)
+LMM_NULL_PAIR index=6 statistic=Right(1.5403945158752776)
+LMM_NULL_BOOTSTRAP qualified=7 calibration=Right(MonteCarloTail(0,7,0.125,0,0,0,0.354330159295932,0.95))
+  + Gaussian null bootstrap attempts both models and retains qualification failures 0.030s
+GLMM_RESULT name=culcitalogreg joint=true objective=60.70584123131578 beta=Vector(5.096143477809315, -3.8424041556001636, -4.4312101504356844, -5.599290424926354) theta=Vector(3.4368388332718505) stop=StepBelowTolerance evals=1019 assessment=Some(JointAssessment(Available(Vector(1.429132259178818e-9, -2.6585532522798364e-8, 1.3421260776195178e-8, 1.4935978249433943e-8, 1.7045969102848037e-8),2.6585532522798364e-8,0.0001),Interior))
+GLMM_DELTA name=culcitalogreg joint=true eta=0.000400170492909524 mu=0.000013194409809402785
+  + culcitalogreg joint-Laplace against frozen R fit 0.515s
+GLMM_RESULT name=culcitalogreg joint=false objective=61.12389317059657 beta=Vector(4.11197945564696, -3.141160178710176, -3.707523325731419, -4.778199403587287) theta=Vector(3.320712803120113) stop=ObjectiveTolerance evals=51 assessment=None
+GLMM_DELTA name=culcitalogreg joint=false eta=0.00017692367155142108 mu=0.000007452742624147746
+  + culcitalogreg fast-PIRLS against frozen R fit 0.027s
+  + nested GLMM statistic matches explicit objectives and incompatible estimators refuse 0.472s
+GLMM_RESULT name=synthetic_poisson_offset joint=true objective=68.33363474264094 beta=Vector(0.3260365161751499, 0.6448436012883756) theta=Vector(0.14306294094497995) stop=StepBelowTolerance evals=684 assessment=Some(JointAssessment(Available(Vector(-6.442254137558241e-9, -4.026408835973901e-9, -3.514818066226629e-8),3.514818066226629e-8,0.0001),Interior))
+GLMM_DELTA name=synthetic_poisson_offset joint=true eta=1.2081004419073338e-8 mu=6.777366667876095e-8
+  + synthetic_poisson_offset joint-Laplace against frozen R fit 0.042s
+GLMM_RESULT name=synthetic_poisson_offset joint=false objective=68.34024108816556 beta=Vector(0.3350952940246258, 0.6448436012728314) theta=Vector(0.12680392533772622) stop=ObjectiveStagnation evals=48 assessment=None
+GLMM_DELTA name=synthetic_poisson_offset joint=false eta=0.015513429456492922 mu=0.09050054970637156
+  + synthetic_poisson_offset fast-PIRLS against frozen R fit 0.007s
+  + null simulation preserves complete failed-pair ledger and later indexed seeds 0.041s
+  + tail calibration includes ties, plus-one correction and Monte Carlo interval at all-zero extremes 0.000s
+AGQ_FIT name=cbpp nodes=15 objective=183.9667380726923 reference=183.9667380726923 beta=Vector(-1.3992304445524884, -0.9914036723572351, -1.1278194666468186, -1.5794707501071321) theta=Vector(0.6475184786664798) assessment=Some(JointAssessment(Available(Vector(-1.45572102420704e-9, -2.1316282072803006e-9, 2.562059393555948e-9, 8.397410588297091e-10, 9.805489753489383e-9),9.805489753489383e-9,0.0001),Interior))
+  + cbpp AGQ15 full-density fit against normalized frozen lme4 0.602s
+BOUNDARY_BOOTSTRAP attempts=7 failures=Vector(4) calibration=Left(At least one simulated model pair failed qualification; all pairs are retained.)
+BOUNDARY_PAIR index=0 seed=-1766870411957360338 statistic=Right(0.13873666183593514)
+BOUNDARY_PAIR index=1 seed=-4974842434628432923 statistic=Right(0.07675402262094622)
+BOUNDARY_PAIR index=2 seed=8391955263547256977 statistic=Right(0.00855543093337019)
+BOUNDARY_PAIR index=3 seed=-7529709798749336958 statistic=Right(1.0639473137203765)
+BOUNDARY_PAIR index=4 seed=5721247336107687825 statistic=Left(Central observed curvature requires interior nuisance parameters.)
+BOUNDARY_PAIR index=5 seed=-6466559015426176902 statistic=Right(2.246090156208197)
+BOUNDARY_PAIR index=6 seed=6193656455464058601 statistic=Right(0.5563204686132508)
+  + scalar boundary null comparison retains all seven generated model pairs 0.636s
+AGQ_FIT name=culcitalogreg nodes=5 objective=60.433061568460595 reference=60.43306109714778 beta=Vector(4.962737785822191, -3.7215258250562746, -4.328515456068525, -5.516217603797275) theta=Vector(3.4365298819710297) assessment=Some(JointAssessment(Available(Vector(9.163235506530492e-10, 4.528170973041383e-9, -2.500611226012182e-9, -1.7580387145272652e-8, 9.400420363231192e-8),9.400420363231192e-8,0.0001),Interior))
+  + culcitalogreg AGQ5 full-density fit against normalized frozen lme4 0.497s
+  + injected middle failure retains later seeds, responses and independent cold-fit statistics 3.785s
+  + every budget failure is recorded without replacement responses 0.010s
+AGQ_FIT name=culcitalogreg nodes=9 objective=60.30412756383516 reference=60.3041273655668 beta=Vector(5.013908368905897, -3.7512416899211303, -4.3623762141884965, -5.546001974339059) theta=Vector(3.5053002264351876) assessment=Some(JointAssessment(Available(Vector(2.3146676199191863e-10, 3.3147685229695737e-10, -7.058122386631139e-11, -1.4178393093730465e-9, 6.415620955149298e-9),6.415620955149298e-9,0.0001),Interior))
+  + culcitalogreg AGQ9 full-density fit against normalized frozen lme4 0.588s
+  + foreign designs and estimator/options mismatches cannot count as successful replicates 0.625s
+  + invalid targets, levels and missing seeds remain precise refusals 0.180s
+AGQ_FIT name=culcitalogreg nodes=15 objective=60.30422318757298 reference=60.30422328859943 beta=Vector(5.0153677446821066, -3.7521114509804887, -4.3640719572760345, -5.548960796321183) theta=Vector(3.5092799165514634) assessment=Some(JointAssessment(Available(Vector(2.361218465364107e-12, 3.0930667978200874e-10, -1.9266614121266713e-10, -1.246350361551795e-9, 5.5073299572144e-9),5.5073299572144e-9,0.0001),Interior))
+  + culcitalogreg AGQ15 full-density fit against normalized frozen lme4 0.684s
+AGQ_FIT name=synthetic_poisson_offset nodes=5 objective=68.33667424479893 reference=68.33667424479891 beta=Vector(0.32626418752747816, 0.6448436013156639) theta=Vector(0.14134915071818194) assessment=Some(JointAssessment(Available(Vector(-2.4087398742267396e-8, -1.4684549872375404e-8, -1.4030850555476113e-7),1.4030850555476113e-7,0.0001),Interior))
+  + synthetic_poisson_offset AGQ5 full-density fit against normalized frozen lme4 0.053s
+AGQ_FIT name=synthetic_poisson_offset nodes=9 objective=68.33667500901788 reference=68.33667500901788 beta=Vector(0.3262643482805252, 0.6448436014071157) theta=Vector(0.14134788873407741) assessment=Some(JointAssessment(Available(Vector(-9.623117117977624e-8, -5.838292812162157e-8, -5.586997531281668e-7),5.586997531281668e-7,0.0001),Interior))
+  + synthetic_poisson_offset AGQ9 full-density fit against normalized frozen lme4 0.054s
+AGQ_FIT name=synthetic_poisson_offset nodes=15 objective=68.33667500900863 reference=68.3366750090086 beta=Vector(0.3262643471242783, 0.6448436013018992) theta=Vector(0.1413479042069044) assessment=Some(JointAssessment(Available(Vector(-6.205406558971542e-9, -3.457974647365821e-9, -3.493501784153826e-8),3.493501784153826e-8,0.0001),Interior))
+  + synthetic_poisson_offset AGQ15 full-density fit against normalized frozen lme4 0.063s
+  + AGQ at independently integrated fixed parameters preserves full response constants 0.002s
+AGQ_INTEGRAL name=cbpp nodes=31 objective=183.96673807462122 independent=183.9667380746211 error=1.1368683772161603e-13
+AGQ_INTEGRAL name=culcitalogreg nodes=31 objective=60.30439158454732 independent=60.3043947649449 error=0.000003180397584401362
+AGQ_INTEGRAL name=synthetic_poisson_offset nodes=31 objective=68.33667500900863 independent=68.33667500900862 error=1.4210854715202004e-14
+  + maximum-order quadrature agrees with independent full-density integrals at frozen parameters 0.003s
+  + rare constant responses fail visibly and are never silently replaced 0.389s
+  + unqualified boundary originals refuse before any bootstrap attempts 0.019s
+  + conditional-mode experiments remain explicitly labelled in the result 0.378s
+  + binomial refits preserve trials and replace cached response constants 3.409s
+  + large-trial simulated proportions roundtrip through response preparation and refit validation 0.001s
+  + reusable and direct front doors share the same explicit fast-PIRLS default 0.001s
+  + drawn correlated and crossed effects reproduce multivariate Poisson-lognormal moments 5.037s
+  + grouped binomial simulation agrees with independently integrated logistic-normal moments 0.397s
+  + conditional modes produce independent Poisson observations with fitted means and no RE resampling 0.100s
+  + Bernoulli mixtures reproduce independently integrated probability and within-group covariance 0.107s
+GLMM_RESULT name=synthetic_poisson_crossed joint=true objective=1293.8553032674106 beta=Vector(1.0927556707785588, 0.3852373420140002) theta=Vector(0.5112426562649359, 0.1943774068128177, 0.4116372818441762, 0.32530894807880373) stop=StepBelowTolerance evals=1834 assessment=Some(JointAssessment(Available(Vector(-1.81370876455981e-7, 5.017379104780654e-7, 2.0312048339595398e-7, -1.1027623258996755e-7, 1.8189894035458565e-7, -3.4143946929058683e-7),5.017379104780654e-7,0.0001),Interior))
+GLMM_DELTA name=synthetic_poisson_crossed joint=true eta=0.000010645622873228788 mu=0.000016586966446574536
+  + synthetic_poisson_crossed joint-Laplace against frozen R fit 3.593s
+GLMM_RESULT name=synthetic_poisson_crossed joint=false objective=1293.859673145249 beta=Vector(1.104757082396092, 0.38272960405264816) theta=Vector(0.5112654058110682, 0.19437838355053455, 0.41162384888177683, 0.3253872735226246) stop=ObjectiveStagnation evals=316 assessment=None
+GLMM_DELTA name=synthetic_poisson_crossed joint=false eta=0.0000032418143353085682 mu=0.000011916261126287964
+  + synthetic_poisson_crossed fast-PIRLS against frozen R fit 0.467s
+GLMM_BOOT_RESPONSE {"index":0,"seed":"7671909092089349006","y":[0.25,0.35,0.6,0.6,0.75,0.8,0.45,0.6,0.85,0.25,0.45,0.3,0.45,0.7,0.8,0.25,0.35,0.25,0.35,0.4,0.55,0.2,0.4,0.6,0.25,0.3,0.55,0.15,0.25,0.45,0.35,0.5,0.7,0.35,0.45,0.35,0.25,0.3,0.6,0.4,0.35,0.7,0.45,0.85,0.9,0.1,0.05,0.1,0.45,0.3,0.5,0.1,0,0.25,0.15,0.1,0.55,0.25,0.5,0.7,0.1,0.3,0.25,0.3,0.6,0.55,0.3,0.05,0.05,0.25,0.75,0.6,0.3,0.5,0.6,0.25,0.45,0.65,0.15,0.55,0.6,0.1,0.15,0.1,0.3,0.45,0.7,0.3,0.4,0.35]}
+GLMM_BOOT_FIT {"index":0,"beta":[-0.47885833083362367,0.5672363124136667],"theta":[0.7690964295999829],"objective":451.05668734117216}
+GLMM_BOOT_RESPONSE {"index":1,"seed":"7159423796239308355","y":[0.25,0.4,0.55,0.1,0.25,0.3,0.8,0.75,0.85,0.6,0.5,0.65,0.35,0.45,0.8,0.05,0.1,0.3,0.7,0.85,0.9,0.2,0.3,0.45,0.5,0.2,0.55,0.5,0.2,0.6,0.6,0.85,0.75,0.1,0.1,0.2,0.15,0.3,0.25,0,0.1,0,0.25,0.7,0.7,0.4,0.7,0.55,0.1,0.1,0.2,0.45,0.65,0.7,0.45,0.75,0.6,0.2,0.25,0.6,0.25,0.4,0.4,0.05,0,0.2,0,0.05,0.15,0.35,0.45,0.55,0.55,0.85,0.85,0.45,0.5,0.75,0.05,0.25,0.35,0.2,0.3,0.4,0.05,0.25,0.55,0.4,0.45,0.5]}
+GLMM_BOOT_FIT {"index":1,"beta":[-0.5250924142656052,0.535301486699821],"theta":[1.1313837246586513],"objective":444.3273022304144}
+GLMM_BOOT_RESPONSE {"index":2,"seed":"-2249291010902640172","y":[0.3,0.6,0.8,0.4,0.55,0.7,0.15,0.25,0.3,0.3,0.45,0.7,0.1,0.3,0.5,0.3,0.5,0.45,0.35,0.45,0.55,0.95,0.95,1,0.45,0.8,0.95,0.45,0.55,0.65,0.35,0.5,0.55,0.25,0.35,0.4,0.8,0.8,0.75,0.45,0.4,0.8,0,0,0,0.25,0.4,0.6,0.6,0.6,0.7,0.1,0.25,0.35,0.05,0.2,0.25,0.35,0.55,0.35,0.05,0.15,0.1,0.2,0.35,0.4,0.25,0.4,0.4,0.25,0.5,0.6,0.4,0.45,0.65,0.5,0.9,0.85,0.25,0.4,0.6,0.1,0,0.2,0.35,0.5,0.7,0.2,0.4,0.6]}
+GLMM_BOOT_FIT {"index":2,"beta":[-0.3273839339562608,0.5840794347454726],"theta":[1.171737905119348],"objective":431.43903410896775}
+GLMM_BOOT_RESPONSE {"index":3,"seed":"-7687153211708749473","y":[0.2,0.25,0.4,0.35,0.5,0.45,0.1,0.2,0.3,0.2,0.2,0.3,0.2,0.35,0.55,0.6,0.75,0.65,0.25,0.5,0.5,0.45,0.75,0.75,0.55,0.8,0.95,0.45,0.45,0.55,0.65,0.55,0.85,0.25,0.25,0.3,0.3,0.4,0.8,0.2,0.4,0.75,0.4,0.6,0.65,0.6,0.6,0.75,0.45,0.65,0.7,0.4,0.45,0.8,0.4,0.35,0.45,0.55,0.7,0.8,0.2,0.25,0.45,0.35,0.6,0.65,0.2,0.3,0.55,0.5,0.65,0.8,0.9,0.7,0.95,0.25,0.4,0.55,0.3,0.45,0.9,0.15,0.1,0.25,0.5,0.85,0.65,0.65,0.9,0.9]}
+GLMM_BOOT_FIT {"index":3,"beta":[0.017812314358799788,0.5718250918126578],"theta":[0.8000896188898358],"objective":438.2425053572068}
+GLMM_BOOT_RESPONSE {"index":4,"seed":"-520484740000317658","y":[0.2,0.15,0.25,0.35,0.65,0.65,0.35,0.65,0.7,0.45,0.85,0.75,0,0.1,0.4,0.1,0.25,0.2,0.65,0.6,0.75,0.45,0.45,0.95,0.3,0.5,0.45,0.2,0.3,0.3,0.2,0.55,0.65,0.15,0.25,0.35,0.7,0.5,0.65,0.1,0.2,0.35,0.35,0.55,0.8,0.4,0.55,0.65,0.4,0.55,0.75,0.2,0.4,0.45,0.4,0.25,0.5,0.3,0.3,0.65,0.6,0.75,0.85,0.9,0.9,0.95,0.1,0.2,0.3,0.7,0.85,0.8,0.4,0.7,0.7,0.3,0.1,0.5,0.5,0.65,0.65,0,0.1,0.15,0.3,0.5,0.45,0.25,0.45,0.65]}
+GLMM_BOOT_FIT {"index":4,"beta":[-0.20368441889188457,0.5633985356369672],"theta":[0.9665919865419319],"objective":444.54497277084323}
+GLMM_BOOT_RESPONSE {"index":5,"seed":"-4157317065267611256","y":[0.85,0.85,1,0.35,0.6,0.7,0.15,0.2,0.2,0.15,0.3,0.5,0.25,0.55,0.65,0.2,0.35,0.55,0.3,0.65,0.6,0.75,0.7,0.7,0.3,0.5,0.75,0.1,0.4,0.5,0.25,0.45,0.7,0.35,0.45,0.7,0.2,0.2,0.15,0.25,0.25,0.25,0.2,0.5,0.45,0.2,0.15,0.4,0.35,0.55,0.85,0.2,0.2,0.25,0.25,0.45,0.5,0.35,0.45,0.4,0.25,0.45,0.35,0.15,0.3,0.5,0.05,0.1,0.4,0.4,0.3,0.55,0.2,0.15,0.35,0.45,0.55,0.7,0.1,0.3,0.45,0.5,0.6,0.7,0.15,0.35,0.35,0.25,0.15,0.35]}
+GLMM_BOOT_FIT {"index":5,"beta":[-0.45538502285479776,0.5570027088387898],"theta":[0.7486796326179777],"objective":427.837197281763}
+GLMM_BOOT_RESPONSE {"index":6,"seed":"-1100934587152754907","y":[0.15,0.35,0.5,0.85,0.7,0.9,0.3,0.25,0.6,0.1,0.3,0.5,0,0.05,0.2,0.65,0.65,0.75,0.05,0.35,0.35,0.55,0.7,0.8,0.25,0.35,0.7,0.35,0.25,0.6,0.1,0.1,0.4,0.1,0.4,0.4,0.1,0.3,0.6,0.1,0.05,0.2,0.9,0.85,0.8,0.25,0.45,0.75,0.15,0.25,0.4,0.3,0.2,0.5,0.15,0.15,0.5,0.2,0.35,0.55,0.1,0.15,0.2,0.35,0.8,0.75,0.5,0.75,0.9,0.05,0.2,0.45,0.15,0.2,0.55,0.3,0.5,0.55,0.2,0.3,0.3,0.05,0,0.1,0.45,0.65,0.75,0.05,0.2,0.1]}
+GLMM_BOOT_FIT {"index":6,"beta":[-0.6198857618014917,0.7100014577206964],"theta":[1.0904812564179862],"objective":432.44655081823703}
+GLMM_BOOT_RESPONSE {"index":7,"seed":"7969557305820953073","y":[0.35,0.5,0.65,0.15,0.25,0.35,0.05,0.2,0.6,0,0.15,0.05,0.3,0.3,0.65,0.35,0.35,0.55,0.15,0.3,0.35,0.2,0.35,0.45,0.9,0.9,0.95,0.1,0.25,0.55,0.3,0.75,0.75,0.25,0.65,0.65,0.3,0.6,0.8,0.3,0.4,0.85,0.5,0.4,0.6,0.2,0.5,0.5,0.15,0.4,0.3,0.35,0.45,0.8,0.05,0.4,0.25,0.1,0,0.55,0.25,0.35,0.35,0.25,0.45,0.55,0.05,0.2,0.45,0,0.1,0.4,0.65,0.9,0.85,0.4,0.4,0.65,0.55,0.7,0.85,0.6,0.6,0.85,0.65,0.55,0.65,0.75,0.65,0.65]}
+GLMM_BOOT_FIT {"index":7,"beta":[-0.2869530416203699,0.6791730942862201],"theta":[0.9516943051640713],"objective":460.4098087621478}
+GLMM_BOOT_RESPONSE {"index":8,"seed":"-1780550020906685641","y":[0.65,0.7,0.8,0.8,0.9,0.95,0.9,0.7,0.85,0.45,0.65,0.9,0.2,0.05,0.35,0.25,0.7,0.4,0.1,0.25,0.25,0.3,0.15,0.4,0.15,0.45,0.45,0.65,0.6,0.9,0.2,0.15,0.25,0.4,0.7,0.75,0.35,0.4,0.5,0.2,0.4,0.65,0.5,0.8,0.75,0.3,0.55,0.65,0.2,0.1,0.45,0.5,0.5,0.55,0.15,0.3,0.45,0.25,0.5,0.6,0.55,0.55,0.85,0.5,0.75,0.9,0.3,0.55,0.6,0.05,0.15,0.2,0.25,0.4,0.5,0,0,0,0.45,0.5,0.5,0.5,0.6,0.6,0.5,0.6,0.45,0.45,0.7,0.85]}
+GLMM_BOOT_FIT {"index":8,"beta":[-0.16057216758296183,0.515772440030068],"theta":[1.083191278617325],"objective":449.96484441612057}
+GLMM_BOOT_RESPONSE {"index":9,"seed":"763331269162978962","y":[0.15,0.45,0.6,0.4,0.55,0.85,0.15,0.2,0.15,0.45,0.45,0.7,0.2,0.05,0.3,0.15,0.15,0.4,0.2,0.35,0.5,0.5,0.55,0.65,0.2,0.3,0.65,0.15,0.25,0.35,0.35,0.5,0.65,0.45,0.6,0.85,0.05,0.05,0.2,0.45,0.65,0.75,0.1,0.2,0.3,0.35,0.25,0.35,0.15,0.2,0.45,0.3,0.65,0.75,0.15,0.35,0.25,0.25,0.45,0.55,0.2,0.5,0.9,0.1,0.35,0.35,0.3,0.4,0.45,0.35,0.8,0.7,0.4,0.55,0.85,0.7,0.55,0.85,0.25,0.2,0.35,0.55,0.9,0.7,0.5,0.4,0.75,0.1,0.4,0.55]}
+GLMM_BOOT_FIT {"index":9,"beta":[-0.40374179455243764,0.647338807100337],"theta":[0.7825430080963526],"objective":439.94593716787983}
+GLMM_BOOT_RESPONSE {"index":10,"seed":"1140995503871405255","y":[0.3,0.6,0.8,0.45,0.8,0.55,0.05,0.2,0.45,0.55,0.75,0.65,0.45,0.4,0.7,0.9,0.8,0.95,0.1,0.25,0.6,0.05,0.55,0.4,0.8,0.7,0.85,0,0.05,0.25,0.25,0.55,0.7,0.1,0.35,0.7,0.2,0.45,0.85,0.95,0.95,0.75,0.3,0.4,0.2,0.3,0.3,0.65,0.65,0.75,0.9,0.25,0.25,0.3,0.45,0.45,0.65,0.5,0.9,0.9,0.5,0.5,0.55,0.15,0.45,0.45,0.05,0.1,0.05,0.35,0.65,0.7,0.1,0.25,0.45,0.3,0.2,0.45,0.45,0.45,0.7,0.25,0.35,0.55,0.25,0.55,0.65,0.3,0.45,0.35]}
+GLMM_BOOT_FIT {"index":10,"beta":[-0.13827623784754642,0.6074371084994648],"theta":[1.0057858951608158],"objective":477.56465140880925}
+GLMM_BOOT_RESPONSE {"index":11,"seed":"-714080475460422687","y":[0.15,0.3,0.35,0.2,0.45,0.6,0.7,0.65,0.85,0.15,0.45,0.6,0.5,0.65,0.7,0.1,0.3,0.4,0.25,0.35,0.85,0.15,0.2,0.25,0.05,0.05,0,0.55,0.85,0.85,0.35,0.4,0.5,0.25,0.4,0.5,0.6,0.7,0.9,0.35,0.3,0.35,0.5,0.35,0.7,0.15,0.45,0.45,0.3,0.75,0.9,0.25,0.5,0.5,0.05,0.3,0.55,0.1,0.45,0.35,0.45,0.6,0.65,0.5,0.55,1,0.3,0.35,0.4,0.1,0.2,0.25,0.4,0.45,0.75,0.4,0.4,0.65,0.4,0.65,0.7,0.45,0.6,0.65,0.05,0.2,0.35,0.25,0.55,0.7]}
+GLMM_BOOT_FIT {"index":11,"beta":[-0.30076383934373296,0.6560618432549097],"theta":[0.8438680608429996],"objective":442.54499414427977}
+GLMM_BOOT_RESPONSE {"index":12,"seed":"-1983077304808040061","y":[0.05,0.05,0,0.3,0.4,0.7,0.2,0.15,0.45,0.8,0.95,0.9,0.25,0.45,0.45,0.6,0.45,0.65,0.25,0.45,0.7,0.35,0.35,0.55,0.35,0.55,0.6,0.3,0.25,0.55,0.3,0.5,0.7,0.25,0.5,0.5,0.05,0.05,0.35,0.6,0.3,0.7,0.6,0.75,0.6,0.6,0.7,0.8,0.45,0.45,0.55,0.2,0.55,0.9,0.55,0.45,0.6,0.3,0.3,0.1,0.35,0.65,0.7,0.5,0.7,0.8,0.35,0.6,0.4,0.05,0.15,0.2,0.3,0.55,0.5,0.1,0.2,0.3,0.05,0.15,0.55,0.5,0.6,0.75,0.1,0.15,0.25,0.7,0.75,0.95]}
+GLMM_BOOT_FIT {"index":12,"beta":[-0.277891024969645,0.5187328631957049],"theta":[0.9738843191820976],"objective":459.3760417318763}
+GLMM_BOOT_RESPONSE {"index":13,"seed":"8677473043790307244","y":[0.2,0.1,0.4,0.1,0.25,0.35,0.5,0.7,0.65,0.05,0.45,0.45,0.55,0.5,0.65,0.05,0.25,0.3,0.7,0.65,0.85,0.35,0.35,0.8,0.75,0.85,0.85,0.3,0.45,0.7,0.15,0.1,0.4,0.35,0.7,0.55,0.05,0,0.4,0.3,0.35,0.3,0.1,0.2,0.25,0.35,0.25,0.5,0.2,0.25,0.4,0.05,0.1,0.5,0.45,0.55,0.7,0.15,0.4,0.4,0.75,0.8,0.95,0.25,0.4,0.45,0.4,0.4,0.4,0.1,0.4,0.3,0.05,0.3,0.4,0.6,0.7,0.65,0.3,0.3,0.25,0.1,0.1,0.35,0.25,0.15,0.2,0.05,0.05,0.2]}
+GLMM_BOOT_FIT {"index":13,"beta":[-0.5751529643795971,0.5150382733500334],"theta":[0.9230173149051308],"objective":447.0941561441045}
+GLMM_BOOT_RESPONSE {"index":14,"seed":"-2270437618814336371","y":[0.2,0.25,0.6,0.7,0.7,0.85,0.6,0.6,0.75,0.1,0.15,0.15,0.5,0.9,0.85,0.2,0.5,0.65,0.1,0.1,0.15,0.45,0.45,0.65,0,0.25,0.35,0.25,0.35,0.6,0.2,0.35,0.8,0.25,0.2,0.35,0.5,0.8,0.95,0.1,0.25,0.35,0.3,0.25,0.5,0.1,0.15,0.3,0.2,0.05,0.55,0.35,0.8,0.9,0.35,0.15,0.25,0.35,0.4,0.65,0.2,0.25,0.25,0.3,0.3,0.5,0.35,0.45,0.55,0.45,0.55,0.8,0.35,0.3,0.35,0.5,0.45,0.7,0.1,0.05,0.2,0.1,0.25,0.4,0.25,0.2,0.4,0.1,0.05,0.25]}
+GLMM_BOOT_FIT {"index":14,"beta":[-0.57053883434013,0.6058835273277378],"theta":[0.9153546747457929],"objective":442.8190260005256}
+GLMM_BOOT_RESPONSE {"index":15,"seed":"-7211833070974514982","y":[0.4,0.4,0.55,0.45,0.3,0.5,0.55,0.65,0.55,0.15,0.35,0.7,0.55,0.3,0.75,0.6,0.75,0.95,0.1,0.35,0.25,0.1,0.25,0.45,0.1,0.1,0.5,0.55,0.5,0.85,0.05,0.05,0.25,0.1,0.15,0.1,0.55,0.6,0.75,0.1,0.25,0.35,0.25,0.35,0.45,0.45,0.7,0.45,0,0.1,0.05,0.55,0.7,0.8,0.5,0.65,0.8,0.1,0.1,0.15,0.45,0.5,0.75,0.2,0.3,0.4,0.8,1,1,0.45,0.65,0.7,0.15,0.2,0.4,0.4,0.55,0.85,0.1,0.3,0.2,0.2,0.2,0.15,0.4,0.4,0.45,0.3,0.3,0.4]}
+GLMM_BOOT_FIT {"index":15,"beta":[-0.4438132482206731,0.5051810351413359],"theta":[1.095689177945425],"objective":445.9290322474354}
+GLMM_BOOT_RESPONSE {"index":16,"seed":"5732183820345318735","y":[0.55,0.6,0.65,0,0.2,0.2,0.1,0.15,0.25,0.3,0.4,0.45,0.25,0.5,0.6,0.15,0.6,0.6,0.95,0.85,0.85,0.1,0.15,0.2,0.2,0.25,0.5,0.5,0.5,0.8,0.4,0.7,0.95,0.35,0.4,0.65,0.4,0.25,0.7,0.35,0.5,0.65,0.1,0.3,0.2,0.4,0.3,0.6,0.65,0.65,0.7,0.2,0.25,0.5,0,0.05,0.1,0.2,0.25,0.5,0.15,0.2,0.4,0.1,0.15,0.25,0.15,0.15,0.25,0.15,0.15,0.2,0.5,0.75,0.75,0.4,0.45,0.65,0.45,0.2,0.45,0.45,0.7,0.75,0.3,0.5,0.55,0.4,0.7,0.7]}
+GLMM_BOOT_FIT {"index":16,"beta":[-0.47085645604574267,0.537026883424575],"theta":[0.9807007638520676],"objective":433.75644530895806}
+GLMM_BOOT_RESPONSE {"index":17,"seed":"-1580576034234919429","y":[0.1,0.65,0.45,0.3,0.45,0.55,0.05,0.25,0.3,0,0.1,0.05,0.2,0.7,0.7,0.25,0.65,0.65,0.05,0.15,0.25,0.7,0.7,0.8,0.05,0.4,0.45,0.05,0.35,0.4,0.45,0.55,0.85,0.15,0.25,0.4,0.15,0.45,0.4,0.75,0.8,0.9,0.4,0.5,0.8,0.25,0.4,0.5,0.45,0.45,0.55,0.3,0.55,0.65,0.25,0.5,0.45,0.25,0.35,0.3,0.1,0.1,0.35,0.15,0.25,0.6,0.45,0.25,0.45,0.55,0.45,0.85,0.35,0.6,0.55,0.2,0.45,0.4,0.15,0.25,0.45,0.1,0.05,0.4,0.05,0.3,0.45,0.35,0.6,0.45]}
+GLMM_BOOT_FIT {"index":17,"beta":[-0.5137527497242903,0.6303074996026152],"theta":[0.8110038071532806],"objective":445.2203859294108}
+GLMM_BOOT_RESPONSE {"index":18,"seed":"5179313653002382152","y":[0.1,0.15,0.55,0.6,0.45,0.75,0.65,0.55,0.9,0.2,0.35,0.3,0.5,0.7,0.85,0.2,0.55,0.6,0.05,0.15,0.1,0.45,0.3,0.5,0.25,0.15,0.4,0.8,0.85,0.8,0.2,0.3,0.65,0.3,0.4,0.35,0.05,0.3,0.4,0.35,0.3,0.75,0.35,0.6,0.8,0.1,0.3,0.5,0.35,0.5,0.35,0.25,0.5,0.55,0,0.1,0.1,0.15,0.55,0.55,0.7,0.8,1,0.1,0.25,0.3,0.45,0.6,0.7,0.35,0.35,0.45,0.5,0.6,0.6,0.05,0.1,0.5,0.2,0.55,0.7,0.35,0.25,0.7,0.25,0.3,0.55,0.15,0.25,0.15]}
+GLMM_BOOT_FIT {"index":18,"beta":[-0.4064964760690841,0.6058882202442872],"theta":[0.9011031467695405],"objective":453.9363301041185}
+GLMM_BOOT_RESPONSE {"index":19,"seed":"2419182098151237618","y":[0.85,0.75,0.85,0.7,0.6,0.9,0.6,0.55,0.75,0.05,0.1,0.65,0.05,0.1,0.2,0.55,0.75,0.6,0.3,0.85,0.9,0.65,0.45,0.55,0.15,0,0.15,0.35,0.55,0.7,0.55,0.65,0.75,0.6,0.6,0.75,0.5,0.45,0.8,0.1,0.15,0.1,0.35,0.4,0.65,0.6,0.7,0.95,0.3,0.4,0.5,0.1,0.2,0.2,0.15,0.5,0.25,0.55,0.65,0.65,0.4,0.5,0.8,0.35,0.3,0.5,0.35,0.4,0.55,0.4,0.65,0.75,0.25,0.45,0.65,0.2,0.2,0.2,0.35,0.7,0.8,0.25,0.25,0.45,0.6,0.55,0.9,0.25,0.15,0.4]}
+GLMM_BOOT_FIT {"index":19,"beta":[-0.14452476788704965,0.5192374280019575],"theta":[0.957020998074389],"objective":464.0170160042406}
+GLMM_BOOT_RESPONSE {"index":20,"seed":"-7527625467060160797","y":[0.5,0.55,0.7,0.05,0.15,0.35,0.25,0.35,0.6,0.35,0.5,0.7,0.7,0.55,0.95,0.25,0.5,0.65,0.5,0.75,0.85,0.25,0.2,0.25,0.6,0.45,0.65,0.4,0.65,0.65,0.25,0.5,0.75,0.1,0.15,0.15,0.2,0.35,0.35,0.3,0.5,0.55,0.35,0.35,0.45,0.25,0.15,0.4,0.15,0.05,0.3,0.4,0.35,0.7,0.1,0.45,0.45,0.25,0.5,0.4,0.25,0.4,0.65,0.5,0.85,0.8,0.2,0.35,0.4,0.65,0.9,0.9,0.1,0.2,0.3,0.3,0.5,0.4,0.2,0.25,0.55,0.8,0.85,0.8,0.5,0.75,0.85,0.2,0.05,0.25]}
+GLMM_BOOT_FIT {"index":20,"beta":[-0.27805764605787525,0.5546028093847308],"theta":[0.8908552663806422],"objective":438.5168907168028}
+GLMM_BOOT_RESPONSE {"index":21,"seed":"-5250651968881590020","y":[0.4,0.35,0.55,0.15,0.2,0.6,0.8,0.75,0.85,0.1,0.1,0.4,0.05,0.15,0.3,0.1,0.15,0.5,0.65,0.75,0.95,0.3,0.35,0.6,0.25,0.45,0.85,0.7,0.9,0.9,0.3,0.7,0.85,0.55,0.65,0.5,0.7,0.7,0.9,0.5,0.65,0.85,0.35,0.25,0.8,0.35,0.45,0.45,0.1,0.2,0.15,0.5,0.7,0.8,0.5,0.55,0.65,0.25,0.2,0.45,0.25,0.4,0.55,0.1,0.15,0.25,0.4,0.65,0.75,0.2,0.35,0.45,0.25,0.1,0.4,0.65,0.75,0.6,0.6,0.7,0.55,0.15,0.2,0.25,0.35,0.4,0.6,0.3,0.5,0.65]}
+GLMM_BOOT_FIT {"index":21,"beta":[-0.1536501844453136,0.5770784693433008],"theta":[0.9267258110930426],"objective":448.4901541751299}
+GLMM_BOOT_RESPONSE {"index":22,"seed":"6554588598005757623","y":[0.25,0.5,0.6,0.45,0.2,0.35,0.35,0.55,0.85,0.5,0.55,0.8,0.25,0.35,0.45,0.15,0.25,0.4,0.55,0.75,0.75,0.15,0.15,0.15,0.25,0.5,0.5,0.65,0.75,0.95,0.15,0.55,0.5,0.1,0.35,0.35,0.05,0.25,0.5,0.3,0.6,0.7,0.55,0.6,0.7,0.65,0.75,0.8,0.2,0.4,0.45,0.2,0.3,0.75,0.45,0.55,0.7,0.55,0.55,0.7,0.05,0.1,0.25,0.2,0.15,0.6,0.35,0.5,0.9,0.65,0.9,0.9,0.35,0.45,0.55,0.2,0.3,0.45,0.25,0.35,0.35,0.3,0.5,0.6,0.45,0.5,0.8,0.05,0.1,0.15]}
+GLMM_BOOT_FIT {"index":22,"beta":[-0.251722304453205,0.631090765180545],"theta":[0.8561005956498884],"objective":433.78738760823234}
+GLMM_BOOT_RESPONSE {"index":23,"seed":"-7039079611495118589","y":[0.2,0.6,0.35,0.55,0.7,0.6,0.25,0.65,0.55,0.35,0.7,0.75,0.5,0.5,0.7,0.4,0.8,0.4,0.1,0.05,0.3,0.5,0.6,0.95,0.45,0.35,0.45,0.2,0.45,0.5,0.3,0.75,0.65,0.8,0.8,0.95,0.6,0.4,0.6,0.35,0.35,0.55,0.1,0.25,0.3,0.05,0.3,0.4,0.45,0.4,0.9,0.3,0.05,0.65,0.2,0.2,0.3,0.25,0.45,0.55,0.25,0.25,0.6,0.35,0.5,0.85,0.2,0.45,0.7,0.55,0.7,0.75,0.1,0.2,0.3,0.65,0.85,0.85,0.4,0.4,0.65,0.65,0.55,0.85,0.4,0.4,0.5,0.2,0.05,0.35]}
+GLMM_BOOT_FIT {"index":23,"beta":[-0.14922934236452604,0.5528178217465822],"theta":[0.7762656619041484],"objective":474.68324826785255}
+GLMM_BOOT_RESPONSE {"index":24,"seed":"-7113280578443679513","y":[0.35,0.4,0.4,0,0.05,0.1,0.5,0.7,0.85,0.05,0.1,0.1,0.3,0.35,0.45,0.15,0.2,0.4,0.1,0.25,0.25,0.5,0.6,0.8,0.2,0.35,0.6,0.1,0.35,0.45,0.25,0.45,0.7,0.45,0.6,0.5,0.8,0.9,0.95,0.1,0.3,0.35,0,0.3,0.25,0.65,0.7,0.85,0.5,0.7,0.8,0.15,0.05,0.2,0.15,0.4,0.35,0.05,0.25,0.45,0.25,0.3,0.65,0.5,0.7,0.8,0.6,0.55,0.85,0.4,0.75,0.85,0.55,0.65,0.85,0.05,0.1,0.35,0.6,0.75,0.8,0.85,0.65,0.9,0.35,0.4,0.65,0.2,0.45,0.6]}
+GLMM_BOOT_FIT {"index":24,"beta":[-0.30098178334525166,0.6502342244706928],"theta":[1.152348801866597],"objective":427.31417357831833}
+GLMM_BOOT_RESPONSE {"index":25,"seed":"-8741581885997507417","y":[0.4,0.5,0.6,0.2,0.3,0.5,0.15,0.3,0.45,0.6,0.5,0.95,0.65,0.9,0.9,0.3,0.45,0.45,0.5,0.45,0.65,0.1,0.15,0.6,0.4,0.3,0.55,0.35,0.65,0.85,0.35,0.15,0.55,0.35,0.25,0.5,0.75,0.75,0.8,0.15,0.2,0.5,0.2,0.3,0.4,0.65,0.5,0.75,0.4,0.55,0.6,0.1,0.4,0.4,0.9,0.95,0.95,0.1,0.1,0.35,0.7,0.75,0.9,0.3,0.3,0.6,0.65,0.6,0.75,0.35,0.3,0.25,0.3,0.35,0.5,0.45,0.35,0.5,0.25,0.35,0.4,0.4,0.55,0.7,0.35,0.5,0.55,0.45,0.7,0.8]}
+GLMM_BOOT_FIT {"index":25,"beta":[-0.057788899662878354,0.503786376705448],"theta":[0.8390935492405492],"objective":441.85230498756374}
+GLMM_BOOT_RESPONSE {"index":26,"seed":"2706522658282097813","y":[0.35,0.45,0.6,0.3,0.65,0.75,0.4,0.35,0.4,0.3,0.45,0.65,0.2,0.3,0.6,0.8,0.8,0.8,0.55,0.65,0.6,0.3,0.45,0.6,0.2,0.1,0.3,0.4,0.65,0.5,0.25,0.3,0.65,0.15,0.15,0.6,0.25,0.45,0.45,0.5,0.5,0.8,0.1,0.5,0.45,0.35,0.55,0.65,0.55,0.75,0.85,0.15,0.4,0.55,0.3,0.45,0.65,0.25,0.4,0.75,0.6,0.5,0.7,0.35,0.45,0.65,0.05,0.2,0.2,0.05,0.1,0.45,0.85,0.95,1,0.15,0.3,0.35,0.05,0.15,0.3,0.35,0.6,0.65,0.25,0.35,0.5,0.35,0.6,0.75]}
+GLMM_BOOT_FIT {"index":26,"beta":[-0.2019469313378659,0.6313636570860637],"theta":[0.82359030860575],"objective":431.0603201900263}
+GLMM_BOOT_RESPONSE {"index":27,"seed":"4425776167835404326","y":[0.05,0.2,0.25,0.1,0.3,0.45,0.2,0.3,0.5,0.35,0.5,0.65,0.4,0.4,0.6,0.2,0.15,0.4,0,0.15,0.35,0.5,0.6,0.7,0.6,0.8,0.95,0.15,0.15,0.35,0.3,0.7,0.8,0.25,0.4,0.65,0.05,0.3,0.5,0.4,0.55,0.55,0.45,0.4,0.6,0.05,0.35,0.4,0.7,0.85,1,0.45,0.55,0.5,0.4,0.65,0.8,0.25,0.35,0.55,0.75,0.7,0.85,0.25,0.4,0.5,0.15,0.4,0.15,0.7,0.8,0.85,0.05,0.1,0.35,0.35,0.6,0.65,0.8,0.95,0.8,0.1,0.35,0.3,0.1,0.15,0.3,0.3,0.4,0.5]}
+GLMM_BOOT_FIT {"index":27,"beta":[-0.27629719335973624,0.6219412190660218],"theta":[0.987639744086463],"objective":432.9352637524643}
+GLMM_BOOT_RESPONSE {"index":28,"seed":"-1943355308328493994","y":[0.1,0.2,0.5,0.1,0.1,0.35,0.25,0.7,0.85,0.35,0.35,0.6,0.35,0.35,0.45,0.45,0.5,0.75,0.4,0.25,0.5,0.25,0.4,0.45,0.2,0.15,0.45,0.1,0.3,0.5,0.65,0.75,0.8,0.15,0.1,0.5,0.45,0.7,0.75,0.8,0.85,0.75,0.45,0.55,0.75,0.35,0.65,0.8,0.4,0.45,0.6,0.4,0.3,0.6,0.2,0.2,0.6,0.05,0.05,0.2,0.15,0.1,0.4,0.4,0.5,0.75,0.6,0.75,0.9,0.05,0.3,0.2,0,0.1,0.2,0.2,0.25,0.45,0.3,0.2,0.35,0.2,0.5,0.35,0.5,0.65,0.7,0.15,0.4,0.25]}
+GLMM_BOOT_FIT {"index":28,"beta":[-0.4373116086362879,0.60139835263298],"theta":[0.883240965089658],"objective":437.99579260609295}
+GLMM_BOOT_RESPONSE {"index":29,"seed":"6094730459724335138","y":[0.2,0.25,0.55,0.45,0.3,0.4,0.05,0,0.2,0.25,0.1,0.35,0.3,0.3,0.4,0.15,0.45,0.5,0.2,0.5,0.7,0.25,0.5,0.75,0.45,0.55,0.8,0.25,0.35,0.85,0.8,0.8,0.75,0.3,0.45,0.5,0.25,0.1,0.35,0.05,0.35,0.55,0.15,0.5,0.25,0.3,0.55,0.65,0.05,0.1,0.25,0.3,0.3,0.3,0.5,0.85,0.85,0.2,0.45,0.8,0.35,0.45,0.65,0.5,0.55,0.55,0.6,0.9,0.9,0.2,0.45,0.7,0.45,0.4,0.75,0,0.1,0.25,0.65,0.75,0.95,0.25,0.6,0.45,0,0.05,0.3,0.15,0.1,0.4]}
+GLMM_BOOT_FIT {"index":29,"beta":[-0.42782754675906765,0.6720656304229272],"theta":[0.9466328173883418],"objective":459.81379458848966}
+GLMM_BOOT_RESPONSE {"index":30,"seed":"-7533557092730529791","y":[0.4,0.3,0.5,0.3,0.6,0.75,0.25,0.55,0.45,0.2,0.2,0.45,0.3,0.45,0.55,0.05,0.2,0.15,0.55,0.7,0.9,0.3,0.45,0.8,0.45,0.55,0.8,0.1,0.15,0.4,0.2,0.25,0.3,0.1,0.2,0.25,0,0.2,0.4,0.6,0.6,0.75,0.25,0.45,0.65,0.05,0.45,0.6,0.15,0.25,0.3,0.25,0.4,0.2,0.3,0.55,0.75,0.3,0.4,0.65,0.3,0.65,0.5,0.4,0.7,0.9,0.05,0.1,0.4,0.25,0.3,0.55,0.4,0.7,0.85,0.3,0.45,0.8,0.25,0.35,0.5,0.15,0.3,0.5,0.65,0.9,0.95,0.65,0.45,0.75]}
+GLMM_BOOT_FIT {"index":30,"beta":[-0.34478149530345914,0.707935302575091],"theta":[0.815041735832194],"objective":435.1431680862733}
+GLMM_BOOT_RESPONSE {"index":31,"seed":"8201266955966403053","y":[0.25,0.35,0.6,0.3,0.7,0.8,0.6,0.8,0.7,0.1,0.3,0.2,0.15,0.35,0.4,0.5,0.55,0.75,0,0.2,0.5,0.4,0.6,0.6,0.2,0.35,0.4,0.4,0.65,0.8,0.2,0.1,0.3,0.5,0.65,0.8,0.45,0.6,0.75,0.3,0.5,0.6,0.4,0.8,0.8,0.15,0.2,0.25,0.65,0.65,0.7,0.15,0.1,0.15,0.05,0.15,0.25,0.45,0.55,0.6,0.15,0.15,0.25,0.2,0.2,0.5,0.25,0.35,0.65,0.3,0.5,0.55,0.55,0.75,0.85,0.05,0,0.05,0.15,0.3,0.45,0.25,0.15,0.3,0.45,0.55,0.8,0.2,0.3,0.35]}
+GLMM_BOOT_FIT {"index":31,"beta":[-0.4692810616519983,0.5810917064499972],"theta":[0.9543531532466079],"objective":423.92271340174153}
+GLMM_BOOT_RESPONSE {"index":32,"seed":"-971862202033821497","y":[0.15,0.4,0.3,0.2,0.4,0.6,0.45,0.6,0.85,0.1,0.1,0.4,0.6,0.9,0.85,0.45,0.65,0.6,0.55,0.55,0.7,0.5,0.6,0.6,0.2,0.3,0.5,0.25,0.6,0.6,0.3,0.55,0.8,0.3,0.25,0.45,0.1,0.3,0.4,0.3,0.55,0.55,0.35,0.3,0.5,0.15,0.35,0.55,0.45,0.55,0.85,0.25,0.35,0.6,0.55,0.6,0.5,0.2,0.25,0.5,0.65,0.9,0.95,0.2,0.25,0.45,0.5,0.55,0.65,0.5,0.5,0.55,0.3,0.3,0.45,0.45,0.55,0.7,0.25,0.45,0.3,0.15,0.4,0.65,0.15,0.2,0.15,0.4,0.6,0.85]}
+GLMM_BOOT_FIT {"index":32,"beta":[-0.19014859325371342,0.5641909352429185],"theta":[0.6794730854409048],"objective":428.58728231829303}
+GLMM_BOOT_RESPONSE {"index":33,"seed":"6496655473403777907","y":[0.6,0.75,0.65,0.1,0.4,0.35,0.2,0.3,0.55,0.3,0.6,0.6,0.1,0.25,0.35,0.25,0.65,0.65,0.3,0.35,0.55,0.95,0.95,0.9,0.35,0.65,0.75,0.2,0.1,0.45,0.45,0.65,0.75,0.45,0.75,0.9,0.45,0.5,0.7,0.6,0.65,0.75,0.45,0.65,0.75,0.35,0.4,0.6,0.5,0.65,0.8,0.75,0.65,0.7,0.15,0.65,0.6,0.05,0.3,0.5,0.1,0.25,0.15,0.2,0.2,0.45,0.45,0.35,0.85,0.25,0.3,0.5,0.3,0.75,0.75,0.4,0.6,0.75,0.4,0.55,0.8,0.1,0.15,0.3,0.35,0.3,0.65,0.45,0.65,0.9]}
+GLMM_BOOT_FIT {"index":33,"beta":[-0.027045359019877067,0.6598662035019064],"theta":[0.8340907652332797],"objective":439.91193988154436}
+GLMM_BOOT_RESPONSE {"index":34,"seed":"1616075385270984241","y":[0.15,0.2,0.4,0.2,0.15,0.3,0.2,0.45,0.45,0.4,0.4,0.55,0.1,0.3,0.4,0.35,0.5,0.5,0.35,0.45,0.5,0.5,0.7,0.6,0.55,0.6,0.85,0.5,0.6,0.8,0.4,0.55,0.5,0.2,0.4,0.65,0.2,0.25,0.65,0.3,0.3,0.35,0.35,0.45,0.6,0.1,0.3,0.65,0.2,0.5,0.55,0.55,0.65,0.8,0,0.15,0.05,0.5,0.65,0.7,0.75,0.85,0.95,0.45,0.7,0.75,0.1,0.35,0.45,0.2,0.5,0.4,0.45,0.7,0.85,0.2,0.1,0.2,0.7,0.75,0.8,0.25,0.45,0.35,0.15,0.4,0.65,0.3,0.35,0.45]}
+GLMM_BOOT_FIT {"index":34,"beta":[-0.26084124415816984,0.5527990710378583],"theta":[0.8113392976058255],"objective":429.04757815240043}
+GLMM_BOOT_RESPONSE {"index":35,"seed":"2545533801159381173","y":[0.25,0.45,0.45,0.75,0.9,0.85,0.25,0.1,0.1,0.35,0.35,0.5,0.1,0.15,0.3,0.25,0.55,0.4,0.5,0.5,0.8,0.25,0.4,0.75,0.05,0.2,0.35,0.2,0.25,0.35,0.35,0.35,0.45,0.4,0.45,0.55,0,0.3,0.25,0.15,0.25,0.5,0.65,0.7,0.9,0,0,0.5,0.45,0.65,0.45,0.1,0.25,0.55,0.45,0.45,0.7,0.45,0.6,0.85,0.6,0.55,0.85,0.1,0.2,0.05,0.65,0.65,0.8,0,0.05,0.2,0.5,0.5,0.5,0.4,0.4,0.7,0.15,0.15,0.45,0.35,0.5,0.65,0.35,0.5,0.8,0.3,0.5,0.6]}
+GLMM_BOOT_FIT {"index":35,"beta":[-0.4248533543722704,0.5612245017722239],"theta":[0.9253545939982949],"objective":452.0262493047022}
+GLMM_BOOT_RESPONSE {"index":36,"seed":"3132557489089459488","y":[0.25,0.5,0.7,0.6,0.4,0.7,0.3,0.45,0.75,0.15,0.4,0.5,0.4,0.6,0.7,0.15,0.25,0.35,0.6,0.65,0.6,0.4,0.75,0.85,0.7,0.8,0.85,0.75,0.85,0.85,0.1,0.1,0.35,0.25,0.2,0.6,0.3,0.3,0.35,0.2,0.2,0.6,0.75,0.8,0.9,0.25,0.65,0.75,0.3,0.15,0.45,0.2,0.25,0.2,0.75,0.75,0.9,0.35,0.4,0.6,0.15,0.3,0.5,0.15,0.1,0.1,0.05,0.4,0.5,0.3,0.4,0.3,0.35,0.4,0.8,0.1,0.35,0.35,0.25,0.55,0.55,0.45,0.85,0.9,0.2,0.45,0.55,0.15,0.05,0.2]}
+GLMM_BOOT_FIT {"index":36,"beta":[-0.23792797090097176,0.6083513818304223],"theta":[0.9413796889519592],"objective":447.2181467665741}
+GLMM_BOOT_RESPONSE {"index":37,"seed":"4469127705501440847","y":[0.25,0.1,0.7,0.8,0.9,1,0.25,0.4,0.7,0.35,0.5,0.6,0.6,0.65,0.8,0.25,0.4,0.5,0.05,0.2,0.25,0.5,0.8,0.95,0.9,0.95,0.85,0.2,0.3,0.4,0.5,0.6,0.85,0.35,0.2,0.3,0.65,0.7,0.8,0.5,0.65,0.85,0.5,0.6,0.8,0.25,0.55,0.8,0.3,0.3,0.45,0.65,0.6,0.8,0.25,0.5,0.75,0.25,0.35,0.75,0,0.35,0.25,0,0.25,0.4,0.4,0.5,0.75,0.15,0.25,0.45,0.35,0.25,0.35,0.15,0.25,0.55,0,0.15,0.2,0.15,0.5,0.55,0.25,0.2,0.45,0.15,0.45,0.65]}
+GLMM_BOOT_FIT {"index":37,"beta":[-0.15736399546158317,0.7126609683246916],"theta":[0.999862720056096],"objective":446.91739190792265}
+GLMM_BOOT_RESPONSE {"index":38,"seed":"-6711534300252315491","y":[0.1,0.3,0.55,0.3,0.45,0.8,0.15,0.2,0.25,0.7,0.9,0.8,0.55,0.75,0.85,0.4,0.7,0.7,0.05,0.5,0.3,0.1,0.2,0.2,0,0.25,0.45,0.15,0.05,0.15,0.55,0.55,0.85,0.2,0.35,0.35,0.6,0.4,0.5,0.1,0.25,0.4,0.35,0.65,0.85,0.1,0.2,0.2,0.2,0.45,0.65,0.4,0.6,0.5,0.25,0.4,0.5,0.35,0.45,0.55,0.4,0.6,0.7,0.55,0.7,0.85,0.35,0.3,0.55,0.65,0.85,1,0.15,0.25,0.35,0.65,0.2,0.7,0.05,0.05,0.2,0.75,0.75,1,0.1,0.2,0.2,0,0.1,0.1]}
+GLMM_BOOT_FIT {"index":38,"beta":[-0.4132586875115499,0.5974395180868458],"theta":[1.1119572860552136],"objective":454.43641839870725}
+GLMM_BOOT_INTERVAL qualified=39 lower=0.5051113022195416 upper=0.7101344332508962
+  + documented compile fit assess predict simulate bootstrap workflow retains 39 qualified AGQ attempts 8.808s
+  + independent lme4 refits of the actual39 responses reproduce coefficients and percentile intervals 0.005s
+NULL_BOOTSTRAP qualified=39 calibration=Right(MonteCarloTail(0,39,0.025,0,0,0,0.08966675531516449,0.95))
+NULL_PAIR index=0 seed=-1296569203024355911 null=None alternative=None statistic=Right(1.5704342497672883)
+NULL_PAIR index=1 seed=1932737567322148143 null=None alternative=None statistic=Right(0.18693179570090024)
+NULL_PAIR index=2 seed=-7063172994671038964 null=None alternative=None statistic=Right(1.3443963420244813)
+NULL_PAIR index=3 seed=-9220387120358121524 null=None alternative=None statistic=Right(11.050499952639086)
+NULL_PAIR index=4 seed=-4081923940934198464 null=None alternative=None statistic=Right(1.3574587352557614)
+NULL_PAIR index=5 seed=2199299343331455886 null=None alternative=None statistic=Right(0.003951845105859775)
+NULL_PAIR index=6 seed=-8047180433812521127 null=None alternative=None statistic=Right(3.101872405123629)
+NULL_PAIR index=7 seed=-1277322326987133056 null=None alternative=None statistic=Right(0.1389647385244075)
+NULL_PAIR index=8 seed=-1181251426271797715 null=None alternative=None statistic=Right(0.00405147555017038)
+NULL_PAIR index=9 seed=-7823358889228745162 null=None alternative=None statistic=Right(1.7131514128885215)
+NULL_PAIR index=10 seed=8601838624757811895 null=None alternative=None statistic=Right(1.321012563182876)
+NULL_PAIR index=11 seed=-4631052244388886592 null=None alternative=None statistic=Right(0.8442039129240584)
+NULL_PAIR index=12 seed=3579929341599998411 null=None alternative=None statistic=Right(0.10721175434315455)
+NULL_PAIR index=13 seed=-3599406177211340824 null=None alternative=None statistic=Right(3.3525833420465005)
+NULL_PAIR index=14 seed=-80646802091266975 null=None alternative=None statistic=Right(0.20201232254788692)
+NULL_PAIR index=15 seed=-512979711044441271 null=None alternative=None statistic=Right(0.06447978847774039)
+NULL_PAIR index=16 seed=5716722829769572362 null=None alternative=None statistic=Right(2.398292371306013)
+NULL_PAIR index=17 seed=3649183575585238935 null=None alternative=None statistic=Right(0.0040953754085535365)
+NULL_PAIR index=18 seed=3007244764094322107 null=None alternative=None statistic=Right(0.4790238038751795)
+NULL_PAIR index=19 seed=6436042484244309033 null=None alternative=None statistic=Right(2.308800325233051)
+NULL_PAIR index=20 seed=-7334880906563718716 null=None alternative=None statistic=Right(0.1883214909751132)
+NULL_PAIR index=21 seed=-5087028293854588571 null=None alternative=None statistic=Right(0.18770680980605903)
+NULL_PAIR index=22 seed=-920009073160639760 null=None alternative=None statistic=Right(1.573806072544869)
+NULL_PAIR index=23 seed=4183854020844450217 null=None alternative=None statistic=Right(0.10142874650716749)
+NULL_PAIR index=24 seed=-5900828542819214216 null=None alternative=None statistic=Right(1.3905900643263749)
+NULL_PAIR index=25 seed=3285622285159324079 null=None alternative=None statistic=Right(0.47466441773775614)
+NULL_PAIR index=26 seed=6702077812900949693 null=None alternative=None statistic=Right(0.6858749380397171)
+NULL_PAIR index=27 seed=-5311953171676162959 null=None alternative=None statistic=Right(0.892069730865785)
+NULL_PAIR index=28 seed=3485519680675755559 null=None alternative=None statistic=Right(1.4782468473055133)
+NULL_PAIR index=29 seed=-7313470730240208070 null=None alternative=None statistic=Right(0.015633184745979634)
+NULL_PAIR index=30 seed=-6560017363152544210 null=None alternative=None statistic=Right(0.710699239696396)
+NULL_PAIR index=31 seed=1254234345409954741 null=None alternative=None statistic=Right(0.8400026844694253)
+NULL_PAIR index=32 seed=2176162912748082578 null=None alternative=None statistic=Right(1.1606884054371562)
+NULL_PAIR index=33 seed=-904714618603397853 null=None alternative=None statistic=Right(0.06131313292246432)
+NULL_PAIR index=34 seed=5720176409681960593 null=None alternative=None statistic=Right(0.1552938677681368)
+NULL_PAIR index=35 seed=1091158327125245485 null=None alternative=None statistic=Right(5.822326683640483)
+NULL_PAIR index=36 seed=-4099375731469579711 null=None alternative=None statistic=Right(0.9851036378148024)
+NULL_PAIR index=37 seed=-6615913860650293616 null=None alternative=None statistic=Right(9.3518637032563)
+NULL_PAIR index=38 seed=-7631665769684833042 null=None alternative=None statistic=Right(0.5810943750773276)
+PROFILE_INTERVAL target=Coefficient(days) lower=LmmProfileEndpoint(Some(8.88655415624628),false,None,Some((8.88655109786836,8.886557214624201)),Some(3.8414477401540807)) upper=LmmProfileEndpoint(Some(12.048017762945644),false,None,Some((12.048014704567723,12.048020821323565)),Some(3.841447740151807))
+PROFILE_INTERVAL target=RandomEffectStdDev(subj) lower=LmmProfileEndpoint(Some(26.007084612590127),false,None,Some((26.00708117821036,26.00708804696989)),Some(3.841452192594943)) upper=LmmProfileEndpoint(Some(52.93594645100822),false,None,Some((52.93594301662846,52.93594988538799)),Some(3.841454907147181))
+PROFILE_INTERVAL target=RandomEffectVariance(subj) lower=LmmProfileEndpoint(Some(676.3683459567931),false,None,Some((676.3683420918192,676.3683498217671)),Some(3.841454135407048)) upper=LmmProfileEndpoint(Some(2802.2142029460783),false,None,Some((2802.2141990811047,2802.2142068110525)),Some(3.8414541851914237))
+PROFILE_INTERVAL target=ResidualStdDev lower=LmmProfileEndpoint(Some(27.813854652054538),false,None,Some((27.81385170563636,27.813857598472712)),Some(3.841460930249923)) upper=LmmProfileEndpoint(Some(34.59105253061114),false,None,Some((34.59104958419296,34.591055477029315)),Some(3.8414575094004704))
+  + documented inference workflow keeps coefficient information, null pairs and qualified profile endpoints 13.409s
+[info] Passed: Total 434, Failed 0, Errors 0, Passed 434, Ignored 4
+[success] Total time: 35 s, completed Oct 29, 2026, 8:18:31 p.m.
+[info] running mixeff4s.examples.LikelihoodInference 
+Observed-information intervals (joint-AGQ, nAgq=5): Vector(GlmmCoefficientInterval(retained-basis coefficient: (Intercept),-0.33485627033414656,0.180834144227773,-1.8517314402327258,-0.689284466582589,0.01957192591429585,0.95), GlmmCoefficientInterval(retained-basis coefficient: x,0.5853220704723535,0.06607361206630781,8.858635878494985,0.45582024854438963,0.7148238924003174,0.95))
+Null-bootstrap observed LR=82.35843203693366; attempts=39; unqualified=Vector(); calibration=Right(MonteCarloTail(0,39,0.025,0.0,0.0,0.0,0.08966675531516449,0.95))
+ML profile Coefficient(days): LmmProfileEndpoint(Some(8.88655415624628),false,None,Some((8.88655109786836,8.886557214624201)),Some(3.8414477401540807)) / LmmProfileEndpoint(Some(12.048017762945644),false,None,Some((12.048014704567723,12.048020821323565)),Some(3.841447740151807)); evaluations=41
+ML profile RandomEffectStdDev(subj): LmmProfileEndpoint(Some(26.007084612590127),false,None,Some((26.00708117821036,26.00708804696989)),Some(3.841452192594943)) / LmmProfileEndpoint(Some(52.93594645100822),false,None,Some((52.93594301662846,52.93594988538799)),Some(3.841454907147181)); evaluations=49
+ML profile RandomEffectVariance(subj): LmmProfileEndpoint(Some(676.3683459567931),false,None,Some((676.3683420918192,676.3683498217671)),Some(3.841454135407048)) / LmmProfileEndpoint(Some(2802.2142029460783),false,None,Some((2802.2141990811047,2802.2142068110525)),Some(3.8414541851914237)); evaluations=63
+ML profile ResidualStdDev: LmmProfileEndpoint(Some(27.813854652054538),false,None,Some((27.81385170563636,27.813857598472712)),Some(3.841460930249923)) / LmmProfileEndpoint(Some(34.59105253061114),false,None,Some((34.59104958419296,34.591055477029315)),Some(3.8414575094004704)); evaluations=45
+[success] Total time: 5 s, completed Oct 29, 2026, 8:18:36 p.m.

@@ -1,0 +1,12 @@
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_MONETARY failed, using "C" 
+Warning message:
+package 'lme4' was built under R version 4.5.2 
+Error: unexpected symbol in:
+"    interval_names = rownames(confint(profile_result, level = 0.95)), trace = profile_result)
+  constrain"
+Execution halted

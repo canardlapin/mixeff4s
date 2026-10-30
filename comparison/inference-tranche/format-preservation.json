@@ -1,0 +1,22 @@
+{
+  "existing_changed_allowlist": [
+    "README.md",
+    "src/main/scala/mixeff4s/prelude.scala",
+    "src/main/scala/mixeff4s/stats/Lrt.scala",
+    "src/main/scala/mixeff4s/stats/Profile.scala"
+  ],
+  "formatter_only_paths_restored": [
+    "src/main/scala/mixeff4s/compiler/Semantic.scala",
+    "src/main/scala/mixeff4s/design/ReMat.scala",
+    "src/main/scala/mixeff4s/formula/Formula.scala",
+    "src/main/scala/mixeff4s/formula/Transform.scala",
+    "src/test/scala/mixeff4s/comparison/EmbeddedFrames.scala",
+    "src/test/scala/mixeff4s/comparison/FitCompare.scala",
+    "src/test/scala/mixeff4s/comparison/FrozenReference.scala",
+    "src/test/scala/mixeff4s/compiler/SemanticSuite.scala",
+    "src/test/scala/mixeff4s/fixtures/Pastes.scala",
+    "src/test/scala/mixeff4s/fixtures/Penicillin.scala",
+    "src/test/scala/mixeff4s/fixtures/Sleepstudy.scala",
+    "src/test/scala/mixeff4s/lmm/SleepstudyFitSuite.scala"
+  ]
+}

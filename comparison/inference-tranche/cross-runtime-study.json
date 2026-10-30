@@ -1,0 +1,28 @@
+{
+  "binomial_response_vectors_per_runtime": 16,
+  "distinct_responses": {
+    "jvm": 16,
+    "js": 16
+  },
+  "maximum_response_difference": 0,
+  "all_bootstrap_tail_estimates_match": true,
+  "roundoff_zero_case_12_pvalue_both": 1.0,
+  "gaussian_profile_refused_indices": {
+    "jvm": [
+      3,
+      4,
+      7,
+      11,
+      14
+    ],
+    "js": [
+      3,
+      4,
+      7,
+      13,
+      14
+    ]
+  },
+  "gaussian_qualification_sets_identical": false,
+  "gaussian_status_reproduced_between_runs": true
+}

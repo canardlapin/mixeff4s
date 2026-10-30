@@ -1,0 +1,58 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 10 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 7 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[warn] -- [E198] Unused Symbol Warning: /Users/bbuchsbaum/code/scala/mixeff4s/src/test/scala/mixeff4s/stats/ObservedInformationSuite.scala:3:23 
+[warn] 3 |import mixeff4s.error.{FitResult,MixedModelError}
+[warn]   |                       ^^^^^^^^^
+[warn]   |                       unused import
+[warn] one warning found
+[info] done compiling
+mixeff4s.stats.ObservedInformationSuite:
+  + full nuisance-adjusted inverse has correct factor two and differs from fixed-nuisance curvature 0.012s
+  + boundary, indefinite information and failed probes never obtain a fallback covariance 0.003s
+==> X mixeff4s.stats.ObservedInformationSuite.step-unstable curvature refuses and scalar chi-square threshold matches independent R  0.007s munit.ComparisonFailException: src/test/scala/mixeff4s/stats/ObservedInformationSuite.scala:26 values are not the same expected: 3.841458820694124 but was: 3.841454190220313
+25:    assertEquals(x.left.toOption.get.code,"curvature_step_unstable")
+26:    assertEqualsDouble(InferenceQuantiles.chiSquare1(.95),3.841458820694124,2e-6)
+27:
+    at munit.FunSuite.assertEqualsDouble(FunSuite.scala:13)
+    at mixeff4s.stats.ObservedInformationSuite.$init$$$anonfun$3(ObservedInformationSuite.scala:26)
+  + equilibrated checks detect unstable middle coordinate hidden by raw matrix scale 0.0s
+mixeff4s.stats.LmmProfileSuite:
+  + REML profile refuses unless an ML refit is explicit 0.073s
+==> X mixeff4s.stats.LmmProfileSuite.unknown coefficient is a stable refusal after an ML fit  0.02s munit.ComparisonFailException: src/test/scala/mixeff4s/stats/LmmProfileSuite.scala:17
+16:    LmmProfile.confint(fit, LmmProfileTarget.Coefficient("dropped")) match
+17:      case Left(error: MixedModelError.InferenceUnavailable) => assertEquals(error.code, "profile_unknown_or_dropped_coefficient")
+18:      case other => fail(s"expected retained-basis refusal, got $other")
+values are not the same
+=> Obtained
+profile_baseline_unqualified
+=> Diff (- expected, + obtained)
+-profile_unknown_or_dropped_coefficient
++profile_baseline_unqualified
+    at munit.FunSuite.assertEquals(FunSuite.scala:13)
+    at mixeff4s.stats.LmmProfileSuite.$init$$$anonfun$2(LmmProfileSuite.scala:17)
+BOUNDARY_FIT small=Vector(0.0)/Vector(-0.40546510838643435) large=Vector(0.0)/Vector(-0.433360797580615, 0.6475274847415023) assessment=GlmmAssessment(StepBelowTolerance,true,Right(ConditionalModeResult(0,0.0,1.0E-8,0)),Some(JointAssessment(Available(Vector(-2.579743825966337E-7, 2.5937178331029526E-7, 6.679101716144942E-9),2.5937178331029526E-7,1.0E-4),Unresolved)),Vector(GlmmCovarianceRank(g,1,Some(0),Vector(0.0))),Excluded(mixed_binomial_rows_span_retained_design,2),Vector(finite_joint_mle_not_assessed),Vector(bootstrap_reduced_rank, bootstrap_covariance_boundary, bootstrap_outer_unqualified))
+mixeff4s.stats.LikelihoodBoundarySuite:
+  + strict scalar boundary likelihood evidence differs from interior coefficient eligibility 0.289s
+  + feasible variance score detects zero-theta saddle even though theta derivative vanishes 0.002s
+INFERENCE_COV beta=Vector(-0.33485627033414656, 0.5853220704723535) theta=Vector(0.9443224516237991) covariance=Vector(Vector(0.03270098771859101, -2.3222362763867908E-4), Vector(-2.3222362763867908E-4, 0.0043657222114889364)) rows=Vector(GlmmCoefficientInterval(retained-basis coefficient: x,0.5853220704723535,0.06607361206630781,8.858635878494985,0.45582024854438963,0.7148238924003174,0.95), GlmmCoefficientInterval(retained-basis contrast: twox,1.170644140944707,0.13214722413261562,8.858635878494985,0.9116404970887793,1.4296477848006348,0.95)) stability=7.107651358131889E-7/7.006742217272144E-7
+mixeff4s.stats.LikelihoodInferenceSuite:
+  + selected-estimator observed covariance and linear contrasts retain nuisance uncertainty 0.308s
+  + nested GLMM statistic matches explicit objectives and incompatible estimators refuse 0.084s
+  + null simulation preserves complete failed-pair ledger and later indexed seeds 0.015s
+  + tail calibration includes ties, plus-one correction and Monte Carlo interval at all-zero extremes 0.008s
+[error] Failed: Total 12, Failed 2, Errors 0, Passed 10
+[error] Failed tests:
+[error] 	mixeff4s.stats.ObservedInformationSuite
+[error] 	mixeff4s.stats.LmmProfileSuite
+[error] (mixeff4sJVM / Test / testOnly) sbt.TestsFailedException: Tests unsuccessful
+[error] Total time: 5 s, completed Oct 29, 2026, 8:03:36 p.m.

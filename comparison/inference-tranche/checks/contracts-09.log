@@ -1,0 +1,41 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 1 Scala source to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+mixeff4s.stats.ObservedInformationSuite:
+  + full nuisance-adjusted inverse has correct factor two and differs from fixed-nuisance curvature 0.014s
+  + boundary, indefinite information and failed probes never obtain a fallback covariance 0.003s
+  + step-unstable curvature refuses and scalar chi-square threshold matches independent R 0.001s
+  + equilibrated checks detect unstable middle coordinate hidden by raw matrix scale 0.0s
+  + extreme admitted confidence levels expand the chi-square bracket 0.0s
+mixeff4s.stats.LmmProfileSuite:
+  + REML profile refuses unless an ML refit is explicit 0.081s
+  + unknown coefficient is a stable refusal after an ML fit 0.007s
+  + qualified ML coefficient profile retains finite likelihood endpoints 0.117s
+  + residual and scalar random-effect targets use the likelihood profiler 0.142s
+  + explicit ML refit preserves a response-only REML snapshot rather than training y 0.051s
+  + budget failures retain optimizer evidence and unresolved brackets never fabricate endpoints 0.011s
+LMM_NULL_ORIGINAL small=LmmAssessment(GradientBelowTolerance,true,Pass(8.346834334815867E-10,1.910541058073062E-6),NotApplicable,Vector(RandomEffectCovarianceRank(0,Vector(0.6107803177752134),Some(1),6.107803177752133E-13,None)),Vector(),None,true) large=LmmAssessment(GradientBelowTolerance,true,Pass(1.564637308604233E-11,1.79407864300524E-6),NotApplicable,Vector(RandomEffectCovarianceRank(0,Vector(1.358650835782112),Some(1),1.358650835782112E-12,None)),Vector(),None,true)
+LMM_NULL_PAIR index=0 statistic=Right(5.83739177994039)
+LMM_NULL_PAIR index=1 statistic=Right(1.4641808439143915)
+LMM_NULL_PAIR index=2 statistic=Right(0.5621478832224511)
+LMM_NULL_PAIR index=3 statistic=Right(0.0528232807259883)
+LMM_NULL_PAIR index=4 statistic=Right(0.2286315773046681)
+LMM_NULL_PAIR index=5 statistic=Right(0.02578377727422776)
+LMM_NULL_PAIR index=6 statistic=Right(1.5403945158752776)
+LMM_NULL_BOOTSTRAP qualified=7 calibration=Right(MonteCarloTail(0,7,0.125,0.0,0.0,0.0,0.354330159295932,0.95))
+mixeff4s.stats.LikelihoodContractSuite:
+  + rowresponse, trials, offsets and power likelihood remain explicit comparison contracts 0.601s
+  + invalid targets and information budgets refuse without covariance substitution 0.021s
+  + Gaussian null bootstrap attempts both models and retains qualification failures 0.036s
+[info] Passed: Total 14, Failed 0, Errors 0, Passed 14
+[success] Total time: 4 s, completed Oct 29, 2026, 8:15:24 p.m.

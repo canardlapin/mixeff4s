@@ -1,0 +1,97 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[success] Total time: 0 s, completed Oct 29, 2026, 8:08:56 p.m.
+[success] Total time: 0 s, completed Oct 29, 2026, 8:08:56 p.m.
+[info] compiling 67 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[info] done compiling
+[info] compiling 98 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/test-classes ...
+[info] done compiling
+mixeff4s.stats.ObservedInformationSuite:
+  + full nuisance-adjusted inverse has correct factor two and differs from fixed-nuisance curvature 0.016s
+  + boundary, indefinite information and failed probes never obtain a fallback covariance 0.003s
+  + step-unstable curvature refuses and scalar chi-square threshold matches independent R 0.001s
+  + equilibrated checks detect unstable middle coordinate hidden by raw matrix scale 0.001s
+BOUNDARY_FIT small=Vector(0.0)/Vector(-0.40546510838643435) large=Vector(0.0)/Vector(-0.433360797580615, 0.6475274847415023) assessment=GlmmAssessment(StepBelowTolerance,true,Right(ConditionalModeResult(0,0.0,1.0E-8,0)),Some(JointAssessment(Available(Vector(-2.579743825966337E-7, 2.5937178331029526E-7, 6.679101716144942E-9),2.5937178331029526E-7,1.0E-4),Unresolved)),Vector(GlmmCovarianceRank(g,1,Some(0),Vector(0.0))),Excluded(mixed_binomial_rows_span_retained_design,2),Vector(finite_joint_mle_not_assessed),Vector(bootstrap_reduced_rank, bootstrap_covariance_boundary, bootstrap_outer_unqualified))
+mixeff4s.stats.LmmProfileSuite:
+  + REML profile refuses unless an ML refit is explicit 0.089s
+  + unknown coefficient is a stable refusal after an ML fit 0.006s
+  + qualified ML coefficient profile retains finite likelihood endpoints 0.151s
+  + residual and scalar random-effect targets use the likelihood profiler 0.198s
+INFERENCE_COV beta=Vector(-0.33485627033414656, 0.5853220704723535) theta=Vector(0.9443224516237991) covariance=Vector(Vector(0.03270098771859101, -2.3222362763867908E-4), Vector(-2.3222362763867908E-4, 0.0043657222114889364)) rows=Vector(GlmmCoefficientInterval(retained-basis coefficient: x,0.5853220704723535,0.06607361206630781,8.858635878494985,0.45582024854438963,0.7148238924003174,0.95), GlmmCoefficientInterval(retained-basis contrast: twox,1.170644140944707,0.13214722413261562,8.858635878494985,0.9116404970887793,1.4296477848006348,0.95)) stability=7.107651358131889E-7/7.006742217272144E-7
+mixeff4s.stats.LikelihoodInferenceSuite:
+  + selected-estimator observed covariance and linear contrasts retain nuisance uncertainty 0.45s
+  + nested GLMM statistic matches explicit objectives and incompatible estimators refuse 0.137s
+  + null simulation preserves complete failed-pair ledger and later indexed seeds 0.014s
+  + tail calibration includes ties, plus-one correction and Monte Carlo interval at all-zero extremes 0.002s
+mixeff4s.stats.LikelihoodBoundarySuite:
+  + strict scalar boundary likelihood evidence differs from interior coefficient eligibility 0.359s
+  + feasible variance score detects zero-theta saddle even though theta derivative vanishes 0.003s
+==> X mixeff4s.stats.LikelihoodBoundarySuite.random-term addition preserves a scalar boundary null without ordinary chi-square calibration  0.331s munit.FailException: src/test/scala/mixeff4s/stats/LikelihoodBoundarySuite.scala:9 likelihood_tangent_gradient: Free tangent gradient -0.0075420432921191605 fails.
+8: class LikelihoodBoundarySuite extends munit.FunSuite:
+9:   private def right[A](x: FitResult[A]): A=x.fold(e=>fail(s"${e.code}: ${e.message}"),identity)
+10:  private val x=Vector.fill(12)(Vector(-1.0,0.0,1.0)).flatten
+    at munit.Assertions.fail(Assertions.scala:274)
+    at munit.Assertions.fail$(Assertions.scala:24)
+    at munit.FunSuite.fail(FunSuite.scala:13)
+    at mixeff4s.stats.LikelihoodBoundarySuite.right$$anonfun$1(LikelihoodBoundarySuite.scala:9)
+    at scala.util.Either.fold(Either.scala:198)
+    at mixeff4s.stats.LikelihoodBoundarySuite.right(LikelihoodBoundarySuite.scala:9)
+    at mixeff4s.stats.LikelihoodBoundarySuite.$init$$$anonfun$6(LikelihoodBoundarySuite.scala:38)
+NULL_BOOTSTRAP qualified=39 calibration=Right(MonteCarloTail(0,39,0.025,0.0,0.0,0.0,0.08966675531516449,0.95))
+NULL_PAIR index=0 seed=-1296569203024355911 null=None alternative=None statistic=Right(1.570434249767061)
+NULL_PAIR index=1 seed=1932737567322148143 null=None alternative=None statistic=Right(0.1869317957008434)
+NULL_PAIR index=2 seed=-7063172994671038964 null=None alternative=None statistic=Right(1.3443963420244813)
+NULL_PAIR index=3 seed=-9220387120358121524 null=None alternative=None statistic=Right(11.05049995263903)
+NULL_PAIR index=4 seed=-4081923940934198464 null=None alternative=None statistic=Right(1.3574587352558751)
+NULL_PAIR index=5 seed=2199299343331455886 null=None alternative=None statistic=Right(0.003951845105575558)
+NULL_PAIR index=6 seed=-8047180433812521127 null=None alternative=None statistic=Right(3.101872405123231)
+NULL_PAIR index=7 seed=-1277322326987133056 null=None alternative=None statistic=Right(0.1389647385244075)
+NULL_PAIR index=8 seed=-1181251426271797715 null=None alternative=None statistic=Right(0.004051475550113537)
+NULL_PAIR index=9 seed=-7823358889228745162 null=None alternative=None statistic=Right(1.7131514128886352)
+NULL_PAIR index=10 seed=8601838624757811895 null=None alternative=None statistic=Right(1.3210125631828191)
+NULL_PAIR index=11 seed=-4631052244388886592 null=None alternative=None statistic=Right(0.8442039129238879)
+NULL_PAIR index=12 seed=3579929341599998411 null=None alternative=None statistic=Right(0.10721175434309771)
+NULL_PAIR index=13 seed=-3599406177211340824 null=None alternative=None statistic=Right(3.3525833420467848)
+NULL_PAIR index=14 seed=-80646802091266975 null=None alternative=None statistic=Right(0.20201232254794377)
+NULL_PAIR index=15 seed=-512979711044441271 null=None alternative=None statistic=Right(0.06447978847779723)
+NULL_PAIR index=16 seed=5716722829769572362 null=None alternative=None statistic=Right(2.398292371306127)
+NULL_PAIR index=17 seed=3649183575585238935 null=None alternative=None statistic=Right(0.004095375408383006)
+NULL_PAIR index=18 seed=3007244764094322107 null=None alternative=None statistic=Right(0.47902380387512267)
+NULL_PAIR index=19 seed=6436042484244309033 null=None alternative=None statistic=Right(2.3088003252331077)
+NULL_PAIR index=20 seed=-7334880906563718716 null=None alternative=None statistic=Right(0.18832149097517004)
+NULL_PAIR index=21 seed=-5087028293854588571 null=None alternative=None statistic=Right(0.1877068098058885)
+NULL_PAIR index=22 seed=-920009073160639760 null=None alternative=None statistic=Right(1.5738060725447554)
+NULL_PAIR index=23 seed=4183854020844450217 null=None alternative=None statistic=Right(0.10142874650694012)
+NULL_PAIR index=24 seed=-5900828542819214216 null=None alternative=None statistic=Right(1.390590064326318)
+NULL_PAIR index=25 seed=3285622285159324079 null=None alternative=None statistic=Right(0.47466441773792667)
+NULL_PAIR index=26 seed=6702077812900949693 null=None alternative=None statistic=Right(0.685874938039774)
+NULL_PAIR index=27 seed=-5311953171676162959 null=None alternative=None statistic=Right(0.8920697308659555)
+NULL_PAIR index=28 seed=3485519680675755559 null=None alternative=None statistic=Right(1.478246847305627)
+NULL_PAIR index=29 seed=-7313470730240208070 null=None alternative=None statistic=Right(0.015633184745695416)
+NULL_PAIR index=30 seed=-6560017363152544210 null=None alternative=None statistic=Right(0.7106992396965666)
+NULL_PAIR index=31 seed=1254234345409954741 null=None alternative=None statistic=Right(0.8400026844696526)
+NULL_PAIR index=32 seed=2176162912748082578 null=None alternative=None statistic=Right(1.1606884054370994)
+NULL_PAIR index=33 seed=-904714618603397853 null=None alternative=None statistic=Right(0.06131313292246432)
+NULL_PAIR index=34 seed=5720176409681960593 null=None alternative=None statistic=Right(0.15529386776796628)
+NULL_PAIR index=35 seed=1091158327125245485 null=None alternative=None statistic=Right(5.82232668364054)
+NULL_PAIR index=36 seed=-4099375731469579711 null=None alternative=None statistic=Right(0.9851036378146887)
+NULL_PAIR index=37 seed=-6615913860650293616 null=None alternative=None statistic=Right(9.351863703256242)
+NULL_PAIR index=38 seed=-7631665769684833042 null=None alternative=None statistic=Right(0.5810943750774982)
+PROFILE_INTERVAL target=Coefficient(days) lower=LmmProfileEndpoint(Some(8.88655415624628),false,None) upper=LmmProfileEndpoint(Some(12.048017762945644),false,None)
+PROFILE_INTERVAL target=RandomEffectStdDev(subj) lower=LmmProfileEndpoint(Some(26.007084612590127),false,None) upper=LmmProfileEndpoint(Some(52.93594645100822),false,None)
+PROFILE_INTERVAL target=RandomEffectVariance(subj) lower=LmmProfileEndpoint(Some(676.3683459567931),false,None) upper=LmmProfileEndpoint(Some(2802.2142029460783),false,None)
+PROFILE_INTERVAL target=ResidualStdDev lower=LmmProfileEndpoint(Some(27.813854652054538),false,None) upper=LmmProfileEndpoint(Some(34.59105253061114),false,None)
+mixeff4s.stats.InferenceWorkflowSuite:
+  + documented inference workflow keeps coefficient information, null pairs and qualified profile endpoints 3.973s
+[error] Failed: Total 16, Failed 1, Errors 0, Passed 15
+[error] Failed tests:
+[error] 	mixeff4s.stats.LikelihoodBoundarySuite
+[error] (mixeff4sJVM / Test / testOnly) sbt.TestsFailedException: Tests unsuccessful
+[error] Total time: 16 s, completed Oct 29, 2026, 8:09:12 p.m.

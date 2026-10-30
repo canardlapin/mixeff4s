@@ -1,0 +1,11 @@
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_MONETARY failed, using "C" 
+Warning message:
+package 'lme4' was built under R version 4.5.2 
+Error in chol.default(V) : the leading minor of order 2 is not positive
+Calls: sleepstudy_witness ... <Anonymous> -> fn -> normal_ml -> chol -> chol -> chol.default
+Execution halted

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-30T00:21:59.877410+00:00",
+  "finished_utc": "2026-10-30T00:25:32.441357+00:00",
+  "duration_seconds": 212.566883,
+  "command": [
+    "python3",
+    "comparison/scripts/run_inference_qualification.py",
+    "--output",
+    "comparison/inference-tranche/study"
+  ],
+  "cwd": "/Users/bbuchsbaum/code/scala/mixeff4s",
+  "log": "/Users/bbuchsbaum/code/scala/mixeff4s/comparison/inference-tranche/checks/study.log",
+  "exit_code": 0,
+  "child_returncode": 0,
+  "reason": "exited",
+  "detail": null,
+  "timeout_seconds": 1500.0,
+  "log_bytes": 3956
+}

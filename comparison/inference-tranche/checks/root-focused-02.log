@@ -1,0 +1,47 @@
+[info] welcome to sbt 1.12.14 (Homebrew Java 25.0.1)
+[info] loading settings for project mixeff4s-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/code/scala/mixeff4s/project
+[info] loading settings for project root from build.sbt...
+[info] loading settings for project gale-build from plugins.sbt...
+[info] loading project definition from /Users/bbuchsbaum/.sbt/1.0/staging/be0ce35367754a69863f/gale/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (21876 settings) ...
+[info] set current project to mixeff4s-root (in build file:/Users/bbuchsbaum/code/scala/mixeff4s/)
+[info] compiling 10 Scala sources to /Users/bbuchsbaum/code/scala/mixeff4s/.jvm/target/scala-3.7.4/classes ...
+[error] -- Error: /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/stats/LmmProfile.scala:111:4 
+[error] 111 |    x.indices.foldLeft[FitResult[Double]](Right(0.0)): (acc, i) => acc.flatMap: m =>
+[error]     |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[error]     |    not a legal formal parameter for a function literal
+[error] -- [E018] Syntax Error: /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/stats/LmmProfile.scala:138:18 
+[error] 138 |    while i<80 do val m=(lo+hi)/2; if ChiSquare.sf(m,1)>1-level then lo=m else hi=m; i+=1
+[error]     |                  ^^^
+[error]     |                  expression expected but val found
+[error]     |
+[error]     | longer explanation available when compiling with `-explain`
+[error] -- [E006] Not Found Error: /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/stats/LmmProfile.scala:111:67 
+[error] 111 |    x.indices.foldLeft[FitResult[Double]](Right(0.0)): (acc, i) => acc.flatMap: m =>
+[error]     |                                                                   ^^^
+[error]     |                                                        Not found: acc
+[error]     |
+[error]     | longer explanation available when compiling with `-explain`
+[error] -- [E006] Not Found Error: /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/stats/LmmProfile.scala:138:51 
+[error] 138 |    while i<80 do val m=(lo+hi)/2; if ChiSquare.sf(m,1)>1-level then lo=m else hi=m; i+=1
+[error]     |                                                   ^
+[error]     |                                                   Not found: m
+[error]     |
+[error]     | longer explanation available when compiling with `-explain`
+[error] -- [E006] Not Found Error: /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/stats/LmmProfile.scala:138:72 
+[error] 138 |    while i<80 do val m=(lo+hi)/2; if ChiSquare.sf(m,1)>1-level then lo=m else hi=m; i+=1
+[error]     |                                                                        ^
+[error]     |                                                          Not found: m
+[error]     |
+[error]     | longer explanation available when compiling with `-explain`
+[error] -- [E006] Not Found Error: /Users/bbuchsbaum/code/scala/mixeff4s/src/main/scala/mixeff4s/stats/LmmProfile.scala:138:82 
+[error] 138 |    while i<80 do val m=(lo+hi)/2; if ChiSquare.sf(m,1)>1-level then lo=m else hi=m; i+=1
+[error]     |                                                                                  ^
+[error]     |                                                          Not found: m
+[error]     |
+[error]     | longer explanation available when compiling with `-explain`
+[error] 6 errors found
+[error] (mixeff4sJVM / Compile / compileIncremental) Compilation failed
+[error] Total time: 2 s, completed Oct 29, 2026, 8:02:16 p.m.

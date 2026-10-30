@@ -1,0 +1,12 @@
+{
+  "platform": "macOS-14.3-arm64-arm-64bit-Mach-O",
+  "measured_runtime": {
+    "jvm": [
+      "OpenJDK 64-Bit Server VM 25.0.1"
+    ],
+    "js": [
+      "v26.7.0"
+    ]
+  },
+  "runtime_policy": "Versions from actual measured processes; shell java may differ from sbt JVM."
+}

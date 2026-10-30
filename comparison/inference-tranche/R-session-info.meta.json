@@ -1,0 +1,9 @@
+{
+  "command": [
+    "Rscript",
+    "-e",
+    "sessionInfo()"
+  ],
+  "exit_code": 0,
+  "log": "R-session-info.log"
+}
